@@ -1,0 +1,132 @@
+name: PeopleSoft APIs
+description: Collection of Oracle PeopleSoft Enterprise application APIs for Human Capital Management, Financial Management, and Campus Solutions
+image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+created: '2024-01-15'
+modified: '2024-01-15'
+specificationVersion: '0.16'
+url: https://www.oracle.com/applications/peoplesoft/
+tags:
+- ERP
+- HCM
+- Financial Management
+- Campus Solutions
+- Enterprise Software
+apis:
+- name: PeopleSoft REST API
+  description: RESTful web services for PeopleSoft applications enabling integration with external systems
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/
+  baseURL: https://{hostname}:{port}/psft/api/v1
+  tags:
+  - REST
+  - Integration
+  - Web Services
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
+  - type: OpenAPI
+    url: https://{hostname}:{port}/psft/api/swagger
+  - type: Authentication
+    url: https://docs.oracle.com/en/applications/peoplesoft/rest-api-authentication.html
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+- name: PeopleSoft Integration Broker
+  description: Message-based integration framework for synchronous and asynchronous communication
+  humanURL: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tibr/index.html
+  baseURL: https://{hostname}:{port}/PSIGW/RESTListeningConnector
+  tags:
+  - Integration
+  - Messaging
+  - SOAP
+  - REST
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
+  - type: Tutorial
+    url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker-tutorial.html
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+- name: PeopleSoft Query API
+  description: Execute PeopleSoft Query definitions and retrieve results via REST
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/query-api/
+  baseURL: https://{hostname}:{port}/psft/api/query/v1
+  tags:
+  - Query
+  - Reporting
+  - Data Access
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/query-api.html
+  - type: Examples
+    url: https://docs.oracle.com/en/applications/peoplesoft/query-api-examples.html
+- name: PeopleSoft Component Interface API
+  description: Programmatic access to PeopleSoft components for data manipulation
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/component-interfaces/
+  baseURL: https://{hostname}:{port}/psft/api/componentinterface/v1
+  tags:
+  - Component Interface
+  - Data Access
+  - CRUD Operations
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
+  - type: REST Wrapper
+    url: https://docs.oracle.com/en/applications/peoplesoft/rest-ci-wrapper.html
+- name: PeopleSoft HCM API
+  description: Human Capital Management specific APIs for employee data, benefits, payroll
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/hcm-api/
+  baseURL: https://{hostname}:{port}/psft/api/hcm/v1
+  tags:
+  - HCM
+  - HR
+  - Payroll
+  - Benefits
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/peoplesoft-hcm-api.html
+  - type: Use Cases
+    url: https://docs.oracle.com/en/applications/peoplesoft/hcm-api-use-cases.html
+- name: PeopleSoft Financials API
+  description: Financial Management APIs for general ledger, accounts payable/receivable, expenses
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/financials-api/
+  baseURL: https://{hostname}:{port}/psft/api/financials/v1
+  tags:
+  - Financials
+  - General Ledger
+  - AP
+  - AR
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/peoplesoft-financials-api.html
+- name: PeopleSoft Campus Solutions API
+  description: Campus Solutions APIs for student records, admissions, financial aid
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions-api/
+  baseURL: https://{hostname}:{port}/psft/api/campus/v1
+  tags:
+  - Campus Solutions
+  - Education
+  - Student Records
+  - Admissions
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions-api.html
+common:
+- type: Portal
+  url: https://www.oracle.com/applications/peoplesoft/
+- type: Support
+  url: https://support.oracle.com/
+- type: Knowledge Base
+  url: https://docs.oracle.com/en/applications/peoplesoft/
+- type: Community
+  url: https://community.oracle.com/customerconnect/categories/peoplesoft
+- type: Licensing
+  url: https://www.oracle.com/corporate/pricing/
+- type: Training
+  url: https://education.oracle.com/peoplesoft
+maintainers:
+- FN: Oracle Corporation
+  email: info@oracle.com
+  url: https://www.oracle.com
