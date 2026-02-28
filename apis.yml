@@ -1,5 +1,5 @@
 name: PeopleSoft APIs
-description: Collection of Oracle PeopleSoft Enterprise application APIs for Human Capital Management, Financial Management, and Campus Solutions
+description: Collection of Oracle PeopleSoft Enterprise application APIs for Human Capital Management, Financial Management, Supply Chain Management, CRM, Campus Solutions, and engineering intelligence across PeopleTools platform services.
 image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
 created: '2024-01-15'
 modified: '2024-01-15'
@@ -9,11 +9,19 @@ tags:
 - ERP
 - HCM
 - Financial Management
+- Supply Chain Management
+- CRM
 - Campus Solutions
 - Enterprise Software
+
 apis:
+
+# -------------------------------------------------------
+# PeopleTools Platform APIs
+# -------------------------------------------------------
+
 - name: PeopleSoft REST API
-  description: RESTful web services for PeopleSoft applications enabling integration with external systems
+  description: RESTful web services for PeopleSoft applications enabling integration with external systems via the PeopleTools platform.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
@@ -22,18 +30,40 @@ apis:
   - Integration
   - Web Services
   properties:
-  - type: Documentation
+  - type: documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
-  - type: OpenAPI
-    url: https://{hostname}:{port}/psft/api/swagger
-  - type: Authentication
+  - type: authentication
     url: https://docs.oracle.com/en/applications/peoplesoft/rest-api-authentication.html
+  - type: openapi
+    url: openapi/rest-api.yml
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
+
+- name: PeopleSoft Application Services Framework API
+  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
+  baseURL: https://{hostname}:{port}/psft/asf/v1
+  tags:
+  - REST
+  - OpenAPI
+  - Integration
+  - Modern
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
+  - type: openapi
+    url: openapi/application-services-framework.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
 - name: PeopleSoft Integration Broker
-  description: Message-based integration framework for synchronous and asynchronous communication
+  description: Message-based integration framework for synchronous and asynchronous communication supporting both SOAP and REST protocols.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
   humanURL: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tibr/index.html
   baseURL: https://{hostname}:{port}/PSIGW/RESTListeningConnector
   tags:
@@ -42,28 +72,38 @@ apis:
   - SOAP
   - REST
   properties:
-  - type: Documentation
+  - type: documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
-  - type: Tutorial
-    url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker-tutorial.html
+  - type: openapi
+    url: openapi/integration-broker.yml
   contact:
   - FN: Oracle Support
     email: support@oracle.com
+    url: https://support.oracle.com
+
 - name: PeopleSoft Query API
-  description: Execute PeopleSoft Query definitions and retrieve results via REST
+  description: Execute PeopleSoft Query definitions and retrieve results via REST including the Query Access Service operations for listing, executing, and managing queries.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/query-api/
   baseURL: https://{hostname}:{port}/psft/api/query/v1
   tags:
   - Query
   - Reporting
   - Data Access
+  - QAS
   properties:
-  - type: Documentation
-    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/query-api.html
-  - type: Examples
-    url: https://docs.oracle.com/en/applications/peoplesoft/query-api-examples.html
+  - type: documentation
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+  - type: openapi
+    url: openapi/query.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
 - name: PeopleSoft Component Interface API
-  description: Programmatic access to PeopleSoft components for data manipulation
+  description: Programmatic access to PeopleSoft components for data manipulation providing CRUD operations on component data via REST.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/component-interfaces/
   baseURL: https://{hostname}:{port}/psft/api/componentinterface/v1
   tags:
@@ -71,13 +111,182 @@ apis:
   - Data Access
   - CRUD Operations
   properties:
-  - type: Documentation
+  - type: documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
-  - type: REST Wrapper
-    url: https://docs.oracle.com/en/applications/peoplesoft/rest-ci-wrapper.html
+  - type: openapi
+    url: openapi/component-interface.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Search Framework API
+  description: Search indexing and query capabilities powered by OpenSearch (previously Elasticsearch) for full-text search, analytics dashboards, and PeopleSoft Insights.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
+  baseURL: https://{hostname}:{port}/psft/api/search/v1
+  tags:
+  - Search
+  - OpenSearch
+  - Analytics
+  - Insights
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
+  - type: openapi
+    url: openapi/search-framework.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Notification Framework API
+  description: Push notification and event-driven notification services including the Notification Composer for email, text, and in-app notifications. Requires PeopleTools 8.59.19+.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+  baseURL: https://{hostname}:{port}/psft/api/notifications/v1
+  tags:
+  - Notifications
+  - Push Notifications
+  - Events
+  - Messaging
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+  - type: openapi
+    url: openapi/notification-framework.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Chatbot Integration Framework API
+  description: Integration framework for connecting PeopleSoft with Oracle Digital Assistant (ODA) including REST services for chatbot data retrieval and embedded chatbot UI on Fluid pages (PICASO). Requires PeopleTools 8.57.07+.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
+  baseURL: https://{hostname}:{port}/psft/api/chatbot/v1
+  tags:
+  - Chatbot
+  - Digital Assistant
+  - PICASO
+  - Conversational AI
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
+  - type: faq
+    url: https://docs.oracle.com/cd/E52319_01/infoportal/peoplesoft_chatbot_faq.html
+  - type: openapi
+    url: openapi/chatbot-integration.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Approval Workflow Engine API
+  description: Framework for creating, running, and managing approval processes exposable via REST service operations through Integration Broker or ASF.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/
+  baseURL: https://{hostname}:{port}/psft/api/approvals/v1
+  tags:
+  - Approvals
+  - Workflow
+  - AWE
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/
+  - type: openapi
+    url: openapi/approval-workflow-engine.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Process Scheduler API
+  description: Process request APIs for submitting and scheduling batch jobs, monitoring process run status, viewing logs, and Application Engine batch processing statistics.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tprs/htm/tprs05.htm
+  baseURL: https://{hostname}:{port}/psft/api/scheduler/v1
+  tags:
+  - Batch Processing
+  - Scheduling
+  - Process Monitor
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tprs/htm/tprs05.htm
+  - type: openapi
+    url: openapi/process-scheduler.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Cloud Manager API
+  description: REST APIs for automated environment provisioning and deployment on Oracle Cloud Infrastructure including PeopleTools upgrades, update management, and self-service provisioning templates.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html
+  baseURL: https://{hostname}:{port}/psft/api/cloudmgr/v1
+  tags:
+  - Cloud
+  - OCI
+  - Provisioning
+  - Deployment
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html
+  - type: openapi
+    url: openapi/cloud-manager.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Update Manager API
+  description: REST services for automated update image management, change package generation, and PeopleSoft Automated Updates (PAU).
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
+  baseURL: https://{hostname}:{port}/psft/api/pum/v1
+  tags:
+  - Updates
+  - Lifecycle Management
+  - Patching
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
+  - type: openapi
+    url: openapi/update-manager.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Pivot Grid API
+  description: Operational dashboard reporting using PS Query, Composite Query, or component data sources accessible via web services for analytics and visualization.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+  baseURL: https://{hostname}:{port}/psft/api/pivotgrid/v1
+  tags:
+  - Analytics
+  - Dashboards
+  - Reporting
+  - Pivot Grid
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+  - type: openapi
+    url: openapi/pivot-grid.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+# -------------------------------------------------------
+# HCM APIs
+# -------------------------------------------------------
+
 - name: PeopleSoft HCM API
-  description: Human Capital Management specific APIs for employee data, benefits, payroll
-  humanURL: https://docs.oracle.com/en/applications/peoplesoft/hcm-api/
+  description: Human Capital Management APIs for employee data, benefits, payroll, workforce administration, and talent management.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   baseURL: https://{hostname}:{port}/psft/api/hcm/v1
   tags:
   - HCM
@@ -85,47 +294,220 @@ apis:
   - Payroll
   - Benefits
   properties:
-  - type: Documentation
-    url: https://docs.oracle.com/en/applications/peoplesoft/peoplesoft-hcm-api.html
-  - type: Use Cases
-    url: https://docs.oracle.com/en/applications/peoplesoft/hcm-api-use-cases.html
+  - type: documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
+  - type: openapi
+    url: openapi/hcm.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Recruiting and Talent Management API
+  description: REST endpoints for job search services, Candidate Gateway self-service, recruiting solutions, and talent management workflows.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+  baseURL: https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+  tags:
+  - Recruiting
+  - Talent Management
+  - Job Search
+  - Candidate Gateway
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+  - type: openapi
+    url: openapi/recruiting-talent-management.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+# -------------------------------------------------------
+# Financial Management APIs
+# -------------------------------------------------------
+
 - name: PeopleSoft Financials API
-  description: Financial Management APIs for general ledger, accounts payable/receivable, expenses
-  humanURL: https://docs.oracle.com/en/applications/peoplesoft/financials-api/
+  description: Financial Management APIs for general ledger, accounts payable, accounts receivable, expenses, asset management, and financial reporting.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   baseURL: https://{hostname}:{port}/psft/api/financials/v1
   tags:
   - Financials
   - General Ledger
   - AP
   - AR
+  - Expenses
   properties:
-  - type: Documentation
-    url: https://docs.oracle.com/en/applications/peoplesoft/peoplesoft-financials-api.html
+  - type: documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
+  - type: openapi
+    url: openapi/financials.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+# -------------------------------------------------------
+# Supply Chain Management APIs
+# -------------------------------------------------------
+
+- name: PeopleSoft Supply Chain Management API
+  description: REST API endpoints for procurement, inventory management, order fulfillment, logistics, and enterprise integration points for warehouse management systems.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+  baseURL: https://{hostname}:{port}/psft/api/scm/v1
+  tags:
+  - Supply Chain
+  - Procurement
+  - Inventory
+  - Order Fulfillment
+  - Logistics
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+  - type: openapi
+    url: openapi/supply-chain-management.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+# -------------------------------------------------------
+# CRM APIs
+# -------------------------------------------------------
+
+- name: PeopleSoft CRM API
+  description: Customer Relationship Management REST API endpoints and integration points for customer data, case management, sales, and marketing.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+  baseURL: https://{hostname}:{port}/psft/api/crm/v1
+  tags:
+  - CRM
+  - Customer Data
+  - Case Management
+  - Sales
+  - Marketing
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+  - type: openapi
+    url: openapi/crm.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+# -------------------------------------------------------
+# Campus Solutions APIs
+# -------------------------------------------------------
+
 - name: PeopleSoft Campus Solutions API
-  description: Campus Solutions APIs for student records, admissions, financial aid
-  humanURL: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions-api/
+  description: Campus Solutions APIs for student records, admissions, enrollment, financial aid, and academic advising.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   baseURL: https://{hostname}:{port}/psft/api/campus/v1
   tags:
   - Campus Solutions
   - Education
   - Student Records
   - Admissions
+  - Financial Aid
   properties:
-  - type: Documentation
-    url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions-api.html
+  - type: documentation
+    url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
+  - type: openapi
+    url: openapi/campus-solutions.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+# -------------------------------------------------------
+# Enterprise Performance Management APIs
+# -------------------------------------------------------
+
+- name: PeopleSoft Enterprise Performance Management API
+  description: Analytics, budgeting, forecasting, and planning APIs with events and notifications framework for financial and operational performance management.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
+  baseURL: https://{hostname}:{port}/psft/api/epm/v1
+  tags:
+  - EPM
+  - Analytics
+  - Budgeting
+  - Forecasting
+  - Planning
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
+  - type: openapi
+    url: openapi/enterprise-performance-management.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+# -------------------------------------------------------
+# Interaction Hub
+# -------------------------------------------------------
+
+- name: PeopleSoft Interaction Hub API
+  description: Content management, branding, and portal administration APIs for the PeopleSoft Interaction Hub (formerly Enterprise Portal) with Integration Broker services.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+  baseURL: https://{hostname}:{port}/psft/api/hub/v1
+  tags:
+  - Portal
+  - Content Management
+  - Branding
+  - Interaction Hub
+  properties:
+  - type: documentation
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+  - type: openapi
+    url: openapi/interaction-hub.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
 common:
-- type: Portal
+- type: portal
   url: https://www.oracle.com/applications/peoplesoft/
-- type: Support
+- type: documentation
+  url: https://docs.oracle.com/en/applications/peoplesoft/index.html
+- type: getting-started
+  url: https://docs.oracle.com/en/applications/peoplesoft/peopletools/index.html
+- type: information-portal
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/
+- type: blog
+  url: https://blogs.oracle.com/peoplesoft/
+- type: release-notes
+  url: https://blogs.oracle.com/peoplesoft/category/ps-image-and-release-updates
+- type: peoplecode-api-reference
+  url: https://docs.oracle.com/cd/E25688_01/pt852pbr0/eng/psbooks/tpcr/book.htm
+- type: security-alerts
+  url: https://www.oracle.com/security-alerts/
+- type: support
   url: https://support.oracle.com/
-- type: Knowledge Base
+- type: knowledge-base
   url: https://docs.oracle.com/en/applications/peoplesoft/
-- type: Community
+- type: community
   url: https://community.oracle.com/customerconnect/categories/peoplesoft
-- type: Licensing
-  url: https://www.oracle.com/corporate/pricing/
-- type: Training
+- type: peoplesoft-on-oci
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/opc.html
+- type: training
   url: https://education.oracle.com/peoplesoft
+- type: licensing
+  url: https://www.oracle.com/corporate/pricing/
+- type: terms-of-service
+  url: https://www.oracle.com/contracts/
+- type: privacy-policy
+  url: https://www.oracle.com/legal/privacy/services-privacy-policy/
+- type: news
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/news.html
+
 maintainers:
 - FN: Oracle Corporation
   email: info@oracle.com

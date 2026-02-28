@@ -1,0 +1,130 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Financials API
+  description: Financial Management APIs for general ledger, accounts payable, accounts receivable, expenses, asset management, and financial reporting.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/financials/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: PeopleSoft Financial Management Documentation
+  url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
+tags:
+  - name: General Ledger
+    description: General ledger operations
+  - name: Accounts Payable
+    description: Accounts payable operations
+  - name: Accounts Receivable
+    description: Accounts receivable operations
+  - name: Expenses
+    description: Expense management operations
+paths:
+  /gl/journals:
+    get:
+      summary: List Journal Entries
+      description: Retrieve general ledger journal entries.
+      operationId: listJournalEntries
+      tags:
+        - General Ledger
+      security:
+        - basicAuth: []
+      parameters:
+        - name: businessUnit
+          in: query
+          description: Business unit filter
+          schema:
+            type: string
+        - name: fromDate
+          in: query
+          description: Start date filter
+          schema:
+            type: string
+            format: date
+        - name: toDate
+          in: query
+          description: End date filter
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Successful response with journal entries
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+  /ap/vouchers:
+    get:
+      summary: List Vouchers
+      description: Retrieve accounts payable vouchers.
+      operationId: listVouchers
+      tags:
+        - Accounts Payable
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with vouchers
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+  /ar/items:
+    get:
+      summary: List AR Items
+      description: Retrieve accounts receivable items.
+      operationId: listARItems
+      tags:
+        - Accounts Receivable
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with AR items
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+  /expenses/reports:
+    get:
+      summary: List Expense Reports
+      description: Retrieve expense reports.
+      operationId: listExpenseReports
+      tags:
+        - Expenses
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with expense reports
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

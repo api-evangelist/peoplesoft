@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft REST API
+  description: RESTful web services for PeopleSoft applications enabling integration with external systems via the PeopleTools platform.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: PeopleSoft REST API Documentation
+  url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
+tags:
+  - name: Resources
+    description: PeopleSoft REST resource operations
+paths:
+  /{resource}:
+    get:
+      summary: Get Resource
+      description: Retrieve PeopleSoft resource data via REST.
+      operationId: getResource
+      tags:
+        - Resources
+      security:
+        - basicAuth: []
+        - oauth2: []
+      parameters:
+        - name: resource
+          in: path
+          required: true
+          description: The PeopleSoft resource name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '404':
+          description: Resource not found
+    post:
+      summary: Create Resource
+      description: Create a new PeopleSoft resource via REST.
+      operationId: createResource
+      tags:
+        - Resources
+      security:
+        - basicAuth: []
+        - oauth2: []
+      parameters:
+        - name: resource
+          in: path
+          required: true
+          description: The PeopleSoft resource name
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Resource created
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
+          tokenUrl: https://{hostname}:{port}/psft/oauth/token
+          scopes: {}

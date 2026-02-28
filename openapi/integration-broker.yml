@@ -1,0 +1,93 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Integration Broker
+  description: Message-based integration framework for synchronous and asynchronous communication supporting both SOAP and REST protocols.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/PSIGW/RESTListeningConnector
+    description: PeopleSoft Integration Gateway
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: Integration Broker Documentation
+  url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
+tags:
+  - name: Service Operations
+    description: Integration Broker service operations
+paths:
+  /{serviceOperation}.v1:
+    get:
+      summary: Invoke Service Operation (GET)
+      description: Invoke a synchronous Integration Broker REST service operation using GET.
+      operationId: getServiceOperation
+      tags:
+        - Service Operations
+      security:
+        - basicAuth: []
+      parameters:
+        - name: serviceOperation
+          in: path
+          required: true
+          description: The service operation name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '404':
+          description: Service operation not found
+    post:
+      summary: Invoke Service Operation (POST)
+      description: Invoke a synchronous or asynchronous Integration Broker REST service operation using POST.
+      operationId: postServiceOperation
+      tags:
+        - Service Operations
+      security:
+        - basicAuth: []
+      parameters:
+        - name: serviceOperation
+          in: path
+          required: true
+          description: The service operation name
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

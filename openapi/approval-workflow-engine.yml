@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Approval Workflow Engine API
+  description: Framework for creating, running, and managing approval processes exposable via REST service operations through Integration Broker or ASF.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/approvals/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: PeopleSoft Approval Workflow Engine Documentation
+  url: https://docs.oracle.com/en/applications/peoplesoft/
+tags:
+  - name: Approvals
+    description: Approval workflow operations
+paths:
+  /approvals:
+    get:
+      summary: List Pending Approvals
+      description: Retrieve a list of pending approval requests for the current user.
+      operationId: listPendingApprovals
+      tags:
+        - Approvals
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with pending approvals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  approvals:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        approvalId:
+                          type: string
+                        transactionType:
+                          type: string
+                        status:
+                          type: string
+                        submittedBy:
+                          type: string
+                        submittedDate:
+                          type: string
+                          format: date-time
+        '401':
+          description: Unauthorized
+  /approvals/{approvalId}:
+    put:
+      summary: Process Approval
+      description: Approve, deny, or push back an approval request.
+      operationId: processApproval
+      tags:
+        - Approvals
+      security:
+        - basicAuth: []
+      parameters:
+        - name: approvalId
+          in: path
+          required: true
+          description: The approval request identifier
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                    - approve
+                    - deny
+                    - pushback
+                comments:
+                  type: string
+      responses:
+        '200':
+          description: Approval processed
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Approval not found
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

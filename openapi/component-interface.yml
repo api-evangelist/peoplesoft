@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Component Interface API
+  description: Programmatic access to PeopleSoft components for data manipulation providing CRUD operations on component data via REST.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/componentinterface/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: Component Interface Documentation
+  url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
+tags:
+  - name: Component Interfaces
+    description: Component interface operations
+paths:
+  /{componentInterface}:
+    get:
+      summary: Get Component Data
+      description: Retrieve data from a PeopleSoft component interface.
+      operationId: getComponentData
+      tags:
+        - Component Interfaces
+      security:
+        - basicAuth: []
+      parameters:
+        - name: componentInterface
+          in: path
+          required: true
+          description: The component interface name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with component data
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '404':
+          description: Component interface not found
+    post:
+      summary: Create Component Data
+      description: Create a new record via a PeopleSoft component interface.
+      operationId: createComponentData
+      tags:
+        - Component Interfaces
+      security:
+        - basicAuth: []
+      parameters:
+        - name: componentInterface
+          in: path
+          required: true
+          description: The component interface name
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Record created
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    put:
+      summary: Update Component Data
+      description: Update an existing record via a PeopleSoft component interface.
+      operationId: updateComponentData
+      tags:
+        - Component Interfaces
+      security:
+        - basicAuth: []
+      parameters:
+        - name: componentInterface
+          in: path
+          required: true
+          description: The component interface name
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Record updated
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

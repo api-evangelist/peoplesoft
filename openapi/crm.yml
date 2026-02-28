@@ -1,0 +1,151 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft CRM API
+  description: Customer Relationship Management REST API endpoints and integration points for customer data, case management, sales, and marketing.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/crm/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: PeopleSoft CRM REST API Documentation
+  url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+tags:
+  - name: Customers
+    description: Customer data operations
+  - name: Cases
+    description: Case management operations
+  - name: Sales
+    description: Sales operations
+paths:
+  /customers:
+    get:
+      summary: List Customers
+      description: Retrieve customer records.
+      operationId: listCustomers
+      tags:
+        - Customers
+      security:
+        - basicAuth: []
+      parameters:
+        - name: search
+          in: query
+          description: Search term for customer name or ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with customer list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customers:
+                    type: array
+                    items:
+                      type: object
+        '401':
+          description: Unauthorized
+  /customers/{customerId}:
+    get:
+      summary: Get Customer
+      description: Retrieve details for a specific customer.
+      operationId: getCustomer
+      tags:
+        - Customers
+      security:
+        - basicAuth: []
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          description: The customer identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Customer details
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '404':
+          description: Customer not found
+  /cases:
+    get:
+      summary: List Cases
+      description: Retrieve support and service cases.
+      operationId: listCases
+      tags:
+        - Cases
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with cases
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+    post:
+      summary: Create Case
+      description: Create a new support or service case.
+      operationId: createCase
+      tags:
+        - Cases
+      security:
+        - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Case created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /sales/opportunities:
+    get:
+      summary: List Opportunities
+      description: Retrieve sales opportunities.
+      operationId: listOpportunities
+      tags:
+        - Sales
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with opportunities
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

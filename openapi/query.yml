@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Query API
+  description: Execute PeopleSoft Query definitions and retrieve results via REST including the Query Access Service operations for listing, executing, and managing queries.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/query/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: Query Access Service Operations
+  url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+tags:
+  - name: Queries
+    description: Query execution and management operations
+paths:
+  /queries:
+    get:
+      summary: List Queries
+      description: Retrieve a list of available PeopleSoft Query definitions.
+      operationId: listQueries
+      tags:
+        - Queries
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with query list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  queries:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        queryName:
+                          type: string
+                        description:
+                          type: string
+                        folder:
+                          type: string
+        '401':
+          description: Unauthorized
+  /queries/{queryName}:
+    get:
+      summary: Execute Query
+      description: Execute a PeopleSoft Query by name and retrieve results.
+      operationId: executeQuery
+      tags:
+        - Queries
+      security:
+        - basicAuth: []
+      parameters:
+        - name: queryName
+          in: path
+          required: true
+          description: The PeopleSoft Query name
+          schema:
+            type: string
+        - name: isConnectedQuery
+          in: query
+          description: Whether this is a Connected Query
+          schema:
+            type: boolean
+            default: false
+        - name: maxRows
+          in: query
+          description: Maximum number of rows to return
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: Row offset for pagination
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Query results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rows:
+                    type: array
+                    items:
+                      type: object
+                  totalRows:
+                    type: integer
+        '401':
+          description: Unauthorized
+        '404':
+          description: Query not found
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

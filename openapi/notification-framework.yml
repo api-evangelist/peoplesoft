@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Notification Framework API
+  description: Push notification and event-driven notification services including the Notification Composer for email, text, and in-app notifications. Requires PeopleTools 8.59.19+.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/notifications/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: Events and Notifications Framework Documentation
+  url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+tags:
+  - name: Notifications
+    description: Notification management operations
+paths:
+  /notifications:
+    get:
+      summary: List Notifications
+      description: Retrieve a list of notifications for the current user.
+      operationId: listNotifications
+      tags:
+        - Notifications
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with notifications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notifications:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        message:
+                          type: string
+                        type:
+                          type: string
+                        timestamp:
+                          type: string
+                          format: date-time
+        '401':
+          description: Unauthorized
+    post:
+      summary: Send Notification
+      description: Send a notification via email, text, or in-app channels.
+      operationId: sendNotification
+      tags:
+        - Notifications
+      security:
+        - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channel:
+                  type: string
+                  enum:
+                    - email
+                    - text
+                    - in-app
+                recipients:
+                  type: array
+                  items:
+                    type: string
+                message:
+                  type: string
+      responses:
+        '202':
+          description: Notification queued
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

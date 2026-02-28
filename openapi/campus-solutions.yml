@@ -1,0 +1,156 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Campus Solutions API
+  description: Campus Solutions APIs for student records, admissions, enrollment, financial aid, and academic advising.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+  - url: https://{hostname}:{port}/psft/api/campus/v1
+    description: PeopleSoft Instance
+    variables:
+      hostname:
+        description: PeopleSoft server hostname
+        default: localhost
+      port:
+        description: PeopleSoft server port
+        default: '8000'
+externalDocs:
+  description: PeopleSoft Campus Solutions Documentation
+  url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
+tags:
+  - name: Students
+    description: Student record operations
+  - name: Admissions
+    description: Admissions operations
+  - name: Enrollment
+    description: Enrollment operations
+  - name: Financial Aid
+    description: Financial aid operations
+paths:
+  /students:
+    get:
+      summary: List Students
+      description: Retrieve student records.
+      operationId: listStudents
+      tags:
+        - Students
+      security:
+        - basicAuth: []
+      parameters:
+        - name: term
+          in: query
+          description: Academic term filter
+          schema:
+            type: string
+        - name: program
+          in: query
+          description: Academic program filter
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with student records
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+  /students/{studentId}:
+    get:
+      summary: Get Student
+      description: Retrieve details for a specific student.
+      operationId: getStudent
+      tags:
+        - Students
+      security:
+        - basicAuth: []
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          description: The student identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Student details
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '404':
+          description: Student not found
+  /admissions/applications:
+    get:
+      summary: List Admission Applications
+      description: Retrieve admission applications.
+      operationId: listAdmissionApplications
+      tags:
+        - Admissions
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with applications
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+  /enrollment/classes:
+    get:
+      summary: List Classes
+      description: Retrieve class schedule and enrollment data.
+      operationId: listClasses
+      tags:
+        - Enrollment
+      security:
+        - basicAuth: []
+      parameters:
+        - name: term
+          in: query
+          description: Academic term
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with class data
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+  /financial-aid/awards:
+    get:
+      summary: List Financial Aid Awards
+      description: Retrieve financial aid award data.
+      operationId: listFinancialAidAwards
+      tags:
+        - Financial Aid
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with award data
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
