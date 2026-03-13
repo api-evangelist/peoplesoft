@@ -2,8 +2,8 @@ name: PeopleSoft APIs
 description: Collection of Oracle PeopleSoft Enterprise application APIs for Human Capital Management, Financial Management, Supply Chain Management, CRM, Campus Solutions, and engineering intelligence across PeopleTools platform services.
 image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
 created: '2024-01-15'
-modified: '2024-01-15'
-specificationVersion: '0.16'
+modified: '2026-03-04'
+specificationVersion: '0.18'
 url: https://www.oracle.com/applications/peoplesoft/
 tags:
 - ERP
@@ -30,11 +30,11 @@ apis:
   - Integration
   - Web Services
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
-  - type: authentication
-    url: https://docs.oracle.com/en/applications/peoplesoft/rest-api-authentication.html
-  - type: openapi
+  - type: Authentication
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+  - type: OpenAPI
     url: openapi/rest-api.yml
   contact:
   - FN: Oracle Support
@@ -52,9 +52,9 @@ apis:
   - Integration
   - Modern
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/application-services-framework.yml
   contact:
   - FN: Oracle Support
@@ -72,9 +72,9 @@ apis:
   - SOAP
   - REST
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
-  - type: openapi
+  - type: OpenAPI
     url: openapi/integration-broker.yml
   contact:
   - FN: Oracle Support
@@ -92,9 +92,9 @@ apis:
   - Data Access
   - QAS
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/query.yml
   contact:
   - FN: Oracle Support
@@ -111,9 +111,9 @@ apis:
   - Data Access
   - CRUD Operations
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/component-interface.yml
   contact:
   - FN: Oracle Support
@@ -131,10 +131,32 @@ apis:
   - Analytics
   - Insights
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/search-framework.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Data Distribution Framework API
+  description: >-
+    Framework for extracting and flattening PeopleSoft data for machine learning
+    and analytics purposes. Uses PeopleSoft Search Framework technology with
+    OpenSearch to build, index, and register data models that can be exposed as
+    REST APIs.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html
+  baseURL: https://{hostname}:{port}/psft/api/ddf/v1
+  tags:
+  - Data Distribution
+  - Machine Learning
+  - Analytics
+  - Data Extraction
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
@@ -151,9 +173,9 @@ apis:
   - Events
   - Messaging
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/notification-framework.yml
   contact:
   - FN: Oracle Support
@@ -171,11 +193,11 @@ apis:
   - PICASO
   - Conversational AI
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
-  - type: faq
+  - type: FAQ
     url: https://docs.oracle.com/cd/E52319_01/infoportal/peoplesoft_chatbot_faq.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/chatbot-integration.yml
   contact:
   - FN: Oracle Support
@@ -192,9 +214,9 @@ apis:
   - Workflow
   - AWE
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/
-  - type: openapi
+  - type: OpenAPI
     url: openapi/approval-workflow-engine.yml
   contact:
   - FN: Oracle Support
@@ -211,9 +233,9 @@ apis:
   - Scheduling
   - Process Monitor
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tprs/htm/tprs05.htm
-  - type: openapi
+  - type: OpenAPI
     url: openapi/process-scheduler.yml
   contact:
   - FN: Oracle Support
@@ -231,9 +253,9 @@ apis:
   - Provisioning
   - Deployment
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/cloud-manager.yml
   contact:
   - FN: Oracle Support
@@ -250,9 +272,9 @@ apis:
   - Lifecycle Management
   - Patching
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/update-manager.yml
   contact:
   - FN: Oracle Support
@@ -270,9 +292,9 @@ apis:
   - Reporting
   - Pivot Grid
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/pivot-grid.yml
   contact:
   - FN: Oracle Support
@@ -294,10 +316,53 @@ apis:
   - Payroll
   - Benefits
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
-  - type: openapi
+  - type: Reference
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+  - type: OpenAPI
     url: openapi/hcm.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Employee Directory API
+  description: >-
+    REST API for retrieving employee details by name or employee ID, and for
+    looking up direct reports based on manager name or ID. Supports the Employee
+    Directory chatbot skill and integration with external directories.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html
+  baseURL: https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+  tags:
+  - Employee Directory
+  - HCM
+  - Workforce Data
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Absence Management API
+  description: >-
+    REST API for creating, updating, and retrieving absence requests, viewing
+    employee absence balances by type, and retrieving absence configuration rules.
+    Supports Absence Management chatbot skill and self-service integrations.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html
+  baseURL: https://{hostname}:{port}/psft/api/hcm/absence/v1
+  tags:
+  - Absence Management
+  - HCM
+  - Leave
+  - Time Off
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
@@ -314,10 +379,74 @@ apis:
   - Job Search
   - Candidate Gateway
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/recruiting-talent-management.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Payroll for North America API
+  description: >-
+    Delivered REST API endpoints for retrieving paycheck header details, earnings,
+    deductions, taxes, direct deposits, employer paid benefits, garnishments, and
+    year-end forms for North American payroll processing.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html
+  baseURL: https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+  tags:
+  - Payroll
+  - HCM
+  - North America
+  - Compensation
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html
+  - type: Reference
+    url: https://docs.oracle.com/cd/F82673_01/elm92pbr23/eng/elm/eccl/UnderstandingRESTAPIEndpointsForPeoplesoftPayrollForNorthAmericaServicespayrollbankingyearendforms.html
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Global Payroll API
+  description: >-
+    REST API endpoints for the Global Payroll skill, providing access to payroll
+    data, product profile information, and chatbot framework resources for
+    international payroll processing across multiple countries.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html
+  baseURL: https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+  tags:
+  - Payroll
+  - HCM
+  - Global Payroll
+  - International
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft HR Common Utility Services API
+  description: >-
+    REST API for retrieving employee country and business partner contact details.
+    Shared utility services used across all delivered HCM skills and
+    integration scenarios.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html
+  baseURL: https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+  tags:
+  - HCM
+  - Utilities
+  - Employee Data
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
@@ -339,10 +468,58 @@ apis:
   - AR
   - Expenses
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/financials.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Expenses API
+  description: >-
+    Delivered REST API endpoints for expense report management including fetching
+    expense reports by status, creation date, or sheet name, retrieving transaction
+    details, managing wallet entries, expense type validation, and notification
+    services for travel and expense processing.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html
+  baseURL: https://{hostname}:{port}/psft/api/fscm/expenses/v1
+  tags:
+  - Expenses
+  - Travel
+  - Financials
+  - Expense Reports
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html
+  - type: Reference
+    url: https://docs.oracle.com/cd/G47724_01/fscm92pbr55/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftGetTransactionDetailsexgettransdetails.html
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft eSettlements API
+  description: >-
+    Delivered REST API endpoints for invoice and payment management including
+    fetching disputed invoices, invoice status inquiries, payment status tracking,
+    payment inquiries, and payment difference resolution for supplier settlement
+    processing.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
+  baseURL: https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+  tags:
+  - eSettlements
+  - Invoices
+  - Payments
+  - Financials
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
+  - type: Reference
+    url: https://docs.oracle.com/cd/G35227_01/fscm92pbr54/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftFetchPaymentStatusespaymentstatus.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
@@ -364,10 +541,54 @@ apis:
   - Order Fulfillment
   - Logistics
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/supply-chain-management.yml
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft eProcurement API
+  description: >-
+    Delivered REST API endpoints for requisition management including retrieving
+    requisitions for items, getting requester lists and names, and checking
+    requisition status. Supports the full procure-to-pay lifecycle from requisition
+    creation through purchase order dispatch and receiving.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+  baseURL: https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+  tags:
+  - eProcurement
+  - Requisitions
+  - Purchasing
+  - Supply Chain
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+  contact:
+  - FN: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+
+- name: PeopleSoft Supplier Portal API
+  description: >-
+    Comprehensive REST API for the Supplier Portal providing access to bid details,
+    managed content such as announcements and events, overdue shipment tracking,
+    purchase order acknowledgement, invoice and payment inquiries, and sourcing
+    operations across secure and public supplier collaboration channels.
+  image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
+  humanURL: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html
+  baseURL: https://{hostname}:{port}/psft/api/fscm/scp/v1
+  tags:
+  - Supplier Portal
+  - Sourcing
+  - Supplier Collaboration
+  - Supply Chain
+  properties:
+  - type: Documentation
+    url: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
@@ -389,9 +610,9 @@ apis:
   - Sales
   - Marketing
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/crm.yml
   contact:
   - FN: Oracle Support
@@ -414,9 +635,9 @@ apis:
   - Admissions
   - Financial Aid
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/campus-solutions.yml
   contact:
   - FN: Oracle Support
@@ -439,9 +660,9 @@ apis:
   - Forecasting
   - Planning
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/enterprise-performance-management.yml
   contact:
   - FN: Oracle Support
@@ -463,9 +684,9 @@ apis:
   - Branding
   - Interaction Hub
   properties:
-  - type: documentation
+  - type: Documentation
     url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
-  - type: openapi
+  - type: OpenAPI
     url: openapi/interaction-hub.yml
   contact:
   - FN: Oracle Support
@@ -473,42 +694,57 @@ apis:
     url: https://support.oracle.com
 
 common:
-- type: portal
+- type: Portal
   url: https://www.oracle.com/applications/peoplesoft/
-- type: documentation
+- type: Documentation
   url: https://docs.oracle.com/en/applications/peoplesoft/index.html
-- type: getting-started
+- type: Getting Started
   url: https://docs.oracle.com/en/applications/peoplesoft/peopletools/index.html
-- type: information-portal
+- type: Information Portal
   url: https://docs.oracle.com/cd/E52319_01/infoportal/
-- type: blog
+- type: Authentication
+  url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+- type: Blog
   url: https://blogs.oracle.com/peoplesoft/
-- type: release-notes
+- type: Change Log
   url: https://blogs.oracle.com/peoplesoft/category/ps-image-and-release-updates
-- type: peoplecode-api-reference
+- type: PeopleCode API Reference
   url: https://docs.oracle.com/cd/E25688_01/pt852pbr0/eng/psbooks/tpcr/book.htm
-- type: security-alerts
+- type: Security
   url: https://www.oracle.com/security-alerts/
-- type: support
+- type: Support
   url: https://support.oracle.com/
-- type: knowledge-base
+- type: Knowledge Base
   url: https://docs.oracle.com/en/applications/peoplesoft/
-- type: community
+- type: Community
   url: https://community.oracle.com/customerconnect/categories/peoplesoft
-- type: peoplesoft-on-oci
+- type: Forum
+  url: https://forums.oracle.com/ords/apexds/domain/dev-community/category/peoplesoft_enterprise
+- type: PeopleSoft on OCI
   url: https://docs.oracle.com/cd/E52319_01/infoportal/opc.html
-- type: training
+- type: Training
   url: https://education.oracle.com/peoplesoft
-- type: licensing
+- type: Videos
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/videos.html
+- type: Pricing
   url: https://www.oracle.com/corporate/pricing/
-- type: terms-of-service
+- type: Terms of Service
   url: https://www.oracle.com/contracts/
-- type: privacy-policy
+- type: Privacy Policy
   url: https://www.oracle.com/legal/privacy/services-privacy-policy/
-- type: news
+- type: News
   url: https://docs.oracle.com/cd/E52319_01/infoportal/news.html
+- type: Status
+  url: https://ocistatus.oraclecloud.com/
+- type: Website
+  url: https://www.oracle.com/applications/peoplesoft/
+- type: Login
+  url: https://cloud.oracle.com/
+- type: Sign Up
+  url: https://cloud.oracle.com/
+- type: REST API Endpoints
+  url: https://docs.oracle.com/cd/G36917_01/ps91pbr20/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoft.html
 
 maintainers:
-- FN: Oracle Corporation
-  email: info@oracle.com
-  url: https://www.oracle.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
