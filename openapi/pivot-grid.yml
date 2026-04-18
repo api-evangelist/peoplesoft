@@ -11,31 +11,31 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/pivotgrid/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/pivotgrid/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft Pivot Grid Documentation
   url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
 tags:
-  - name: Pivot Grids
-    description: Pivot grid and dashboard operations
+- name: Pivot Grids
+  description: Pivot grid and dashboard operations
 paths:
   /grids:
     get:
-      summary: List Pivot Grids
+      summary: PeopleSoft List Pivot Grids
       description: Retrieve a list of available pivot grid definitions.
       operationId: listPivotGrids
       tags:
-        - Pivot Grids
+      - Pivot Grids
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with pivot grid list
@@ -57,27 +57,32 @@ paths:
                           type: string
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /grids/{gridId}/data:
     get:
-      summary: Get Pivot Grid Data
+      summary: PeopleSoft Get Pivot Grid Data
       description: Retrieve data for a specific pivot grid with optional filters.
       operationId: getPivotGridData
       tags:
-        - Pivot Grids
+      - Pivot Grids
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: gridId
-          in: path
-          required: true
-          description: The pivot grid identifier
-          schema:
-            type: string
-        - name: filters
-          in: query
-          description: JSON-encoded filter criteria
-          schema:
-            type: string
+      - name: gridId
+        in: path
+        required: true
+        description: The pivot grid identifier
+        schema:
+          type: string
+        example: PS123456
+      - name: filters
+        in: query
+        description: JSON-encoded filter criteria
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Pivot grid data
@@ -89,6 +94,9 @@ paths:
           description: Unauthorized
         '404':
           description: Pivot grid not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

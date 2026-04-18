@@ -11,48 +11,50 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/campus/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/campus/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft Campus Solutions Documentation
   url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
 tags:
-  - name: Students
-    description: Student record operations
-  - name: Admissions
-    description: Admissions operations
-  - name: Enrollment
-    description: Enrollment operations
-  - name: Financial Aid
-    description: Financial aid operations
+- name: Students
+  description: Student record operations
+- name: Admissions
+  description: Admissions operations
+- name: Enrollment
+  description: Enrollment operations
+- name: Financial Aid
+  description: Financial aid operations
 paths:
   /students:
     get:
-      summary: List Students
+      summary: PeopleSoft List Students
       description: Retrieve student records.
       operationId: listStudents
       tags:
-        - Students
+      - Students
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: term
-          in: query
-          description: Academic term filter
-          schema:
-            type: string
-        - name: program
-          in: query
-          description: Academic program filter
-          schema:
-            type: string
+      - name: term
+        in: query
+        description: Academic term filter
+        schema:
+          type: string
+        example: example_value
+      - name: program
+        in: query
+        description: Academic program filter
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Successful response with student records
@@ -62,22 +64,26 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /students/{studentId}:
     get:
-      summary: Get Student
+      summary: PeopleSoft Get Student
       description: Retrieve details for a specific student.
       operationId: getStudent
       tags:
-        - Students
+      - Students
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: studentId
-          in: path
-          required: true
-          description: The student identifier
-          schema:
-            type: string
+      - name: studentId
+        in: path
+        required: true
+        description: The student identifier
+        schema:
+          type: string
+        example: PS123456
       responses:
         '200':
           description: Student details
@@ -89,15 +95,18 @@ paths:
           description: Unauthorized
         '404':
           description: Student not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /admissions/applications:
     get:
-      summary: List Admission Applications
+      summary: PeopleSoft List Admission Applications
       description: Retrieve admission applications.
       operationId: listAdmissionApplications
       tags:
-        - Admissions
+      - Admissions
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with applications
@@ -107,21 +116,25 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /enrollment/classes:
     get:
-      summary: List Classes
+      summary: PeopleSoft List Classes
       description: Retrieve class schedule and enrollment data.
       operationId: listClasses
       tags:
-        - Enrollment
+      - Enrollment
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: term
-          in: query
-          description: Academic term
-          schema:
-            type: string
+      - name: term
+        in: query
+        description: Academic term
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Successful response with class data
@@ -131,15 +144,18 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /financial-aid/awards:
     get:
-      summary: List Financial Aid Awards
+      summary: PeopleSoft List Financial Aid Awards
       description: Retrieve financial aid award data.
       operationId: listFinancialAidAwards
       tags:
-        - Financial Aid
+      - Financial Aid
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with award data
@@ -149,6 +165,9 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

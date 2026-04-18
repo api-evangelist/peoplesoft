@@ -1,7 +1,8 @@
 openapi: 3.1.0
 info:
   title: PeopleSoft Application Services Framework API
-  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
+  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for
+    integration with Oracle Integration Cloud, mobile apps, and microservices.
   version: 1.0.0
   contact:
     name: Oracle Support
@@ -11,39 +12,40 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/asf/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/asf/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: Application Services Framework Documentation
   url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
 tags:
-  - name: Services
-    description: ASF service operations
+- name: Services
+  description: ASF service operations
 paths:
   /{serviceName}:
     get:
-      summary: Get Service Resource
+      summary: PeopleSoft Get Service Resource
       description: Retrieve data from an ASF-defined service with OpenAPI-compliant response.
       operationId: getServiceResource
       tags:
-        - Services
+      - Services
       security:
-        - basicAuth: []
-        - oauth2: []
+      - basicAuth: []
+      - oauth2: []
       parameters:
-        - name: serviceName
-          in: path
-          required: true
-          description: The ASF service name
-          schema:
-            type: string
+      - name: serviceName
+        in: path
+        required: true
+        description: The ASF service name
+        schema:
+          type: string
+        example: Example Record
       responses:
         '200':
           description: Successful response
@@ -55,22 +57,26 @@ paths:
           description: Unauthorized
         '404':
           description: Service not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
-      summary: Create Service Resource
+      summary: PeopleSoft Create Service Resource
       description: Create a resource via an ASF-defined service.
       operationId: createServiceResource
       tags:
-        - Services
+      - Services
       security:
-        - basicAuth: []
-        - oauth2: []
+      - basicAuth: []
+      - oauth2: []
       parameters:
-        - name: serviceName
-          in: path
-          required: true
-          description: The ASF service name
-          schema:
-            type: string
+      - name: serviceName
+        in: path
+        required: true
+        description: The ASF service name
+        schema:
+          type: string
+        example: Example Record
       requestBody:
         required: true
         content:
@@ -88,6 +94,9 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

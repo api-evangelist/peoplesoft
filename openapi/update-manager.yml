@@ -11,31 +11,31 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/pum/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/pum/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft Update Manager Documentation
   url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
 tags:
-  - name: Updates
-    description: Update and patch management operations
+- name: Updates
+  description: Update and patch management operations
 paths:
   /updates:
     get:
-      summary: List Available Updates
+      summary: PeopleSoft List Available Updates
       description: Retrieve a list of available updates and change packages.
       operationId: listUpdates
       tags:
-        - Updates
+      - Updates
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with available updates
@@ -59,22 +59,26 @@ paths:
                           type: string
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /updates/{updateId}/apply:
     post:
-      summary: Apply Update
+      summary: PeopleSoft Apply Update
       description: Initiate application of a specific update or change package.
       operationId: applyUpdate
       tags:
-        - Updates
+      - Updates
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: updateId
-          in: path
-          required: true
-          description: The update identifier
-          schema:
-            type: string
+      - name: updateId
+        in: path
+        required: true
+        description: The update identifier
+        schema:
+          type: string
+        example: PS123456
       responses:
         '202':
           description: Update application initiated
@@ -82,6 +86,9 @@ paths:
           description: Unauthorized
         '404':
           description: Update not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

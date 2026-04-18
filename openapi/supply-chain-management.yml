@@ -11,35 +11,35 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/scm/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/scm/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft FSCM REST API Documentation
   url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
 tags:
-  - name: Procurement
-    description: Procurement and purchasing operations
-  - name: Inventory
-    description: Inventory management operations
-  - name: Orders
-    description: Order fulfillment operations
+- name: Procurement
+  description: Procurement and purchasing operations
+- name: Inventory
+  description: Inventory management operations
+- name: Orders
+  description: Order fulfillment operations
 paths:
   /procurement/requisitions:
     get:
-      summary: List Requisitions
+      summary: PeopleSoft List Requisitions
       description: Retrieve procurement requisitions.
       operationId: listRequisitions
       tags:
-        - Procurement
+      - Procurement
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with requisitions
@@ -49,15 +49,18 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /procurement/purchase-orders:
     get:
-      summary: List Purchase Orders
+      summary: PeopleSoft List Purchase Orders
       description: Retrieve purchase orders.
       operationId: listPurchaseOrders
       tags:
-        - Procurement
+      - Procurement
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with purchase orders
@@ -67,21 +70,25 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /inventory/items:
     get:
-      summary: List Inventory Items
+      summary: PeopleSoft List Inventory Items
       description: Retrieve inventory items and stock levels.
       operationId: listInventoryItems
       tags:
-        - Inventory
+      - Inventory
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: businessUnit
-          in: query
-          description: Business unit filter
-          schema:
-            type: string
+      - name: businessUnit
+        in: query
+        description: Business unit filter
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Successful response with inventory items
@@ -91,15 +98,18 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /orders:
     get:
-      summary: List Orders
+      summary: PeopleSoft List Orders
       description: Retrieve order fulfillment records.
       operationId: listOrders
       tags:
-        - Orders
+      - Orders
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with orders
@@ -109,6 +119,9 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

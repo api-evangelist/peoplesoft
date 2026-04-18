@@ -11,41 +11,42 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/crm/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/crm/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft CRM REST API Documentation
   url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
 tags:
-  - name: Customers
-    description: Customer data operations
-  - name: Cases
-    description: Case management operations
-  - name: Sales
-    description: Sales operations
+- name: Customers
+  description: Customer data operations
+- name: Cases
+  description: Case management operations
+- name: Sales
+  description: Sales operations
 paths:
   /customers:
     get:
-      summary: List Customers
+      summary: PeopleSoft List Customers
       description: Retrieve customer records.
       operationId: listCustomers
       tags:
-        - Customers
+      - Customers
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: search
-          in: query
-          description: Search term for customer name or ID
-          schema:
-            type: string
+      - name: search
+        in: query
+        description: Search term for customer name or ID
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Successful response with customer list
@@ -60,22 +61,26 @@ paths:
                       type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /customers/{customerId}:
     get:
-      summary: Get Customer
+      summary: PeopleSoft Get Customer
       description: Retrieve details for a specific customer.
       operationId: getCustomer
       tags:
-        - Customers
+      - Customers
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: customerId
-          in: path
-          required: true
-          description: The customer identifier
-          schema:
-            type: string
+      - name: customerId
+        in: path
+        required: true
+        description: The customer identifier
+        schema:
+          type: string
+        example: PS123456
       responses:
         '200':
           description: Customer details
@@ -87,15 +92,18 @@ paths:
           description: Unauthorized
         '404':
           description: Customer not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /cases:
     get:
-      summary: List Cases
+      summary: PeopleSoft List Cases
       description: Retrieve support and service cases.
       operationId: listCases
       tags:
-        - Cases
+      - Cases
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with cases
@@ -105,14 +113,17 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
-      summary: Create Case
+      summary: PeopleSoft Create Case
       description: Create a new support or service case.
       operationId: createCase
       tags:
-        - Cases
+      - Cases
       security:
-        - basicAuth: []
+      - basicAuth: []
       requestBody:
         required: true
         content:
@@ -126,15 +137,18 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /sales/opportunities:
     get:
-      summary: List Opportunities
+      summary: PeopleSoft List Opportunities
       description: Retrieve sales opportunities.
       operationId: listOpportunities
       tags:
-        - Sales
+      - Sales
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with opportunities
@@ -144,6 +158,9 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

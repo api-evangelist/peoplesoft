@@ -11,51 +11,53 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/hcm/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/hcm/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft HCM Documentation
   url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
 tags:
-  - name: Employees
-    description: Employee data operations
-  - name: Benefits
-    description: Benefits administration operations
-  - name: Payroll
-    description: Payroll operations
+- name: Employees
+  description: Employee data operations
+- name: Benefits
+  description: Benefits administration operations
+- name: Payroll
+  description: Payroll operations
 paths:
   /employees:
     get:
-      summary: List Employees
+      summary: PeopleSoft List Employees
       description: Retrieve a list of employee records.
       operationId: listEmployees
       tags:
-        - Employees
+      - Employees
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: department
-          in: query
-          description: Filter by department
-          schema:
-            type: string
-        - name: status
-          in: query
-          description: Filter by employment status
-          schema:
-            type: string
-            enum:
-              - active
-              - inactive
-              - terminated
-              - leave
+      - name: department
+        in: query
+        description: Filter by department
+        schema:
+          type: string
+        example: example_value
+      - name: status
+        in: query
+        description: Filter by employment status
+        schema:
+          type: string
+          enum:
+          - active
+          - inactive
+          - terminated
+          - leave
+        example: active
       responses:
         '200':
           description: Successful response with employee list
@@ -70,22 +72,26 @@ paths:
                       type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /employees/{employeeId}:
     get:
-      summary: Get Employee
+      summary: PeopleSoft Get Employee
       description: Retrieve details for a specific employee.
       operationId: getEmployee
       tags:
-        - Employees
+      - Employees
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: employeeId
-          in: path
-          required: true
-          description: The employee identifier
-          schema:
-            type: string
+      - name: employeeId
+        in: path
+        required: true
+        description: The employee identifier
+        schema:
+          type: string
+        example: PS123456
       responses:
         '200':
           description: Employee details
@@ -97,15 +103,18 @@ paths:
           description: Unauthorized
         '404':
           description: Employee not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /benefits/enrollments:
     get:
-      summary: List Benefit Enrollments
+      summary: PeopleSoft List Benefit Enrollments
       description: Retrieve benefit enrollment records.
       operationId: listBenefitEnrollments
       tags:
-        - Benefits
+      - Benefits
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with enrollments
@@ -115,15 +124,18 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /payroll/runs:
     get:
-      summary: List Payroll Runs
+      summary: PeopleSoft List Payroll Runs
       description: Retrieve payroll run history and status.
       operationId: listPayrollRuns
       tags:
-        - Payroll
+      - Payroll
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with payroll runs
@@ -133,6 +145,9 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

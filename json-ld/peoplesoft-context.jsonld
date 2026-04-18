@@ -1,0 +1,8 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "ps": "https://docs.oracle.com/en/applications/peoplesoft/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}

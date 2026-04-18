@@ -11,38 +11,39 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/componentinterface/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/componentinterface/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: Component Interface Documentation
   url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
 tags:
-  - name: Component Interfaces
-    description: Component interface operations
+- name: Component Interfaces
+  description: Component interface operations
 paths:
   /{componentInterface}:
     get:
-      summary: Get Component Data
+      summary: PeopleSoft Get Component Data
       description: Retrieve data from a PeopleSoft component interface.
       operationId: getComponentData
       tags:
-        - Component Interfaces
+      - Component Interfaces
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: componentInterface
-          in: path
-          required: true
-          description: The component interface name
-          schema:
-            type: string
+      - name: componentInterface
+        in: path
+        required: true
+        description: The component interface name
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Successful response with component data
@@ -54,21 +55,25 @@ paths:
           description: Unauthorized
         '404':
           description: Component interface not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
-      summary: Create Component Data
+      summary: PeopleSoft Create Component Data
       description: Create a new record via a PeopleSoft component interface.
       operationId: createComponentData
       tags:
-        - Component Interfaces
+      - Component Interfaces
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: componentInterface
-          in: path
-          required: true
-          description: The component interface name
-          schema:
-            type: string
+      - name: componentInterface
+        in: path
+        required: true
+        description: The component interface name
+        schema:
+          type: string
+        example: example_value
       requestBody:
         required: true
         content:
@@ -86,21 +91,25 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     put:
-      summary: Update Component Data
+      summary: PeopleSoft Update Component Data
       description: Update an existing record via a PeopleSoft component interface.
       operationId: updateComponentData
       tags:
-        - Component Interfaces
+      - Component Interfaces
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: componentInterface
-          in: path
-          required: true
-          description: The component interface name
-          schema:
-            type: string
+      - name: componentInterface
+        in: path
+        required: true
+        description: The component interface name
+        schema:
+          type: string
+        example: example_value
       requestBody:
         required: true
         content:
@@ -118,6 +127,9 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

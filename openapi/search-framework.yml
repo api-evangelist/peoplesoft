@@ -11,48 +11,51 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/search/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/search/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft Search Framework Documentation
   url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
 tags:
-  - name: Search
-    description: Search and indexing operations
+- name: Search
+  description: Search and indexing operations
 paths:
   /search:
     get:
-      summary: Search Content
+      summary: PeopleSoft Search Content
       description: Execute a full-text search across PeopleSoft indexed content.
       operationId: searchContent
       tags:
-        - Search
+      - Search
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: q
-          in: query
-          required: true
-          description: Search query string
-          schema:
-            type: string
-        - name: category
-          in: query
-          description: Search category to filter results
-          schema:
-            type: string
-        - name: maxResults
-          in: query
-          description: Maximum number of results to return
-          schema:
-            type: integer
+      - name: q
+        in: query
+        required: true
+        description: Search query string
+        schema:
+          type: string
+        example: example_value
+      - name: category
+        in: query
+        description: Search category to filter results
+        schema:
+          type: string
+        example: example_value
+      - name: maxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+        example: 42
       responses:
         '200':
           description: Search results
@@ -69,15 +72,18 @@ paths:
                     type: integer
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /index:
     post:
-      summary: Trigger Index Build
+      summary: PeopleSoft Trigger Index Build
       description: Trigger a search index build or incremental update.
       operationId: triggerIndexBuild
       tags:
-        - Search
+      - Search
       security:
-        - basicAuth: []
+      - basicAuth: []
       requestBody:
         required: true
         content:
@@ -91,14 +97,17 @@ paths:
                 buildType:
                   type: string
                   enum:
-                    - full
-                    - incremental
+                  - full
+                  - incremental
                   description: Type of index build
       responses:
         '202':
           description: Index build initiated
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

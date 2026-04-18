@@ -11,39 +11,40 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/hub/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/hub/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft Interaction Hub Documentation
   url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 tags:
-  - name: Content
-    description: Content management operations
-  - name: Branding
-    description: Branding and theme operations
+- name: Content
+  description: Content management operations
+- name: Branding
+  description: Branding and theme operations
 paths:
   /content:
     get:
-      summary: List Content
+      summary: PeopleSoft List Content
       description: Retrieve portal content items.
       operationId: listContent
       tags:
-        - Content
+      - Content
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: category
-          in: query
-          description: Content category filter
-          schema:
-            type: string
+      - name: category
+        in: query
+        description: Content category filter
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Successful response with content items
@@ -68,14 +69,17 @@ paths:
                           format: date
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
-      summary: Create Content
+      summary: PeopleSoft Create Content
       description: Create a new portal content item.
       operationId: createContent
       tags:
-        - Content
+      - Content
       security:
-        - basicAuth: []
+      - basicAuth: []
       requestBody:
         required: true
         content:
@@ -96,15 +100,18 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /branding/themes:
     get:
-      summary: List Themes
+      summary: PeopleSoft List Themes
       description: Retrieve available branding themes.
       operationId: listThemes
       tags:
-        - Branding
+      - Branding
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with themes
@@ -114,6 +121,9 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

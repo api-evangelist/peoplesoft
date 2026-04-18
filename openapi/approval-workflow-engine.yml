@@ -11,31 +11,31 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/approvals/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/approvals/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft Approval Workflow Engine Documentation
   url: https://docs.oracle.com/en/applications/peoplesoft/
 tags:
-  - name: Approvals
-    description: Approval workflow operations
+- name: Approvals
+  description: Approval workflow operations
 paths:
   /approvals:
     get:
-      summary: List Pending Approvals
+      summary: PeopleSoft List Pending Approvals
       description: Retrieve a list of pending approval requests for the current user.
       operationId: listPendingApprovals
       tags:
-        - Approvals
+      - Approvals
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with pending approvals
@@ -62,22 +62,26 @@ paths:
                           format: date-time
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /approvals/{approvalId}:
     put:
-      summary: Process Approval
+      summary: PeopleSoft Process Approval
       description: Approve, deny, or push back an approval request.
       operationId: processApproval
       tags:
-        - Approvals
+      - Approvals
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: approvalId
-          in: path
-          required: true
-          description: The approval request identifier
-          schema:
-            type: string
+      - name: approvalId
+        in: path
+        required: true
+        description: The approval request identifier
+        schema:
+          type: string
+        example: PS123456
       requestBody:
         required: true
         content:
@@ -88,9 +92,9 @@ paths:
                 action:
                   type: string
                   enum:
-                    - approve
-                    - deny
-                    - pushback
+                  - approve
+                  - deny
+                  - pushback
                 comments:
                   type: string
       responses:
@@ -106,6 +110,9 @@ paths:
           description: Unauthorized
         '404':
           description: Approval not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

@@ -11,55 +11,58 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-  - url: https://{hostname}:{port}/psft/api/financials/v1
-    description: PeopleSoft Instance
-    variables:
-      hostname:
-        description: PeopleSoft server hostname
-        default: localhost
-      port:
-        description: PeopleSoft server port
-        default: '8000'
+- url: https://{hostname}:{port}/psft/api/financials/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
 externalDocs:
   description: PeopleSoft Financial Management Documentation
   url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
 tags:
-  - name: General Ledger
-    description: General ledger operations
-  - name: Accounts Payable
-    description: Accounts payable operations
-  - name: Accounts Receivable
-    description: Accounts receivable operations
-  - name: Expenses
-    description: Expense management operations
+- name: General Ledger
+  description: General ledger operations
+- name: Accounts Payable
+  description: Accounts payable operations
+- name: Accounts Receivable
+  description: Accounts receivable operations
+- name: Expenses
+  description: Expense management operations
 paths:
   /gl/journals:
     get:
-      summary: List Journal Entries
+      summary: PeopleSoft List Journal Entries
       description: Retrieve general ledger journal entries.
       operationId: listJournalEntries
       tags:
-        - General Ledger
+      - General Ledger
       security:
-        - basicAuth: []
+      - basicAuth: []
       parameters:
-        - name: businessUnit
-          in: query
-          description: Business unit filter
-          schema:
-            type: string
-        - name: fromDate
-          in: query
-          description: Start date filter
-          schema:
-            type: string
-            format: date
-        - name: toDate
-          in: query
-          description: End date filter
-          schema:
-            type: string
-            format: date
+      - name: businessUnit
+        in: query
+        description: Business unit filter
+        schema:
+          type: string
+        example: example_value
+      - name: fromDate
+        in: query
+        description: Start date filter
+        schema:
+          type: string
+          format: date
+        example: '2026-04-17'
+      - name: toDate
+        in: query
+        description: End date filter
+        schema:
+          type: string
+          format: date
+        example: '2026-04-17'
       responses:
         '200':
           description: Successful response with journal entries
@@ -69,15 +72,18 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /ap/vouchers:
     get:
-      summary: List Vouchers
+      summary: PeopleSoft List Vouchers
       description: Retrieve accounts payable vouchers.
       operationId: listVouchers
       tags:
-        - Accounts Payable
+      - Accounts Payable
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with vouchers
@@ -87,15 +93,18 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /ar/items:
     get:
-      summary: List AR Items
+      summary: PeopleSoft List AR Items
       description: Retrieve accounts receivable items.
       operationId: listARItems
       tags:
-        - Accounts Receivable
+      - Accounts Receivable
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with AR items
@@ -105,15 +114,18 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /expenses/reports:
     get:
-      summary: List Expense Reports
+      summary: PeopleSoft List Expense Reports
       description: Retrieve expense reports.
       operationId: listExpenseReports
       tags:
-        - Expenses
+      - Expenses
       security:
-        - basicAuth: []
+      - basicAuth: []
       responses:
         '200':
           description: Successful response with expense reports
@@ -123,6 +135,9 @@ paths:
                 type: object
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:

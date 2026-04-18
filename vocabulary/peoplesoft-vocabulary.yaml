@@ -1,0 +1,96 @@
+vocabulary: 1.0.0
+info:
+  provider: PeopleSoft
+  description: Vocabulary for Oracle PeopleSoft enterprise APIs covering HCM, FSCM,
+    Campus Solutions, CRM, and PeopleTools platform services.
+  created: '2026-04-17'
+  modified: '2026-04-17'
+operational:
+  apis:
+  - name: PeopleSoft REST API
+    namespace: ps-rest
+    status: active
+  - name: Application Services Framework
+    namespace: ps-asf
+    status: active
+  - name: Integration Broker
+    namespace: ps-ib
+    status: active
+  - name: Component Interface API
+    namespace: ps-ci
+    status: active
+  - name: Query API
+    namespace: ps-query
+    status: active
+  resources:
+  - name: employees
+    description: Employee records and HR data.
+    actions:
+    - list
+    - get
+    - create
+    - update
+  - name: positions
+    description: Job positions and organizational structure.
+    actions:
+    - list
+    - get
+    - create
+    - update
+  - name: journals
+    description: Financial journal entries.
+    actions:
+    - list
+    - get
+    - create
+  - name: purchase-orders
+    description: Procurement purchase orders.
+    actions:
+    - list
+    - get
+    - create
+    - update
+  - name: students
+    description: Student records and enrollment.
+    actions:
+    - list
+    - get
+    - create
+    - update
+  - name: queries
+    description: PeopleSoft query definitions and results.
+    actions:
+    - list
+    - get
+    - execute
+capability:
+  personas:
+  - id: hr-admin
+    name: HR Administrator
+  - id: finance-analyst
+    name: Finance Analyst
+  - id: registrar
+    name: University Registrar
+  - id: it-admin
+    name: IT Administrator
+  - id: integration-developer
+    name: Integration Developer
+  domains:
+  - name: hcm
+    description: Human Capital Management.
+    resources:
+    - employees
+    - positions
+  - name: fscm
+    description: Financial and Supply Chain Management.
+    resources:
+    - journals
+    - purchase-orders
+  - name: campus
+    description: Campus Solutions.
+    resources:
+    - students
+  - name: platform
+    description: PeopleTools platform services.
+    resources:
+    - queries
