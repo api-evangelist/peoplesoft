@@ -1,0 +1,244 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Finance And Accounting"
+  description: "Unified workflow for finance controllers combining general ledger, accounts payable, accounts receivable, expenses, budgeting, forecasting, analytics, and approval workflows across PeopleSoft Financials, EPM, and Approval Workflow Engine APIs."
+  tags:
+    - PeopleSoft
+    - Finance
+    - Accounting
+    - General Ledger
+    - Budgeting
+    - Forecasting
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - import: financials
+      location: ./shared/financials.yaml
+    - import: epm
+      location: ./shared/enterprise-performance-management.yaml
+    - import: approval-workflow
+      location: ./shared/approval-workflow-engine.yaml
+
+  exposes:
+    - type: rest
+      port: 8081
+      namespace: finance-api
+      description: "Unified REST API for PeopleSoft finance and accounting workflows."
+      resources:
+        - path: /v1/journal-entries
+          name: journal-entries
+          description: "General ledger journal entries"
+          operations:
+            - method: GET
+              name: list-journal-entries
+              description: "Retrieve general ledger journal entries."
+              call: "financials.list-journal-entries"
+              with:
+                businessUnit: "rest.businessUnit"
+                fromDate: "rest.fromDate"
+                toDate: "rest.toDate"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/vouchers
+          name: vouchers
+          description: "Accounts payable vouchers"
+          operations:
+            - method: GET
+              name: list-vouchers
+              description: "Retrieve accounts payable vouchers."
+              call: "financials.list-vouchers"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/receivable-items
+          name: receivable-items
+          description: "Accounts receivable items"
+          operations:
+            - method: GET
+              name: list-ar-items
+              description: "Retrieve accounts receivable items."
+              call: "financials.list-ar-items"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/expense-reports
+          name: expense-reports
+          description: "Expense reports"
+          operations:
+            - method: GET
+              name: list-expense-reports
+              description: "Retrieve expense reports."
+              call: "financials.list-expense-reports"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/budgets
+          name: budgets
+          description: "Budget definitions and data"
+          operations:
+            - method: GET
+              name: list-budgets
+              description: "Retrieve budget definitions and data."
+              call: "epm.list-budgets"
+              with:
+                fiscalYear: "rest.fiscalYear"
+                businessUnit: "rest.businessUnit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/forecasts
+          name: forecasts
+          description: "Forecast data and projections"
+          operations:
+            - method: GET
+              name: list-forecasts
+              description: "Retrieve forecast data and projections."
+              call: "epm.list-forecasts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/analytics-reports
+          name: analytics-reports
+          description: "Performance analytics reports"
+          operations:
+            - method: GET
+              name: list-analytics-reports
+              description: "Retrieve performance analytics reports."
+              call: "epm.list-analytics-reports"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/approvals
+          name: approvals
+          description: "Finance approval requests"
+          operations:
+            - method: GET
+              name: list-pending-approvals
+              description: "Retrieve pending finance approval requests."
+              call: "approval-workflow.list-pending-approvals"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/approvals/{approvalId}
+          name: approval-detail
+          description: "Individual approval operations"
+          operations:
+            - method: PUT
+              name: process-approval
+              description: "Approve, deny, or push back a finance approval request."
+              call: "approval-workflow.process-approval"
+              with:
+                approvalId: "rest.approvalId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9091
+      namespace: finance-mcp
+      transport: http
+      description: "MCP server for AI-assisted PeopleSoft finance and accounting workflows."
+      tools:
+        - name: list-journal-entries
+          description: "Retrieve general ledger journal entries."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "financials.list-journal-entries"
+          with:
+            businessUnit: "tools.businessUnit"
+            fromDate: "tools.fromDate"
+            toDate: "tools.toDate"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-vouchers
+          description: "Retrieve accounts payable vouchers."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "financials.list-vouchers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-ar-items
+          description: "Retrieve accounts receivable items."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "financials.list-ar-items"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-expense-reports
+          description: "Retrieve expense reports."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "financials.list-expense-reports"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-budgets
+          description: "Retrieve budget definitions and data."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-budgets"
+          with:
+            fiscalYear: "tools.fiscalYear"
+            businessUnit: "tools.businessUnit"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-forecasts
+          description: "Retrieve forecast data and projections."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-forecasts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-analytics-reports
+          description: "Retrieve performance analytics reports."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-analytics-reports"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-pending-approvals
+          description: "Retrieve pending finance approval requests."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "approval-workflow.list-pending-approvals"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: process-approval
+          description: "Approve, deny, or push back a finance approval request."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "approval-workflow.process-approval"
+          with:
+            approvalId: "tools.approvalId"
+            action: "tools.action"
+            comments: "tools.comments"
+          outputParameters:
+            - type: object
+              mapping: "$."

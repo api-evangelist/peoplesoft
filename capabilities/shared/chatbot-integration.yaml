@@ -1,0 +1,113 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Chatbot Integration Framework"
+  description: "Integration framework for connecting PeopleSoft with Oracle Digital Assistant (ODA) including REST services for chatbot data retrieval and embedded chatbot UI on Fluid pages."
+  tags:
+    - PeopleSoft
+    - Chatbot
+    - Digital Assistant
+    - Integration
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: chatbot
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/chatbot/v1
+      description: "PeopleSoft Chatbot Integration Framework API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: intents
+          path: /
+          description: "Chatbot integration operations"
+          operations:
+            - name: list-intents
+              method: GET
+              description: "Retrieve available chatbot intents and their configurations."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: fulfill-intent
+              method: POST
+              description: "Process a chatbot intent fulfillment request from Oracle Digital Assistant."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  intent: "{{tools.intent}}"
+                  parameters: "{{tools.parameters}}"
+                  userId: "{{tools.userId}}"
+
+  exposes:
+    - type: rest
+      port: 8103
+      namespace: chatbot-api
+      resources:
+        - path: /v1/intents
+          name: intents
+          description: "Chatbot intent resources"
+          operations:
+            - method: GET
+              name: list-intents
+              description: "Retrieve available chatbot intents."
+              call: "chatbot.list-intents"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/intent-fulfillments
+          name: fulfillments
+          description: "Intent fulfillment resources"
+          operations:
+            - method: POST
+              name: fulfill-intent
+              description: "Process a chatbot intent fulfillment request."
+              call: "chatbot.fulfill-intent"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9103
+      namespace: chatbot-mcp
+      transport: http
+      tools:
+        - name: list-intents
+          description: "Retrieve available chatbot intents and their configurations."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "chatbot.list-intents"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: fulfill-intent
+          description: "Process a chatbot intent fulfillment request from Oracle Digital Assistant."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "chatbot.fulfill-intent"
+          with:
+            intent: "tools.intent"
+            parameters: "tools.parameters"
+            userId: "tools.userId"
+          outputParameters:
+            - type: object
+              mapping: "$."

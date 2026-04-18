@@ -1,0 +1,259 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Reporting And Analytics"
+  description: "Unified workflow for analysts combining query execution, pivot grid dashboards, full-text search, and performance analytics across PeopleSoft Query, Pivot Grid, Search Framework, and EPM APIs."
+  tags:
+    - PeopleSoft
+    - Reporting
+    - Analytics
+    - Dashboards
+    - Query
+    - Search
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - import: query
+      location: ./shared/query.yaml
+    - import: pivot-grid
+      location: ./shared/pivot-grid.yaml
+    - import: search-framework
+      location: ./shared/search-framework.yaml
+    - import: epm
+      location: ./shared/enterprise-performance-management.yaml
+
+  exposes:
+    - type: rest
+      port: 8086
+      namespace: reporting-api
+      description: "Unified REST API for PeopleSoft reporting and analytics workflows."
+      resources:
+        - path: /v1/queries
+          name: queries
+          description: "PeopleSoft Query definitions"
+          operations:
+            - method: GET
+              name: list-queries
+              description: "Retrieve available PeopleSoft Query definitions."
+              call: "query.list-queries"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/queries/{queryName}
+          name: query-execution
+          description: "Query execution"
+          operations:
+            - method: GET
+              name: execute-query
+              description: "Execute a PeopleSoft Query by name."
+              call: "query.execute-query"
+              with:
+                queryName: "rest.queryName"
+                isConnectedQuery: "rest.isConnectedQuery"
+                maxRows: "rest.maxRows"
+                offset: "rest.offset"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/pivot-grids
+          name: pivot-grids
+          description: "Pivot grid definitions"
+          operations:
+            - method: GET
+              name: list-pivot-grids
+              description: "Retrieve available pivot grid definitions."
+              call: "pivot-grid.list-pivot-grids"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/pivot-grids/{gridId}/data
+          name: pivot-grid-data
+          description: "Pivot grid data"
+          operations:
+            - method: GET
+              name: get-pivot-grid-data
+              description: "Retrieve data for a specific pivot grid."
+              call: "pivot-grid.get-pivot-grid-data"
+              with:
+                gridId: "rest.gridId"
+                filters: "rest.filters"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/search-results
+          name: search-results
+          description: "Full-text search results"
+          operations:
+            - method: GET
+              name: search-content
+              description: "Execute a full-text search across PeopleSoft indexed content."
+              call: "search-framework.search-content"
+              with:
+                q: "rest.q"
+                category: "rest.category"
+                maxResults: "rest.maxResults"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/search-indexes
+          name: search-indexes
+          description: "Search index operations"
+          operations:
+            - method: POST
+              name: trigger-index-build
+              description: "Trigger a search index build or incremental update."
+              call: "search-framework.trigger-index-build"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/budgets
+          name: budgets
+          description: "Budget definitions and data"
+          operations:
+            - method: GET
+              name: list-budgets
+              description: "Retrieve budget definitions and data."
+              call: "epm.list-budgets"
+              with:
+                fiscalYear: "rest.fiscalYear"
+                businessUnit: "rest.businessUnit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/forecasts
+          name: forecasts
+          description: "Forecast data and projections"
+          operations:
+            - method: GET
+              name: list-forecasts
+              description: "Retrieve forecast data and projections."
+              call: "epm.list-forecasts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/analytics-reports
+          name: analytics-reports
+          description: "Performance analytics reports"
+          operations:
+            - method: GET
+              name: list-analytics-reports
+              description: "Retrieve performance analytics reports."
+              call: "epm.list-analytics-reports"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9096
+      namespace: reporting-mcp
+      transport: http
+      description: "MCP server for AI-assisted PeopleSoft reporting and analytics workflows."
+      tools:
+        - name: list-queries
+          description: "Retrieve available PeopleSoft Query definitions."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "query.list-queries"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: execute-query
+          description: "Execute a PeopleSoft Query by name and retrieve results."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "query.execute-query"
+          with:
+            queryName: "tools.queryName"
+            isConnectedQuery: "tools.isConnectedQuery"
+            maxRows: "tools.maxRows"
+            offset: "tools.offset"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-pivot-grids
+          description: "Retrieve available pivot grid definitions."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "pivot-grid.list-pivot-grids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-pivot-grid-data
+          description: "Retrieve data for a specific pivot grid with optional filters."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "pivot-grid.get-pivot-grid-data"
+          with:
+            gridId: "tools.gridId"
+            filters: "tools.filters"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: search-content
+          description: "Execute a full-text search across PeopleSoft indexed content."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "search-framework.search-content"
+          with:
+            q: "tools.q"
+            category: "tools.category"
+            maxResults: "tools.maxResults"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: trigger-index-build
+          description: "Trigger a search index build or incremental update."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "search-framework.trigger-index-build"
+          with:
+            indexName: "tools.indexName"
+            buildType: "tools.buildType"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-budgets
+          description: "Retrieve budget definitions and data."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-budgets"
+          with:
+            fiscalYear: "tools.fiscalYear"
+            businessUnit: "tools.businessUnit"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-forecasts
+          description: "Retrieve forecast data and projections."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-forecasts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-analytics-reports
+          description: "Retrieve performance analytics reports."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-analytics-reports"
+          outputParameters:
+            - type: object
+              mapping: "$."

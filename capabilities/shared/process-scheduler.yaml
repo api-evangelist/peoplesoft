@@ -1,0 +1,161 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Process Scheduler"
+  description: "Process request APIs for submitting and scheduling batch jobs, monitoring process run status, viewing logs, and Application Engine batch processing statistics."
+  tags:
+    - PeopleSoft
+    - Process Scheduler
+    - Batch Processing
+    - Job Scheduling
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: process-scheduler
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/scheduler/v1
+      description: "PeopleSoft Process Scheduler API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: processes
+          path: /processes
+          description: "Process scheduling and monitoring operations"
+          operations:
+            - name: list-processes
+              method: GET
+              description: "Retrieve a list of process requests and their run status."
+              inputParameters:
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by process status"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: submit-process
+              method: POST
+              description: "Submit a new process request for scheduling."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  processName: "{{tools.processName}}"
+                  processType: "{{tools.processType}}"
+                  serverName: "{{tools.serverName}}"
+                  runDateTime: "{{tools.runDateTime}}"
+                  parameters: "{{tools.parameters}}"
+            - name: get-process-status
+              method: GET
+              description: "Retrieve the status and details of a specific process instance."
+              inputParameters:
+                - name: processInstance
+                  in: path
+                  type: integer
+                  required: true
+                  description: "The process instance number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8114
+      namespace: process-scheduler-api
+      resources:
+        - path: /v1/processes
+          name: processes
+          description: "Process requests"
+          operations:
+            - method: GET
+              name: list-processes
+              description: "Retrieve process requests and their run status."
+              call: "process-scheduler.list-processes"
+              with:
+                status: "rest.status"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: submit-process
+              description: "Submit a new process request for scheduling."
+              call: "process-scheduler.submit-process"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/processes/{processInstance}
+          name: process-detail
+          description: "Individual process instance details"
+          operations:
+            - method: GET
+              name: get-process-status
+              description: "Retrieve the status of a specific process instance."
+              call: "process-scheduler.get-process-status"
+              with:
+                processInstance: "rest.processInstance"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9114
+      namespace: process-scheduler-mcp
+      transport: http
+      tools:
+        - name: list-processes
+          description: "Retrieve a list of process requests and their run status."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "process-scheduler.list-processes"
+          with:
+            status: "tools.status"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: submit-process
+          description: "Submit a new process request for scheduling."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "process-scheduler.submit-process"
+          with:
+            processName: "tools.processName"
+            processType: "tools.processType"
+            serverName: "tools.serverName"
+            runDateTime: "tools.runDateTime"
+            parameters: "tools.parameters"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-process-status
+          description: "Retrieve the status and details of a specific process instance."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "process-scheduler.get-process-status"
+          with:
+            processInstance: "tools.processInstance"
+          outputParameters:
+            - type: object
+              mapping: "$."

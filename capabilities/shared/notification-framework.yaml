@@ -1,0 +1,109 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Notification Framework"
+  description: "Push notification and event-driven notification services including the Notification Composer for email, text, and in-app notifications."
+  tags:
+    - PeopleSoft
+    - Notifications
+    - Messaging
+    - Events
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: notification-framework
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/notifications/v1
+      description: "PeopleSoft Notification Framework API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: notifications
+          path: /notifications
+          description: "Notification management operations"
+          operations:
+            - name: list-notifications
+              method: GET
+              description: "Retrieve a list of notifications for the current user."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: send-notification
+              method: POST
+              description: "Send a notification via email, text, or in-app channels."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  channel: "{{tools.channel}}"
+                  recipients: "{{tools.recipients}}"
+                  message: "{{tools.message}}"
+
+  exposes:
+    - type: rest
+      port: 8112
+      namespace: notification-framework-api
+      resources:
+        - path: /v1/notifications
+          name: notifications
+          description: "Notification resources"
+          operations:
+            - method: GET
+              name: list-notifications
+              description: "Retrieve notifications for the current user."
+              call: "notification-framework.list-notifications"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: send-notification
+              description: "Send a notification via email, text, or in-app channels."
+              call: "notification-framework.send-notification"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9112
+      namespace: notification-framework-mcp
+      transport: http
+      tools:
+        - name: list-notifications
+          description: "Retrieve a list of notifications for the current user."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "notification-framework.list-notifications"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: send-notification
+          description: "Send a notification via email, text, or in-app channels."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "notification-framework.send-notification"
+          with:
+            channel: "tools.channel"
+            recipients: "tools.recipients"
+            message: "tools.message"
+          outputParameters:
+            - type: object
+              mapping: "$."

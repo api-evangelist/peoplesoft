@@ -1,0 +1,119 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Approval Workflow Engine"
+  description: "Framework for creating, running, and managing approval processes exposable via REST service operations through Integration Broker or ASF."
+  tags:
+    - PeopleSoft
+    - Approval Workflow
+    - Business Process
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: approval-workflow
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/approvals/v1
+      description: "PeopleSoft Approval Workflow Engine API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: approvals
+          path: /approvals
+          description: "Approval workflow operations"
+          operations:
+            - name: list-pending-approvals
+              method: GET
+              description: "Retrieve a list of pending approval requests for the current user."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: process-approval
+              method: PUT
+              description: "Approve, deny, or push back an approval request."
+              inputParameters:
+                - name: approvalId
+                  in: path
+                  type: string
+                  required: true
+                  description: "The approval request identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  action: "{{tools.action}}"
+                  comments: "{{tools.comments}}"
+
+  exposes:
+    - type: rest
+      port: 8101
+      namespace: approval-workflow-api
+      resources:
+        - path: /v1/approvals
+          name: approvals
+          description: "Approval workflow resources"
+          operations:
+            - method: GET
+              name: list-pending-approvals
+              description: "Retrieve pending approval requests."
+              call: "approval-workflow.list-pending-approvals"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/approvals/{approvalId}
+          name: approval-detail
+          description: "Individual approval operations"
+          operations:
+            - method: PUT
+              name: process-approval
+              description: "Approve, deny, or push back an approval request."
+              call: "approval-workflow.process-approval"
+              with:
+                approvalId: "rest.approvalId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9101
+      namespace: approval-workflow-mcp
+      transport: http
+      tools:
+        - name: list-pending-approvals
+          description: "Retrieve a list of pending approval requests for the current user."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "approval-workflow.list-pending-approvals"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: process-approval
+          description: "Approve, deny, or push back an approval request."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "approval-workflow.process-approval"
+          with:
+            approvalId: "tools.approvalId"
+            action: "tools.action"
+            comments: "tools.comments"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,161 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Component Interface"
+  description: "Programmatic access to PeopleSoft components for data manipulation providing CRUD operations on component data via REST."
+  tags:
+    - PeopleSoft
+    - Component Interface
+    - Data Access
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: component-interface
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/componentinterface/v1
+      description: "PeopleSoft Component Interface API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: component-interfaces
+          path: /
+          description: "Component interface operations"
+          operations:
+            - name: get-component-data
+              method: GET
+              description: "Retrieve data from a PeopleSoft component interface."
+              inputParameters:
+                - name: componentInterface
+                  in: path
+                  type: string
+                  required: true
+                  description: "The component interface name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-component-data
+              method: POST
+              description: "Create a new record via a PeopleSoft component interface."
+              inputParameters:
+                - name: componentInterface
+                  in: path
+                  type: string
+                  required: true
+                  description: "The component interface name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  componentInterface: "{{tools.componentInterface}}"
+            - name: update-component-data
+              method: PUT
+              description: "Update an existing record via a PeopleSoft component interface."
+              inputParameters:
+                - name: componentInterface
+                  in: path
+                  type: string
+                  required: true
+                  description: "The component interface name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  componentInterface: "{{tools.componentInterface}}"
+
+  exposes:
+    - type: rest
+      port: 8105
+      namespace: component-interface-api
+      resources:
+        - path: /v1/component-interfaces/{componentInterface}
+          name: component-interfaces
+          description: "Component interface resources"
+          operations:
+            - method: GET
+              name: get-component-data
+              description: "Retrieve data from a component interface."
+              call: "component-interface.get-component-data"
+              with:
+                componentInterface: "rest.componentInterface"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-component-data
+              description: "Create a new record via a component interface."
+              call: "component-interface.create-component-data"
+              with:
+                componentInterface: "rest.componentInterface"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PUT
+              name: update-component-data
+              description: "Update an existing record via a component interface."
+              call: "component-interface.update-component-data"
+              with:
+                componentInterface: "rest.componentInterface"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9105
+      namespace: component-interface-mcp
+      transport: http
+      tools:
+        - name: get-component-data
+          description: "Retrieve data from a PeopleSoft component interface."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "component-interface.get-component-data"
+          with:
+            componentInterface: "tools.componentInterface"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-component-data
+          description: "Create a new record via a PeopleSoft component interface."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "component-interface.create-component-data"
+          with:
+            componentInterface: "tools.componentInterface"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-component-data
+          description: "Update an existing record via a PeopleSoft component interface."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "component-interface.update-component-data"
+          with:
+            componentInterface: "tools.componentInterface"
+          outputParameters:
+            - type: object
+              mapping: "$."

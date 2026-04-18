@@ -1,0 +1,156 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Enterprise Performance Management"
+  description: "Analytics, budgeting, forecasting, and planning APIs with events and notifications framework for financial and operational performance management."
+  tags:
+    - PeopleSoft
+    - Enterprise Performance Management
+    - Budgeting
+    - Forecasting
+    - Analytics
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: epm
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/epm/v1
+      description: "PeopleSoft Enterprise Performance Management API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: budgets
+          path: /budgets
+          description: "Budget management operations"
+          operations:
+            - name: list-budgets
+              method: GET
+              description: "Retrieve budget definitions and data."
+              inputParameters:
+                - name: fiscalYear
+                  in: query
+                  type: string
+                  required: false
+                  description: "Fiscal year filter"
+                - name: businessUnit
+                  in: query
+                  type: string
+                  required: false
+                  description: "Business unit filter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: forecasts
+          path: /forecasts
+          description: "Forecasting operations"
+          operations:
+            - name: list-forecasts
+              method: GET
+              description: "Retrieve forecast data and projections."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: analytics
+          path: /analytics
+          description: "Analytics and reporting operations"
+          operations:
+            - name: list-analytics-reports
+              method: GET
+              description: "Retrieve performance analytics reports."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8107
+      namespace: epm-api
+      resources:
+        - path: /v1/budgets
+          name: budgets
+          description: "Budget definitions and data"
+          operations:
+            - method: GET
+              name: list-budgets
+              description: "Retrieve budget definitions and data."
+              call: "epm.list-budgets"
+              with:
+                fiscalYear: "rest.fiscalYear"
+                businessUnit: "rest.businessUnit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/forecasts
+          name: forecasts
+          description: "Forecast data and projections"
+          operations:
+            - method: GET
+              name: list-forecasts
+              description: "Retrieve forecast data and projections."
+              call: "epm.list-forecasts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/analytics-reports
+          name: analytics-reports
+          description: "Performance analytics reports"
+          operations:
+            - method: GET
+              name: list-analytics-reports
+              description: "Retrieve performance analytics reports."
+              call: "epm.list-analytics-reports"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9107
+      namespace: epm-mcp
+      transport: http
+      tools:
+        - name: list-budgets
+          description: "Retrieve budget definitions and data."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-budgets"
+          with:
+            fiscalYear: "tools.fiscalYear"
+            businessUnit: "tools.businessUnit"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-forecasts
+          description: "Retrieve forecast data and projections."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-forecasts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-analytics-reports
+          description: "Retrieve performance analytics reports."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "epm.list-analytics-reports"
+          outputParameters:
+            - type: object
+              mapping: "$."

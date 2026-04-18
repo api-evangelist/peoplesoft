@@ -1,0 +1,123 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft REST API"
+  description: "RESTful web services for PeopleSoft applications enabling integration with external systems via the PeopleTools platform."
+  tags:
+    - PeopleSoft
+    - REST API
+    - Integration
+    - PeopleTools
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: rest-api
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/v1
+      description: "PeopleSoft REST API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: resources
+          path: /
+          description: "PeopleSoft REST resource operations"
+          operations:
+            - name: get-resource
+              method: GET
+              description: "Retrieve PeopleSoft resource data via REST."
+              inputParameters:
+                - name: resource
+                  in: path
+                  type: string
+                  required: true
+                  description: "The PeopleSoft resource name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-resource
+              method: POST
+              description: "Create a new PeopleSoft resource via REST."
+              inputParameters:
+                - name: resource
+                  in: path
+                  type: string
+                  required: true
+                  description: "The PeopleSoft resource name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  resource: "{{tools.resource}}"
+
+  exposes:
+    - type: rest
+      port: 8117
+      namespace: rest-api-api
+      resources:
+        - path: /v1/resources/{resource}
+          name: resources
+          description: "PeopleSoft resources"
+          operations:
+            - method: GET
+              name: get-resource
+              description: "Retrieve PeopleSoft resource data."
+              call: "rest-api.get-resource"
+              with:
+                resource: "rest.resource"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-resource
+              description: "Create a new PeopleSoft resource."
+              call: "rest-api.create-resource"
+              with:
+                resource: "rest.resource"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9117
+      namespace: rest-api-mcp
+      transport: http
+      tools:
+        - name: get-resource
+          description: "Retrieve PeopleSoft resource data via REST."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "rest-api.get-resource"
+          with:
+            resource: "tools.resource"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-resource
+          description: "Create a new PeopleSoft resource via REST."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "rest-api.create-resource"
+          with:
+            resource: "tools.resource"
+          outputParameters:
+            - type: object
+              mapping: "$."

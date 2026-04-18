@@ -1,0 +1,171 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Supply Chain And Procurement"
+  description: "Unified workflow for supply chain managers combining procurement, inventory, order fulfillment, and approval workflows across PeopleSoft Supply Chain Management and Approval Workflow Engine APIs."
+  tags:
+    - PeopleSoft
+    - Supply Chain
+    - Procurement
+    - Inventory
+    - Order Fulfillment
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - import: scm
+      location: ./shared/supply-chain-management.yaml
+    - import: approval-workflow
+      location: ./shared/approval-workflow-engine.yaml
+
+  exposes:
+    - type: rest
+      port: 8082
+      namespace: supply-chain-api
+      description: "Unified REST API for PeopleSoft supply chain and procurement workflows."
+      resources:
+        - path: /v1/requisitions
+          name: requisitions
+          description: "Procurement requisitions"
+          operations:
+            - method: GET
+              name: list-requisitions
+              description: "Retrieve procurement requisitions."
+              call: "scm.list-requisitions"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/purchase-orders
+          name: purchase-orders
+          description: "Purchase orders"
+          operations:
+            - method: GET
+              name: list-purchase-orders
+              description: "Retrieve purchase orders."
+              call: "scm.list-purchase-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/inventory-items
+          name: inventory-items
+          description: "Inventory items and stock levels"
+          operations:
+            - method: GET
+              name: list-inventory-items
+              description: "Retrieve inventory items and stock levels."
+              call: "scm.list-inventory-items"
+              with:
+                businessUnit: "rest.businessUnit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/orders
+          name: orders
+          description: "Order fulfillment records"
+          operations:
+            - method: GET
+              name: list-orders
+              description: "Retrieve order fulfillment records."
+              call: "scm.list-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/approvals
+          name: approvals
+          description: "Supply chain approval requests"
+          operations:
+            - method: GET
+              name: list-pending-approvals
+              description: "Retrieve pending supply chain approval requests."
+              call: "approval-workflow.list-pending-approvals"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/approvals/{approvalId}
+          name: approval-detail
+          description: "Individual approval operations"
+          operations:
+            - method: PUT
+              name: process-approval
+              description: "Approve, deny, or push back a supply chain approval request."
+              call: "approval-workflow.process-approval"
+              with:
+                approvalId: "rest.approvalId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9092
+      namespace: supply-chain-mcp
+      transport: http
+      description: "MCP server for AI-assisted PeopleSoft supply chain and procurement workflows."
+      tools:
+        - name: list-requisitions
+          description: "Retrieve procurement requisitions."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "scm.list-requisitions"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-purchase-orders
+          description: "Retrieve purchase orders."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "scm.list-purchase-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-inventory-items
+          description: "Retrieve inventory items and stock levels."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "scm.list-inventory-items"
+          with:
+            businessUnit: "tools.businessUnit"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-orders
+          description: "Retrieve order fulfillment records."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "scm.list-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-pending-approvals
+          description: "Retrieve pending supply chain approval requests."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "approval-workflow.list-pending-approvals"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: process-approval
+          description: "Approve, deny, or push back a supply chain approval request."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: true
+          call: "approval-workflow.process-approval"
+          with:
+            approvalId: "tools.approvalId"
+            action: "tools.action"
+            comments: "tools.comments"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,236 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Customer Engagement"
+  description: "Unified workflow for CRM users combining customer management, case management, sales, chatbot integration, and notifications across PeopleSoft CRM, Chatbot Integration, and Notification Framework APIs."
+  tags:
+    - PeopleSoft
+    - CRM
+    - Customer Engagement
+    - Case Management
+    - Sales
+    - Chatbot
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - import: crm
+      location: ./shared/crm.yaml
+    - import: chatbot
+      location: ./shared/chatbot-integration.yaml
+    - import: notification-framework
+      location: ./shared/notification-framework.yaml
+
+  exposes:
+    - type: rest
+      port: 8084
+      namespace: customer-engagement-api
+      description: "Unified REST API for PeopleSoft customer engagement workflows."
+      resources:
+        - path: /v1/customers
+          name: customers
+          description: "Customer records"
+          operations:
+            - method: GET
+              name: list-customers
+              description: "Retrieve customer records."
+              call: "crm.list-customers"
+              with:
+                search: "rest.search"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/customers/{customerId}
+          name: customer-detail
+          description: "Individual customer details"
+          operations:
+            - method: GET
+              name: get-customer
+              description: "Retrieve details for a specific customer."
+              call: "crm.get-customer"
+              with:
+                customerId: "rest.customerId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/cases
+          name: cases
+          description: "Support and service cases"
+          operations:
+            - method: GET
+              name: list-cases
+              description: "Retrieve support and service cases."
+              call: "crm.list-cases"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-case
+              description: "Create a new support or service case."
+              call: "crm.create-case"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/opportunities
+          name: opportunities
+          description: "Sales opportunities"
+          operations:
+            - method: GET
+              name: list-opportunities
+              description: "Retrieve sales opportunities."
+              call: "crm.list-opportunities"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/intents
+          name: intents
+          description: "Chatbot intents"
+          operations:
+            - method: GET
+              name: list-intents
+              description: "Retrieve available chatbot intents."
+              call: "chatbot.list-intents"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/intent-fulfillments
+          name: fulfillments
+          description: "Chatbot intent fulfillments"
+          operations:
+            - method: POST
+              name: fulfill-intent
+              description: "Process a chatbot intent fulfillment request."
+              call: "chatbot.fulfill-intent"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/notifications
+          name: notifications
+          description: "Notification management"
+          operations:
+            - method: GET
+              name: list-notifications
+              description: "Retrieve notifications for the current user."
+              call: "notification-framework.list-notifications"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: send-notification
+              description: "Send a notification via email, text, or in-app channels."
+              call: "notification-framework.send-notification"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9094
+      namespace: customer-engagement-mcp
+      transport: http
+      description: "MCP server for AI-assisted PeopleSoft customer engagement workflows."
+      tools:
+        - name: list-customers
+          description: "Retrieve customer records."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "crm.list-customers"
+          with:
+            search: "tools.search"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-customer
+          description: "Retrieve details for a specific customer."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "crm.get-customer"
+          with:
+            customerId: "tools.customerId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-cases
+          description: "Retrieve support and service cases."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "crm.list-cases"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-case
+          description: "Create a new support or service case."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "crm.create-case"
+          with:
+            case: "tools.case"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-opportunities
+          description: "Retrieve sales opportunities."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "crm.list-opportunities"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-intents
+          description: "Retrieve available chatbot intents."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "chatbot.list-intents"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: fulfill-intent
+          description: "Process a chatbot intent fulfillment request."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "chatbot.fulfill-intent"
+          with:
+            intent: "tools.intent"
+            parameters: "tools.parameters"
+            userId: "tools.userId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-notifications
+          description: "Retrieve notifications for the current user."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "notification-framework.list-notifications"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: send-notification
+          description: "Send a notification via email, text, or in-app channels."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "notification-framework.send-notification"
+          with:
+            channel: "tools.channel"
+            recipients: "tools.recipients"
+            message: "tools.message"
+          outputParameters:
+            - type: object
+              mapping: "$."

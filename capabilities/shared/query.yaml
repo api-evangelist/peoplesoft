@@ -1,0 +1,133 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Query"
+  description: "Execute PeopleSoft Query definitions and retrieve results via REST including the Query Access Service operations for listing, executing, and managing queries."
+  tags:
+    - PeopleSoft
+    - Query
+    - Data Access
+    - Reporting
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: query
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/query/v1
+      description: "PeopleSoft Query API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: queries
+          path: /queries
+          description: "Query execution and management operations"
+          operations:
+            - name: list-queries
+              method: GET
+              description: "Retrieve a list of available PeopleSoft Query definitions."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: execute-query
+              method: GET
+              description: "Execute a PeopleSoft Query by name and retrieve results."
+              inputParameters:
+                - name: queryName
+                  in: path
+                  type: string
+                  required: true
+                  description: "The PeopleSoft Query name"
+                - name: isConnectedQuery
+                  in: query
+                  type: boolean
+                  required: false
+                  description: "Whether this is a Connected Query"
+                - name: maxRows
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum number of rows to return"
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Row offset for pagination"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8115
+      namespace: query-api
+      resources:
+        - path: /v1/queries
+          name: queries
+          description: "Query definitions"
+          operations:
+            - method: GET
+              name: list-queries
+              description: "Retrieve available PeopleSoft Query definitions."
+              call: "query.list-queries"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/queries/{queryName}
+          name: query-execution
+          description: "Query execution"
+          operations:
+            - method: GET
+              name: execute-query
+              description: "Execute a PeopleSoft Query by name."
+              call: "query.execute-query"
+              with:
+                queryName: "rest.queryName"
+                isConnectedQuery: "rest.isConnectedQuery"
+                maxRows: "rest.maxRows"
+                offset: "rest.offset"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9115
+      namespace: query-mcp
+      transport: http
+      tools:
+        - name: list-queries
+          description: "Retrieve a list of available PeopleSoft Query definitions."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "query.list-queries"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: execute-query
+          description: "Execute a PeopleSoft Query by name and retrieve results."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "query.execute-query"
+          with:
+            queryName: "tools.queryName"
+            isConnectedQuery: "tools.isConnectedQuery"
+            maxRows: "tools.maxRows"
+            offset: "tools.offset"
+          outputParameters:
+            - type: object
+              mapping: "$."

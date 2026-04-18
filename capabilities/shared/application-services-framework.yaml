@@ -1,0 +1,122 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Application Services Framework"
+  description: "Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices."
+  tags:
+    - PeopleSoft
+    - Application Services
+    - Integration
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: asf
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/asf/v1
+      description: "PeopleSoft Application Services Framework API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: services
+          path: /
+          description: "ASF service operations"
+          operations:
+            - name: get-service-resource
+              method: GET
+              description: "Retrieve data from an ASF-defined service with OpenAPI-compliant response."
+              inputParameters:
+                - name: serviceName
+                  in: path
+                  type: string
+                  required: true
+                  description: "The ASF service name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-service-resource
+              method: POST
+              description: "Create a resource via an ASF-defined service."
+              inputParameters:
+                - name: serviceName
+                  in: path
+                  type: string
+                  required: true
+                  description: "The ASF service name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  serviceName: "{{tools.serviceName}}"
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: asf-api
+      resources:
+        - path: /v1/services/{serviceName}
+          name: services
+          description: "ASF service resources"
+          operations:
+            - method: GET
+              name: get-service-resource
+              description: "Retrieve data from an ASF-defined service."
+              call: "asf.get-service-resource"
+              with:
+                serviceName: "rest.serviceName"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-service-resource
+              description: "Create a resource via an ASF-defined service."
+              call: "asf.create-service-resource"
+              with:
+                serviceName: "rest.serviceName"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: asf-mcp
+      transport: http
+      tools:
+        - name: get-service-resource
+          description: "Retrieve data from an ASF-defined service with OpenAPI-compliant response."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "asf.get-service-resource"
+          with:
+            serviceName: "tools.serviceName"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-service-resource
+          description: "Create a resource via an ASF-defined service."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "asf.create-service-resource"
+          with:
+            serviceName: "tools.serviceName"
+          outputParameters:
+            - type: object
+              mapping: "$."

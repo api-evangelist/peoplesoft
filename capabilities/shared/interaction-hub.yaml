@@ -1,0 +1,151 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Interaction Hub"
+  description: "Content management, branding, and portal administration APIs for the PeopleSoft Interaction Hub (formerly Enterprise Portal) with Integration Broker services."
+  tags:
+    - PeopleSoft
+    - Interaction Hub
+    - Portal
+    - Content Management
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: interaction-hub
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/hub/v1
+      description: "PeopleSoft Interaction Hub API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: content
+          path: /content
+          description: "Content management operations"
+          operations:
+            - name: list-content
+              method: GET
+              description: "Retrieve portal content items."
+              inputParameters:
+                - name: category
+                  in: query
+                  type: string
+                  required: false
+                  description: "Content category filter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-content
+              method: POST
+              description: "Create a new portal content item."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  title: "{{tools.title}}"
+                  body: "{{tools.body}}"
+                  category: "{{tools.category}}"
+        - name: branding
+          path: /branding
+          description: "Branding and theme operations"
+          operations:
+            - name: list-themes
+              method: GET
+              description: "Retrieve available branding themes."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8111
+      namespace: interaction-hub-api
+      resources:
+        - path: /v1/content
+          name: content
+          description: "Portal content items"
+          operations:
+            - method: GET
+              name: list-content
+              description: "Retrieve portal content items."
+              call: "interaction-hub.list-content"
+              with:
+                category: "rest.category"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-content
+              description: "Create a new portal content item."
+              call: "interaction-hub.create-content"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/themes
+          name: themes
+          description: "Branding themes"
+          operations:
+            - method: GET
+              name: list-themes
+              description: "Retrieve available branding themes."
+              call: "interaction-hub.list-themes"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9111
+      namespace: interaction-hub-mcp
+      transport: http
+      tools:
+        - name: list-content
+          description: "Retrieve portal content items."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "interaction-hub.list-content"
+          with:
+            category: "tools.category"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-content
+          description: "Create a new portal content item."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "interaction-hub.create-content"
+          with:
+            title: "tools.title"
+            body: "tools.body"
+            category: "tools.category"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-themes
+          description: "Retrieve available branding themes."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "interaction-hub.list-themes"
+          outputParameters:
+            - type: object
+              mapping: "$."

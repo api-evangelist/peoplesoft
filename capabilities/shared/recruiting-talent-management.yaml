@@ -1,0 +1,177 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Recruiting And Talent Management"
+  description: "REST endpoints for job search services, Candidate Gateway self-service, recruiting solutions, and talent management workflows."
+  tags:
+    - PeopleSoft
+    - Recruiting
+    - Talent Management
+    - Human Resources
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: recruiting
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/hcm/recruiting/v1
+      description: "PeopleSoft Recruiting and Talent Management API"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: jobs
+          path: /jobs
+          description: "Job posting and search operations"
+          operations:
+            - name: search-jobs
+              method: GET
+              description: "Search available job postings."
+              inputParameters:
+                - name: keyword
+                  in: query
+                  type: string
+                  required: false
+                  description: "Keyword search term"
+                - name: location
+                  in: query
+                  type: string
+                  required: false
+                  description: "Job location filter"
+                - name: department
+                  in: query
+                  type: string
+                  required: false
+                  description: "Department filter"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-job-details
+              method: GET
+              description: "Retrieve details for a specific job posting."
+              inputParameters:
+                - name: jobId
+                  in: path
+                  type: string
+                  required: true
+                  description: "The job posting identifier"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: candidates
+          path: /candidates
+          description: "Candidate and application operations"
+          operations:
+            - name: submit-application
+              method: POST
+              description: "Submit a candidate application for a job posting."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  jobId: "{{tools.jobId}}"
+                  candidateInfo: "{{tools.candidateInfo}}"
+
+  exposes:
+    - type: rest
+      port: 8116
+      namespace: recruiting-api
+      resources:
+        - path: /v1/jobs
+          name: jobs
+          description: "Job postings"
+          operations:
+            - method: GET
+              name: search-jobs
+              description: "Search available job postings."
+              call: "recruiting.search-jobs"
+              with:
+                keyword: "rest.keyword"
+                location: "rest.location"
+                department: "rest.department"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/jobs/{jobId}
+          name: job-detail
+          description: "Job posting details"
+          operations:
+            - method: GET
+              name: get-job-details
+              description: "Retrieve details for a specific job posting."
+              call: "recruiting.get-job-details"
+              with:
+                jobId: "rest.jobId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/applications
+          name: applications
+          description: "Candidate applications"
+          operations:
+            - method: POST
+              name: submit-application
+              description: "Submit a candidate application."
+              call: "recruiting.submit-application"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9116
+      namespace: recruiting-mcp
+      transport: http
+      tools:
+        - name: search-jobs
+          description: "Search available job postings."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "recruiting.search-jobs"
+          with:
+            keyword: "tools.keyword"
+            location: "tools.location"
+            department: "tools.department"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-job-details
+          description: "Retrieve details for a specific job posting."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "recruiting.get-job-details"
+          with:
+            jobId: "tools.jobId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: submit-application
+          description: "Submit a candidate application for a job posting."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "recruiting.submit-application"
+          with:
+            jobId: "tools.jobId"
+            candidateInfo: "tools.candidateInfo"
+          outputParameters:
+            - type: object
+              mapping: "$."

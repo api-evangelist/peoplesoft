@@ -1,0 +1,124 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "PeopleSoft Integration Broker"
+  description: "Message-based integration framework for synchronous and asynchronous communication supporting both SOAP and REST protocols."
+  tags:
+    - PeopleSoft
+    - Integration Broker
+    - Messaging
+    - Integration
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: integration-broker
+      baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/PSIGW/RESTListeningConnector
+      description: "PeopleSoft Integration Broker"
+      authentication:
+        type: basic
+        username: "{{PEOPLESOFT_USERNAME}}"
+        password: "{{PEOPLESOFT_PASSWORD}}"
+      resources:
+        - name: service-operations
+          path: /
+          description: "Integration Broker service operations"
+          operations:
+            - name: get-service-operation
+              method: GET
+              description: "Invoke a synchronous Integration Broker REST service operation using GET."
+              inputParameters:
+                - name: serviceOperation
+                  in: path
+                  type: string
+                  required: true
+                  description: "The service operation name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: post-service-operation
+              method: POST
+              description: "Invoke a synchronous or asynchronous Integration Broker REST service operation using POST."
+              inputParameters:
+                - name: serviceOperation
+                  in: path
+                  type: string
+                  required: true
+                  description: "The service operation name"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  payload: "{{tools.payload}}"
+
+  exposes:
+    - type: rest
+      port: 8110
+      namespace: integration-broker-api
+      resources:
+        - path: /v1/service-operations/{serviceOperation}
+          name: service-operations
+          description: "Integration Broker service operations"
+          operations:
+            - method: GET
+              name: get-service-operation
+              description: "Invoke a service operation using GET."
+              call: "integration-broker.get-service-operation"
+              with:
+                serviceOperation: "rest.serviceOperation"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: post-service-operation
+              description: "Invoke a service operation using POST."
+              call: "integration-broker.post-service-operation"
+              with:
+                serviceOperation: "rest.serviceOperation"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9110
+      namespace: integration-broker-mcp
+      transport: http
+      tools:
+        - name: get-service-operation
+          description: "Invoke a synchronous Integration Broker REST service operation using GET."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "integration-broker.get-service-operation"
+          with:
+            serviceOperation: "tools.serviceOperation"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: post-service-operation
+          description: "Invoke a synchronous or asynchronous Integration Broker REST service operation using POST."
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "integration-broker.post-service-operation"
+          with:
+            serviceOperation: "tools.serviceOperation"
+            payload: "tools.payload"
+          outputParameters:
+            - type: object
+              mapping: "$."
