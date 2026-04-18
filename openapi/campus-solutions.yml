@@ -1,7 +1,8 @@
 openapi: 3.1.0
 info:
   title: PeopleSoft Campus Solutions API
-  description: Campus Solutions APIs for student records, admissions, enrollment, financial aid, and academic advising.
+  description: Campus Solutions APIs for student records, admissions, enrollment,
+    financial aid, and academic advising.
   version: 1.0.0
   contact:
     name: Oracle Support
@@ -173,3 +174,124 @@ components:
     basicAuth:
       type: http
       scheme: basic
+  schemas:
+    Student:
+      type: object
+      description: PeopleSoft Campus Solutions student record.
+      properties:
+        EMPLID:
+          type: string
+          description: Student ID.
+          example: STU001234
+        NAME:
+          type: string
+          description: Student name.
+          example: Alex Johnson
+        ACAD_CAREER:
+          type: string
+          description: Academic career.
+          enum:
+          - UGRD
+          - GRAD
+          - LAW
+          - MED
+          example: UGRD
+        ACAD_PROG:
+          type: string
+          description: Academic program.
+          example: BSCS
+        ACAD_PLAN:
+          type: string
+          description: Academic plan/major.
+          example: COMPSCI
+        ADMIT_TERM:
+          type: string
+          description: Admission term.
+          example: 2026F
+        ACAD_LEVEL_BOT:
+          type: string
+          description: Academic level.
+          enum:
+          - FR
+          - SO
+          - JR
+          - SR
+          - GR
+          example: JR
+        CUM_GPA:
+          type: number
+          description: Cumulative GPA.
+          example: 3.65
+        TOT_TAKEN_GPA:
+          type: number
+          description: Total GPA units taken.
+          example: 90.0
+        INSTITUTION:
+          type: string
+          description: Institution code.
+          example: MYUNV
+        CAMPUS:
+          type: string
+          description: Campus code.
+          example: MAIN
+        STDNT_CAR_NBR:
+          type: integer
+          description: Student career number.
+          example: 0
+        ACAD_STANDING:
+          type: string
+          description: Academic standing.
+          enum:
+          - GS
+          - GP
+          - AP
+          - DQ
+          example: GS
+    ClassEnrollment:
+      type: object
+      description: PeopleSoft class enrollment record.
+      properties:
+        EMPLID:
+          type: string
+          description: Student ID.
+          example: STU001234
+        CLASS_NBR:
+          type: integer
+          description: Class number.
+          example: 10542
+        CRSE_ID:
+          type: string
+          description: Course ID.
+          example: CS101
+        SUBJECT:
+          type: string
+          description: Subject area.
+          example: COMPSCI
+        CATALOG_NBR:
+          type: string
+          description: Catalog number.
+          example: '101'
+        DESCR:
+          type: string
+          description: Course description.
+          example: Introduction to Computer Science
+        UNT_TAKEN:
+          type: number
+          description: Units taken.
+          example: 3.0
+        GRADE_INPUT:
+          type: string
+          description: Grade.
+          example: A
+        ENRL_STATUS_REASON:
+          type: string
+          description: Enrollment status.
+          enum:
+          - ENRL
+          - DROP
+          - WAIT
+          example: ENRL
+        STRM:
+          type: string
+          description: Term code.
+          example: '2261'

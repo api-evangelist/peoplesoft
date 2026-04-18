@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/json-structure/peoplesoft-hcm-position-structure.json",
+  "name": "Position",
+  "description": "PeopleSoft HCM position data.",
+  "type": "object",
+  "properties": {
+    "POSITION_NBR": {
+      "type": "string",
+      "description": "Position number.",
+      "example": "00012345"
+    },
+    "DESCR": {
+      "type": "string",
+      "description": "Position description.",
+      "example": "Senior Software Engineer"
+    },
+    "DEPTID": {
+      "type": "string",
+      "description": "Department ID.",
+      "example": "10200"
+    },
+    "JOBCODE": {
+      "type": "string",
+      "description": "Job code.",
+      "example": "MGR001"
+    },
+    "LOCATION": {
+      "type": "string",
+      "description": "Location code.",
+      "example": "HQ001"
+    },
+    "REPORTS_TO": {
+      "type": "string",
+      "description": "Reports-to position.",
+      "example": "00012340"
+    },
+    "MAX_HEAD_COUNT": {
+      "type": "int32",
+      "description": "Maximum headcount.",
+      "example": 1
+    },
+    "POSN_STATUS": {
+      "type": "string",
+      "description": "Position status.",
+      "enum": [
+        "A",
+        "I",
+        "F"
+      ],
+      "example": "A"
+    },
+    "EFFDT": {
+      "type": "date",
+      "description": "Effective date.",
+      "example": "2024-01-01"
+    }
+  },
+  "x-schema-source": "domain-knowledge"
+}

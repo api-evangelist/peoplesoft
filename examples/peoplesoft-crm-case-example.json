@@ -1,0 +1,12 @@
+{
+  "CASE_ID": "CASE001234",
+  "BUSINESS_UNIT": "US001",
+  "CUST_ID": "CUST005678",
+  "DESCR": "Product defect inquiry",
+  "PRIORITY": "2",
+  "STATUS": "Open",
+  "CATEGORY": "Product Support",
+  "ASSIGNED_TO": "AGT001",
+  "CREATED_DTTM": "2026-04-17T09:30:00Z",
+  "RESOLVED_DTTM": "example_value"
+}

@@ -1,0 +1,11 @@
+{
+  "POSITION_NBR": "00012345",
+  "DESCR": "Senior Software Engineer",
+  "DEPTID": "10200",
+  "JOBCODE": "MGR001",
+  "LOCATION": "HQ001",
+  "REPORTS_TO": "00012340",
+  "MAX_HEAD_COUNT": 1,
+  "POSN_STATUS": "A",
+  "EFFDT": "2024-01-01"
+}

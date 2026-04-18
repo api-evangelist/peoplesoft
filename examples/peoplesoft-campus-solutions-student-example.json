@@ -1,0 +1,15 @@
+{
+  "EMPLID": "STU001234",
+  "NAME": "Alex Johnson",
+  "ACAD_CAREER": "UGRD",
+  "ACAD_PROG": "BSCS",
+  "ACAD_PLAN": "COMPSCI",
+  "ADMIT_TERM": "2026F",
+  "ACAD_LEVEL_BOT": "JR",
+  "CUM_GPA": 3.65,
+  "TOT_TAKEN_GPA": 90.0,
+  "INSTITUTION": "MYUNV",
+  "CAMPUS": "MAIN",
+  "STDNT_CAR_NBR": 0,
+  "ACAD_STANDING": "GS"
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/json-structure/peoplesoft-crm-case-structure.json",
+  "name": "Case",
+  "description": "PeopleSoft CRM service case.",
+  "type": "object",
+  "properties": {
+    "CASE_ID": {
+      "type": "string",
+      "description": "Case ID.",
+      "example": "CASE001234"
+    },
+    "BUSINESS_UNIT": {
+      "type": "string",
+      "description": "Business unit.",
+      "example": "US001"
+    },
+    "CUST_ID": {
+      "type": "string",
+      "description": "Customer ID.",
+      "example": "CUST005678"
+    },
+    "DESCR": {
+      "type": "string",
+      "description": "Case description.",
+      "example": "Product defect inquiry"
+    },
+    "PRIORITY": {
+      "type": "string",
+      "description": "Priority.",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "example": "2"
+    },
+    "STATUS": {
+      "type": "string",
+      "description": "Case status.",
+      "enum": [
+        "Open",
+        "In Progress",
+        "Resolved",
+        "Closed"
+      ],
+      "example": "Open"
+    },
+    "CATEGORY": {
+      "type": "string",
+      "description": "Case category.",
+      "example": "Product Support"
+    },
+    "ASSIGNED_TO": {
+      "type": "string",
+      "description": "Assigned agent.",
+      "example": "AGT001"
+    },
+    "CREATED_DTTM": {
+      "type": "datetime",
+      "description": "Created date/time.",
+      "example": "2026-04-17T09:30:00Z"
+    },
+    "RESOLVED_DTTM": {
+      "type": "datetime",
+      "description": "Resolved date/time."
+    }
+  },
+  "x-schema-source": "domain-knowledge"
+}

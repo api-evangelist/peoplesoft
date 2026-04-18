@@ -3,6 +3,323 @@
     "@version": 1.1,
     "ps": "https://docs.oracle.com/en/applications/peoplesoft/schema/",
     "schema": "https://schema.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Case": "ps:Case",
+    "ClassEnrollment": "ps:ClassEnrollment",
+    "Employee": "ps:Employee",
+    "JournalEntry": "ps:JournalEntry",
+    "Position": "ps:Position",
+    "PurchaseOrder": "ps:PurchaseOrder",
+    "Student": "ps:Student",
+    "Voucher": "ps:Voucher",
+    "ACAD_CAREER": {
+      "@id": "ps:ACAD_CAREER",
+      "@type": "xsd:string"
+    },
+    "ACAD_LEVEL_BOT": {
+      "@id": "ps:ACAD_LEVEL_BOT",
+      "@type": "xsd:string"
+    },
+    "ACAD_PLAN": {
+      "@id": "ps:ACAD_PLAN",
+      "@type": "xsd:string"
+    },
+    "ACAD_PROG": {
+      "@id": "ps:ACAD_PROG",
+      "@type": "xsd:string"
+    },
+    "ACAD_STANDING": {
+      "@id": "ps:ACAD_STANDING",
+      "@type": "xsd:string"
+    },
+    "ACCOUNTING_PERIOD": {
+      "@id": "ps:ACCOUNTING_PERIOD",
+      "@type": "xsd:integer"
+    },
+    "ADDRESS1": {
+      "@id": "ps:ADDRESS1",
+      "@type": "xsd:string"
+    },
+    "ADMIT_TERM": {
+      "@id": "ps:ADMIT_TERM",
+      "@type": "xsd:string"
+    },
+    "ANNUAL_RT": {
+      "@id": "ps:ANNUAL_RT",
+      "@type": "xsd:decimal"
+    },
+    "ASSIGNED_TO": {
+      "@id": "ps:ASSIGNED_TO",
+      "@type": "xsd:string"
+    },
+    "BUSINESS_UNIT": {
+      "@id": "ps:BUSINESS_UNIT",
+      "@type": "xsd:string"
+    },
+    "BUYER_ID": {
+      "@id": "ps:BUYER_ID",
+      "@type": "xsd:string"
+    },
+    "CAMPUS": {
+      "@id": "ps:CAMPUS",
+      "@type": "xsd:string"
+    },
+    "CASE_ID": {
+      "@id": "ps:CASE_ID",
+      "@type": "xsd:string"
+    },
+    "CATALOG_NBR": {
+      "@id": "ps:CATALOG_NBR",
+      "@type": "xsd:string"
+    },
+    "CATEGORY": {
+      "@id": "ps:CATEGORY",
+      "@type": "xsd:string"
+    },
+    "CITY": {
+      "@id": "ps:CITY",
+      "@type": "xsd:string"
+    },
+    "CLASS_NBR": {
+      "@id": "ps:CLASS_NBR",
+      "@type": "xsd:integer"
+    },
+    "COMPANY": {
+      "@id": "ps:COMPANY",
+      "@type": "xsd:string"
+    },
+    "COUNTRY": {
+      "@id": "ps:COUNTRY",
+      "@type": "xsd:string"
+    },
+    "CREATED_DTTM": {
+      "@id": "ps:CREATED_DTTM",
+      "@type": "xsd:dateTime"
+    },
+    "CRSE_ID": {
+      "@id": "ps:CRSE_ID",
+      "@type": "xsd:string"
+    },
+    "CUM_GPA": {
+      "@id": "ps:CUM_GPA",
+      "@type": "xsd:decimal"
+    },
+    "CURRENCY_CD": {
+      "@id": "ps:CURRENCY_CD",
+      "@type": "xsd:string"
+    },
+    "CUST_ID": {
+      "@id": "ps:CUST_ID",
+      "@type": "xsd:string"
+    },
+    "DEPTID": {
+      "@id": "ps:DEPTID",
+      "@type": "xsd:string"
+    },
+    "DESCR": {
+      "@id": "ps:DESCR",
+      "@type": "xsd:string"
+    },
+    "DUE_DT": {
+      "@id": "ps:DUE_DT",
+      "@type": "xsd:date"
+    },
+    "EFFDT": {
+      "@id": "ps:EFFDT",
+      "@type": "xsd:date"
+    },
+    "EMAIL_ADDR": {
+      "@id": "ps:EMAIL_ADDR",
+      "@type": "xsd:string"
+    },
+    "EMPLID": {
+      "@id": "ps:EMPLID",
+      "@type": "xsd:string"
+    },
+    "EMPL_STATUS": {
+      "@id": "ps:EMPL_STATUS",
+      "@type": "xsd:string"
+    },
+    "ENRL_STATUS_REASON": {
+      "@id": "ps:ENRL_STATUS_REASON",
+      "@type": "xsd:string"
+    },
+    "FIRST_NAME": {
+      "@id": "ps:FIRST_NAME",
+      "@type": "xsd:string"
+    },
+    "FISCAL_YEAR": {
+      "@id": "ps:FISCAL_YEAR",
+      "@type": "xsd:integer"
+    },
+    "FULL_PART_TIME": {
+      "@id": "ps:FULL_PART_TIME",
+      "@type": "xsd:string"
+    },
+    "GRADE_INPUT": {
+      "@id": "ps:GRADE_INPUT",
+      "@type": "xsd:string"
+    },
+    "GROSS_AMT": {
+      "@id": "ps:GROSS_AMT",
+      "@type": "xsd:decimal"
+    },
+    "HIRE_DT": {
+      "@id": "ps:HIRE_DT",
+      "@type": "xsd:date"
+    },
+    "HR_STATUS": {
+      "@id": "ps:HR_STATUS",
+      "@type": "xsd:string"
+    },
+    "INSTITUTION": {
+      "@id": "ps:INSTITUTION",
+      "@type": "xsd:string"
+    },
+    "INVOICE_DT": {
+      "@id": "ps:INVOICE_DT",
+      "@type": "xsd:date"
+    },
+    "INVOICE_ID": {
+      "@id": "ps:INVOICE_ID",
+      "@type": "xsd:string"
+    },
+    "JOBCODE": {
+      "@id": "ps:JOBCODE",
+      "@type": "xsd:string"
+    },
+    "JOURNAL_DATE": {
+      "@id": "ps:JOURNAL_DATE",
+      "@type": "xsd:date"
+    },
+    "JOURNAL_ID": {
+      "@id": "ps:JOURNAL_ID",
+      "@type": "xsd:string"
+    },
+    "JRNL_HDR_STATUS": {
+      "@id": "ps:JRNL_HDR_STATUS",
+      "@type": "xsd:string"
+    },
+    "LAST_NAME": {
+      "@id": "ps:LAST_NAME",
+      "@type": "xsd:string"
+    },
+    "LEDGER": {
+      "@id": "ps:LEDGER",
+      "@type": "xsd:string"
+    },
+    "LINES": {
+      "@id": "ps:LINES",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "LOCATION": {
+      "@id": "ps:LOCATION",
+      "@type": "xsd:string"
+    },
+    "MAX_HEAD_COUNT": {
+      "@id": "ps:MAX_HEAD_COUNT",
+      "@type": "xsd:integer"
+    },
+    "NAME": {
+      "@id": "ps:NAME",
+      "@type": "xsd:string"
+    },
+    "PHONE": {
+      "@id": "ps:PHONE",
+      "@type": "xsd:string"
+    },
+    "POSITION_NBR": {
+      "@id": "ps:POSITION_NBR",
+      "@type": "xsd:string"
+    },
+    "POSN_STATUS": {
+      "@id": "ps:POSN_STATUS",
+      "@type": "xsd:string"
+    },
+    "POSTAL": {
+      "@id": "ps:POSTAL",
+      "@type": "xsd:string"
+    },
+    "PO_DT": {
+      "@id": "ps:PO_DT",
+      "@type": "xsd:date"
+    },
+    "PO_ID": {
+      "@id": "ps:PO_ID",
+      "@type": "xsd:string"
+    },
+    "PO_STATUS": {
+      "@id": "ps:PO_STATUS",
+      "@type": "xsd:string"
+    },
+    "PRIORITY": {
+      "@id": "ps:PRIORITY",
+      "@type": "xsd:string"
+    },
+    "REG_TEMP": {
+      "@id": "ps:REG_TEMP",
+      "@type": "xsd:string"
+    },
+    "REPORTS_TO": {
+      "@id": "ps:REPORTS_TO",
+      "@type": "xsd:string"
+    },
+    "RESOLVED_DTTM": {
+      "@id": "ps:RESOLVED_DTTM",
+      "@type": "xsd:dateTime"
+    },
+    "SHIP_TO_LOCATION": {
+      "@id": "ps:SHIP_TO_LOCATION",
+      "@type": "xsd:string"
+    },
+    "STATE": {
+      "@id": "ps:STATE",
+      "@type": "xsd:string"
+    },
+    "STATUS": {
+      "@id": "ps:STATUS",
+      "@type": "xsd:string"
+    },
+    "STDNT_CAR_NBR": {
+      "@id": "ps:STDNT_CAR_NBR",
+      "@type": "xsd:integer"
+    },
+    "STRM": {
+      "@id": "ps:STRM",
+      "@type": "xsd:string"
+    },
+    "SUBJECT": {
+      "@id": "ps:SUBJECT",
+      "@type": "xsd:string"
+    },
+    "SUPERVISOR_ID": {
+      "@id": "ps:SUPERVISOR_ID",
+      "@type": "xsd:string"
+    },
+    "TERMINATION_DT": {
+      "@id": "ps:TERMINATION_DT",
+      "@type": "xsd:date"
+    },
+    "TOT_TAKEN_GPA": {
+      "@id": "ps:TOT_TAKEN_GPA",
+      "@type": "xsd:decimal"
+    },
+    "UNT_TAKEN": {
+      "@id": "ps:UNT_TAKEN",
+      "@type": "xsd:decimal"
+    },
+    "VCHR_HDR_STATUS": {
+      "@id": "ps:VCHR_HDR_STATUS",
+      "@type": "xsd:string"
+    },
+    "VENDOR_ID": {
+      "@id": "ps:VENDOR_ID",
+      "@type": "xsd:string"
+    },
+    "VOUCHER_ID": {
+      "@id": "ps:VOUCHER_ID",
+      "@type": "xsd:string"
+    }
   }
 }

@@ -1,0 +1,17 @@
+{
+  "EMPLID": "EMP001234",
+  "NAME": "Jane Smith",
+  "FIRST_NAME": "Jane",
+  "LAST_NAME": "Smith",
+  "DEPTID": "10200",
+  "JOBCODE": "MGR001",
+  "POSITION_NBR": "00012345",
+  "LOCATION": "HQ001",
+  "COMPANY": "CCB",
+  "BUSINESS_UNIT": "US001",
+  "EMPL_STATUS": "A",
+  "HR_STATUS": "A",
+  "REG_TEMP": "R",
+  "FULL_PART_TIME": "F",
+  "HIRE_DT": "2020-01-15"
+}

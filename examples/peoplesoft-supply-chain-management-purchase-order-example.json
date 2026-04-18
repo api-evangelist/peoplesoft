@@ -1,0 +1,20 @@
+{
+  "BUSINESS_UNIT": "US001",
+  "PO_ID": "PO0012345",
+  "VENDOR_ID": "VND001234",
+  "PO_DT": "2026-04-17",
+  "PO_STATUS": "A",
+  "CURRENCY_CD": "USD",
+  "BUYER_ID": "BYR001",
+  "SHIP_TO_LOCATION": "WH001",
+  "LINES": [
+    {
+      "LINE_NBR": 1,
+      "INV_ITEM_ID": "ITEM001234",
+      "DESCR": "Office Chair - Ergonomic",
+      "QTY_PO": 25,
+      "PRICE_PO": 450.0,
+      "UNIT_OF_MEASURE": "EA"
+    }
+  ]
+}

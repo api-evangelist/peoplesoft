@@ -1,0 +1,12 @@
+{
+  "EMPLID": "STU001234",
+  "CLASS_NBR": 10542,
+  "CRSE_ID": "CS101",
+  "SUBJECT": "COMPSCI",
+  "CATALOG_NBR": "101",
+  "DESCR": "Introduction to Computer Science",
+  "UNT_TAKEN": 3.0,
+  "GRADE_INPUT": "A",
+  "ENRL_STATUS_REASON": "ENRL",
+  "STRM": "2261"
+}

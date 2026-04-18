@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/json-structure/peoplesoft-financials-journal-entry-structure.json",
+  "name": "JournalEntry",
+  "description": "PeopleSoft GL journal entry.",
+  "type": "object",
+  "properties": {
+    "BUSINESS_UNIT": {
+      "type": "string",
+      "description": "Business unit.",
+      "example": "US001"
+    },
+    "JOURNAL_ID": {
+      "type": "string",
+      "description": "Journal ID.",
+      "example": "0000012345"
+    },
+    "JOURNAL_DATE": {
+      "type": "date",
+      "description": "Journal date.",
+      "example": "2026-04-17"
+    },
+    "LEDGER": {
+      "type": "string",
+      "description": "Ledger name.",
+      "example": "ACTUALS"
+    },
+    "DESCR": {
+      "type": "string",
+      "description": "Journal description.",
+      "example": "Monthly accrual entry"
+    },
+    "JRNL_HDR_STATUS": {
+      "type": "string",
+      "description": "Journal status.",
+      "enum": [
+        "N",
+        "E",
+        "V",
+        "P",
+        "D",
+        "U",
+        "T"
+      ],
+      "example": "V"
+    },
+    "CURRENCY_CD": {
+      "type": "string",
+      "description": "Currency code.",
+      "example": "USD"
+    },
+    "FISCAL_YEAR": {
+      "type": "int32",
+      "description": "Fiscal year.",
+      "example": 2026
+    },
+    "ACCOUNTING_PERIOD": {
+      "type": "int32",
+      "description": "Accounting period.",
+      "example": 4
+    },
+    "LINES": {
+      "type": "array",
+      "description": "Journal lines.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "JOURNAL_LINE": {
+            "type": "int32",
+            "description": "Line number.",
+            "example": 1
+          },
+          "ACCOUNT": {
+            "type": "string",
+            "description": "GL account.",
+            "example": "510000"
+          },
+          "DEPTID": {
+            "type": "string",
+            "description": "Department.",
+            "example": "10200"
+          },
+          "MONETARY_AMOUNT": {
+            "type": "double",
+            "description": "Amount.",
+            "example": 5000.0
+          },
+          "LINE_DESCR": {
+            "type": "string",
+            "description": "Line description.",
+            "example": "Office supplies"
+          }
+        }
+      }
+    }
+  },
+  "x-schema-source": "domain-knowledge"
+}

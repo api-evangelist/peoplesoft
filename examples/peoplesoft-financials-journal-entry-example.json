@@ -1,0 +1,20 @@
+{
+  "BUSINESS_UNIT": "US001",
+  "JOURNAL_ID": "0000012345",
+  "JOURNAL_DATE": "2026-04-17",
+  "LEDGER": "ACTUALS",
+  "DESCR": "Monthly accrual entry",
+  "JRNL_HDR_STATUS": "V",
+  "CURRENCY_CD": "USD",
+  "FISCAL_YEAR": 2026,
+  "ACCOUNTING_PERIOD": 4,
+  "LINES": [
+    {
+      "JOURNAL_LINE": 1,
+      "ACCOUNT": "510000",
+      "DEPTID": "10200",
+      "MONETARY_AMOUNT": 5000.0,
+      "LINE_DESCR": "Office supplies"
+    }
+  ]
+}

@@ -24,7 +24,23 @@ See [apis.yml](apis.yml) for the complete API inventory.
 
 ### OpenAPI
 
-21 OpenAPI specifications in [openapi/](openapi/) covering platform services, HCM, financial, supply chain, and campus solutions APIs.
+21 OpenAPI specifications in [openapi/](openapi/) covering platform services, HCM, financial, supply chain, and campus solutions APIs. Key modules enriched with component schemas built from PeopleSoft domain knowledge.
+
+### JSON Schema
+
+8 standalone JSON Schema files in [json-schema/](json-schema/) covering Employee, Position, JournalEntry, Voucher, Student, ClassEnrollment, PurchaseOrder, and Case records.
+
+### JSON Structure
+
+8 JSON Structure files in [json-structure/](json-structure/).
+
+### JSON-LD
+
+- [PeopleSoft Context](json-ld/peoplesoft-context.jsonld) — 8 types, 77 properties
+
+### Examples
+
+8 realistic example JSON files in [examples/](examples/).
 
 ## Features
 

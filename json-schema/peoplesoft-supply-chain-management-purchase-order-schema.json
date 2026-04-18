@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/json-schema/peoplesoft-supply-chain-management-purchase-order-schema.json",
+  "title": "PurchaseOrder",
+  "description": "PeopleSoft purchasing purchase order.",
+  "type": "object",
+  "properties": {
+    "BUSINESS_UNIT": {
+      "type": "string",
+      "description": "Business unit.",
+      "example": "US001"
+    },
+    "PO_ID": {
+      "type": "string",
+      "description": "Purchase order ID.",
+      "example": "PO0012345"
+    },
+    "VENDOR_ID": {
+      "type": "string",
+      "description": "Vendor ID.",
+      "example": "VND001234"
+    },
+    "PO_DT": {
+      "type": "string",
+      "format": "date",
+      "description": "PO date.",
+      "example": "2026-04-17"
+    },
+    "PO_STATUS": {
+      "type": "string",
+      "description": "PO status.",
+      "enum": [
+        "O",
+        "A",
+        "C",
+        "D",
+        "X",
+        "PX"
+      ],
+      "example": "A"
+    },
+    "CURRENCY_CD": {
+      "type": "string",
+      "description": "Currency.",
+      "example": "USD"
+    },
+    "BUYER_ID": {
+      "type": "string",
+      "description": "Buyer ID.",
+      "example": "BYR001"
+    },
+    "SHIP_TO_LOCATION": {
+      "type": "string",
+      "description": "Ship-to location.",
+      "example": "WH001"
+    },
+    "LINES": {
+      "type": "array",
+      "description": "PO lines.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "LINE_NBR": {
+            "type": "integer",
+            "description": "Line number.",
+            "example": 1
+          },
+          "INV_ITEM_ID": {
+            "type": "string",
+            "description": "Item ID.",
+            "example": "ITEM001234"
+          },
+          "DESCR": {
+            "type": "string",
+            "description": "Description.",
+            "example": "Office Chair - Ergonomic"
+          },
+          "QTY_PO": {
+            "type": "number",
+            "description": "Quantity.",
+            "example": 25
+          },
+          "PRICE_PO": {
+            "type": "number",
+            "description": "Unit price.",
+            "example": 450.0
+          },
+          "UNIT_OF_MEASURE": {
+            "type": "string",
+            "description": "UOM.",
+            "example": "EA"
+          }
+        }
+      }
+    }
+  },
+  "x-schema-source": "domain-knowledge"
+}
