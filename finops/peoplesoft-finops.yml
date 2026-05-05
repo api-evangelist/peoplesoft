@@ -1,0 +1,403 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: PeopleSoft
+providerId: peoplesoft
+publisherName: PeopleSoft
+serviceCategory: API
+created: '2026-05-04'
+modified: '2026-05-04'
+tags:
+  - Campus Solutions
+  - CRM
+  - Enterprise Software
+  - ERP
+  - Financial Management
+  - HCM
+  - Supply Chain Management
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: FinOps framework definition for the PeopleSoft API surface. Provides a FOCUS-aligned mapping
+  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+principles:
+  - name: Visibility
+    description: Make API consumption costs visible to engineering, product, and finance teams in near
+      real-time.
+  - name: Allocation
+    description: Tag every chargeable API call with the consuming team, environment, application, and
+      feature so cost can be allocated.
+  - name: Optimization
+    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
+      cost per useful unit of work.
+  - name: Accountability
+    description: Establish budget owners and chargeback or showback flows for each consuming team.
+domains:
+  - name: Understand Usage and Cost
+    capabilities:
+      - Data Ingestion
+      - Allocation
+      - Reporting and Analytics
+      - Anomaly Management
+  - name: Quantify Business Value
+    capabilities:
+      - Planning and Estimating
+      - Forecasting
+      - Budgeting
+      - Benchmarking
+      - Unit Economics
+  - name: Optimize Usage and Cost
+    capabilities:
+      - Architecting for Cloud
+      - Rate Optimization
+      - Workload Optimization
+      - Cloud Sustainability
+      - Licensing and SaaS
+  - name: Manage the FinOps Practice
+    capabilities:
+      - FinOps Practice Operations
+      - FinOps Education and Enablement
+      - Invoicing and Chargeback
+      - Onboarding Workloads
+      - Intersecting Disciplines
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  chargeFrequency: Recurring
+focusColumns:
+  ServiceName: PeopleSoft
+  ServiceCategory: Developer Tools / API
+  ProviderName: PeopleSoft
+  PublisherName: PeopleSoft
+  InvoiceIssuerName: PeopleSoft
+  PricingCategory: Usage-Based
+  PricingUnit: request
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: api_requests
+    description: Count of billable API requests
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api
+      - endpoint
+      - tier
+      - region
+      - consumer
+  - name: data_egress
+    description: Bytes returned over the network in API responses
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - api
+      - region
+      - consumer
+  - name: compute_seconds
+    description: Server-side compute consumed by the request, where applicable
+    unit: second
+    aggregation: sum
+    dimensions:
+      - api
+      - endpoint
+      - tier
+apis:
+  - name: PeopleSoft REST API
+    baseURL: https://{hostname}:{port}/psft/api/v1
+    tags:
+      - Integration
+      - REST
+      - Web Services
+    serviceName: PeopleSoft REST API
+    serviceCategory: API
+  - name: PeopleSoft Application Services Framework API
+    baseURL: https://{hostname}:{port}/psft/asf/v1
+    tags:
+      - Integration
+      - Modern
+      - OpenAPI
+      - REST
+    serviceName: PeopleSoft Application Services Framework API
+    serviceCategory: API
+  - name: PeopleSoft Integration Broker
+    baseURL: https://{hostname}:{port}/PSIGW/RESTListeningConnector
+    tags:
+      - Integration
+      - Messaging
+      - REST
+      - SOAP
+    serviceName: PeopleSoft Integration Broker
+    serviceCategory: API
+  - name: PeopleSoft Query API
+    baseURL: https://{hostname}:{port}/psft/api/query/v1
+    tags:
+      - Data Access
+      - QAS
+      - Query
+      - Reporting
+    serviceName: PeopleSoft Query API
+    serviceCategory: API
+  - name: PeopleSoft Component Interface API
+    baseURL: https://{hostname}:{port}/psft/api/componentinterface/v1
+    tags:
+      - Component Interface
+      - CRUD Operations
+      - Data Access
+    serviceName: PeopleSoft Component Interface API
+    serviceCategory: API
+  - name: PeopleSoft Search Framework API
+    baseURL: https://{hostname}:{port}/psft/api/search/v1
+    tags:
+      - Analytics
+      - Insights
+      - OpenSearch
+      - Search
+    serviceName: PeopleSoft Search Framework API
+    serviceCategory: API
+  - name: PeopleSoft Data Distribution Framework API
+    baseURL: https://{hostname}:{port}/psft/api/ddf/v1
+    tags:
+      - Analytics
+      - Data Distribution
+      - Data Extraction
+      - Machine Learning
+    serviceName: PeopleSoft Data Distribution Framework API
+    serviceCategory: API
+  - name: PeopleSoft Notification Framework API
+    baseURL: https://{hostname}:{port}/psft/api/notifications/v1
+    tags:
+      - Events
+      - Messaging
+      - Notifications
+      - Push Notifications
+    serviceName: PeopleSoft Notification Framework API
+    serviceCategory: API
+  - name: PeopleSoft Chatbot Integration Framework API
+    baseURL: https://{hostname}:{port}/psft/api/chatbot/v1
+    tags:
+      - Chatbot
+      - Conversational AI
+      - Digital Assistant
+      - PICASO
+    serviceName: PeopleSoft Chatbot Integration Framework API
+    serviceCategory: API
+  - name: PeopleSoft Approval Workflow Engine API
+    baseURL: https://{hostname}:{port}/psft/api/approvals/v1
+    tags:
+      - Approvals
+      - AWE
+      - Workflow
+    serviceName: PeopleSoft Approval Workflow Engine API
+    serviceCategory: API
+  - name: PeopleSoft Process Scheduler API
+    baseURL: https://{hostname}:{port}/psft/api/scheduler/v1
+    tags:
+      - Batch Processing
+      - Process Monitor
+      - Scheduling
+    serviceName: PeopleSoft Process Scheduler API
+    serviceCategory: API
+  - name: PeopleSoft Cloud Manager API
+    baseURL: https://{hostname}:{port}/psft/api/cloudmgr/v1
+    tags:
+      - Cloud
+      - Deployment
+      - OCI
+      - Provisioning
+    serviceName: PeopleSoft Cloud Manager API
+    serviceCategory: API
+  - name: PeopleSoft Update Manager API
+    baseURL: https://{hostname}:{port}/psft/api/pum/v1
+    tags:
+      - Lifecycle Management
+      - Patching
+      - Updates
+    serviceName: PeopleSoft Update Manager API
+    serviceCategory: API
+  - name: PeopleSoft Pivot Grid API
+    baseURL: https://{hostname}:{port}/psft/api/pivotgrid/v1
+    tags:
+      - Analytics
+      - Dashboards
+      - Pivot Grid
+      - Reporting
+    serviceName: PeopleSoft Pivot Grid API
+    serviceCategory: API
+  - name: PeopleSoft HCM API
+    baseURL: https://{hostname}:{port}/psft/api/hcm/v1
+    tags:
+      - Benefits
+      - HCM
+      - HR
+      - Payroll
+    serviceName: PeopleSoft HCM API
+    serviceCategory: API
+  - name: PeopleSoft Employee Directory API
+    baseURL: https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+    tags:
+      - Employee Directory
+      - HCM
+      - Workforce Data
+    serviceName: PeopleSoft Employee Directory API
+    serviceCategory: API
+  - name: PeopleSoft Absence Management API
+    baseURL: https://{hostname}:{port}/psft/api/hcm/absence/v1
+    tags:
+      - Absence Management
+      - HCM
+      - Leave
+      - Time Off
+    serviceName: PeopleSoft Absence Management API
+    serviceCategory: API
+  - name: PeopleSoft Recruiting and Talent Management API
+    baseURL: https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+    tags:
+      - Candidate Gateway
+      - Job Search
+      - Recruiting
+      - Talent Management
+    serviceName: PeopleSoft Recruiting and Talent Management API
+    serviceCategory: API
+  - name: PeopleSoft Payroll for North America API
+    baseURL: https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+    tags:
+      - Compensation
+      - HCM
+      - North America
+      - Payroll
+    serviceName: PeopleSoft Payroll for North America API
+    serviceCategory: API
+  - name: PeopleSoft Global Payroll API
+    baseURL: https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+    tags:
+      - Global Payroll
+      - HCM
+      - International
+      - Payroll
+    serviceName: PeopleSoft Global Payroll API
+    serviceCategory: API
+  - name: PeopleSoft HR Common Utility Services API
+    baseURL: https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+    tags:
+      - Employee Data
+      - HCM
+      - Utilities
+    serviceName: PeopleSoft HR Common Utility Services API
+    serviceCategory: API
+  - name: PeopleSoft Financials API
+    baseURL: https://{hostname}:{port}/psft/api/financials/v1
+    tags:
+      - AP
+      - AR
+      - Expenses
+      - Financials
+      - General Ledger
+    serviceName: PeopleSoft Financials API
+    serviceCategory: API
+  - name: PeopleSoft Expenses API
+    baseURL: https://{hostname}:{port}/psft/api/fscm/expenses/v1
+    tags:
+      - Expense Reports
+      - Expenses
+      - Financials
+      - Travel
+    serviceName: PeopleSoft Expenses API
+    serviceCategory: API
+  - name: PeopleSoft eSettlements API
+    baseURL: https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+    tags:
+      - eSettlements
+      - Financials
+      - Invoices
+      - Payments
+    serviceName: PeopleSoft eSettlements API
+    serviceCategory: API
+  - name: PeopleSoft Supply Chain Management API
+    baseURL: https://{hostname}:{port}/psft/api/scm/v1
+    tags:
+      - Inventory
+      - Logistics
+      - Order Fulfillment
+      - Procurement
+      - Supply Chain
+    serviceName: PeopleSoft Supply Chain Management API
+    serviceCategory: API
+  - name: PeopleSoft eProcurement API
+    baseURL: https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+    tags:
+      - eProcurement
+      - Purchasing
+      - Requisitions
+      - Supply Chain
+    serviceName: PeopleSoft eProcurement API
+    serviceCategory: API
+  - name: PeopleSoft Supplier Portal API
+    baseURL: https://{hostname}:{port}/psft/api/fscm/scp/v1
+    tags:
+      - Sourcing
+      - Supplier Collaboration
+      - Supplier Portal
+      - Supply Chain
+    serviceName: PeopleSoft Supplier Portal API
+    serviceCategory: API
+  - name: PeopleSoft CRM API
+    baseURL: https://{hostname}:{port}/psft/api/crm/v1
+    tags:
+      - Case Management
+      - CRM
+      - Customer Data
+      - Marketing
+      - Sales
+    serviceName: PeopleSoft CRM API
+    serviceCategory: API
+  - name: PeopleSoft Campus Solutions API
+    baseURL: https://{hostname}:{port}/psft/api/campus/v1
+    tags:
+      - Admissions
+      - Campus Solutions
+      - Education
+      - Financial Aid
+      - Student Records
+    serviceName: PeopleSoft Campus Solutions API
+    serviceCategory: API
+  - name: PeopleSoft Enterprise Performance Management API
+    baseURL: https://{hostname}:{port}/psft/api/epm/v1
+    tags:
+      - Analytics
+      - Budgeting
+      - EPM
+      - Forecasting
+      - Planning
+    serviceName: PeopleSoft Enterprise Performance Management API
+    serviceCategory: API
+  - name: PeopleSoft Interaction Hub API
+    baseURL: https://{hostname}:{port}/psft/api/hub/v1
+    tags:
+      - Branding
+      - Content Management
+      - Interaction Hub
+      - Portal
+    serviceName: PeopleSoft Interaction Hub API
+    serviceCategory: API
+unitEconomics:
+  - name: Cost per 1K Requests
+    metric: billed_cost / (api_requests / 1000)
+    target: TBD
+  - name: Cost per Active Consumer
+    metric: billed_cost / active_consumers
+    target: TBD
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

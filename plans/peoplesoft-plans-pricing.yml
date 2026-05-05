@@ -1,0 +1,427 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: PeopleSoft
+providerId: peoplesoft
+created: '2026-05-04'
+modified: '2026-05-04'
+tags:
+  - Campus Solutions
+  - CRM
+  - Enterprise Software
+  - ERP
+  - Financial Management
+  - HCM
+  - Supply Chain Management
+description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
+  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+plans:
+  - id: peoplesoft-free
+    name: Free
+    type: freemium
+    description: Free entry tier for the PeopleSoft API surface. Intended for evaluation, prototyping,
+      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
+      plan documentation.
+    entries:
+      - label: API Requests
+        description: Monthly API request quota across all included endpoints
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 1000
+        timeFrame: month
+        geo: global
+        domains:
+          - https://{hostname}:{port}/psft/api/v1
+          - https://{hostname}:{port}/psft/asf/v1
+          - https://{hostname}:{port}/PSIGW/RESTListeningConnector
+          - https://{hostname}:{port}/psft/api/query/v1
+          - https://{hostname}:{port}/psft/api/componentinterface/v1
+          - https://{hostname}:{port}/psft/api/search/v1
+          - https://{hostname}:{port}/psft/api/ddf/v1
+          - https://{hostname}:{port}/psft/api/notifications/v1
+          - https://{hostname}:{port}/psft/api/chatbot/v1
+          - https://{hostname}:{port}/psft/api/approvals/v1
+          - https://{hostname}:{port}/psft/api/scheduler/v1
+          - https://{hostname}:{port}/psft/api/cloudmgr/v1
+          - https://{hostname}:{port}/psft/api/pum/v1
+          - https://{hostname}:{port}/psft/api/pivotgrid/v1
+          - https://{hostname}:{port}/psft/api/hcm/v1
+          - https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+          - https://{hostname}:{port}/psft/api/hcm/absence/v1
+          - https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+          - https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+          - https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+          - https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+          - https://{hostname}:{port}/psft/api/financials/v1
+          - https://{hostname}:{port}/psft/api/fscm/expenses/v1
+          - https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+          - https://{hostname}:{port}/psft/api/scm/v1
+          - https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+          - https://{hostname}:{port}/psft/api/fscm/scp/v1
+          - https://{hostname}:{port}/psft/api/crm/v1
+          - https://{hostname}:{port}/psft/api/campus/v1
+          - https://{hostname}:{port}/psft/api/epm/v1
+          - https://{hostname}:{port}/psft/api/hub/v1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per minute on the free tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 10
+        timeFrame: minute
+        geo: global
+        domains:
+          - https://{hostname}:{port}/psft/api/v1
+          - https://{hostname}:{port}/psft/asf/v1
+          - https://{hostname}:{port}/PSIGW/RESTListeningConnector
+          - https://{hostname}:{port}/psft/api/query/v1
+          - https://{hostname}:{port}/psft/api/componentinterface/v1
+          - https://{hostname}:{port}/psft/api/search/v1
+          - https://{hostname}:{port}/psft/api/ddf/v1
+          - https://{hostname}:{port}/psft/api/notifications/v1
+          - https://{hostname}:{port}/psft/api/chatbot/v1
+          - https://{hostname}:{port}/psft/api/approvals/v1
+          - https://{hostname}:{port}/psft/api/scheduler/v1
+          - https://{hostname}:{port}/psft/api/cloudmgr/v1
+          - https://{hostname}:{port}/psft/api/pum/v1
+          - https://{hostname}:{port}/psft/api/pivotgrid/v1
+          - https://{hostname}:{port}/psft/api/hcm/v1
+          - https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+          - https://{hostname}:{port}/psft/api/hcm/absence/v1
+          - https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+          - https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+          - https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+          - https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+          - https://{hostname}:{port}/psft/api/financials/v1
+          - https://{hostname}:{port}/psft/api/fscm/expenses/v1
+          - https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+          - https://{hostname}:{port}/psft/api/scm/v1
+          - https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+          - https://{hostname}:{port}/psft/api/fscm/scp/v1
+          - https://{hostname}:{port}/psft/api/crm/v1
+          - https://{hostname}:{port}/psft/api/campus/v1
+          - https://{hostname}:{port}/psft/api/epm/v1
+          - https://{hostname}:{port}/psft/api/hub/v1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Public Documentation
+      - name: Community Support
+      - name: Sandbox Access
+      - name: PeopleSoft REST API
+      - name: PeopleSoft Application Services Framework API
+      - name: PeopleSoft Integration Broker
+      - name: PeopleSoft Query API
+      - name: PeopleSoft Component Interface API
+      - name: PeopleSoft Search Framework API
+      - name: PeopleSoft Data Distribution Framework API
+      - name: PeopleSoft Notification Framework API
+  - id: peoplesoft-pro
+    name: Professional
+    type: paid
+    description: Production tier for PeopleSoft. Provides higher quotas, priority support, and access
+      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
+    entries:
+      - label: API Requests
+        description: Monthly API request quota
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 100000
+        timeFrame: month
+        geo: global
+        domains:
+          - https://{hostname}:{port}/psft/api/v1
+          - https://{hostname}:{port}/psft/asf/v1
+          - https://{hostname}:{port}/PSIGW/RESTListeningConnector
+          - https://{hostname}:{port}/psft/api/query/v1
+          - https://{hostname}:{port}/psft/api/componentinterface/v1
+          - https://{hostname}:{port}/psft/api/search/v1
+          - https://{hostname}:{port}/psft/api/ddf/v1
+          - https://{hostname}:{port}/psft/api/notifications/v1
+          - https://{hostname}:{port}/psft/api/chatbot/v1
+          - https://{hostname}:{port}/psft/api/approvals/v1
+          - https://{hostname}:{port}/psft/api/scheduler/v1
+          - https://{hostname}:{port}/psft/api/cloudmgr/v1
+          - https://{hostname}:{port}/psft/api/pum/v1
+          - https://{hostname}:{port}/psft/api/pivotgrid/v1
+          - https://{hostname}:{port}/psft/api/hcm/v1
+          - https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+          - https://{hostname}:{port}/psft/api/hcm/absence/v1
+          - https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+          - https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+          - https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+          - https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+          - https://{hostname}:{port}/psft/api/financials/v1
+          - https://{hostname}:{port}/psft/api/fscm/expenses/v1
+          - https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+          - https://{hostname}:{port}/psft/api/scm/v1
+          - https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+          - https://{hostname}:{port}/psft/api/fscm/scp/v1
+          - https://{hostname}:{port}/psft/api/crm/v1
+          - https://{hostname}:{port}/psft/api/campus/v1
+          - https://{hostname}:{port}/psft/api/epm/v1
+          - https://{hostname}:{port}/psft/api/hub/v1
+        unit: 1
+        price: TBD
+        userMultiplied: false
+      - label: Rate Limit
+        description: Maximum requests per minute on the professional tier
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 100
+        timeFrame: minute
+        geo: global
+        domains:
+          - https://{hostname}:{port}/psft/api/v1
+          - https://{hostname}:{port}/psft/asf/v1
+          - https://{hostname}:{port}/PSIGW/RESTListeningConnector
+          - https://{hostname}:{port}/psft/api/query/v1
+          - https://{hostname}:{port}/psft/api/componentinterface/v1
+          - https://{hostname}:{port}/psft/api/search/v1
+          - https://{hostname}:{port}/psft/api/ddf/v1
+          - https://{hostname}:{port}/psft/api/notifications/v1
+          - https://{hostname}:{port}/psft/api/chatbot/v1
+          - https://{hostname}:{port}/psft/api/approvals/v1
+          - https://{hostname}:{port}/psft/api/scheduler/v1
+          - https://{hostname}:{port}/psft/api/cloudmgr/v1
+          - https://{hostname}:{port}/psft/api/pum/v1
+          - https://{hostname}:{port}/psft/api/pivotgrid/v1
+          - https://{hostname}:{port}/psft/api/hcm/v1
+          - https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+          - https://{hostname}:{port}/psft/api/hcm/absence/v1
+          - https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+          - https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+          - https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+          - https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+          - https://{hostname}:{port}/psft/api/financials/v1
+          - https://{hostname}:{port}/psft/api/fscm/expenses/v1
+          - https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+          - https://{hostname}:{port}/psft/api/scm/v1
+          - https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+          - https://{hostname}:{port}/psft/api/fscm/scp/v1
+          - https://{hostname}:{port}/psft/api/crm/v1
+          - https://{hostname}:{port}/psft/api/campus/v1
+          - https://{hostname}:{port}/psft/api/epm/v1
+          - https://{hostname}:{port}/psft/api/hub/v1
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Overage
+        description: Per-request price after monthly quota is exceeded
+        name: overage
+        type: metered
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://{hostname}:{port}/psft/api/v1
+          - https://{hostname}:{port}/psft/asf/v1
+          - https://{hostname}:{port}/PSIGW/RESTListeningConnector
+          - https://{hostname}:{port}/psft/api/query/v1
+          - https://{hostname}:{port}/psft/api/componentinterface/v1
+          - https://{hostname}:{port}/psft/api/search/v1
+          - https://{hostname}:{port}/psft/api/ddf/v1
+          - https://{hostname}:{port}/psft/api/notifications/v1
+          - https://{hostname}:{port}/psft/api/chatbot/v1
+          - https://{hostname}:{port}/psft/api/approvals/v1
+          - https://{hostname}:{port}/psft/api/scheduler/v1
+          - https://{hostname}:{port}/psft/api/cloudmgr/v1
+          - https://{hostname}:{port}/psft/api/pum/v1
+          - https://{hostname}:{port}/psft/api/pivotgrid/v1
+          - https://{hostname}:{port}/psft/api/hcm/v1
+          - https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+          - https://{hostname}:{port}/psft/api/hcm/absence/v1
+          - https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+          - https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+          - https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+          - https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+          - https://{hostname}:{port}/psft/api/financials/v1
+          - https://{hostname}:{port}/psft/api/fscm/expenses/v1
+          - https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+          - https://{hostname}:{port}/psft/api/scm/v1
+          - https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+          - https://{hostname}:{port}/psft/api/fscm/scp/v1
+          - https://{hostname}:{port}/psft/api/crm/v1
+          - https://{hostname}:{port}/psft/api/campus/v1
+          - https://{hostname}:{port}/psft/api/epm/v1
+          - https://{hostname}:{port}/psft/api/hub/v1
+        unit: 1000
+        price: TBD
+        userMultiplied: false
+    elements:
+      - name: All Production Endpoints
+      - name: Email Support
+      - name: SLA Targets
+      - name: Webhook Subscriptions
+      - name: PeopleSoft REST API
+      - name: PeopleSoft Application Services Framework API
+      - name: PeopleSoft Integration Broker
+      - name: PeopleSoft Query API
+      - name: PeopleSoft Component Interface API
+      - name: PeopleSoft Search Framework API
+      - name: PeopleSoft Data Distribution Framework API
+      - name: PeopleSoft Notification Framework API
+      - name: PeopleSoft Chatbot Integration Framework API
+      - name: PeopleSoft Approval Workflow Engine API
+      - name: PeopleSoft Process Scheduler API
+      - name: PeopleSoft Cloud Manager API
+      - name: PeopleSoft Update Manager API
+      - name: PeopleSoft Pivot Grid API
+      - name: PeopleSoft HCM API
+      - name: PeopleSoft Employee Directory API
+      - name: PeopleSoft Absence Management API
+      - name: PeopleSoft Recruiting and Talent Management API
+      - name: PeopleSoft Payroll for North America API
+      - name: PeopleSoft Global Payroll API
+      - name: PeopleSoft HR Common Utility Services API
+      - name: PeopleSoft Financials API
+      - name: PeopleSoft Expenses API
+      - name: PeopleSoft eSettlements API
+      - name: PeopleSoft Supply Chain Management API
+      - name: PeopleSoft eProcurement API
+      - name: PeopleSoft Supplier Portal API
+      - name: PeopleSoft CRM API
+      - name: PeopleSoft Campus Solutions API
+      - name: PeopleSoft Enterprise Performance Management API
+      - name: PeopleSoft Interaction Hub API
+  - id: peoplesoft-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom-negotiated tier for PeopleSoft. Includes dedicated capacity, contractual SLAs,
+      security review, data residency options, and named technical account management.
+    entries:
+      - label: API Requests
+        description: Negotiated request volume; -1 indicates uncapped subject to fair use
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: configurable
+        domains:
+          - https://{hostname}:{port}/psft/api/v1
+          - https://{hostname}:{port}/psft/asf/v1
+          - https://{hostname}:{port}/PSIGW/RESTListeningConnector
+          - https://{hostname}:{port}/psft/api/query/v1
+          - https://{hostname}:{port}/psft/api/componentinterface/v1
+          - https://{hostname}:{port}/psft/api/search/v1
+          - https://{hostname}:{port}/psft/api/ddf/v1
+          - https://{hostname}:{port}/psft/api/notifications/v1
+          - https://{hostname}:{port}/psft/api/chatbot/v1
+          - https://{hostname}:{port}/psft/api/approvals/v1
+          - https://{hostname}:{port}/psft/api/scheduler/v1
+          - https://{hostname}:{port}/psft/api/cloudmgr/v1
+          - https://{hostname}:{port}/psft/api/pum/v1
+          - https://{hostname}:{port}/psft/api/pivotgrid/v1
+          - https://{hostname}:{port}/psft/api/hcm/v1
+          - https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+          - https://{hostname}:{port}/psft/api/hcm/absence/v1
+          - https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+          - https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+          - https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+          - https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+          - https://{hostname}:{port}/psft/api/financials/v1
+          - https://{hostname}:{port}/psft/api/fscm/expenses/v1
+          - https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+          - https://{hostname}:{port}/psft/api/scm/v1
+          - https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+          - https://{hostname}:{port}/psft/api/fscm/scp/v1
+          - https://{hostname}:{port}/psft/api/crm/v1
+          - https://{hostname}:{port}/psft/api/campus/v1
+          - https://{hostname}:{port}/psft/api/epm/v1
+          - https://{hostname}:{port}/psft/api/hub/v1
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Rate Limit
+        description: Negotiated burst and steady-state rate
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: configurable
+        domains:
+          - https://{hostname}:{port}/psft/api/v1
+          - https://{hostname}:{port}/psft/asf/v1
+          - https://{hostname}:{port}/PSIGW/RESTListeningConnector
+          - https://{hostname}:{port}/psft/api/query/v1
+          - https://{hostname}:{port}/psft/api/componentinterface/v1
+          - https://{hostname}:{port}/psft/api/search/v1
+          - https://{hostname}:{port}/psft/api/ddf/v1
+          - https://{hostname}:{port}/psft/api/notifications/v1
+          - https://{hostname}:{port}/psft/api/chatbot/v1
+          - https://{hostname}:{port}/psft/api/approvals/v1
+          - https://{hostname}:{port}/psft/api/scheduler/v1
+          - https://{hostname}:{port}/psft/api/cloudmgr/v1
+          - https://{hostname}:{port}/psft/api/pum/v1
+          - https://{hostname}:{port}/psft/api/pivotgrid/v1
+          - https://{hostname}:{port}/psft/api/hcm/v1
+          - https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
+          - https://{hostname}:{port}/psft/api/hcm/absence/v1
+          - https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+          - https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
+          - https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
+          - https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
+          - https://{hostname}:{port}/psft/api/financials/v1
+          - https://{hostname}:{port}/psft/api/fscm/expenses/v1
+          - https://{hostname}:{port}/psft/api/fscm/esettlements/v1
+          - https://{hostname}:{port}/psft/api/scm/v1
+          - https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
+          - https://{hostname}:{port}/psft/api/fscm/scp/v1
+          - https://{hostname}:{port}/psft/api/crm/v1
+          - https://{hostname}:{port}/psft/api/campus/v1
+          - https://{hostname}:{port}/psft/api/epm/v1
+          - https://{hostname}:{port}/psft/api/hub/v1
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Unlimited / Negotiated Volume
+      - name: 24/7 Dedicated Support
+      - name: Contractual SLA
+      - name: Security & Compliance Review
+      - name: Dedicated Account Manager
+      - name: Custom Data Residency
+      - name: PeopleSoft REST API
+      - name: PeopleSoft Application Services Framework API
+      - name: PeopleSoft Integration Broker
+      - name: PeopleSoft Query API
+      - name: PeopleSoft Component Interface API
+      - name: PeopleSoft Search Framework API
+      - name: PeopleSoft Data Distribution Framework API
+      - name: PeopleSoft Notification Framework API
+      - name: PeopleSoft Chatbot Integration Framework API
+      - name: PeopleSoft Approval Workflow Engine API
+      - name: PeopleSoft Process Scheduler API
+      - name: PeopleSoft Cloud Manager API
+      - name: PeopleSoft Update Manager API
+      - name: PeopleSoft Pivot Grid API
+      - name: PeopleSoft HCM API
+      - name: PeopleSoft Employee Directory API
+      - name: PeopleSoft Absence Management API
+      - name: PeopleSoft Recruiting and Talent Management API
+      - name: PeopleSoft Payroll for North America API
+      - name: PeopleSoft Global Payroll API
+      - name: PeopleSoft HR Common Utility Services API
+      - name: PeopleSoft Financials API
+      - name: PeopleSoft Expenses API
+      - name: PeopleSoft eSettlements API
+      - name: PeopleSoft Supply Chain Management API
+      - name: PeopleSoft eProcurement API
+      - name: PeopleSoft Supplier Portal API
+      - name: PeopleSoft CRM API
+      - name: PeopleSoft Campus Solutions API
+      - name: PeopleSoft Enterprise Performance Management API
+      - name: PeopleSoft Interaction Hub API
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
