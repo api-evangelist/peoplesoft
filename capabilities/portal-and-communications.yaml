@@ -1,194 +1,307 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "PeopleSoft Portal And Communications"
-  description: "Unified workflow for content managers combining portal content management, branding, chatbot integration, and notification services across PeopleSoft Interaction Hub, Chatbot Integration, and Notification Framework APIs."
+  label: PeopleSoft Portal And Communications
+  description: Unified workflow for content managers combining portal content management, branding, chatbot integration, and
+    notification services across PeopleSoft Interaction Hub, Chatbot Integration, and Notification Framework APIs.
   tags:
-    - PeopleSoft
-    - Portal
-    - Content Management
-    - Communications
-    - Notifications
-    - Chatbot
-  created: "2026-04-18"
-  modified: "2026-04-18"
-
+  - PeopleSoft
+  - Portal
+  - Content Management
+  - Communications
+  - Notifications
+  - Chatbot
+  created: '2026-04-18'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
-      PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
-
+- namespace: env
+  keys:
+    PEOPLESOFT_USERNAME: PEOPLESOFT_USERNAME
+    PEOPLESOFT_PASSWORD: PEOPLESOFT_PASSWORD
 capability:
   consumes:
-    - import: interaction-hub
-      location: ./shared/interaction-hub.yaml
-    - import: notification-framework
-      location: ./shared/notification-framework.yaml
-    - import: chatbot
-      location: ./shared/chatbot-integration.yaml
-
+  - type: http
+    namespace: interaction-hub
+    baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/hub/v1
+    description: PeopleSoft Interaction Hub API
+    authentication:
+      type: basic
+      username: '{{PEOPLESOFT_USERNAME}}'
+      password: '{{PEOPLESOFT_PASSWORD}}'
+    resources:
+    - name: content
+      path: /content
+      description: Content management operations
+      operations:
+      - name: list-content
+        method: GET
+        description: Retrieve portal content items.
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          required: false
+          description: Content category filter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-content
+        method: POST
+        description: Create a new portal content item.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            title: '{{tools.title}}'
+            body: '{{tools.body}}'
+            category: '{{tools.category}}'
+    - name: branding
+      path: /branding
+      description: Branding and theme operations
+      operations:
+      - name: list-themes
+        method: GET
+        description: Retrieve available branding themes.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  - type: http
+    namespace: notification-framework
+    baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/notifications/v1
+    description: PeopleSoft Notification Framework API
+    authentication:
+      type: basic
+      username: '{{PEOPLESOFT_USERNAME}}'
+      password: '{{PEOPLESOFT_PASSWORD}}'
+    resources:
+    - name: notifications
+      path: /notifications
+      description: Notification management operations
+      operations:
+      - name: list-notifications
+        method: GET
+        description: Retrieve a list of notifications for the current user.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: send-notification
+        method: POST
+        description: Send a notification via email, text, or in-app channels.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            channel: '{{tools.channel}}'
+            recipients: '{{tools.recipients}}'
+            message: '{{tools.message}}'
+  - type: http
+    namespace: chatbot
+    baseUri: https://${PEOPLESOFT_HOST}:${PEOPLESOFT_PORT}/psft/api/chatbot/v1
+    description: PeopleSoft Chatbot Integration Framework API
+    authentication:
+      type: basic
+      username: '{{PEOPLESOFT_USERNAME}}'
+      password: '{{PEOPLESOFT_PASSWORD}}'
+    resources:
+    - name: intents
+      path: /
+      description: Chatbot integration operations
+      operations:
+      - name: list-intents
+        method: GET
+        description: Retrieve available chatbot intents and their configurations.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: fulfill-intent
+        method: POST
+        description: Process a chatbot intent fulfillment request from Oracle Digital Assistant.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            intent: '{{tools.intent}}'
+            parameters: '{{tools.parameters}}'
+            userId: '{{tools.userId}}'
   exposes:
-    - type: rest
-      port: 8087
-      namespace: portal-api
-      description: "Unified REST API for PeopleSoft portal and communications workflows."
-      resources:
-        - path: /v1/content
-          name: content
-          description: "Portal content items"
-          operations:
-            - method: GET
-              name: list-content
-              description: "Retrieve portal content items."
-              call: "interaction-hub.list-content"
-              with:
-                category: "rest.category"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: create-content
-              description: "Create a new portal content item."
-              call: "interaction-hub.create-content"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/themes
-          name: themes
-          description: "Branding themes"
-          operations:
-            - method: GET
-              name: list-themes
-              description: "Retrieve available branding themes."
-              call: "interaction-hub.list-themes"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/notifications
-          name: notifications
-          description: "Notification management"
-          operations:
-            - method: GET
-              name: list-notifications
-              description: "Retrieve notifications for the current user."
-              call: "notification-framework.list-notifications"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-            - method: POST
-              name: send-notification
-              description: "Send a notification via email, text, or in-app channels."
-              call: "notification-framework.send-notification"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/intents
-          name: intents
-          description: "Chatbot intents"
-          operations:
-            - method: GET
-              name: list-intents
-              description: "Retrieve available chatbot intents."
-              call: "chatbot.list-intents"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/intent-fulfillments
-          name: fulfillments
-          description: "Chatbot intent fulfillments"
-          operations:
-            - method: POST
-              name: fulfill-intent
-              description: "Process a chatbot intent fulfillment request."
-              call: "chatbot.fulfill-intent"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9097
-      namespace: portal-mcp
-      transport: http
-      description: "MCP server for AI-assisted PeopleSoft portal and communications workflows."
-      tools:
-        - name: list-content
-          description: "Retrieve portal content items."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "interaction-hub.list-content"
-          with:
-            category: "tools.category"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: create-content
-          description: "Create a new portal content item."
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "interaction-hub.create-content"
-          with:
-            title: "tools.title"
-            body: "tools.body"
-            category: "tools.category"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-themes
-          description: "Retrieve available branding themes."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "interaction-hub.list-themes"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-notifications
-          description: "Retrieve notifications for the current user."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "notification-framework.list-notifications"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: send-notification
-          description: "Send a notification via email, text, or in-app channels."
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "notification-framework.send-notification"
-          with:
-            channel: "tools.channel"
-            recipients: "tools.recipients"
-            message: "tools.message"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-intents
-          description: "Retrieve available chatbot intents."
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "chatbot.list-intents"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: fulfill-intent
-          description: "Process a chatbot intent fulfillment request."
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "chatbot.fulfill-intent"
-          with:
-            intent: "tools.intent"
-            parameters: "tools.parameters"
-            userId: "tools.userId"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8087
+    namespace: portal-api
+    description: Unified REST API for PeopleSoft portal and communications workflows.
+    resources:
+    - path: /v1/content
+      name: content
+      description: Portal content items
+      operations:
+      - method: GET
+        name: list-content
+        description: Retrieve portal content items.
+        call: interaction-hub.list-content
+        with:
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-content
+        description: Create a new portal content item.
+        call: interaction-hub.create-content
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/themes
+      name: themes
+      description: Branding themes
+      operations:
+      - method: GET
+        name: list-themes
+        description: Retrieve available branding themes.
+        call: interaction-hub.list-themes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/notifications
+      name: notifications
+      description: Notification management
+      operations:
+      - method: GET
+        name: list-notifications
+        description: Retrieve notifications for the current user.
+        call: notification-framework.list-notifications
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: send-notification
+        description: Send a notification via email, text, or in-app channels.
+        call: notification-framework.send-notification
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/intents
+      name: intents
+      description: Chatbot intents
+      operations:
+      - method: GET
+        name: list-intents
+        description: Retrieve available chatbot intents.
+        call: chatbot.list-intents
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/intent-fulfillments
+      name: fulfillments
+      description: Chatbot intent fulfillments
+      operations:
+      - method: POST
+        name: fulfill-intent
+        description: Process a chatbot intent fulfillment request.
+        call: chatbot.fulfill-intent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9097
+    namespace: portal-mcp
+    transport: http
+    description: MCP server for AI-assisted PeopleSoft portal and communications workflows.
+    tools:
+    - name: list-content
+      description: Retrieve portal content items.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: interaction-hub.list-content
+      with:
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-content
+      description: Create a new portal content item.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: interaction-hub.create-content
+      with:
+        title: tools.title
+        body: tools.body
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-themes
+      description: Retrieve available branding themes.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: interaction-hub.list-themes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-notifications
+      description: Retrieve notifications for the current user.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: notification-framework.list-notifications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: send-notification
+      description: Send a notification via email, text, or in-app channels.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: notification-framework.send-notification
+      with:
+        channel: tools.channel
+        recipients: tools.recipients
+        message: tools.message
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-intents
+      description: Retrieve available chatbot intents.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: chatbot.list-intents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: fulfill-intent
+      description: Process a chatbot intent fulfillment request.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: chatbot.fulfill-intent
+      with:
+        intent: tools.intent
+        parameters: tools.parameters
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
