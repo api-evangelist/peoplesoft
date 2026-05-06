@@ -4,238 +4,40 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: PeopleSoft
 providerId: peoplesoft
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+notes: No vendor-published rate limit numbers. PeopleSoft is typically deployed on customer-controlled
+  Oracle infrastructure (on-prem or OCI), so API throughput is bounded by application server,
+  Integration Broker, and database sizing rather than a vendor-imposed quota.
 tags:
-  - Campus Solutions
-  - CRM
-  - Enterprise Software
-  - ERP
-  - Financial Management
-  - HCM
-  - Supply Chain Management
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the PeopleSoft API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - ERP
+  - HCM
+  - Enterprise Software
+description: PeopleSoft API throughput (REST, Integration Broker, Component Interfaces) is
+  governed by the customer's PeopleTools deployment topology — application server domains,
+  IB queue tuning, and database capacity — not a vendor-side rate limit.
+sources:
+  - https://docs.oracle.com/en/applications/peoplesoft/index.html
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - PeopleSoft REST API
-      - PeopleSoft Application Services Framework API
-      - PeopleSoft Integration Broker
-      - PeopleSoft Query API
-      - PeopleSoft Component Interface API
-      - PeopleSoft Search Framework API
-      - PeopleSoft Data Distribution Framework API
-      - PeopleSoft Notification Framework API
-      - PeopleSoft Chatbot Integration Framework API
-      - PeopleSoft Approval Workflow Engine API
-      - PeopleSoft Process Scheduler API
-      - PeopleSoft Cloud Manager API
-      - PeopleSoft Update Manager API
-      - PeopleSoft Pivot Grid API
-      - PeopleSoft HCM API
-      - PeopleSoft Employee Directory API
-      - PeopleSoft Absence Management API
-      - PeopleSoft Recruiting and Talent Management API
-      - PeopleSoft Payroll for North America API
-      - PeopleSoft Global Payroll API
-      - PeopleSoft HR Common Utility Services API
-      - PeopleSoft Financials API
-      - PeopleSoft Expenses API
-      - PeopleSoft eSettlements API
-      - PeopleSoft Supply Chain Management API
-      - PeopleSoft eProcurement API
-      - PeopleSoft Supplier Portal API
-      - PeopleSoft CRM API
-      - PeopleSoft Campus Solutions API
-      - PeopleSoft Enterprise Performance Management API
-      - PeopleSoft Interaction Hub API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - PeopleSoft REST API
-      - PeopleSoft Application Services Framework API
-      - PeopleSoft Integration Broker
-      - PeopleSoft Query API
-      - PeopleSoft Component Interface API
-      - PeopleSoft Search Framework API
-      - PeopleSoft Data Distribution Framework API
-      - PeopleSoft Notification Framework API
-      - PeopleSoft Chatbot Integration Framework API
-      - PeopleSoft Approval Workflow Engine API
-      - PeopleSoft Process Scheduler API
-      - PeopleSoft Cloud Manager API
-      - PeopleSoft Update Manager API
-      - PeopleSoft Pivot Grid API
-      - PeopleSoft HCM API
-      - PeopleSoft Employee Directory API
-      - PeopleSoft Absence Management API
-      - PeopleSoft Recruiting and Talent Management API
-      - PeopleSoft Payroll for North America API
-      - PeopleSoft Global Payroll API
-      - PeopleSoft HR Common Utility Services API
-      - PeopleSoft Financials API
-      - PeopleSoft Expenses API
-      - PeopleSoft eSettlements API
-      - PeopleSoft Supply Chain Management API
-      - PeopleSoft eProcurement API
-      - PeopleSoft Supplier Portal API
-      - PeopleSoft CRM API
-      - PeopleSoft Campus Solutions API
-      - PeopleSoft Enterprise Performance Management API
-      - PeopleSoft Interaction Hub API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - PeopleSoft REST API
-      - PeopleSoft Application Services Framework API
-      - PeopleSoft Integration Broker
-      - PeopleSoft Query API
-      - PeopleSoft Component Interface API
-      - PeopleSoft Search Framework API
-      - PeopleSoft Data Distribution Framework API
-      - PeopleSoft Notification Framework API
-      - PeopleSoft Chatbot Integration Framework API
-      - PeopleSoft Approval Workflow Engine API
-      - PeopleSoft Process Scheduler API
-      - PeopleSoft Cloud Manager API
-      - PeopleSoft Update Manager API
-      - PeopleSoft Pivot Grid API
-      - PeopleSoft HCM API
-      - PeopleSoft Employee Directory API
-      - PeopleSoft Absence Management API
-      - PeopleSoft Recruiting and Talent Management API
-      - PeopleSoft Payroll for North America API
-      - PeopleSoft Global Payroll API
-      - PeopleSoft HR Common Utility Services API
-      - PeopleSoft Financials API
-      - PeopleSoft Expenses API
-      - PeopleSoft eSettlements API
-      - PeopleSoft Supply Chain Management API
-      - PeopleSoft eProcurement API
-      - PeopleSoft Supplier Portal API
-      - PeopleSoft CRM API
-      - PeopleSoft Campus Solutions API
-      - PeopleSoft Enterprise Performance Management API
-      - PeopleSoft Interaction Hub API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - PeopleSoft REST API
-      - PeopleSoft Application Services Framework API
-      - PeopleSoft Integration Broker
-      - PeopleSoft Query API
-      - PeopleSoft Component Interface API
-      - PeopleSoft Search Framework API
-      - PeopleSoft Data Distribution Framework API
-      - PeopleSoft Notification Framework API
-      - PeopleSoft Chatbot Integration Framework API
-      - PeopleSoft Approval Workflow Engine API
-      - PeopleSoft Process Scheduler API
-      - PeopleSoft Cloud Manager API
-      - PeopleSoft Update Manager API
-      - PeopleSoft Pivot Grid API
-      - PeopleSoft HCM API
-      - PeopleSoft Employee Directory API
-      - PeopleSoft Absence Management API
-      - PeopleSoft Recruiting and Talent Management API
-      - PeopleSoft Payroll for North America API
-      - PeopleSoft Global Payroll API
-      - PeopleSoft HR Common Utility Services API
-      - PeopleSoft Financials API
-      - PeopleSoft Expenses API
-      - PeopleSoft eSettlements API
-      - PeopleSoft Supply Chain Management API
-      - PeopleSoft eProcurement API
-      - PeopleSoft Supplier Portal API
-      - PeopleSoft CRM API
-      - PeopleSoft Campus Solutions API
-      - PeopleSoft Enterprise Performance Management API
-      - PeopleSoft Interaction Hub API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - PeopleSoft REST API
-      - PeopleSoft Application Services Framework API
-      - PeopleSoft Integration Broker
-      - PeopleSoft Query API
-      - PeopleSoft Component Interface API
-      - PeopleSoft Search Framework API
-      - PeopleSoft Data Distribution Framework API
-      - PeopleSoft Notification Framework API
-      - PeopleSoft Chatbot Integration Framework API
-      - PeopleSoft Approval Workflow Engine API
-      - PeopleSoft Process Scheduler API
-      - PeopleSoft Cloud Manager API
-      - PeopleSoft Update Manager API
-      - PeopleSoft Pivot Grid API
-      - PeopleSoft HCM API
-      - PeopleSoft Employee Directory API
-      - PeopleSoft Absence Management API
-      - PeopleSoft Recruiting and Talent Management API
-      - PeopleSoft Payroll for North America API
-      - PeopleSoft Global Payroll API
-      - PeopleSoft HR Common Utility Services API
-      - PeopleSoft Financials API
-      - PeopleSoft Expenses API
-      - PeopleSoft eSettlements API
-      - PeopleSoft Supply Chain Management API
-      - PeopleSoft eProcurement API
-      - PeopleSoft Supplier Portal API
-      - PeopleSoft CRM API
-      - PeopleSoft Campus Solutions API
-      - PeopleSoft Enterprise Performance Management API
-      - PeopleSoft Interaction Hub API
+  - name: PeopleTools REST / IB
+    scope: deployment
+    metric: varies
+    limit: bounded by customer PeopleTools application server and Integration Broker capacity
+    notes: Rate is determined by domain configuration (PSAPPSRV, PSPUBHND, PSSUBHND), IB
+      queue tuning, and database throughput.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Customer-Operated Throttling
+    description: Throttling and retry behavior are managed in the customer's API gateway
+      / Integration Broker configuration, not by the vendor.
+  - name: Backoff
+    description: Standard exponential backoff with jitter is recommended on any 5xx or 429
+      response.
+  - name: PeopleTools Tuning
+    description: Capacity is tuned via Integration Broker queue partitioning, application
+      server thread counts, and database connection pools.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
