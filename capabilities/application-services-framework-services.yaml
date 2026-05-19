@@ -1,0 +1,122 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Application Services Framework API — Services
+  description: 'PeopleSoft Application Services Framework API — Services. 2 operations. Lead operation: PeopleSoft Get Service
+    Resource. Self-contained Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Services
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: application-services-framework-services
+    baseUri: https://{hostname}:{port}/psft/asf/v1
+    description: PeopleSoft Application Services Framework API — Services business capability. Self-contained, no shared references.
+    resources:
+    - name: serviceName
+      path: /{serviceName}
+      operations:
+      - name: getserviceresource
+        method: GET
+        description: PeopleSoft Get Service Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: serviceName
+          in: path
+          type: string
+          description: The ASF service name
+          required: true
+      - name: createserviceresource
+        method: POST
+        description: PeopleSoft Create Service Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: serviceName
+          in: path
+          type: string
+          description: The ASF service name
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.PEOPLESOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: application-services-framework-services-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Application Services Framework API — Services. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/{servicename}
+      name: servicename
+      description: REST surface for serviceName.
+      operations:
+      - method: GET
+        name: getserviceresource
+        description: PeopleSoft Get Service Resource
+        call: application-services-framework-services.getserviceresource
+        with:
+          serviceName: rest.serviceName
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createserviceresource
+        description: PeopleSoft Create Service Resource
+        call: application-services-framework-services.createserviceresource
+        with:
+          serviceName: rest.serviceName
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: application-services-framework-services-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Application Services Framework API — Services. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: peoplesoft-get-service-resource
+      description: PeopleSoft Get Service Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: application-services-framework-services.getserviceresource
+      with:
+        serviceName: tools.serviceName
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-create-service-resource
+      description: PeopleSoft Create Service Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: application-services-framework-services.createserviceresource
+      with:
+        serviceName: tools.serviceName
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

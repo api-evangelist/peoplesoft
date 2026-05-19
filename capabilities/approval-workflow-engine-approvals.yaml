@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Approval Workflow Engine API — Approvals
+  description: 'PeopleSoft Approval Workflow Engine API — Approvals. 2 operations. Lead operation: PeopleSoft List Pending
+    Approvals. Self-contained Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Approvals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: approval-workflow-engine-approvals
+    baseUri: https://{hostname}:{port}/psft/api/approvals/v1
+    description: PeopleSoft Approval Workflow Engine API — Approvals business capability. Self-contained, no shared references.
+    resources:
+    - name: approvals
+      path: /approvals
+      operations:
+      - name: listpendingapprovals
+        method: GET
+        description: PeopleSoft List Pending Approvals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: approvals-approvalId
+      path: /approvals/{approvalId}
+      operations:
+      - name: processapproval
+        method: PUT
+        description: PeopleSoft Process Approval
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: approvalId
+          in: path
+          type: string
+          description: The approval request identifier
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: approval-workflow-engine-approvals-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Approval Workflow Engine API — Approvals. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/approvals
+      name: approvals
+      description: REST surface for approvals.
+      operations:
+      - method: GET
+        name: listpendingapprovals
+        description: PeopleSoft List Pending Approvals
+        call: approval-workflow-engine-approvals.listpendingapprovals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/approvals/{approvalid}
+      name: approvals-approvalid
+      description: REST surface for approvals-approvalId.
+      operations:
+      - method: PUT
+        name: processapproval
+        description: PeopleSoft Process Approval
+        call: approval-workflow-engine-approvals.processapproval
+        with:
+          approvalId: rest.approvalId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: approval-workflow-engine-approvals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Approval Workflow Engine API — Approvals. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-pending-approvals
+      description: PeopleSoft List Pending Approvals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: approval-workflow-engine-approvals.listpendingapprovals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-process-approval
+      description: PeopleSoft Process Approval
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: approval-workflow-engine-approvals.processapproval
+      with:
+        approvalId: tools.approvalId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

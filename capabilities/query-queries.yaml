@@ -1,0 +1,131 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Query API — Queries
+  description: 'PeopleSoft Query API — Queries. 2 operations. Lead operation: PeopleSoft List Queries. Self-contained Naftiko
+    capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Queries
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: query-queries
+    baseUri: https://{hostname}:{port}/psft/api/query/v1
+    description: PeopleSoft Query API — Queries business capability. Self-contained, no shared references.
+    resources:
+    - name: queries
+      path: /queries
+      operations:
+      - name: listqueries
+        method: GET
+        description: PeopleSoft List Queries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: queries-queryName
+      path: /queries/{queryName}
+      operations:
+      - name: executequery
+        method: GET
+        description: PeopleSoft Execute Query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: queryName
+          in: path
+          type: string
+          description: The PeopleSoft Query name
+          required: true
+        - name: isConnectedQuery
+          in: query
+          type: boolean
+          description: Whether this is a Connected Query
+        - name: maxRows
+          in: query
+          type: integer
+          description: Maximum number of rows to return
+        - name: offset
+          in: query
+          type: integer
+          description: Row offset for pagination
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: query-queries-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Query API — Queries. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/queries
+      name: queries
+      description: REST surface for queries.
+      operations:
+      - method: GET
+        name: listqueries
+        description: PeopleSoft List Queries
+        call: query-queries.listqueries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queries/{queryname}
+      name: queries-queryname
+      description: REST surface for queries-queryName.
+      operations:
+      - method: GET
+        name: executequery
+        description: PeopleSoft Execute Query
+        call: query-queries.executequery
+        with:
+          queryName: rest.queryName
+          isConnectedQuery: rest.isConnectedQuery
+          maxRows: rest.maxRows
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: query-queries-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Query API — Queries. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: peoplesoft-list-queries
+      description: PeopleSoft List Queries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: query-queries.listqueries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-execute-query
+      description: PeopleSoft Execute Query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: query-queries.executequery
+      with:
+        queryName: tools.queryName
+        isConnectedQuery: tools.isConnectedQuery
+        maxRows: tools.maxRows
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.

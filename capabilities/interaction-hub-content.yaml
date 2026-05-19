@@ -1,0 +1,115 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Interaction Hub API — Content
+  description: 'PeopleSoft Interaction Hub API — Content. 2 operations. Lead operation: PeopleSoft List Content. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Content
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: interaction-hub-content
+    baseUri: https://{hostname}:{port}/psft/api/hub/v1
+    description: PeopleSoft Interaction Hub API — Content business capability. Self-contained, no shared references.
+    resources:
+    - name: content
+      path: /content
+      operations:
+      - name: listcontent
+        method: GET
+        description: PeopleSoft List Content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: category
+          in: query
+          type: string
+          description: Content category filter
+      - name: createcontent
+        method: POST
+        description: PeopleSoft Create Content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: interaction-hub-content-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Interaction Hub API — Content. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/content
+      name: content
+      description: REST surface for content.
+      operations:
+      - method: GET
+        name: listcontent
+        description: PeopleSoft List Content
+        call: interaction-hub-content.listcontent
+        with:
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcontent
+        description: PeopleSoft Create Content
+        call: interaction-hub-content.createcontent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: interaction-hub-content-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Interaction Hub API — Content. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-content
+      description: PeopleSoft List Content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: interaction-hub-content.listcontent
+      with:
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-create-content
+      description: PeopleSoft Create Content
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: interaction-hub-content.createcontent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

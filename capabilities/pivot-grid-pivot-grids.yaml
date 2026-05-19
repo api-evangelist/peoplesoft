@@ -1,0 +1,119 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Pivot Grid API — Pivot Grids
+  description: 'PeopleSoft Pivot Grid API — Pivot Grids. 2 operations. Lead operation: PeopleSoft List Pivot Grids. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Pivot Grids
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pivot-grid-pivot-grids
+    baseUri: https://{hostname}:{port}/psft/api/pivotgrid/v1
+    description: PeopleSoft Pivot Grid API — Pivot Grids business capability. Self-contained, no shared references.
+    resources:
+    - name: grids
+      path: /grids
+      operations:
+      - name: listpivotgrids
+        method: GET
+        description: PeopleSoft List Pivot Grids
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: grids-gridId-data
+      path: /grids/{gridId}/data
+      operations:
+      - name: getpivotgriddata
+        method: GET
+        description: PeopleSoft Get Pivot Grid Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: gridId
+          in: path
+          type: string
+          description: The pivot grid identifier
+          required: true
+        - name: filters
+          in: query
+          type: string
+          description: JSON-encoded filter criteria
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: pivot-grid-pivot-grids-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Pivot Grid API — Pivot Grids. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/grids
+      name: grids
+      description: REST surface for grids.
+      operations:
+      - method: GET
+        name: listpivotgrids
+        description: PeopleSoft List Pivot Grids
+        call: pivot-grid-pivot-grids.listpivotgrids
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/grids/{gridid}/data
+      name: grids-gridid-data
+      description: REST surface for grids-gridId-data.
+      operations:
+      - method: GET
+        name: getpivotgriddata
+        description: PeopleSoft Get Pivot Grid Data
+        call: pivot-grid-pivot-grids.getpivotgriddata
+        with:
+          gridId: rest.gridId
+          filters: rest.filters
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pivot-grid-pivot-grids-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Pivot Grid API — Pivot Grids. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-pivot-grids
+      description: PeopleSoft List Pivot Grids
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pivot-grid-pivot-grids.listpivotgrids
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-get-pivot-grid-data
+      description: PeopleSoft Get Pivot Grid Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pivot-grid-pivot-grids.getpivotgriddata
+      with:
+        gridId: tools.gridId
+        filters: tools.filters
+      outputParameters:
+      - type: object
+        mapping: $.

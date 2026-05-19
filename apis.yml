@@ -679,6 +679,8 @@ apis:
     url: https://support.oracle.com
   aid: peoplesoft:interaction-hub-api
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/peoplesoft-inc
 - type: Portal
   url: https://www.oracle.com/applications/peoplesoft/
 - type: Documentation

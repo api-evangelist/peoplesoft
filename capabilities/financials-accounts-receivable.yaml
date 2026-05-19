@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Financials API — Accounts Receivable
+  description: 'PeopleSoft Financials API — Accounts Receivable. 1 operations. Lead operation: PeopleSoft List AR Items. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Accounts Receivable
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: financials-accounts-receivable
+    baseUri: https://{hostname}:{port}/psft/api/financials/v1
+    description: PeopleSoft Financials API — Accounts Receivable business capability. Self-contained, no shared references.
+    resources:
+    - name: ar-items
+      path: /ar/items
+      operations:
+      - name: listaritems
+        method: GET
+        description: PeopleSoft List AR Items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: financials-accounts-receivable-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Financials API — Accounts Receivable. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/ar/items
+      name: ar-items
+      description: REST surface for ar-items.
+      operations:
+      - method: GET
+        name: listaritems
+        description: PeopleSoft List AR Items
+        call: financials-accounts-receivable.listaritems
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: financials-accounts-receivable-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Financials API — Accounts Receivable. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-ar-items
+      description: PeopleSoft List AR Items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: financials-accounts-receivable.listaritems
+      outputParameters:
+      - type: object
+        mapping: $.

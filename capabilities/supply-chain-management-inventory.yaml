@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Supply Chain Management API — Inventory
+  description: 'PeopleSoft Supply Chain Management API — Inventory. 1 operations. Lead operation: PeopleSoft List Inventory
+    Items. Self-contained Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Inventory
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: supply-chain-management-inventory
+    baseUri: https://{hostname}:{port}/psft/api/scm/v1
+    description: PeopleSoft Supply Chain Management API — Inventory business capability. Self-contained, no shared references.
+    resources:
+    - name: inventory-items
+      path: /inventory/items
+      operations:
+      - name: listinventoryitems
+        method: GET
+        description: PeopleSoft List Inventory Items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: businessUnit
+          in: query
+          type: string
+          description: Business unit filter
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: supply-chain-management-inventory-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Supply Chain Management API — Inventory. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/inventory/items
+      name: inventory-items
+      description: REST surface for inventory-items.
+      operations:
+      - method: GET
+        name: listinventoryitems
+        description: PeopleSoft List Inventory Items
+        call: supply-chain-management-inventory.listinventoryitems
+        with:
+          businessUnit: rest.businessUnit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: supply-chain-management-inventory-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Supply Chain Management API — Inventory. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-inventory-items
+      description: PeopleSoft List Inventory Items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: supply-chain-management-inventory.listinventoryitems
+      with:
+        businessUnit: tools.businessUnit
+      outputParameters:
+      - type: object
+        mapping: $.

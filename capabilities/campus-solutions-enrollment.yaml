@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Campus Solutions API — Enrollment
+  description: 'PeopleSoft Campus Solutions API — Enrollment. 1 operations. Lead operation: PeopleSoft List Classes. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Enrollment
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: campus-solutions-enrollment
+    baseUri: https://{hostname}:{port}/psft/api/campus/v1
+    description: PeopleSoft Campus Solutions API — Enrollment business capability. Self-contained, no shared references.
+    resources:
+    - name: enrollment-classes
+      path: /enrollment/classes
+      operations:
+      - name: listclasses
+        method: GET
+        description: PeopleSoft List Classes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: term
+          in: query
+          type: string
+          description: Academic term
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: campus-solutions-enrollment-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Campus Solutions API — Enrollment. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/enrollment/classes
+      name: enrollment-classes
+      description: REST surface for enrollment-classes.
+      operations:
+      - method: GET
+        name: listclasses
+        description: PeopleSoft List Classes
+        call: campus-solutions-enrollment.listclasses
+        with:
+          term: rest.term
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: campus-solutions-enrollment-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Campus Solutions API — Enrollment. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-classes
+      description: PeopleSoft List Classes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: campus-solutions-enrollment.listclasses
+      with:
+        term: tools.term
+      outputParameters:
+      - type: object
+        mapping: $.

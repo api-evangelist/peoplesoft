@@ -1,0 +1,135 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Search Framework API — Search
+  description: 'PeopleSoft Search Framework API — Search. 2 operations. Lead operation: PeopleSoft Trigger Index Build. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: search-framework-search
+    baseUri: https://{hostname}:{port}/psft/api/search/v1
+    description: PeopleSoft Search Framework API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: index
+      path: /index
+      operations:
+      - name: triggerindexbuild
+        method: POST
+        description: PeopleSoft Trigger Index Build
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: search
+      path: /search
+      operations:
+      - name: searchcontent
+        method: GET
+        description: PeopleSoft Search Content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Search query string
+          required: true
+        - name: category
+          in: query
+          type: string
+          description: Search category to filter results
+        - name: maxResults
+          in: query
+          type: integer
+          description: Maximum number of results to return
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: search-framework-search-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Search Framework API — Search. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/index
+      name: index
+      description: REST surface for index.
+      operations:
+      - method: POST
+        name: triggerindexbuild
+        description: PeopleSoft Trigger Index Build
+        call: search-framework-search.triggerindexbuild
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: searchcontent
+        description: PeopleSoft Search Content
+        call: search-framework-search.searchcontent
+        with:
+          q: rest.q
+          category: rest.category
+          maxResults: rest.maxResults
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: search-framework-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Search Framework API — Search. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: peoplesoft-trigger-index-build
+      description: PeopleSoft Trigger Index Build
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: search-framework-search.triggerindexbuild
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-search-content
+      description: PeopleSoft Search Content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: search-framework-search.searchcontent
+      with:
+        q: tools.q
+        category: tools.category
+        maxResults: tools.maxResults
+      outputParameters:
+      - type: object
+        mapping: $.

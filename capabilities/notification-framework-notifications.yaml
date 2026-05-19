@@ -1,0 +1,106 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Notification Framework API — Notifications
+  description: 'PeopleSoft Notification Framework API — Notifications. 2 operations. Lead operation: PeopleSoft List Notifications.
+    Self-contained Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Notifications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: notification-framework-notifications
+    baseUri: https://{hostname}:{port}/psft/api/notifications/v1
+    description: PeopleSoft Notification Framework API — Notifications business capability. Self-contained, no shared references.
+    resources:
+    - name: notifications
+      path: /notifications
+      operations:
+      - name: listnotifications
+        method: GET
+        description: PeopleSoft List Notifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: sendnotification
+        method: POST
+        description: PeopleSoft Send Notification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: notification-framework-notifications-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Notification Framework API — Notifications. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/notifications
+      name: notifications
+      description: REST surface for notifications.
+      operations:
+      - method: GET
+        name: listnotifications
+        description: PeopleSoft List Notifications
+        call: notification-framework-notifications.listnotifications
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: sendnotification
+        description: PeopleSoft Send Notification
+        call: notification-framework-notifications.sendnotification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: notification-framework-notifications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Notification Framework API — Notifications. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-notifications
+      description: PeopleSoft List Notifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: notification-framework-notifications.listnotifications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-send-notification
+      description: PeopleSoft Send Notification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: notification-framework-notifications.sendnotification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

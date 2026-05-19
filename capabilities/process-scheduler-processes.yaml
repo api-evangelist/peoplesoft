@@ -1,0 +1,157 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Process Scheduler API — Processes
+  description: 'PeopleSoft Process Scheduler API — Processes. 3 operations. Lead operation: PeopleSoft List Processes. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Processes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: process-scheduler-processes
+    baseUri: https://{hostname}:{port}/psft/api/scheduler/v1
+    description: PeopleSoft Process Scheduler API — Processes business capability. Self-contained, no shared references.
+    resources:
+    - name: processes
+      path: /processes
+      operations:
+      - name: listprocesses
+        method: GET
+        description: PeopleSoft List Processes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+          description: Filter by process status
+      - name: submitprocess
+        method: POST
+        description: PeopleSoft Submit Process
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: processes-processInstance
+      path: /processes/{processInstance}
+      operations:
+      - name: getprocessstatus
+        method: GET
+        description: PeopleSoft Get Process Status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: processInstance
+          in: path
+          type: integer
+          description: The process instance number
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: process-scheduler-processes-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Process Scheduler API — Processes. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/processes
+      name: processes
+      description: REST surface for processes.
+      operations:
+      - method: GET
+        name: listprocesses
+        description: PeopleSoft List Processes
+        call: process-scheduler-processes.listprocesses
+        with:
+          status: rest.status
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: submitprocess
+        description: PeopleSoft Submit Process
+        call: process-scheduler-processes.submitprocess
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processes/{processinstance}
+      name: processes-processinstance
+      description: REST surface for processes-processInstance.
+      operations:
+      - method: GET
+        name: getprocessstatus
+        description: PeopleSoft Get Process Status
+        call: process-scheduler-processes.getprocessstatus
+        with:
+          processInstance: rest.processInstance
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: process-scheduler-processes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Process Scheduler API — Processes. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-processes
+      description: PeopleSoft List Processes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: process-scheduler-processes.listprocesses
+      with:
+        status: tools.status
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-submit-process
+      description: PeopleSoft Submit Process
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: process-scheduler-processes.submitprocess
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-get-process-status
+      description: PeopleSoft Get Process Status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: process-scheduler-processes.getprocessstatus
+      with:
+        processInstance: tools.processInstance
+      outputParameters:
+      - type: object
+        mapping: $.

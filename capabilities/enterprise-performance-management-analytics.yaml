@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Enterprise Performance Management API — Analytics
+  description: 'PeopleSoft Enterprise Performance Management API — Analytics. 1 operations. Lead operation: PeopleSoft List
+    Analytics Reports. Self-contained Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Analytics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: enterprise-performance-management-analytics
+    baseUri: https://{hostname}:{port}/psft/api/epm/v1
+    description: PeopleSoft Enterprise Performance Management API — Analytics business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: analytics-reports
+      path: /analytics/reports
+      operations:
+      - name: listanalyticsreports
+        method: GET
+        description: PeopleSoft List Analytics Reports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: enterprise-performance-management-analytics-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Enterprise Performance Management API — Analytics. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/analytics/reports
+      name: analytics-reports
+      description: REST surface for analytics-reports.
+      operations:
+      - method: GET
+        name: listanalyticsreports
+        description: PeopleSoft List Analytics Reports
+        call: enterprise-performance-management-analytics.listanalyticsreports
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: enterprise-performance-management-analytics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Enterprise Performance Management API — Analytics. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-analytics-reports
+      description: PeopleSoft List Analytics Reports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: enterprise-performance-management-analytics.listanalyticsreports
+      outputParameters:
+      - type: object
+        mapping: $.

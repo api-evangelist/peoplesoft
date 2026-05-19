@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Financials API — Accounts Payable
+  description: 'PeopleSoft Financials API — Accounts Payable. 1 operations. Lead operation: PeopleSoft List Vouchers. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Accounts Payable
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: financials-accounts-payable
+    baseUri: https://{hostname}:{port}/psft/api/financials/v1
+    description: PeopleSoft Financials API — Accounts Payable business capability. Self-contained, no shared references.
+    resources:
+    - name: ap-vouchers
+      path: /ap/vouchers
+      operations:
+      - name: listvouchers
+        method: GET
+        description: PeopleSoft List Vouchers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: financials-accounts-payable-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Financials API — Accounts Payable. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/ap/vouchers
+      name: ap-vouchers
+      description: REST surface for ap-vouchers.
+      operations:
+      - method: GET
+        name: listvouchers
+        description: PeopleSoft List Vouchers
+        call: financials-accounts-payable.listvouchers
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: financials-accounts-payable-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Financials API — Accounts Payable. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-vouchers
+      description: PeopleSoft List Vouchers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: financials-accounts-payable.listvouchers
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,122 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft CRM API — Customers
+  description: 'PeopleSoft CRM API — Customers. 2 operations. Lead operation: PeopleSoft List Customers. Self-contained Naftiko
+    capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Customers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: crm-customers
+    baseUri: https://{hostname}:{port}/psft/api/crm/v1
+    description: PeopleSoft CRM API — Customers business capability. Self-contained, no shared references.
+    resources:
+    - name: customers
+      path: /customers
+      operations:
+      - name: listcustomers
+        method: GET
+        description: PeopleSoft List Customers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search
+          in: query
+          type: string
+          description: Search term for customer name or ID
+    - name: customers-customerId
+      path: /customers/{customerId}
+      operations:
+      - name: getcustomer
+        method: GET
+        description: PeopleSoft Get Customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: customerId
+          in: path
+          type: string
+          description: The customer identifier
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: crm-customers-rest
+    port: 8080
+    description: REST adapter for PeopleSoft CRM API — Customers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/customers
+      name: customers
+      description: REST surface for customers.
+      operations:
+      - method: GET
+        name: listcustomers
+        description: PeopleSoft List Customers
+        call: crm-customers.listcustomers
+        with:
+          search: rest.search
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/customers/{customerid}
+      name: customers-customerid
+      description: REST surface for customers-customerId.
+      operations:
+      - method: GET
+        name: getcustomer
+        description: PeopleSoft Get Customer
+        call: crm-customers.getcustomer
+        with:
+          customerId: rest.customerId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: crm-customers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft CRM API — Customers. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: peoplesoft-list-customers
+      description: PeopleSoft List Customers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crm-customers.listcustomers
+      with:
+        search: tools.search
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-get-customer
+      description: PeopleSoft Get Customer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: crm-customers.getcustomer
+      with:
+        customerId: tools.customerId
+      outputParameters:
+      - type: object
+        mapping: $.

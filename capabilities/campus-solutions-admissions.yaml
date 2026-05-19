@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Campus Solutions API — Admissions
+  description: 'PeopleSoft Campus Solutions API — Admissions. 1 operations. Lead operation: PeopleSoft List Admission Applications.
+    Self-contained Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Admissions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: campus-solutions-admissions
+    baseUri: https://{hostname}:{port}/psft/api/campus/v1
+    description: PeopleSoft Campus Solutions API — Admissions business capability. Self-contained, no shared references.
+    resources:
+    - name: admissions-applications
+      path: /admissions/applications
+      operations:
+      - name: listadmissionapplications
+        method: GET
+        description: PeopleSoft List Admission Applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: campus-solutions-admissions-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Campus Solutions API — Admissions. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/admissions/applications
+      name: admissions-applications
+      description: REST surface for admissions-applications.
+      operations:
+      - method: GET
+        name: listadmissionapplications
+        description: PeopleSoft List Admission Applications
+        call: campus-solutions-admissions.listadmissionapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: campus-solutions-admissions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Campus Solutions API — Admissions. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-admission-applications
+      description: PeopleSoft List Admission Applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: campus-solutions-admissions.listadmissionapplications
+      outputParameters:
+      - type: object
+        mapping: $.

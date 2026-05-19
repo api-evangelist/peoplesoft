@@ -1,0 +1,128 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Campus Solutions API — Students
+  description: 'PeopleSoft Campus Solutions API — Students. 2 operations. Lead operation: PeopleSoft List Students. Self-contained
+    Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Students
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: campus-solutions-students
+    baseUri: https://{hostname}:{port}/psft/api/campus/v1
+    description: PeopleSoft Campus Solutions API — Students business capability. Self-contained, no shared references.
+    resources:
+    - name: students
+      path: /students
+      operations:
+      - name: liststudents
+        method: GET
+        description: PeopleSoft List Students
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: term
+          in: query
+          type: string
+          description: Academic term filter
+        - name: program
+          in: query
+          type: string
+          description: Academic program filter
+    - name: students-studentId
+      path: /students/{studentId}
+      operations:
+      - name: getstudent
+        method: GET
+        description: PeopleSoft Get Student
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: studentId
+          in: path
+          type: string
+          description: The student identifier
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: campus-solutions-students-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Campus Solutions API — Students. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/students
+      name: students
+      description: REST surface for students.
+      operations:
+      - method: GET
+        name: liststudents
+        description: PeopleSoft List Students
+        call: campus-solutions-students.liststudents
+        with:
+          term: rest.term
+          program: rest.program
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/students/{studentid}
+      name: students-studentid
+      description: REST surface for students-studentId.
+      operations:
+      - method: GET
+        name: getstudent
+        description: PeopleSoft Get Student
+        call: campus-solutions-students.getstudent
+        with:
+          studentId: rest.studentId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: campus-solutions-students-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Campus Solutions API — Students. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: peoplesoft-list-students
+      description: PeopleSoft List Students
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: campus-solutions-students.liststudents
+      with:
+        term: tools.term
+        program: tools.program
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-get-student
+      description: PeopleSoft Get Student
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: campus-solutions-students.getstudent
+      with:
+        studentId: tools.studentId
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,123 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleSoft Integration Broker — Service Operations
+  description: 'PeopleSoft Integration Broker — Service Operations. 2 operations. Lead operation: PeopleSoft Invoke Service
+    Operation (GET). Self-contained Naftiko capability covering one Peoplesoft business surface.'
+  tags:
+  - Peoplesoft
+  - Service Operations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLESOFT_API_KEY: PEOPLESOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: integration-broker-service-operations
+    baseUri: https://{hostname}:{port}/PSIGW/RESTListeningConnector
+    description: PeopleSoft Integration Broker — Service Operations business capability. Self-contained, no shared references.
+    resources:
+    - name: serviceOperation}.v1
+      path: /{serviceOperation}.v1
+      operations:
+      - name: getserviceoperation
+        method: GET
+        description: PeopleSoft Invoke Service Operation (GET)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: serviceOperation
+          in: path
+          type: string
+          description: The service operation name
+          required: true
+      - name: postserviceoperation
+        method: POST
+        description: PeopleSoft Invoke Service Operation (POST)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: serviceOperation
+          in: path
+          type: string
+          description: The service operation name
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.PEOPLESOFT_USER}}'
+      password: '{{env.PEOPLESOFT_PASS}}'
+  exposes:
+  - type: rest
+    namespace: integration-broker-service-operations-rest
+    port: 8080
+    description: REST adapter for PeopleSoft Integration Broker — Service Operations. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/serviceoperation-v1
+      name: serviceoperation-v1
+      description: REST surface for serviceOperation}.v1.
+      operations:
+      - method: GET
+        name: getserviceoperation
+        description: PeopleSoft Invoke Service Operation (GET)
+        call: integration-broker-service-operations.getserviceoperation
+        with:
+          serviceOperation: rest.serviceOperation
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: postserviceoperation
+        description: PeopleSoft Invoke Service Operation (POST)
+        call: integration-broker-service-operations.postserviceoperation
+        with:
+          serviceOperation: rest.serviceOperation
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: integration-broker-service-operations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleSoft Integration Broker — Service Operations. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: peoplesoft-invoke-service-operation-get
+      description: PeopleSoft Invoke Service Operation (GET)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: integration-broker-service-operations.getserviceoperation
+      with:
+        serviceOperation: tools.serviceOperation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: peoplesoft-invoke-service-operation-post
+      description: PeopleSoft Invoke Service Operation (POST)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: integration-broker-service-operations.postserviceoperation
+      with:
+        serviceOperation: tools.serviceOperation
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
