@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Position",
+  "title": "Position",
+  "type": "object",
+  "description": "PeopleSoft HCM position data.",
+  "properties": {
+    "POSITION_NBR": {
+      "type": "string",
+      "description": "Position number.",
+      "example": "00012345"
+    },
+    "DESCR": {
+      "type": "string",
+      "description": "Position description.",
+      "example": "Senior Software Engineer"
+    },
+    "DEPTID": {
+      "type": "string",
+      "description": "Department ID.",
+      "example": "10200"
+    },
+    "JOBCODE": {
+      "type": "string",
+      "description": "Job code.",
+      "example": "MGR001"
+    },
+    "LOCATION": {
+      "type": "string",
+      "description": "Location code.",
+      "example": "HQ001"
+    },
+    "REPORTS_TO": {
+      "type": "string",
+      "description": "Reports-to position.",
+      "example": "00012340"
+    },
+    "MAX_HEAD_COUNT": {
+      "type": "integer",
+      "description": "Maximum headcount.",
+      "example": 1
+    },
+    "POSN_STATUS": {
+      "type": "string",
+      "description": "Position status.",
+      "enum": [
+        "A",
+        "I",
+        "F"
+      ],
+      "example": "A"
+    },
+    "EFFDT": {
+      "type": "string",
+      "format": "date",
+      "description": "Effective date.",
+      "example": "2024-01-01"
+    }
+  }
+}

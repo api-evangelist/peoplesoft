@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClassEnrollment",
+  "title": "ClassEnrollment",
+  "type": "object",
+  "description": "PeopleSoft class enrollment record.",
+  "properties": {
+    "EMPLID": {
+      "type": "string",
+      "description": "Student ID.",
+      "example": "STU001234"
+    },
+    "CLASS_NBR": {
+      "type": "integer",
+      "description": "Class number.",
+      "example": 10542
+    },
+    "CRSE_ID": {
+      "type": "string",
+      "description": "Course ID.",
+      "example": "CS101"
+    },
+    "SUBJECT": {
+      "type": "string",
+      "description": "Subject area.",
+      "example": "COMPSCI"
+    },
+    "CATALOG_NBR": {
+      "type": "string",
+      "description": "Catalog number.",
+      "example": "101"
+    },
+    "DESCR": {
+      "type": "string",
+      "description": "Course description.",
+      "example": "Introduction to Computer Science"
+    },
+    "UNT_TAKEN": {
+      "type": "number",
+      "description": "Units taken.",
+      "example": 3.0
+    },
+    "GRADE_INPUT": {
+      "type": "string",
+      "description": "Grade.",
+      "example": "A"
+    },
+    "ENRL_STATUS_REASON": {
+      "type": "string",
+      "description": "Enrollment status.",
+      "enum": [
+        "ENRL",
+        "DROP",
+        "WAIT"
+      ],
+      "example": "ENRL"
+    },
+    "STRM": {
+      "type": "string",
+      "description": "Term code.",
+      "example": "2261"
+    }
+  }
+}

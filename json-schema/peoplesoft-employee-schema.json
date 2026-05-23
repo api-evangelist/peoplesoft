@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Employee",
+  "title": "Employee",
+  "type": "object",
+  "description": "PeopleSoft HCM employee personal data record.",
+  "properties": {
+    "EMPLID": {
+      "type": "string",
+      "description": "Employee ID.",
+      "example": "EMP001234"
+    },
+    "NAME": {
+      "type": "string",
+      "description": "Employee full name.",
+      "example": "Jane Smith"
+    },
+    "FIRST_NAME": {
+      "type": "string",
+      "description": "First name.",
+      "example": "Jane"
+    },
+    "LAST_NAME": {
+      "type": "string",
+      "description": "Last name.",
+      "example": "Smith"
+    },
+    "DEPTID": {
+      "type": "string",
+      "description": "Department ID.",
+      "example": "10200"
+    },
+    "JOBCODE": {
+      "type": "string",
+      "description": "Job code.",
+      "example": "MGR001"
+    },
+    "POSITION_NBR": {
+      "type": "string",
+      "description": "Position number.",
+      "example": "00012345"
+    },
+    "LOCATION": {
+      "type": "string",
+      "description": "Work location code.",
+      "example": "HQ001"
+    },
+    "COMPANY": {
+      "type": "string",
+      "description": "Company code.",
+      "example": "CCB"
+    },
+    "BUSINESS_UNIT": {
+      "type": "string",
+      "description": "Business unit.",
+      "example": "US001"
+    },
+    "EMPL_STATUS": {
+      "type": "string",
+      "description": "Employment status.",
+      "enum": [
+        "A",
+        "D",
+        "L",
+        "P",
+        "R",
+        "S",
+        "T",
+        "U",
+        "W",
+        "X"
+      ],
+      "example": "A"
+    },
+    "HR_STATUS": {
+      "type": "string",
+      "description": "HR status.",
+      "enum": [
+        "A",
+        "I",
+        "D"
+      ],
+      "example": "A"
+    },
+    "REG_TEMP": {
+      "type": "string",
+      "description": "Regular or temporary.",
+      "enum": [
+        "R",
+        "T"
+      ],
+      "example": "R"
+    },
+    "FULL_PART_TIME": {
+      "type": "string",
+      "description": "Full or part time.",
+      "enum": [
+        "F",
+        "P"
+      ],
+      "example": "F"
+    },
+    "HIRE_DT": {
+      "type": "string",
+      "format": "date",
+      "description": "Hire date.",
+      "example": "2020-01-15"
+    },
+    "TERMINATION_DT": {
+      "type": "string",
+      "format": "date",
+      "description": "Termination date."
+    },
+    "ANNUAL_RT": {
+      "type": "number",
+      "description": "Annual salary rate.",
+      "example": 85000.0
+    },
+    "CURRENCY_CD": {
+      "type": "string",
+      "description": "Currency code.",
+      "example": "USD"
+    },
+    "EMAIL_ADDR": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address.",
+      "example": "jane.smith@example.com"
+    },
+    "PHONE": {
+      "type": "string",
+      "description": "Phone number.",
+      "example": "555-0123"
+    },
+    "ADDRESS1": {
+      "type": "string",
+      "description": "Street address.",
+      "example": "123 Main St"
+    },
+    "CITY": {
+      "type": "string",
+      "description": "City.",
+      "example": "San Francisco"
+    },
+    "STATE": {
+      "type": "string",
+      "description": "State code.",
+      "example": "CA"
+    },
+    "POSTAL": {
+      "type": "string",
+      "description": "Postal code.",
+      "example": "94105"
+    },
+    "COUNTRY": {
+      "type": "string",
+      "description": "Country code.",
+      "example": "USA"
+    },
+    "SUPERVISOR_ID": {
+      "type": "string",
+      "description": "Supervisor employee ID.",
+      "example": "EMP000567"
+    }
+  }
+}

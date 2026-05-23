@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Student",
+  "title": "Student",
+  "type": "object",
+  "description": "PeopleSoft Campus Solutions student record.",
+  "properties": {
+    "EMPLID": {
+      "type": "string",
+      "description": "Student ID.",
+      "example": "STU001234"
+    },
+    "NAME": {
+      "type": "string",
+      "description": "Student name.",
+      "example": "Alex Johnson"
+    },
+    "ACAD_CAREER": {
+      "type": "string",
+      "description": "Academic career.",
+      "enum": [
+        "UGRD",
+        "GRAD",
+        "LAW",
+        "MED"
+      ],
+      "example": "UGRD"
+    },
+    "ACAD_PROG": {
+      "type": "string",
+      "description": "Academic program.",
+      "example": "BSCS"
+    },
+    "ACAD_PLAN": {
+      "type": "string",
+      "description": "Academic plan/major.",
+      "example": "COMPSCI"
+    },
+    "ADMIT_TERM": {
+      "type": "string",
+      "description": "Admission term.",
+      "example": "2026F"
+    },
+    "ACAD_LEVEL_BOT": {
+      "type": "string",
+      "description": "Academic level.",
+      "enum": [
+        "FR",
+        "SO",
+        "JR",
+        "SR",
+        "GR"
+      ],
+      "example": "JR"
+    },
+    "CUM_GPA": {
+      "type": "number",
+      "description": "Cumulative GPA.",
+      "example": 3.65
+    },
+    "TOT_TAKEN_GPA": {
+      "type": "number",
+      "description": "Total GPA units taken.",
+      "example": 90.0
+    },
+    "INSTITUTION": {
+      "type": "string",
+      "description": "Institution code.",
+      "example": "MYUNV"
+    },
+    "CAMPUS": {
+      "type": "string",
+      "description": "Campus code.",
+      "example": "MAIN"
+    },
+    "STDNT_CAR_NBR": {
+      "type": "integer",
+      "description": "Student career number.",
+      "example": 0
+    },
+    "ACAD_STANDING": {
+      "type": "string",
+      "description": "Academic standing.",
+      "enum": [
+        "GS",
+        "GP",
+        "AP",
+        "DQ"
+      ],
+      "example": "GS"
+    }
+  }
+}

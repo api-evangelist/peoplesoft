@@ -1,0 +1,11 @@
+name: PeopleSoft Domain Vocabulary
+provider: PeopleSoft
+providerId: peoplesoft
+description: Tag-derived vocabulary for the PeopleSoft API surface; sourced from openapi/ tags.
+terms:
+- term: Employees
+  description: Employee data operations
+- term: Benefits
+  description: Benefits administration operations
+- term: Payroll
+  description: Payroll operations

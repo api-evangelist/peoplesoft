@@ -1,0 +1,60 @@
+{
+  "provider": "PeopleSoft",
+  "providerId": "peoplesoft",
+  "kind": "json-structure",
+  "description": "Structural overview of the PeopleSoft API surface; extracted from openapi/.",
+  "schemaCount": 2,
+  "operationCount": 4,
+  "schemas": [
+    {
+      "name": "Employee",
+      "type": "object",
+      "propertyCount": 26,
+      "required": []
+    },
+    {
+      "name": "Position",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/employees",
+      "operationId": "listEmployees",
+      "summary": "PeopleSoft List Employees",
+      "tags": [
+        "Employees"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/employees/{employeeId}",
+      "operationId": "getEmployee",
+      "summary": "PeopleSoft Get Employee",
+      "tags": [
+        "Employees"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/benefits/enrollments",
+      "operationId": "listBenefitEnrollments",
+      "summary": "PeopleSoft List Benefit Enrollments",
+      "tags": [
+        "Benefits"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/payroll/runs",
+      "operationId": "listPayrollRuns",
+      "summary": "PeopleSoft List Payroll Runs",
+      "tags": [
+        "Payroll"
+      ]
+    }
+  ]
+}

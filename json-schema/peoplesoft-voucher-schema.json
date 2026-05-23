@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Voucher",
+  "title": "Voucher",
+  "type": "object",
+  "description": "PeopleSoft AP voucher.",
+  "properties": {
+    "BUSINESS_UNIT": {
+      "type": "string",
+      "description": "Business unit.",
+      "example": "US001"
+    },
+    "VOUCHER_ID": {
+      "type": "string",
+      "description": "Voucher ID.",
+      "example": "00045678"
+    },
+    "VENDOR_ID": {
+      "type": "string",
+      "description": "Vendor ID.",
+      "example": "VND001234"
+    },
+    "INVOICE_ID": {
+      "type": "string",
+      "description": "Invoice number.",
+      "example": "INV-2026-0042"
+    },
+    "INVOICE_DT": {
+      "type": "string",
+      "format": "date",
+      "description": "Invoice date.",
+      "example": "2026-04-15"
+    },
+    "GROSS_AMT": {
+      "type": "number",
+      "description": "Gross amount.",
+      "example": 12500.0
+    },
+    "CURRENCY_CD": {
+      "type": "string",
+      "description": "Currency code.",
+      "example": "USD"
+    },
+    "VCHR_HDR_STATUS": {
+      "type": "string",
+      "description": "Voucher status.",
+      "enum": [
+        "O",
+        "A",
+        "C",
+        "P",
+        "V",
+        "X"
+      ],
+      "example": "A"
+    },
+    "DUE_DT": {
+      "type": "string",
+      "format": "date",
+      "description": "Due date.",
+      "example": "2026-05-15"
+    }
+  }
+}
