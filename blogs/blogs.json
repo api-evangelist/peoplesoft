@@ -2,13 +2,13 @@
   "repo": "peoplesoft",
   "feeds": [
     {
-      "source": "https://blogs.oracle.com/peoplesoft/",
-      "feed_url": "",
+      "source": "https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html",
+      "feed_url": "https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html",
       "title": "",
       "saved": 0,
-      "error": "no_feed"
+      "method": "none"
     }
   ],
-  "fetched": "2026-05-17T20:48:52Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }
