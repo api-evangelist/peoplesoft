@@ -1,0 +1,93 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Financial Period Review
+  summary: Pull general ledger journals for a date range, then gather AP vouchers and AR items for the same period.
+  description: >-
+    A period-close review flow over the PeopleSoft Financials API. It retrieves
+    general ledger journal entries for a business unit and date range, then
+    gathers the accounts payable vouchers and accounts receivable items so a
+    controller has the matching subledger detail for the period under review.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: financialsApi
+  url: ../openapi/financials.yml
+  type: openapi
+workflows:
+- workflowId: financial-period-review
+  summary: Review GL journals alongside AP vouchers and AR items for a period.
+  description: >-
+    Lists GL journal entries for a business unit and date range, then pulls AP
+    vouchers and AR items for the period close review.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - businessUnit
+    - fromDate
+    - toDate
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      businessUnit:
+        type: string
+        description: Business unit to filter journals by (e.g. "US001").
+      fromDate:
+        type: string
+        description: Start date filter (YYYY-MM-DD).
+      toDate:
+        type: string
+        description: End date filter (YYYY-MM-DD).
+  steps:
+  - stepId: listJournals
+    description: >-
+      Retrieve general ledger journal entries for the business unit and date
+      range.
+    operationId: listJournalEntries
+    parameters:
+    - name: businessUnit
+      in: query
+      value: $inputs.businessUnit
+    - name: fromDate
+      in: query
+      value: $inputs.fromDate
+    - name: toDate
+      in: query
+      value: $inputs.toDate
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      journals: $response.body
+  - stepId: listVouchers
+    description: >-
+      Retrieve accounts payable vouchers for the period.
+    operationId: listVouchers
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      vouchers: $response.body
+  - stepId: listARItems
+    description: >-
+      Retrieve accounts receivable items to complete the subledger review.
+    operationId: listARItems
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      arItems: $response.body
+  outputs:
+    journals: $steps.listJournals.outputs.journals
+    vouchers: $steps.listVouchers.outputs.vouchers
+    arItems: $steps.listARItems.outputs.arItems

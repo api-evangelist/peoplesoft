@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Student Enrollment and Aid Review
+  summary: Find a student in a term, pull their record, then review class enrollment and financial aid awards.
+  description: >-
+    An academic advising flow over the PeopleSoft Campus Solutions API. It lists
+    students filtered by academic term and program, selects the first match,
+    retrieves that student's full record, and then pulls class schedule data for
+    the term and the student's financial aid awards so an advisor has a complete
+    enrollment and aid picture. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: campusApi
+  url: ../openapi/campus-solutions.yml
+  type: openapi
+workflows:
+- workflowId: student-enrollment-review
+  summary: Resolve a student then review their classes and financial aid.
+  description: >-
+    Lists students for a term and program, gets the first student's record, and
+    gathers class enrollment and financial aid award data for review.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - term
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      term:
+        type: string
+        description: Academic term to filter students and classes by.
+      program:
+        type: string
+        description: Optional academic program filter.
+  steps:
+  - stepId: findStudents
+    description: >-
+      List students in the supplied term and optional program.
+    operationId: listStudents
+    parameters:
+    - name: term
+      in: query
+      value: $inputs.term
+    - name: program
+      in: query
+      value: $inputs.program
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      students: $response.body#/students
+      firstStudentId: $response.body#/students/0/EMPLID
+  - stepId: getStudentRecord
+    description: >-
+      Retrieve the full record for the first matched student.
+    operationId: getStudent
+    parameters:
+    - name: studentId
+      in: path
+      value: $steps.findStudents.outputs.firstStudentId
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      student: $response.body
+  - stepId: listTermClasses
+    description: >-
+      Retrieve class schedule and enrollment data for the term.
+    operationId: listClasses
+    parameters:
+    - name: term
+      in: query
+      value: $inputs.term
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      classes: $response.body
+  - stepId: listAid
+    description: >-
+      Retrieve financial aid award data to complete the enrollment review.
+    operationId: listFinancialAidAwards
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      awards: $response.body
+  outputs:
+    student: $steps.getStudentRecord.outputs.student
+    classes: $steps.listTermClasses.outputs.classes
+    awards: $steps.listAid.outputs.awards

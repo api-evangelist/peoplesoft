@@ -1,0 +1,94 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Process a Pending Approval
+  summary: List the user's pending approvals and approve, deny, or push back the first one when present.
+  description: >-
+    A workflow over the PeopleSoft Approval Workflow Engine. It retrieves the
+    pending approval requests for the authenticated user, branches on whether
+    any approval is waiting, and when one is present applies the requested
+    action (approve, deny, or push back) to the first pending request with
+    optional comments. Every step spells out its request inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: approvalsApi
+  url: ../openapi/approval-workflow-engine.yml
+  type: openapi
+workflows:
+- workflowId: approval-process
+  summary: Find the first pending approval and act on it.
+  description: >-
+    Lists pending approvals and, when at least one exists, processes the first
+    request with the supplied action and comments.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - action
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      action:
+        type: string
+        description: The action to take on the approval.
+        enum:
+        - approve
+        - deny
+        - pushback
+      comments:
+        type: string
+        description: Optional comments recorded with the approval action.
+  steps:
+  - stepId: listApprovals
+    description: >-
+      Retrieve the pending approval requests for the current user and branch on
+      whether any are waiting.
+    operationId: listPendingApprovals
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      approvals: $response.body#/approvals
+      firstApprovalId: $response.body#/approvals/0/approvalId
+    onSuccess:
+    - name: hasApproval
+      type: goto
+      stepId: processApproval
+      criteria:
+      - context: $response.body
+        condition: $.approvals.length > 0
+        type: jsonpath
+    - name: noApproval
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.approvals.length == 0
+        type: jsonpath
+  - stepId: processApproval
+    description: >-
+      Approve, deny, or push back the first pending approval request with the
+      supplied action and comments.
+    operationId: processApproval
+    parameters:
+    - name: approvalId
+      in: path
+      value: $steps.listApprovals.outputs.firstApprovalId
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        action: $inputs.action
+        comments: $inputs.comments
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      result: $response.body
+  outputs:
+    approvalId: $steps.listApprovals.outputs.firstApprovalId
+    result: $steps.processApproval.outputs.result

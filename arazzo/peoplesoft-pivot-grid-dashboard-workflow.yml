@@ -1,0 +1,70 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Pivot Grid Dashboard Pull
+  summary: List available pivot grid definitions, then retrieve the data for the first grid with optional filters.
+  description: >-
+    An operational analytics flow over the PeopleSoft Pivot Grid API. It lists
+    the available pivot grid definitions, selects the first grid, and retrieves
+    its underlying data with optional JSON-encoded filter criteria so a
+    dashboard can be rendered from live PS Query or component-sourced data.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pivotGridApi
+  url: ../openapi/pivot-grid.yml
+  type: openapi
+workflows:
+- workflowId: pivot-grid-dashboard
+  summary: Discover a pivot grid then pull its data for a dashboard.
+  description: >-
+    Lists pivot grid definitions and retrieves the data for the first grid with
+    optional filter criteria.
+  inputs:
+    type: object
+    required:
+    - authorization
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      filters:
+        type: string
+        description: Optional JSON-encoded filter criteria for the grid data.
+  steps:
+  - stepId: listGrids
+    description: >-
+      Retrieve the available pivot grid definitions and select the first one.
+    operationId: listPivotGrids
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      grids: $response.body#/grids
+      firstGridId: $response.body#/grids/0/gridId
+  - stepId: getGridData
+    description: >-
+      Retrieve the data for the first pivot grid with optional filter criteria
+      applied.
+    operationId: getPivotGridData
+    parameters:
+    - name: gridId
+      in: path
+      value: $steps.listGrids.outputs.firstGridId
+    - name: filters
+      in: query
+      value: $inputs.filters
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      data: $response.body
+  outputs:
+    grids: $steps.listGrids.outputs.grids
+    gridId: $steps.listGrids.outputs.firstGridId
+    data: $steps.getGridData.outputs.data

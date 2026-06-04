@@ -1,0 +1,118 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Find a Customer and Open a Case
+  summary: Search CRM customers, pull the matched customer record, then create a service case for them.
+  description: >-
+    A customer-service flow over the PeopleSoft CRM API. It searches customers
+    by name or ID, branches on whether a customer matched, retrieves the full
+    record for the first match, and opens a new service case linked to that
+    customer. Every step spells out its request inline so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: crmApi
+  url: ../openapi/crm.yml
+  type: openapi
+workflows:
+- workflowId: customer-case
+  summary: Resolve a CRM customer and create a service case for them.
+  description: >-
+    Searches customers, gets the first match's record, and creates a case
+    referencing that customer; ends when no customer matches the search.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - search
+    - caseDescription
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      search:
+        type: string
+        description: Search term for the customer name or ID.
+      caseDescription:
+        type: string
+        description: Short description of the issue for the new case.
+      priority:
+        type: string
+        description: Case priority (1-4).
+        default: '2'
+      category:
+        type: string
+        description: Case category.
+        default: Product Support
+  steps:
+  - stepId: findCustomers
+    description: >-
+      Search CRM customers using the supplied term and branch on whether any
+      customer matched.
+    operationId: listCustomers
+    parameters:
+    - name: search
+      in: query
+      value: $inputs.search
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      customers: $response.body#/customers
+      firstCustomerId: $response.body#/customers/0/CUST_ID
+    onSuccess:
+    - name: hasCustomer
+      type: goto
+      stepId: getCustomerRecord
+      criteria:
+      - context: $response.body
+        condition: $.customers.length > 0
+        type: jsonpath
+    - name: noCustomer
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.customers.length == 0
+        type: jsonpath
+  - stepId: getCustomerRecord
+    description: >-
+      Retrieve the full record for the first matched customer before opening a
+      case.
+    operationId: getCustomer
+    parameters:
+    - name: customerId
+      in: path
+      value: $steps.findCustomers.outputs.firstCustomerId
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      customer: $response.body
+  - stepId: createCase
+    description: >-
+      Open a new service case referencing the matched customer with the supplied
+      description, priority, and category.
+    operationId: createCase
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        CUST_ID: $steps.findCustomers.outputs.firstCustomerId
+        DESCR: $inputs.caseDescription
+        PRIORITY: $inputs.priority
+        CATEGORY: $inputs.category
+        STATUS: Open
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    customerId: $steps.findCustomers.outputs.firstCustomerId
+    customer: $steps.getCustomerRecord.outputs.customer
+    caseStatus: $steps.createCase.outputs.statusCode

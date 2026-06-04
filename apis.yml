@@ -679,6 +679,45 @@ apis:
       url: https://support.oracle.com
     aid: peoplesoft:interaction-hub-api
 common:
+  - type: ArazzoWorkflows
+    url: arazzo/
+    workflows:
+    - url: arazzo/peoplesoft-approval-process-workflow.yml
+      name: PeopleSoft Process a Pending Approval
+      summary: List the user's pending approvals and approve, deny, or push back the first one when present.
+    - url: arazzo/peoplesoft-component-upsert-workflow.yml
+      name: PeopleSoft Component Interface Upsert
+      summary: Read a Component Interface record and branch to update it if it exists, otherwise create it.
+    - url: arazzo/peoplesoft-customer-case-workflow.yml
+      name: PeopleSoft Find a Customer and Open a Case
+      summary: Search CRM customers, pull the matched customer record, then create a service case for them.
+    - url: arazzo/peoplesoft-employee-payroll-review-workflow.yml
+      name: PeopleSoft Employee Payroll and Benefits Review
+      summary: Find an employee in a department, pull their full record, then review payroll runs and benefit enrollments.
+    - url: arazzo/peoplesoft-env-provision-notify-workflow.yml
+      name: PeopleSoft Provision Environment and Notify
+      summary: Pick a provisioning template, provision a Cloud Manager environment, poll until ready, then notify recipients.
+    - url: arazzo/peoplesoft-financial-period-review-workflow.yml
+      name: PeopleSoft Financial Period Review
+      summary: Pull general ledger journals for a date range, then gather AP vouchers and AR items for the same period.
+    - url: arazzo/peoplesoft-pivot-grid-dashboard-workflow.yml
+      name: PeopleSoft Pivot Grid Dashboard Pull
+      summary: List available pivot grid definitions, then retrieve the data for the first grid with optional filters.
+    - url: arazzo/peoplesoft-query-export-workflow.yml
+      name: PeopleSoft List and Execute a Query
+      summary: List available PS Query definitions, confirm the requested query exists, then execute it with paging.
+    - url: arazzo/peoplesoft-recruiting-apply-workflow.yml
+      name: PeopleSoft Search Jobs and Submit Application
+      summary: Search recruiting postings by keyword, pull the matched job details, then submit a candidate application.
+    - url: arazzo/peoplesoft-scheduled-process-poll-workflow.yml
+      name: PeopleSoft Submit Process and Poll to Completion
+      summary: Submit a Process Scheduler request, poll its instance until it finishes, then list the recent process queue.
+    - url: arazzo/peoplesoft-search-reindex-workflow.yml
+      name: PeopleSoft Rebuild Search Index and Verify
+      summary: Trigger a Search Framework index build, then run a full-text search to verify content is searchable.
+    - url: arazzo/peoplesoft-student-enrollment-review-workflow.yml
+      name: PeopleSoft Student Enrollment and Aid Review
+      summary: Find a student in a term, pull their record, then review class enrollment and financial aid awards.
   - type: LinkedIn
     url: https://www.linkedin.com/company/peoplesoft-inc
   - type: Portal

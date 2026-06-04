@@ -1,0 +1,117 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Submit Process and Poll to Completion
+  summary: Submit a Process Scheduler request, poll its instance until it finishes, then list the recent process queue.
+  description: >-
+    A batch-processing flow over the PeopleSoft Process Scheduler API. It
+    submits a new process request, captures the returned process instance,
+    polls the instance status until the run reaches a terminal state, and then
+    lists recent processes filtered by the success status so the result can be
+    confirmed in context. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: schedulerApi
+  url: ../openapi/process-scheduler.yml
+  type: openapi
+workflows:
+- workflowId: scheduled-process-poll
+  summary: Submit a process request and poll its instance until it completes.
+  description: >-
+    Submits a Process Scheduler request, polls the resulting process instance
+    until the run status leaves the running states, and lists succeeded
+    processes for confirmation.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - processName
+    - processType
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      processName:
+        type: string
+        description: The process definition name to run (e.g. "XRFWIN").
+      processType:
+        type: string
+        description: The process type (e.g. "SQR Report", "Application Engine").
+      serverName:
+        type: string
+        description: Optional Process Scheduler server name.
+      runDateTime:
+        type: string
+        description: Optional scheduled run date-time in ISO 8601.
+      parameters:
+        type: object
+        description: Optional run-control parameters passed to the process.
+  steps:
+  - stepId: submitProcess
+    description: >-
+      Submit a new process request for scheduling and capture the assigned
+      process instance number.
+    operationId: submitProcess
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        processName: $inputs.processName
+        processType: $inputs.processType
+        serverName: $inputs.serverName
+        runDateTime: $inputs.runDateTime
+        parameters: $inputs.parameters
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      processInstance: $response.body#/processInstance
+  - stepId: pollStatus
+    description: >-
+      Poll the submitted process instance and retry while the run is still
+      queued, initiated, or processing.
+    operationId: getProcessStatus
+    parameters:
+    - name: processInstance
+      in: path
+      value: $steps.submitProcess.outputs.processInstance
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      runStatus: $response.body#/runStatus
+      processDetails: $response.body
+    onSuccess:
+    - name: stillRunning
+      type: retry
+      stepId: pollStatus
+      retryAfter: 5
+      retryLimit: 20
+      criteria:
+      - context: $response.body
+        condition: $.runStatus == "queued" || $.runStatus == "initiated" || $.runStatus == "processing"
+        type: jsonpath
+  - stepId: listSucceeded
+    description: >-
+      List recent processes filtered to the success status to confirm the run
+      landed in the queue as completed.
+    operationId: listProcesses
+    parameters:
+    - name: status
+      in: query
+      value: success
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      processes: $response.body#/processes
+  outputs:
+    processInstance: $steps.submitProcess.outputs.processInstance
+    finalStatus: $steps.pollStatus.outputs.runStatus
+    succeededProcesses: $steps.listSucceeded.outputs.processes

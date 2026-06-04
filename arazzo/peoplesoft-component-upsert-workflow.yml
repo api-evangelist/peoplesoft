@@ -1,0 +1,111 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Component Interface Upsert
+  summary: Read a Component Interface record and branch to update it if it exists, otherwise create it.
+  description: >-
+    A data-maintenance flow over the PeopleSoft Component Interface API. It
+    reads the current data for a named component interface, then branches: when
+    the read succeeds the record is updated in place, and when the read returns
+    a not-found status a new record is created. This mirrors the common
+    upsert-by-key pattern for PeopleSoft component data. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: componentInterfaceApi
+  url: ../openapi/component-interface.yml
+  type: openapi
+workflows:
+- workflowId: component-upsert
+  summary: Upsert a record through a PeopleSoft component interface.
+  description: >-
+    Reads a component interface record and either updates the existing record
+    or creates a new one based on whether the read found data.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - componentInterface
+    - data
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      componentInterface:
+        type: string
+        description: The component interface name (e.g. "CI_PERSONAL_DATA").
+      data:
+        type: object
+        description: The component data payload to write.
+  steps:
+  - stepId: readComponent
+    description: >-
+      Read the current data for the named component interface and branch on
+      whether the record was found.
+    operationId: getComponentData
+    parameters:
+    - name: componentInterface
+      in: path
+      value: $inputs.componentInterface
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200 || $statusCode == 404
+    outputs:
+      existing: $response.body
+      statusCode: $statusCode
+    onSuccess:
+    - name: recordExists
+      type: goto
+      stepId: updateComponent
+      criteria:
+      - condition: $statusCode == 200
+    - name: recordMissing
+      type: goto
+      stepId: createComponent
+      criteria:
+      - condition: $statusCode == 404
+  - stepId: updateComponent
+    description: >-
+      Update the existing component interface record with the supplied data.
+    operationId: updateComponentData
+    parameters:
+    - name: componentInterface
+      in: path
+      value: $inputs.componentInterface
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload: $inputs.data
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      record: $response.body
+    onSuccess:
+    - name: done
+      type: end
+  - stepId: createComponent
+    description: >-
+      Create a new component interface record using the supplied data when no
+      existing record was found.
+    operationId: createComponentData
+    parameters:
+    - name: componentInterface
+      in: path
+      value: $inputs.componentInterface
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload: $inputs.data
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      record: $response.body
+  outputs:
+    updatedRecord: $steps.updateComponent.outputs.record
+    createdRecord: $steps.createComponent.outputs.record

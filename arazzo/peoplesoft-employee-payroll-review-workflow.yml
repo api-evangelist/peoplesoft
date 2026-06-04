@@ -1,0 +1,86 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Employee Payroll and Benefits Review
+  summary: Find an employee in a department, pull their full record, then review payroll runs and benefit enrollments.
+  description: >-
+    A workforce administration flow over the PeopleSoft HCM API. It lists
+    employees filtered by department and employment status, selects the first
+    match, retrieves that employee's full personal-data record, and then pulls
+    the payroll run history and benefit enrollment records that an HR analyst
+    needs for a periodic compensation and benefits review. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: hcmApi
+  url: ../openapi/hcm.yml
+  type: openapi
+workflows:
+- workflowId: employee-payroll-review
+  summary: Resolve an employee then review their payroll runs and benefit enrollments.
+  description: >-
+    Lists active employees in a department, gets the first employee's record,
+    and gathers payroll runs and benefit enrollments for review.
+  inputs:
+    type: object
+    required:
+    - department
+    properties:
+      department:
+        type: string
+        description: Department code to filter employees by (e.g. "10200").
+      status:
+        type: string
+        description: Employment status filter (active, inactive, terminated, leave).
+        default: active
+  steps:
+  - stepId: findEmployees
+    description: >-
+      List employees in the supplied department filtered to the requested
+      employment status.
+    operationId: listEmployees
+    parameters:
+    - name: department
+      in: query
+      value: $inputs.department
+    - name: status
+      in: query
+      value: $inputs.status
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      employees: $response.body#/employees
+      firstEmployeeId: $response.body#/employees/0/EMPLID
+  - stepId: getEmployeeRecord
+    description: >-
+      Retrieve the full personal-data record for the first matched employee.
+    operationId: getEmployee
+    parameters:
+    - name: employeeId
+      in: path
+      value: $steps.findEmployees.outputs.firstEmployeeId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      employee: $response.body
+  - stepId: listPayroll
+    description: >-
+      Retrieve the payroll run history and status for the review period.
+    operationId: listPayrollRuns
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      payrollRuns: $response.body
+  - stepId: listBenefits
+    description: >-
+      Retrieve benefit enrollment records to round out the compensation review.
+    operationId: listBenefitEnrollments
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enrollments: $response.body
+  outputs:
+    employeeId: $steps.findEmployees.outputs.firstEmployeeId
+    employee: $steps.getEmployeeRecord.outputs.employee
+    payrollRuns: $steps.listPayroll.outputs.payrollRuns
+    enrollments: $steps.listBenefits.outputs.enrollments

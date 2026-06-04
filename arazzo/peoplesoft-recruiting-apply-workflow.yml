@@ -1,0 +1,114 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Search Jobs and Submit Application
+  summary: Search recruiting postings by keyword, pull the matched job details, then submit a candidate application.
+  description: >-
+    A Candidate Gateway self-service flow over the PeopleSoft Recruiting and
+    Talent Management API. It searches open job postings by keyword and
+    location, branches on whether any posting matched, retrieves the full
+    details for the first matching posting, and submits a candidate application
+    against it. Every step spells out its request inline so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: recruitingApi
+  url: ../openapi/recruiting-talent-management.yml
+  type: openapi
+workflows:
+- workflowId: recruiting-apply
+  summary: Find a job posting and submit a candidate application for it.
+  description: >-
+    Searches job postings, gets the details of the first match, and submits an
+    application; ends the flow when no posting matches the search.
+  inputs:
+    type: object
+    required:
+    - keyword
+    - candidateInfo
+    - authorization
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz") for the submit step.
+      keyword:
+        type: string
+        description: Keyword search term for the job posting.
+      location:
+        type: string
+        description: Optional job location filter.
+      department:
+        type: string
+        description: Optional department filter.
+      candidateInfo:
+        type: object
+        description: Candidate profile object submitted with the application.
+  steps:
+  - stepId: searchJobs
+    description: >-
+      Search open job postings using the supplied keyword and optional location
+      and department filters.
+    operationId: searchJobs
+    parameters:
+    - name: keyword
+      in: query
+      value: $inputs.keyword
+    - name: location
+      in: query
+      value: $inputs.location
+    - name: department
+      in: query
+      value: $inputs.department
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobs: $response.body#/jobs
+      firstJobId: $response.body#/jobs/0/jobId
+    onSuccess:
+    - name: jobsFound
+      type: goto
+      stepId: getJob
+      criteria:
+      - context: $response.body
+        condition: $.jobs.length > 0
+        type: jsonpath
+    - name: noJobs
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.jobs.length == 0
+        type: jsonpath
+  - stepId: getJob
+    description: >-
+      Retrieve the full details for the first matched job posting before
+      applying.
+    operationId: getJobDetails
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.searchJobs.outputs.firstJobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobDetails: $response.body
+  - stepId: submitApplication
+    description: >-
+      Submit the candidate application against the matched job posting. Requires
+      basic authentication.
+    operationId: submitApplication
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        jobId: $steps.searchJobs.outputs.firstJobId
+        candidateInfo: $inputs.candidateInfo
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    jobId: $steps.searchJobs.outputs.firstJobId
+    jobDetails: $steps.getJob.outputs.jobDetails
+    applicationStatus: $steps.submitApplication.outputs.statusCode

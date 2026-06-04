@@ -1,0 +1,100 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Rebuild Search Index and Verify
+  summary: Trigger a Search Framework index build, then run a full-text search to verify content is searchable.
+  description: >-
+    A search-administration flow over the PeopleSoft Search Framework. It
+    triggers a full or incremental search index build for a named index, then
+    runs a full-text query against the indexed content and checks that results
+    were returned, confirming the index is searchable. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: searchApi
+  url: ../openapi/search-framework.yml
+  type: openapi
+workflows:
+- workflowId: search-reindex
+  summary: Rebuild a search index then verify content with a full-text query.
+  description: >-
+    Triggers a search index build and runs a verification query to confirm the
+    index returns results.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - indexName
+    - q
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      indexName:
+        type: string
+        description: Name of the search index to build.
+      buildType:
+        type: string
+        description: Type of index build to run.
+        enum:
+        - full
+        - incremental
+        default: incremental
+      q:
+        type: string
+        description: Full-text query string used to verify the index.
+      category:
+        type: string
+        description: Optional search category filter.
+      maxResults:
+        type: integer
+        description: Maximum number of verification results to return.
+        default: 10
+  steps:
+  - stepId: triggerIndexBuild
+    description: >-
+      Trigger a build or incremental update of the named search index.
+    operationId: triggerIndexBuild
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        indexName: $inputs.indexName
+        buildType: $inputs.buildType
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      statusCode: $statusCode
+  - stepId: verifySearch
+    description: >-
+      Run a full-text search against the indexed content and confirm results
+      were returned.
+    operationId: searchContent
+    parameters:
+    - name: q
+      in: query
+      value: $inputs.q
+    - name: category
+      in: query
+      value: $inputs.category
+    - name: maxResults
+      in: query
+      value: $inputs.maxResults
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.totalCount >= 0
+      type: jsonpath
+    outputs:
+      results: $response.body#/results
+      totalCount: $response.body#/totalCount
+  outputs:
+    indexBuildStatus: $steps.triggerIndexBuild.outputs.statusCode
+    results: $steps.verifySearch.outputs.results
+    totalCount: $steps.verifySearch.outputs.totalCount

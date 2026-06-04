@@ -1,0 +1,129 @@
+arazzo: 1.0.1
+info:
+  title: PeopleSoft Provision Environment and Notify
+  summary: Pick a provisioning template, provision a Cloud Manager environment, poll until ready, then notify recipients.
+  description: >-
+    A cross-API DevOps flow spanning the PeopleSoft Cloud Manager and
+    Notification Framework. It lists available provisioning templates, requests
+    a new environment from the chosen template, polls the environment list until
+    the new environment leaves the provisioning state, and then sends a
+    notification announcing the result. Because operationIds are reused across
+    the two descriptions only by name here they remain unique, so each step
+    targets its source explicitly. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: cloudManagerApi
+  url: ../openapi/cloud-manager.yml
+  type: openapi
+- name: notificationApi
+  url: ../openapi/notification-framework.yml
+  type: openapi
+workflows:
+- workflowId: env-provision-notify
+  summary: Provision a Cloud Manager environment then notify on completion.
+  description: >-
+    Selects a provisioning template, provisions an environment, polls until it
+    is no longer provisioning, and sends a notification with the outcome.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - environmentName
+    - recipients
+    properties:
+      authorization:
+        type: string
+        description: HTTP Basic auth header value (e.g. "Basic dXNlcjpwYXNz").
+      environmentName:
+        type: string
+        description: Name for the new environment.
+      recipients:
+        type: array
+        description: List of notification recipients (addresses or user IDs).
+        items:
+          type: string
+      configuration:
+        type: object
+        description: Optional environment configuration overrides.
+  steps:
+  - stepId: listTemplates
+    description: >-
+      Retrieve the available provisioning templates and select the first one.
+    operationId: listTemplates
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      templates: $response.body#/templates
+      firstTemplateId: $response.body#/templates/0/templateId
+  - stepId: provisionEnvironment
+    description: >-
+      Provision a new environment on OCI from the selected template and capture
+      the assigned environment id.
+    operationId: provisionEnvironment
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        templateId: $steps.listTemplates.outputs.firstTemplateId
+        environmentName: $inputs.environmentName
+        configuration: $inputs.configuration
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      environmentId: $response.body#/environmentId
+      status: $response.body#/status
+  - stepId: pollEnvironments
+    description: >-
+      Poll the environment list and retry while the new environment is still
+      provisioning.
+    operationId: listEnvironments
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      environments: $response.body#/environments
+    onSuccess:
+    - name: stillProvisioning
+      type: retry
+      stepId: pollEnvironments
+      retryAfter: 10
+      retryLimit: 30
+      criteria:
+      - context: $response.body
+        condition: $.environments[?(@.environmentId == '$steps.provisionEnvironment.outputs.environmentId')].status == 'provisioning'
+        type: jsonpath
+  - stepId: notify
+    description: >-
+      Send an in-app notification announcing that the environment provisioning
+      finished.
+    operationId: sendNotification
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        channel: in-app
+        recipients: $inputs.recipients
+        message: $inputs.environmentName
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      statusCode: $statusCode
+  outputs:
+    environmentId: $steps.provisionEnvironment.outputs.environmentId
+    environments: $steps.pollEnvironments.outputs.environments
+    notificationStatus: $steps.notify.outputs.statusCode
