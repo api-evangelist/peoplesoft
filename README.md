@@ -1,13 +1,22 @@
 # PeopleSoft (peoplesoft)
-Oracle PeopleSoft provides enterprise applications for Human Capital Management, Financial Management, Supply Chain Management, CRM, and Campus Solutions. The PeopleTools platform provides REST, SOAP, and Component Interface APIs for integration and automation.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/apis.yml)
+Collection of Oracle PeopleSoft Enterprise application APIs for Human Capital Management, Financial Management, Supply Chain Management, CRM, Campus Solutions, and engineering intelligence across PeopleTools platform services.
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/apis.yml)
 
-## Tags:
+## Scope
 
- - Campus Solutions, CRM, Enterprise Software, ERP, Financial Management, HCM, Supply Chain Management
+- **Type:** Index
+
+## Tags
+
+- Campus Solutions
+- CRM
+- Enterprise Software
+- ERP
+- Financial Management
+- HCM
+- Supply Chain Management
 
 ## Timestamps
 
@@ -16,81 +25,1085 @@ Oracle PeopleSoft provides enterprise applications for Human Capital Management,
 
 ## APIs
 
-31 APIs covering PeopleTools platform services (REST API, Application Services Framework, Integration Broker, Component Interface, Query API), HCM modules (Workforce Administration, Benefits, Payroll, Talent), Financial Management (GL, AP, AR, Asset Management), Supply Chain Management (Purchasing, Inventory, Order Management), Campus Solutions (Student Records, Admissions, Financial Aid), and CRM.
+### PeopleSoft REST API
 
-See [apis.yml](apis.yml) for the complete API inventory.
+RESTful web services for PeopleSoft applications enabling integration with external systems via the PeopleTools platform.
 
-## Artifacts
+- **Human URL:** [https://docs.oracle.com/en/applications/peoplesoft/](https://docs.oracle.com/en/applications/peoplesoft/)
+- **Base URL:** `https://{hostname}:{port}/psft/api/v1`
 
-### OpenAPI
+#### Tags
 
-21 OpenAPI specifications in [openapi/](openapi/) covering platform services, HCM, financial, supply chain, and campus solutions APIs. Key modules enriched with component schemas built from PeopleSoft domain knowledge.
+- Integration
+- REST
+- Web Services
 
-### JSON Schema
+#### Properties
 
-8 standalone JSON Schema files in [json-schema/](json-schema/) covering Employee, Position, JournalEntry, Voucher, Student, ClassEnrollment, PurchaseOrder, and Case records.
+- [Documentation](https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html)
+- [Authentication](https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html)
+- [OpenAPI](openapi/rest-api.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-### JSON Structure
+### PeopleSoft Application Services Framework API
 
-8 JSON Structure files in [json-structure/](json-structure/).
+Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
 
-### JSON-LD
+- **Human URL:** [https://docs.oracle.com/cd/E52319_01/infoportal/asf.html](https://docs.oracle.com/cd/E52319_01/infoportal/asf.html)
+- **Base URL:** `https://{hostname}:{port}/psft/asf/v1`
 
-- [PeopleSoft Context](json-ld/peoplesoft-context.jsonld) — 8 types, 77 properties
+#### Tags
 
-### Examples
+- Integration
+- Modern
+- OpenAPI
+- REST
 
-8 realistic example JSON files in [examples/](examples/).
+#### Properties
 
-## Features
+- [Documentation](https://docs.oracle.com/cd/E52319_01/infoportal/asf.html)
+- [OpenAPI](openapi/application-services-framework.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-| Name | Description |
-|------|-------------|
-| REST Web Services | RESTful APIs via PeopleTools Integration Broker for JSON-based integration. |
-| Application Services Framework | Modern REST API layer with OpenAPI spec generation and JSON payloads. |
-| Integration Broker | Enterprise messaging platform supporting SOAP, REST, and async messaging. |
-| Component Interface API | Programmatic access to PeopleSoft component business logic. |
-| Query API | Execute PeopleSoft queries and retrieve results via REST. |
-| HCM APIs | Workforce administration, benefits, payroll, and talent management. |
-| Financial Management APIs | General ledger, AP/AR, asset management, and procurement. |
-| Supply Chain Management APIs | Inventory, purchasing, order management, and supplier collaboration. |
-| Campus Solutions APIs | Student records, admissions, financial aid, and academic advisement. |
-| OAuth 2.0 Authentication | Standards-based OAuth 2.0 for secure API access. |
-| Fluid UI Integration | APIs for integrating with PeopleSoft Fluid user interface. |
-| Chatbot Integration | Digital assistant and chatbot framework APIs. |
+### PeopleSoft Integration Broker
 
-## Use Cases
+Message-based integration framework for synchronous and asynchronous communication supporting both SOAP and REST protocols.
 
-| Name | Description |
-|------|-------------|
-| HR System Integration | Integrate HCM data with payroll, benefits, and talent management platforms. |
-| Financial Data Exchange | Exchange financial transactions with external ERP and accounting systems. |
-| Student Information System | Integrate campus solutions with learning management and student portals. |
-| Supply Chain Automation | Automate procurement, inventory, and supplier management workflows. |
-| Self-Service Portals | Build employee and student self-service applications. |
-| Mobile Applications | Power mobile apps for self-service, approvals, and time entry. |
-| Cloud Integration | Connect PeopleSoft with Oracle Integration Cloud and other platforms. |
-| Reporting and Analytics | Extract data via Query API for BI and analytics platforms. |
+- **Human URL:** [https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tibr/index.html](https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tibr/index.html)
+- **Base URL:** `https://{hostname}:{port}/PSIGW/RESTListeningConnector`
 
-## Solutions
+#### Tags
 
-| Name | Description |
-|------|-------------|
-| PeopleSoft HCM | Human Capital Management for workforce, benefits, payroll, and talent. |
-| PeopleSoft FSCM | Financial and Supply Chain Management for GL, AP/AR, procurement, and inventory. |
-| PeopleSoft Campus Solutions | Higher education for student records, admissions, financial aid, and academics. |
-| PeopleSoft CRM | Customer Relationship Management for sales, marketing, and service. |
+- Integration
+- Messaging
+- REST
+- SOAP
 
-## Vocabulary
+#### Properties
 
-- [PeopleSoft Vocabulary](vocabulary/peoplesoft-vocabulary.yaml) — 6 resources, 5 APIs, 4 domains, 5 personas
+- [Documentation](https://docs.oracle.com/en/applications/peoplesoft/integration-broker/)
+- [OpenAPI](openapi/integration-broker.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-## Rules
+### PeopleSoft Query API
 
-- [PeopleSoft Spectral Rules](rules/peoplesoft-spectral-rules.yml) — 19 rules enforcing PeopleSoft API conventions
+Execute PeopleSoft Query definitions and retrieve results via REST including the Query Access Service operations for listing, executing, and managing queries.
+
+- **Human URL:** [https://docs.oracle.com/en/applications/peoplesoft/query-api/](https://docs.oracle.com/en/applications/peoplesoft/query-api/)
+- **Base URL:** `https://{hostname}:{port}/psft/api/query/v1`
+
+#### Tags
+
+- Data Access
+- QAS
+- Query
+- Reporting
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html)
+- [OpenAPI](openapi/query.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Component Interface API
+
+Programmatic access to PeopleSoft components for data manipulation providing CRUD operations on component data via REST.
+
+- **Human URL:** [https://docs.oracle.com/en/applications/peoplesoft/component-interfaces/](https://docs.oracle.com/en/applications/peoplesoft/component-interfaces/)
+- **Base URL:** `https://{hostname}:{port}/psft/api/componentinterface/v1`
+
+#### Tags
+
+- Component Interface
+- CRUD Operations
+- Data Access
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html)
+- [OpenAPI](openapi/component-interface.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Search Framework API
+
+Search indexing and query capabilities powered by OpenSearch (previously Elasticsearch) for full-text search, analytics dashboards, and PeopleSoft Insights.
+
+- **Human URL:** [https://docs.oracle.com/cd/E52319_01/infoportal/search.html](https://docs.oracle.com/cd/E52319_01/infoportal/search.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/search/v1`
+
+#### Tags
+
+- Analytics
+- Insights
+- OpenSearch
+- Search
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E52319_01/infoportal/search.html)
+- [OpenAPI](openapi/search-framework.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Data Distribution Framework API
+
+Framework for extracting and flattening PeopleSoft data for machine learning and analytics purposes. Uses PeopleSoft Search Framework technology with OpenSearch to build, index, and register data models that can be exposed as REST APIs.
+
+- **Human URL:** [https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html](https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/ddf/v1`
+
+#### Tags
+
+- Analytics
+- Data Distribution
+- Data Extraction
+- Machine Learning
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Notification Framework API
+
+Push notification and event-driven notification services including the Notification Composer for email, text, and in-app notifications. Requires PeopleTools 8.59.19+.
+
+- **Human URL:** [https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html](https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/notifications/v1`
+
+#### Tags
+
+- Events
+- Messaging
+- Notifications
+- Push Notifications
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html)
+- [OpenAPI](openapi/notification-framework.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Chatbot Integration Framework API
+
+Integration framework for connecting PeopleSoft with Oracle Digital Assistant (ODA) including REST services for chatbot data retrieval and embedded chatbot UI on Fluid pages (PICASO). Requires PeopleTools 8.57.07+.
+
+- **Human URL:** [https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html](https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/chatbot/v1`
+
+#### Tags
+
+- Chatbot
+- Conversational AI
+- Digital Assistant
+- PICASO
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html)
+- [F A Q](https://docs.oracle.com/cd/E52319_01/infoportal/peoplesoft_chatbot_faq.html)
+- [OpenAPI](openapi/chatbot-integration.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Approval Workflow Engine API
+
+Framework for creating, running, and managing approval processes exposable via REST service operations through Integration Broker or ASF.
+
+- **Human URL:** [https://docs.oracle.com/en/applications/peoplesoft/](https://docs.oracle.com/en/applications/peoplesoft/)
+- **Base URL:** `https://{hostname}:{port}/psft/api/approvals/v1`
+
+#### Tags
+
+- Approvals
+- AWE
+- Workflow
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/en/applications/peoplesoft/)
+- [OpenAPI](openapi/approval-workflow-engine.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Process Scheduler API
+
+Process request APIs for submitting and scheduling batch jobs, monitoring process run status, viewing logs, and Application Engine batch processing statistics.
+
+- **Human URL:** [https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tprs/htm/tprs05.htm](https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tprs/htm/tprs05.htm)
+- **Base URL:** `https://{hostname}:{port}/psft/api/scheduler/v1`
+
+#### Tags
+
+- Batch Processing
+- Process Monitor
+- Scheduling
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tprs/htm/tprs05.htm)
+- [OpenAPI](openapi/process-scheduler.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Cloud Manager API
+
+REST APIs for automated environment provisioning and deployment on Oracle Cloud Infrastructure including PeopleTools upgrades, update management, and self-service provisioning templates.
+
+- **Human URL:** [https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html](https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/cloudmgr/v1`
+
+#### Tags
+
+- Cloud
+- Deployment
+- OCI
+- Provisioning
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html)
+- [OpenAPI](openapi/cloud-manager.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Update Manager API
+
+REST services for automated update image management, change package generation, and PeopleSoft Automated Updates (PAU).
+
+- **Human URL:** [https://docs.oracle.com/cd/E52319_01/infoportal/pum.html](https://docs.oracle.com/cd/E52319_01/infoportal/pum.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/pum/v1`
+
+#### Tags
+
+- Lifecycle Management
+- Patching
+- Updates
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E52319_01/infoportal/pum.html)
+- [OpenAPI](openapi/update-manager.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Pivot Grid API
+
+Operational dashboard reporting using PS Query, Composite Query, or component data sources accessible via web services for analytics and visualization.
+
+- **Human URL:** [https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html](https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/pivotgrid/v1`
+
+#### Tags
+
+- Analytics
+- Dashboards
+- Pivot Grid
+- Reporting
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html)
+- [OpenAPI](openapi/pivot-grid.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft HCM API
+
+Human Capital Management APIs for employee data, benefits, payroll, workforce administration, and talent management.
+
+- **Human URL:** [https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html](https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hcm/v1`
+
+#### Tags
+
+- Benefits
+- HCM
+- HR
+- Payroll
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html)
+- [API Reference](https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html)
+- [OpenAPI](openapi/hcm.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Employee Directory API
+
+REST API for retrieving employee details by name or employee ID, and for looking up direct reports based on manager name or ID. Supports the Employee Directory chatbot skill and integration with external directories.
+
+- **Human URL:** [https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html](https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1`
+
+#### Tags
+
+- Employee Directory
+- HCM
+- Workforce Data
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Absence Management API
+
+REST API for creating, updating, and retrieving absence requests, viewing employee absence balances by type, and retrieving absence configuration rules. Supports Absence Management chatbot skill and self-service integrations.
+
+- **Human URL:** [https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html](https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hcm/absence/v1`
+
+#### Tags
+
+- Absence Management
+- HCM
+- Leave
+- Time Off
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Recruiting and Talent Management API
+
+REST endpoints for job search services, Candidate Gateway self-service, recruiting solutions, and talent management workflows.
+
+- **Human URL:** [https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html](https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hcm/recruiting/v1`
+
+#### Tags
+
+- Candidate Gateway
+- Job Search
+- Recruiting
+- Talent Management
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html)
+- [OpenAPI](openapi/recruiting-talent-management.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Payroll for North America API
+
+Delivered REST API endpoints for retrieving paycheck header details, earnings, deductions, taxes, direct deposits, employer paid benefits, garnishments, and year-end forms for North American payroll processing.
+
+- **Human URL:** [https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html](https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1`
+
+#### Tags
+
+- Compensation
+- HCM
+- North America
+- Payroll
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html)
+- [API Reference](https://docs.oracle.com/cd/F82673_01/elm92pbr23/eng/elm/eccl/UnderstandingRESTAPIEndpointsForPeoplesoftPayrollForNorthAmericaServicespayrollbankingyearendforms.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Global Payroll API
+
+REST API endpoints for the Global Payroll skill, providing access to payroll data, product profile information, and chatbot framework resources for international payroll processing across multiple countries.
+
+- **Human URL:** [https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html](https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1`
+
+#### Tags
+
+- Global Payroll
+- HCM
+- International
+- Payroll
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft HR Common Utility Services API
+
+REST API for retrieving employee country and business partner contact details. Shared utility services used across all delivered HCM skills and integration scenarios.
+
+- **Human URL:** [https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html](https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1`
+
+#### Tags
+
+- Employee Data
+- HCM
+- Utilities
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Financials API
+
+Financial Management APIs for general ledger, accounts payable, accounts receivable, expenses, asset management, and financial reporting.
+
+- **Human URL:** [https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html](https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/financials/v1`
+
+#### Tags
+
+- AP
+- AR
+- Expenses
+- Financials
+- General Ledger
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html)
+- [OpenAPI](openapi/financials.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Expenses API
+
+Delivered REST API endpoints for expense report management including fetching expense reports by status, creation date, or sheet name, retrieving transaction details, managing wallet entries, expense type validation, and notification services for travel and expense processing.
+
+- **Human URL:** [https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html](https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/fscm/expenses/v1`
+
+#### Tags
+
+- Expense Reports
+- Expenses
+- Financials
+- Travel
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html)
+- [API Reference](https://docs.oracle.com/cd/G47724_01/fscm92pbr55/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftGetTransactionDetailsexgettransdetails.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft eSettlements API
+
+Delivered REST API endpoints for invoice and payment management including fetching disputed invoices, invoice status inquiries, payment status tracking, payment inquiries, and payment difference resolution for supplier settlement processing.
+
+- **Human URL:** [https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html](https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/fscm/esettlements/v1`
+
+#### Tags
+
+- eSettlements
+- Financials
+- Invoices
+- Payments
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html)
+- [API Reference](https://docs.oracle.com/cd/G35227_01/fscm92pbr54/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftFetchPaymentStatusespaymentstatus.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Supply Chain Management API
+
+REST API endpoints for procurement, inventory management, order fulfillment, logistics, and enterprise integration points for warehouse management systems.
+
+- **Human URL:** [https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html](https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/scm/v1`
+
+#### Tags
+
+- Inventory
+- Logistics
+- Order Fulfillment
+- Procurement
+- Supply Chain
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html)
+- [OpenAPI](openapi/supply-chain-management.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft eProcurement API
+
+Delivered REST API endpoints for requisition management including retrieving requisitions for items, getting requester lists and names, and checking requisition status. Supports the full procure-to-pay lifecycle from requisition creation through purchase order dispatch and receiving.
+
+- **Human URL:** [https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html](https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/fscm/eprocurement/v1`
+
+#### Tags
+
+- eProcurement
+- Purchasing
+- Requisitions
+- Supply Chain
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Supplier Portal API
+
+Comprehensive REST API for the Supplier Portal providing access to bid details, managed content such as announcements and events, overdue shipment tracking, purchase order acknowledgement, invoice and payment inquiries, and sourcing operations across secure and public supplier collaboration channels.
+
+- **Human URL:** [https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html](https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/fscm/scp/v1`
+
+#### Tags
+
+- Sourcing
+- Supplier Collaboration
+- Supplier Portal
+- Supply Chain
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html)
+- [Postman Collection](collections/application-services-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/application-services-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/approval-workflow-engine.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/approval-workflow-engine.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/chatbot-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/chatbot-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/cloud-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/cloud-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/component-interface.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/component-interface.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/financials.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/financials.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/hcm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/hcm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/integration-broker.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/integration-broker.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/notification-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/notification-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/pivot-grid.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/pivot-grid.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/process-scheduler.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/process-scheduler.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/query.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/query.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/recruiting-talent-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/recruiting-talent-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/search-framework.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/search-framework.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/supply-chain-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/supply-chain-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Postman Collection](collections/update-manager.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/update-manager.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft CRM API
+
+Customer Relationship Management REST API endpoints and integration points for customer data, case management, sales, and marketing.
+
+- **Human URL:** [https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html](https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/crm/v1`
+
+#### Tags
+
+- Case Management
+- CRM
+- Customer Data
+- Marketing
+- Sales
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html)
+- [OpenAPI](openapi/crm.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/crm.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/crm.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Campus Solutions API
+
+Campus Solutions APIs for student records, admissions, enrollment, financial aid, and academic advising.
+
+- **Human URL:** [https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html](https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/campus/v1`
+
+#### Tags
+
+- Admissions
+- Campus Solutions
+- Education
+- Financial Aid
+- Student Records
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html)
+- [OpenAPI](openapi/campus-solutions.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/campus-solutions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/campus-solutions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Enterprise Performance Management API
+
+Analytics, budgeting, forecasting, and planning APIs with events and notifications framework for financial and operational performance management.
+
+- **Human URL:** [https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html](https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/epm/v1`
+
+#### Tags
+
+- Analytics
+- Budgeting
+- EPM
+- Forecasting
+- Planning
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html)
+- [OpenAPI](openapi/enterprise-performance-management.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/enterprise-performance-management.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/enterprise-performance-management.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### PeopleSoft Interaction Hub API
+
+Content management, branding, and portal administration APIs for the PeopleSoft Interaction Hub (formerly Enterprise Portal) with Integration Broker services.
+
+- **Human URL:** [https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html](https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html)
+- **Base URL:** `https://{hostname}:{port}/psft/api/hub/v1`
+
+#### Tags
+
+- Branding
+- Content Management
+- Interaction Hub
+- Portal
+
+#### Properties
+
+- [Documentation](https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html)
+- [OpenAPI](openapi/interaction-hub.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/interaction-hub.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/interaction-hub.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
+- [LinkedIn](https://www.linkedin.com/company/peoplesoft-inc)
+- [Portal](https://www.oracle.com/applications/peoplesoft/)
+- [Documentation](https://docs.oracle.com/en/applications/peoplesoft/index.html)
+- [Getting Started](https://docs.oracle.com/en/applications/peoplesoft/peopletools/index.html)
+- [Information  Portal](https://docs.oracle.com/cd/E52319_01/infoportal/)
+- [Authentication](https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html)
+- [Blog](https://blogs.oracle.com/peoplesoft/)
+- [Changelog](https://blogs.oracle.com/peoplesoft/category/ps-image-and-release-updates)
+- [People Code  A P I  Reference](https://docs.oracle.com/cd/E25688_01/pt852pbr0/eng/psbooks/tpcr/book.htm)
+- [Security](https://www.oracle.com/security-alerts/)
+- [Support](https://support.oracle.com/)
+- [Knowledge  Base](https://docs.oracle.com/en/applications/peoplesoft/)
+- [Community](https://community.oracle.com/customerconnect/categories/peoplesoft)
+- [Forum](https://forums.oracle.com/ords/apexds/domain/dev-community/category/peoplesoft_enterprise)
+- [People Soft on  O C I](https://docs.oracle.com/cd/E52319_01/infoportal/opc.html)
+- [Training](https://education.oracle.com/peoplesoft)
+- [Videos](https://docs.oracle.com/cd/E52319_01/infoportal/videos.html)
+- [Pricing](https://www.oracle.com/corporate/pricing/)
+- [Terms of Service](https://www.oracle.com/contracts/)
+- [Privacy Policy](https://www.oracle.com/legal/privacy/services-privacy-policy/)
+- [News](https://docs.oracle.com/cd/E52319_01/infoportal/news.html)
+- [Status Page](https://ocistatus.oraclecloud.com/)
+- [Website](https://www.oracle.com/applications/peoplesoft/)
+- [Login](https://cloud.oracle.com/)
+- [Sign Up](https://cloud.oracle.com/)
+- [R E S T  A P I  Endpoints](https://docs.oracle.com/cd/G36917_01/ps91pbr20/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoft.html)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Solutions](undefined)
 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com

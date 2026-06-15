@@ -1,0 +1,405 @@
+{
+  "info": {
+    "_postman_id": "811b9ec4-129b-4f4b-b4ca-334f0209417c",
+    "name": "PeopleSoft Integration Broker",
+    "description": "Message-based integration framework for synchronous and asynchronous communication supporting both SOAP and REST protocols.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:10.000Z",
+    "updatedAt": "2026-06-05T15:14:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-811b9ec4-129b-4f4b-b4ca-334f0209417c"
+  },
+  "item": [
+    {
+      "name": "{serviceOperation}.v1",
+      "item": [
+        {
+          "name": "PeopleSoft Invoke Service Operation (GET)",
+          "id": "a5646191-e53d-4aba-8af7-cf4d0dd8fafa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{serviceOperation}}.v1"
+              ]
+            },
+            "description": "Invoke a synchronous Integration Broker REST service operation using GET."
+          },
+          "response": [
+            {
+              "id": "bc656d01-53cc-47d8-ab68-8665e2b2bc3d",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{serviceOperation}}.v1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:10.000Z",
+              "updatedAt": "2026-06-05T15:14:10.000Z",
+              "uid": "35240-bc656d01-53cc-47d8-ab68-8665e2b2bc3d"
+            },
+            {
+              "id": "bf12e99a-ec83-4d43-8b85-389cf65b0845",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{serviceOperation}}.v1"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:10.000Z",
+              "updatedAt": "2026-06-05T15:14:10.000Z",
+              "uid": "35240-bf12e99a-ec83-4d43-8b85-389cf65b0845"
+            },
+            {
+              "id": "5162fe05-e89d-4a64-a162-4b87ff3b4d74",
+              "name": "Service operation not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{serviceOperation}}.v1"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:10.000Z",
+              "updatedAt": "2026-06-05T15:14:10.000Z",
+              "uid": "35240-5162fe05-e89d-4a64-a162-4b87ff3b4d74"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:10.000Z",
+          "updatedAt": "2026-06-05T15:14:10.000Z",
+          "uid": "35240-a5646191-e53d-4aba-8af7-cf4d0dd8fafa"
+        },
+        {
+          "name": "PeopleSoft Invoke Service Operation (POST)",
+          "id": "f11441db-a227-43fa-8cf3-e0a9b758b722",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{serviceOperation}}.v1"
+              ]
+            },
+            "description": "Invoke a synchronous or asynchronous Integration Broker REST service operation using POST."
+          },
+          "response": [
+            {
+              "id": "fbe45b25-913c-468f-a747-1f5b28524aa4",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{serviceOperation}}.v1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:10.000Z",
+              "updatedAt": "2026-06-05T15:14:10.000Z",
+              "uid": "35240-fbe45b25-913c-468f-a747-1f5b28524aa4"
+            },
+            {
+              "id": "d000bea9-9990-4a50-b64d-980478b8b332",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{serviceOperation}}.v1"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:10.000Z",
+              "updatedAt": "2026-06-05T15:14:10.000Z",
+              "uid": "35240-d000bea9-9990-4a50-b64d-980478b8b332"
+            },
+            {
+              "id": "875f57c2-b947-4728-b2ff-9bcdd2c14151",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{serviceOperation}}.v1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{serviceOperation}}.v1"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:10.000Z",
+              "updatedAt": "2026-06-05T15:14:10.000Z",
+              "uid": "35240-875f57c2-b947-4728-b2ff-9bcdd2c14151"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:10.000Z",
+          "updatedAt": "2026-06-05T15:14:10.000Z",
+          "uid": "35240-f11441db-a227-43fa-8cf3-e0a9b758b722"
+        }
+      ],
+      "id": "eeefc6b2-cccc-44b2-aec8-5e1aedc59c7f",
+      "createdAt": "2026-06-05T15:14:10.000Z",
+      "updatedAt": "2026-06-05T15:14:10.000Z",
+      "uid": "35240-eeefc6b2-cccc-44b2-aec8-5e1aedc59c7f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/PSIGW/RESTListeningConnector"
+    },
+    {
+      "key": "serviceOperation",
+      "value": "<string>"
+    }
+  ]
+}

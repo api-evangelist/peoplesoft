@@ -1,0 +1,368 @@
+{
+  "info": {
+    "_postman_id": "c6cae5f9-6a08-4ae3-8875-575ac4ded18e",
+    "name": "PeopleSoft Search Framework API",
+    "description": "Search indexing and query capabilities powered by OpenSearch (previously Elasticsearch) for full-text search, analytics dashboards, and PeopleSoft Insights.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:13.000Z",
+    "updatedAt": "2026-06-05T15:14:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c6cae5f9-6a08-4ae3-8875-575ac4ded18e"
+  },
+  "item": [
+    {
+      "name": "search",
+      "item": [
+        {
+          "name": "PeopleSoft Search Content",
+          "id": "30e04d31-ed74-43d8-8872-16338e39727a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/search?q=<string>&category=<string>&maxResults=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Search query string",
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Search category to filter results",
+                  "key": "category",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Execute a full-text search across PeopleSoft indexed content."
+          },
+          "response": [
+            {
+              "id": "8ea1fa78-2880-42b3-a422-9f2c3c3e8a1b",
+              "name": "Search results",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?q=<string>&category=<string>&maxResults=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Search query string",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search category to filter results",
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"totalCount\": \"<integer>\"\n}",
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-8ea1fa78-2880-42b3-a422-9f2c3c3e8a1b"
+            },
+            {
+              "id": "4da79e27-fcee-4ad3-b565-1ce11eb49c40",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?q=<string>&category=<string>&maxResults=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Search query string",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search category to filter results",
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-4da79e27-fcee-4ad3-b565-1ce11eb49c40"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:13.000Z",
+          "updatedAt": "2026-06-05T15:14:13.000Z",
+          "uid": "35240-30e04d31-ed74-43d8-8872-16338e39727a"
+        }
+      ],
+      "id": "0f94e418-a97f-4ad2-bc6b-5786a6d2bc44",
+      "createdAt": "2026-06-05T15:14:13.000Z",
+      "updatedAt": "2026-06-05T15:14:13.000Z",
+      "uid": "35240-0f94e418-a97f-4ad2-bc6b-5786a6d2bc44"
+    },
+    {
+      "name": "index",
+      "item": [
+        {
+          "name": "PeopleSoft Trigger Index Build",
+          "id": "99feaedf-419f-4e0f-ad91-a6d76514f8cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"indexName\": \"<string>\",\n  \"buildType\": \"incremental\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/index",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "index"
+              ]
+            },
+            "description": "Trigger a search index build or incremental update."
+          },
+          "response": [
+            {
+              "id": "2eb52fab-f4fb-46bf-aca3-f6e8b268504a",
+              "name": "Index build initiated",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"indexName\": \"<string>\",\n  \"buildType\": \"incremental\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/index",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "index"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-2eb52fab-f4fb-46bf-aca3-f6e8b268504a"
+            },
+            {
+              "id": "c83e5603-daee-4e3d-96c5-ccb8e72a3597",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"indexName\": \"<string>\",\n  \"buildType\": \"incremental\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/index",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "index"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-c83e5603-daee-4e3d-96c5-ccb8e72a3597"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:13.000Z",
+          "updatedAt": "2026-06-05T15:14:13.000Z",
+          "uid": "35240-99feaedf-419f-4e0f-ad91-a6d76514f8cb"
+        }
+      ],
+      "id": "3db9f9d9-f15e-4334-b08f-a3c0a0972566",
+      "createdAt": "2026-06-05T15:14:13.000Z",
+      "updatedAt": "2026-06-05T15:14:13.000Z",
+      "uid": "35240-3db9f9d9-f15e-4334-b08f-a3c0a0972566"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/search/v1"
+    }
+  ]
+}

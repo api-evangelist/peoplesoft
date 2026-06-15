@@ -1,0 +1,389 @@
+{
+  "info": {
+    "_postman_id": "c683d1fa-4d45-4e15-bfbd-d37c2ca95ffb",
+    "name": "PeopleSoft Pivot Grid API",
+    "description": "Operational dashboard reporting using PS Query, Composite Query, or component data sources accessible via web services for analytics and visualization.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:31.000Z",
+    "updatedAt": "2026-06-05T15:14:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c683d1fa-4d45-4e15-bfbd-d37c2ca95ffb"
+  },
+  "item": [
+    {
+      "name": "grids",
+      "item": [
+        {
+          "name": "{gridId}",
+          "item": [
+            {
+              "name": "data",
+              "item": [
+                {
+                  "name": "PeopleSoft Get Pivot Grid Data",
+                  "id": "abb024ca-ab2b-404a-b849-12c30158bf63",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "basic",
+                      "basic": [
+                        {
+                          "key": "username",
+                          "value": "{{basicAuthUsername}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "password",
+                          "value": "{{basicAuthPassword}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/grids/:gridId/data?filters=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "grids",
+                        ":gridId",
+                        "data"
+                      ],
+                      "query": [
+                        {
+                          "description": "JSON-encoded filter criteria",
+                          "key": "filters",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "daa7fe88-1de7-4ecb-9ac6-9ebf66a246be",
+                          "key": "gridId",
+                          "value": "<string>",
+                          "description": "(Required) The pivot grid identifier"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve data for a specific pivot grid with optional filters."
+                  },
+                  "response": [
+                    {
+                      "id": "7f5a7965-9bb4-49b3-a0e6-b7b0fcd133bd",
+                      "name": "Pivot grid data",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/grids/:gridId/data?filters=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "grids",
+                            ":gridId",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "JSON-encoded filter criteria",
+                              "key": "filters",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "gridId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-06-05T15:14:31.000Z",
+                      "updatedAt": "2026-06-05T15:14:31.000Z",
+                      "uid": "35240-7f5a7965-9bb4-49b3-a0e6-b7b0fcd133bd"
+                    },
+                    {
+                      "id": "8f4611af-a614-4316-8db2-81c6933ad68a",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/grids/:gridId/data?filters=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "grids",
+                            ":gridId",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "JSON-encoded filter criteria",
+                              "key": "filters",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "gridId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:31.000Z",
+                      "updatedAt": "2026-06-05T15:14:31.000Z",
+                      "uid": "35240-8f4611af-a614-4316-8db2-81c6933ad68a"
+                    },
+                    {
+                      "id": "1d87e989-9fc9-4497-9148-8974a0ef73b4",
+                      "name": "Pivot grid not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/grids/:gridId/data?filters=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "grids",
+                            ":gridId",
+                            "data"
+                          ],
+                          "query": [
+                            {
+                              "description": "JSON-encoded filter criteria",
+                              "key": "filters",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "gridId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:31.000Z",
+                      "updatedAt": "2026-06-05T15:14:31.000Z",
+                      "uid": "35240-1d87e989-9fc9-4497-9148-8974a0ef73b4"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:14:31.000Z",
+                  "updatedAt": "2026-06-05T15:14:31.000Z",
+                  "uid": "35240-abb024ca-ab2b-404a-b849-12c30158bf63"
+                }
+              ],
+              "id": "4b9f9e19-017b-4f2f-8403-e52c6e9d15d4",
+              "createdAt": "2026-06-05T15:14:31.000Z",
+              "updatedAt": "2026-06-05T15:14:31.000Z",
+              "uid": "35240-4b9f9e19-017b-4f2f-8403-e52c6e9d15d4"
+            }
+          ],
+          "id": "f54e0b6f-e216-4b2a-9fe2-895f5457fe26",
+          "createdAt": "2026-06-05T15:14:31.000Z",
+          "updatedAt": "2026-06-05T15:14:31.000Z",
+          "uid": "35240-f54e0b6f-e216-4b2a-9fe2-895f5457fe26"
+        },
+        {
+          "name": "PeopleSoft List Pivot Grids",
+          "id": "314a918d-1559-4588-a090-e1526bb37317",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/grids",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "grids"
+              ]
+            },
+            "description": "Retrieve a list of available pivot grid definitions."
+          },
+          "response": [
+            {
+              "id": "2099e383-6b93-4509-b0a6-1245b36ef05e",
+              "name": "Successful response with pivot grid list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/grids",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "grids"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"grids\": [\n    {\n      \"gridId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"dataSource\": \"<string>\"\n    },\n    {\n      \"gridId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"dataSource\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:31.000Z",
+              "updatedAt": "2026-06-05T15:14:31.000Z",
+              "uid": "35240-2099e383-6b93-4509-b0a6-1245b36ef05e"
+            },
+            {
+              "id": "924a8f65-536c-49f5-abcd-e034db94b8b6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/grids",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "grids"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:31.000Z",
+              "updatedAt": "2026-06-05T15:14:31.000Z",
+              "uid": "35240-924a8f65-536c-49f5-abcd-e034db94b8b6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:31.000Z",
+          "updatedAt": "2026-06-05T15:14:31.000Z",
+          "uid": "35240-314a918d-1559-4588-a090-e1526bb37317"
+        }
+      ],
+      "id": "e96178b0-a321-41c1-bcdd-7aec29161190",
+      "createdAt": "2026-06-05T15:14:31.000Z",
+      "updatedAt": "2026-06-05T15:14:31.000Z",
+      "uid": "35240-e96178b0-a321-41c1-bcdd-7aec29161190"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/pivotgrid/v1"
+    }
+  ]
+}

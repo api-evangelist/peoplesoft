@@ -1,0 +1,416 @@
+{
+  "info": {
+    "_postman_id": "23bff3b1-9ab9-4415-b339-05639a2c7a8a",
+    "name": "PeopleSoft Query API",
+    "description": "Execute PeopleSoft Query definitions and retrieve results via REST including the Query Access Service operations for listing, executing, and managing queries.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:11.000Z",
+    "updatedAt": "2026-06-05T15:14:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-23bff3b1-9ab9-4415-b339-05639a2c7a8a"
+  },
+  "item": [
+    {
+      "name": "queries",
+      "item": [
+        {
+          "name": "{queryName}",
+          "item": [
+            {
+              "name": "PeopleSoft Execute Query",
+              "id": "f1227c04-0c7b-4f47-adf3-13812d5d50a6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/queries/:queryName?isConnectedQuery=false&maxRows=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries",
+                    ":queryName"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether this is a Connected Query",
+                      "key": "isConnectedQuery",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Maximum number of rows to return",
+                      "key": "maxRows",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Row offset for pagination",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "5ac5870f-4498-4133-8fc8-ca066f9ef73d",
+                      "key": "queryName",
+                      "value": "<string>",
+                      "description": "(Required) The PeopleSoft Query name"
+                    }
+                  ]
+                },
+                "description": "Execute a PeopleSoft Query by name and retrieve results."
+              },
+              "response": [
+                {
+                  "id": "b09be564-3aae-402d-8372-aa6bb69dad36",
+                  "name": "Query results",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/queries/:queryName?isConnectedQuery=false&maxRows=<integer>&offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "queries",
+                        ":queryName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether this is a Connected Query",
+                          "key": "isConnectedQuery",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Maximum number of rows to return",
+                          "key": "maxRows",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Row offset for pagination",
+                          "key": "offset",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "queryName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"totalRows\": \"<integer>\"\n}",
+                  "createdAt": "2026-06-05T15:14:12.000Z",
+                  "updatedAt": "2026-06-05T15:14:12.000Z",
+                  "uid": "35240-b09be564-3aae-402d-8372-aa6bb69dad36"
+                },
+                {
+                  "id": "76a3acec-1709-4051-81ab-97a638aa16d5",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/queries/:queryName?isConnectedQuery=false&maxRows=<integer>&offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "queries",
+                        ":queryName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether this is a Connected Query",
+                          "key": "isConnectedQuery",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Maximum number of rows to return",
+                          "key": "maxRows",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Row offset for pagination",
+                          "key": "offset",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "queryName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:12.000Z",
+                  "updatedAt": "2026-06-05T15:14:12.000Z",
+                  "uid": "35240-76a3acec-1709-4051-81ab-97a638aa16d5"
+                },
+                {
+                  "id": "5d5ba61b-e912-437c-9416-cb8986ac9ea4",
+                  "name": "Query not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/queries/:queryName?isConnectedQuery=false&maxRows=<integer>&offset=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "queries",
+                        ":queryName"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether this is a Connected Query",
+                          "key": "isConnectedQuery",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Maximum number of rows to return",
+                          "key": "maxRows",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Row offset for pagination",
+                          "key": "offset",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "queryName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:12.000Z",
+                  "updatedAt": "2026-06-05T15:14:12.000Z",
+                  "uid": "35240-5d5ba61b-e912-437c-9416-cb8986ac9ea4"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:12.000Z",
+              "updatedAt": "2026-06-05T15:14:12.000Z",
+              "uid": "35240-f1227c04-0c7b-4f47-adf3-13812d5d50a6"
+            }
+          ],
+          "id": "2535a6a5-1622-49ad-8e00-1dd6971c9a44",
+          "createdAt": "2026-06-05T15:14:12.000Z",
+          "updatedAt": "2026-06-05T15:14:12.000Z",
+          "uid": "35240-2535a6a5-1622-49ad-8e00-1dd6971c9a44"
+        },
+        {
+          "name": "PeopleSoft List Queries",
+          "id": "3827af72-56b2-4c08-b9bb-27d2905e8d6b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/queries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "queries"
+              ]
+            },
+            "description": "Retrieve a list of available PeopleSoft Query definitions."
+          },
+          "response": [
+            {
+              "id": "3ebf5199-f10b-47be-b7cb-4c8c86d25df1",
+              "name": "Successful response with query list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/queries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"queries\": [\n    {\n      \"queryName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"folder\": \"<string>\"\n    },\n    {\n      \"queryName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"folder\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:12.000Z",
+              "updatedAt": "2026-06-05T15:14:12.000Z",
+              "uid": "35240-3ebf5199-f10b-47be-b7cb-4c8c86d25df1"
+            },
+            {
+              "id": "d85f2ab0-e40a-4351-88b7-6e97137453c7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/queries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "queries"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:12.000Z",
+              "updatedAt": "2026-06-05T15:14:12.000Z",
+              "uid": "35240-d85f2ab0-e40a-4351-88b7-6e97137453c7"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:12.000Z",
+          "updatedAt": "2026-06-05T15:14:12.000Z",
+          "uid": "35240-3827af72-56b2-4c08-b9bb-27d2905e8d6b"
+        }
+      ],
+      "id": "0c78fe08-7dc4-4b85-b880-7b054cd3a84d",
+      "createdAt": "2026-06-05T15:14:12.000Z",
+      "updatedAt": "2026-06-05T15:14:12.000Z",
+      "uid": "35240-0c78fe08-7dc4-4b85-b880-7b054cd3a84d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/query/v1"
+    }
+  ]
+}

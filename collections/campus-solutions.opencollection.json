@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Campus Solutions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Students",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Students",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/campus/v1/students",
+            "params": [
+              {
+                "name": "term",
+                "value": "example_value",
+                "type": "query",
+                "description": "Academic term filter"
+              },
+              {
+                "name": "program",
+                "value": "example_value",
+                "type": "query",
+                "description": "Academic program filter"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve student records."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Get Student",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/campus/v1/students/:studentId",
+            "params": [
+              {
+                "name": "studentId",
+                "value": "PS123456",
+                "type": "path",
+                "description": "The student identifier"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve details for a specific student."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Admissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Admission Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/campus/v1/admissions/applications",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve admission applications."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Enrollment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Classes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/campus/v1/enrollment/classes",
+            "params": [
+              {
+                "name": "term",
+                "value": "example_value",
+                "type": "query",
+                "description": "Academic term"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve class schedule and enrollment data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Financial Aid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Financial Aid Awards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/campus/v1/financial-aid/awards",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve financial aid award data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

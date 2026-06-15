@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Recruiting and Talent Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft Search Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/hcm/recruiting/v1/jobs",
+            "params": [
+              {
+                "name": "keyword",
+                "value": "example_value",
+                "type": "query",
+                "description": "Keyword search term"
+              },
+              {
+                "name": "location",
+                "value": "example_value",
+                "type": "query",
+                "description": "Job location filter"
+              },
+              {
+                "name": "department",
+                "value": "example_value",
+                "type": "query",
+                "description": "Department filter"
+              }
+            ]
+          },
+          "docs": "Search available job postings."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Get Job Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/hcm/recruiting/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "PS123456",
+                "type": "path",
+                "description": "The job posting identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details for a specific job posting."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Candidates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft Submit Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}:{port}/psft/api/hcm/recruiting/v1/candidates/applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Submit a candidate application for a job posting."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

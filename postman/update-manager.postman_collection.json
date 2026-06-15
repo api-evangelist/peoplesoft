@@ -1,0 +1,347 @@
+{
+  "info": {
+    "_postman_id": "afdca269-8215-45aa-8761-fd9feaa2c306",
+    "name": "PeopleSoft Update Manager API",
+    "description": "REST services for automated update image management, change package generation, and PeopleSoft Automated Updates (PAU).\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:30.000Z",
+    "updatedAt": "2026-06-05T15:14:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-afdca269-8215-45aa-8761-fd9feaa2c306"
+  },
+  "item": [
+    {
+      "name": "updates",
+      "item": [
+        {
+          "name": "{updateId}",
+          "item": [
+            {
+              "name": "apply",
+              "item": [
+                {
+                  "name": "PeopleSoft Apply Update",
+                  "id": "1f439d06-e05f-437d-b927-cf1bb50b8ca5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "basic",
+                      "basic": [
+                        {
+                          "key": "username",
+                          "value": "{{basicAuthUsername}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "password",
+                          "value": "{{basicAuthPassword}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/updates/:updateId/apply",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "updates",
+                        ":updateId",
+                        "apply"
+                      ],
+                      "variable": [
+                        {
+                          "id": "076f6ae0-a128-46c1-bf9c-c6fad8f71ce1",
+                          "key": "updateId",
+                          "value": "<string>",
+                          "description": "(Required) The update identifier"
+                        }
+                      ]
+                    },
+                    "description": "Initiate application of a specific update or change package."
+                  },
+                  "response": [
+                    {
+                      "id": "38624cde-b6b8-431e-b5d3-f7db60e6d846",
+                      "name": "Update application initiated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/updates/:updateId/apply",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "updates",
+                            ":updateId",
+                            "apply"
+                          ],
+                          "variable": [
+                            {
+                              "key": "updateId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:30.000Z",
+                      "updatedAt": "2026-06-05T15:14:30.000Z",
+                      "uid": "35240-38624cde-b6b8-431e-b5d3-f7db60e6d846"
+                    },
+                    {
+                      "id": "09ec0c41-fffc-4e41-b5b0-fc481d649e7e",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/updates/:updateId/apply",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "updates",
+                            ":updateId",
+                            "apply"
+                          ],
+                          "variable": [
+                            {
+                              "key": "updateId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:30.000Z",
+                      "updatedAt": "2026-06-05T15:14:30.000Z",
+                      "uid": "35240-09ec0c41-fffc-4e41-b5b0-fc481d649e7e"
+                    },
+                    {
+                      "id": "11384426-580a-4832-9d9c-21e8747d30dc",
+                      "name": "Update not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/updates/:updateId/apply",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "updates",
+                            ":updateId",
+                            "apply"
+                          ],
+                          "variable": [
+                            {
+                              "key": "updateId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:14:30.000Z",
+                      "updatedAt": "2026-06-05T15:14:30.000Z",
+                      "uid": "35240-11384426-580a-4832-9d9c-21e8747d30dc"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:14:30.000Z",
+                  "updatedAt": "2026-06-05T15:14:30.000Z",
+                  "uid": "35240-1f439d06-e05f-437d-b927-cf1bb50b8ca5"
+                }
+              ],
+              "id": "15380d51-612b-4c84-84c6-a8a23cabf2f5",
+              "createdAt": "2026-06-05T15:14:30.000Z",
+              "updatedAt": "2026-06-05T15:14:30.000Z",
+              "uid": "35240-15380d51-612b-4c84-84c6-a8a23cabf2f5"
+            }
+          ],
+          "id": "d1ffd473-269d-4e23-9480-1ce8bb661147",
+          "createdAt": "2026-06-05T15:14:30.000Z",
+          "updatedAt": "2026-06-05T15:14:30.000Z",
+          "uid": "35240-d1ffd473-269d-4e23-9480-1ce8bb661147"
+        },
+        {
+          "name": "PeopleSoft List Available Updates",
+          "id": "6c2734ac-1f3a-43ca-99e0-eabb594f47bd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/updates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "updates"
+              ]
+            },
+            "description": "Retrieve a list of available updates and change packages."
+          },
+          "response": [
+            {
+              "id": "844f7abf-8d22-4f34-bda6-ff4c483cca95",
+              "name": "Successful response with available updates",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/updates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "updates"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"updates\": [\n    {\n      \"updateId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"version\": \"<string>\",\n      \"status\": \"<string>\"\n    },\n    {\n      \"updateId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"version\": \"<string>\",\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:30.000Z",
+              "updatedAt": "2026-06-05T15:14:30.000Z",
+              "uid": "35240-844f7abf-8d22-4f34-bda6-ff4c483cca95"
+            },
+            {
+              "id": "942e9e3f-67fb-4d22-bb7f-df6f18b309a2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/updates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "updates"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:30.000Z",
+              "updatedAt": "2026-06-05T15:14:30.000Z",
+              "uid": "35240-942e9e3f-67fb-4d22-bb7f-df6f18b309a2"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:30.000Z",
+          "updatedAt": "2026-06-05T15:14:30.000Z",
+          "uid": "35240-6c2734ac-1f3a-43ca-99e0-eabb594f47bd"
+        }
+      ],
+      "id": "aaddd1ac-b61c-4ffe-90a2-9d4ad454bad4",
+      "createdAt": "2026-06-05T15:14:30.000Z",
+      "updatedAt": "2026-06-05T15:14:30.000Z",
+      "uid": "35240-aaddd1ac-b61c-4ffe-90a2-9d4ad454bad4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/pum/v1"
+    }
+  ]
+}

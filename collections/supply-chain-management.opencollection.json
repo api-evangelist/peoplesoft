@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Supply Chain Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Procurement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Requisitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/scm/v1/procurement/requisitions",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve procurement requisitions."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft List Purchase Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/scm/v1/procurement/purchase-orders",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve purchase orders."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Inventory Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/scm/v1/inventory/items",
+            "params": [
+              {
+                "name": "businessUnit",
+                "value": "example_value",
+                "type": "query",
+                "description": "Business unit filter"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve inventory items and stock levels."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/scm/v1/orders",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve order fulfillment records."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

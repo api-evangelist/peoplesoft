@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Application Services Framework API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft Get Service Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/:serviceName",
+            "params": [
+              {
+                "name": "serviceName",
+                "value": "Example Record",
+                "type": "path",
+                "description": "The ASF service name"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve data from an ASF-defined service with OpenAPI-compliant response."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Create Service Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}:{port}/psft/asf/v1/:serviceName",
+            "params": [
+              {
+                "name": "serviceName",
+                "value": "Example Record",
+                "type": "path",
+                "description": "The ASF service name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create a resource via an ASF-defined service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

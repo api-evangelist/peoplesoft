@@ -1,0 +1,447 @@
+{
+  "info": {
+    "_postman_id": "68b00049-05ce-451a-b2bc-40308492cacc",
+    "name": "PeopleSoft Application Services Framework API",
+    "description": "Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:09.000Z",
+    "updatedAt": "2026-06-05T15:14:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-68b00049-05ce-451a-b2bc-40308492cacc"
+  },
+  "item": [
+    {
+      "name": "{serviceName}",
+      "item": [
+        {
+          "name": "PeopleSoft Get Service Resource",
+          "id": "6c1f968d-f4bb-4661-b4c9-50a9d6c8999b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:serviceName",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":serviceName"
+              ],
+              "variable": [
+                {
+                  "id": "60cbdb25-eca5-4e23-acb1-2e878606b87a",
+                  "key": "serviceName",
+                  "value": "<string>",
+                  "description": "(Required) The ASF service name"
+                }
+              ]
+            },
+            "description": "Retrieve data from an ASF-defined service with OpenAPI-compliant response."
+          },
+          "response": [
+            {
+              "id": "f06aa7ce-4833-44b3-b1f0-2ed2e99cf483",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:serviceName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":serviceName"
+                  ],
+                  "variable": [
+                    {
+                      "key": "serviceName"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:09.000Z",
+              "updatedAt": "2026-06-05T15:14:09.000Z",
+              "uid": "35240-f06aa7ce-4833-44b3-b1f0-2ed2e99cf483"
+            },
+            {
+              "id": "a9c99877-9b45-4430-bbab-0f0a66f24093",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:serviceName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":serviceName"
+                  ],
+                  "variable": [
+                    {
+                      "key": "serviceName"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:09.000Z",
+              "updatedAt": "2026-06-05T15:14:09.000Z",
+              "uid": "35240-a9c99877-9b45-4430-bbab-0f0a66f24093"
+            },
+            {
+              "id": "cb0cbeae-a342-47ac-b1c0-77c6100cea77",
+              "name": "Service not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:serviceName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":serviceName"
+                  ],
+                  "variable": [
+                    {
+                      "key": "serviceName"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:09.000Z",
+              "updatedAt": "2026-06-05T15:14:09.000Z",
+              "uid": "35240-cb0cbeae-a342-47ac-b1c0-77c6100cea77"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:09.000Z",
+          "updatedAt": "2026-06-05T15:14:09.000Z",
+          "uid": "35240-6c1f968d-f4bb-4661-b4c9-50a9d6c8999b"
+        },
+        {
+          "name": "PeopleSoft Create Service Resource",
+          "id": "523f05e2-0698-4c99-bf1c-c3d005dd352b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:serviceName",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":serviceName"
+              ],
+              "variable": [
+                {
+                  "id": "9ca0f60f-3b09-4009-9c4c-f1d9349caa63",
+                  "key": "serviceName",
+                  "value": "<string>",
+                  "description": "(Required) The ASF service name"
+                }
+              ]
+            },
+            "description": "Create a resource via an ASF-defined service."
+          },
+          "response": [
+            {
+              "id": "2b8f29f1-4ccf-4f74-b524-f8f0f9cf10f9",
+              "name": "Resource created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:serviceName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":serviceName"
+                  ],
+                  "variable": [
+                    {
+                      "key": "serviceName"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:09.000Z",
+              "updatedAt": "2026-06-05T15:14:09.000Z",
+              "uid": "35240-2b8f29f1-4ccf-4f74-b524-f8f0f9cf10f9"
+            },
+            {
+              "id": "a8fce1e5-7c1c-4182-b05d-392601e00c64",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:serviceName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":serviceName"
+                  ],
+                  "variable": [
+                    {
+                      "key": "serviceName"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:09.000Z",
+              "updatedAt": "2026-06-05T15:14:09.000Z",
+              "uid": "35240-a8fce1e5-7c1c-4182-b05d-392601e00c64"
+            },
+            {
+              "id": "29a56dfd-8fcb-4be9-8e74-6ac9aaa012bc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:serviceName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":serviceName"
+                  ],
+                  "variable": [
+                    {
+                      "key": "serviceName"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:09.000Z",
+              "updatedAt": "2026-06-05T15:14:09.000Z",
+              "uid": "35240-29a56dfd-8fcb-4be9-8e74-6ac9aaa012bc"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:09.000Z",
+          "updatedAt": "2026-06-05T15:14:09.000Z",
+          "uid": "35240-523f05e2-0698-4c99-bf1c-c3d005dd352b"
+        }
+      ],
+      "id": "57ed986d-2f7c-436a-a7aa-e06511d3414e",
+      "createdAt": "2026-06-05T15:14:09.000Z",
+      "updatedAt": "2026-06-05T15:14:09.000Z",
+      "uid": "35240-57ed986d-2f7c-436a-a7aa-e06511d3414e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/asf/v1"
+    }
+  ]
+}

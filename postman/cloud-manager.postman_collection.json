@@ -1,0 +1,498 @@
+{
+  "info": {
+    "_postman_id": "4d129d7b-ccdf-4c2f-9d53-d0b1ec729c9c",
+    "name": "PeopleSoft Cloud Manager API",
+    "description": "REST APIs for automated environment provisioning and deployment on Oracle Cloud Infrastructure including PeopleTools upgrades, update management, and self-service provisioning templates.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:28.000Z",
+    "updatedAt": "2026-06-05T15:14:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4d129d7b-ccdf-4c2f-9d53-d0b1ec729c9c"
+  },
+  "item": [
+    {
+      "name": "environments",
+      "item": [
+        {
+          "name": "PeopleSoft List Environments",
+          "id": "018f9278-d4cb-4b4c-b0d8-662884eb3c74",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/environments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "environments"
+              ]
+            },
+            "description": "Retrieve a list of provisioned PeopleSoft environments."
+          },
+          "response": [
+            {
+              "id": "a2efcaec-ad71-4e5d-aafc-19171d97cc50",
+              "name": "Successful response with environment list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"environments\": [\n    {\n      \"environmentId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"toolsVersion\": \"<string>\"\n    },\n    {\n      \"environmentId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"toolsVersion\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:29.000Z",
+              "updatedAt": "2026-06-05T15:14:29.000Z",
+              "uid": "35240-a2efcaec-ad71-4e5d-aafc-19171d97cc50"
+            },
+            {
+              "id": "eef25593-6e83-45f7-b9be-8bc619229553",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:29.000Z",
+              "updatedAt": "2026-06-05T15:14:29.000Z",
+              "uid": "35240-eef25593-6e83-45f7-b9be-8bc619229553"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:29.000Z",
+          "updatedAt": "2026-06-05T15:14:29.000Z",
+          "uid": "35240-018f9278-d4cb-4b4c-b0d8-662884eb3c74"
+        },
+        {
+          "name": "PeopleSoft Provision Environment",
+          "id": "b6ee2e1a-c6d9-4775-b16b-16c9234d9c40",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"templateId\": \"<string>\",\n  \"environmentName\": \"<string>\",\n  \"configuration\": {}\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/environments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "environments"
+              ]
+            },
+            "description": "Provision a new PeopleSoft environment on OCI from a template."
+          },
+          "response": [
+            {
+              "id": "fa1fb45b-25c7-4019-a312-7097e959c7f6",
+              "name": "Provisioning initiated",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<string>\",\n  \"environmentName\": \"<string>\",\n  \"configuration\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"environmentId\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:14:29.000Z",
+              "updatedAt": "2026-06-05T15:14:29.000Z",
+              "uid": "35240-fa1fb45b-25c7-4019-a312-7097e959c7f6"
+            },
+            {
+              "id": "bb674d92-5782-4623-a4b5-5a642e3a57e7",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<string>\",\n  \"environmentName\": \"<string>\",\n  \"configuration\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:29.000Z",
+              "updatedAt": "2026-06-05T15:14:29.000Z",
+              "uid": "35240-bb674d92-5782-4623-a4b5-5a642e3a57e7"
+            },
+            {
+              "id": "7a7b7261-e3ca-47cf-b0b0-11a8de3bda0b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<string>\",\n  \"environmentName\": \"<string>\",\n  \"configuration\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/environments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "environments"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:29.000Z",
+              "updatedAt": "2026-06-05T15:14:29.000Z",
+              "uid": "35240-7a7b7261-e3ca-47cf-b0b0-11a8de3bda0b"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:29.000Z",
+          "updatedAt": "2026-06-05T15:14:29.000Z",
+          "uid": "35240-b6ee2e1a-c6d9-4775-b16b-16c9234d9c40"
+        }
+      ],
+      "id": "4c2427d5-ab89-4163-a0fb-4b542688c5bd",
+      "createdAt": "2026-06-05T15:14:29.000Z",
+      "updatedAt": "2026-06-05T15:14:29.000Z",
+      "uid": "35240-4c2427d5-ab89-4163-a0fb-4b542688c5bd"
+    },
+    {
+      "name": "templates",
+      "item": [
+        {
+          "name": "PeopleSoft List Templates",
+          "id": "a424b036-901d-46fe-bdad-d22866da7e5c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/templates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "templates"
+              ]
+            },
+            "description": "Retrieve available provisioning templates."
+          },
+          "response": [
+            {
+              "id": "3e7f114e-97e4-46c6-883c-05c239c3e367",
+              "name": "Successful response with template list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/templates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "templates"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:29.000Z",
+              "updatedAt": "2026-06-05T15:14:29.000Z",
+              "uid": "35240-3e7f114e-97e4-46c6-883c-05c239c3e367"
+            },
+            {
+              "id": "b7a3db9d-254c-49e4-a8e7-af6386eb3d9a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/templates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "templates"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:29.000Z",
+              "updatedAt": "2026-06-05T15:14:29.000Z",
+              "uid": "35240-b7a3db9d-254c-49e4-a8e7-af6386eb3d9a"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:29.000Z",
+          "updatedAt": "2026-06-05T15:14:29.000Z",
+          "uid": "35240-a424b036-901d-46fe-bdad-d22866da7e5c"
+        }
+      ],
+      "id": "35121b75-a692-4415-bfb8-f8f59033ac46",
+      "createdAt": "2026-06-05T15:14:29.000Z",
+      "updatedAt": "2026-06-05T15:14:29.000Z",
+      "uid": "35240-35121b75-a692-4415-bfb8-f8f59033ac46"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/cloudmgr/v1"
+    }
+  ]
+}

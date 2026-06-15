@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Financials API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "General Ledger",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Journal Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/financials/v1/gl/journals",
+            "params": [
+              {
+                "name": "businessUnit",
+                "value": "example_value",
+                "type": "query",
+                "description": "Business unit filter"
+              },
+              {
+                "name": "fromDate",
+                "value": "2026-04-17",
+                "type": "query",
+                "description": "Start date filter"
+              },
+              {
+                "name": "toDate",
+                "value": "2026-04-17",
+                "type": "query",
+                "description": "End date filter"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve general ledger journal entries."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Accounts Payable",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Vouchers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/financials/v1/ap/vouchers",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve accounts payable vouchers."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Accounts Receivable",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List AR Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/financials/v1/ar/items",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve accounts receivable items."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Expenses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Expense Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/financials/v1/expenses/reports",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve expense reports."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

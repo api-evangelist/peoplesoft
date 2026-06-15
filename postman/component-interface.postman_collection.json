@@ -1,0 +1,680 @@
+{
+  "info": {
+    "_postman_id": "1914668d-37d9-4944-81ca-ca032c9af8f1",
+    "name": "PeopleSoft Component Interface API",
+    "description": "Programmatic access to PeopleSoft components for data manipulation providing CRUD operations on component data via REST.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:12.000Z",
+    "updatedAt": "2026-06-05T15:14:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1914668d-37d9-4944-81ca-ca032c9af8f1"
+  },
+  "item": [
+    {
+      "name": "{componentInterface}",
+      "item": [
+        {
+          "name": "PeopleSoft Get Component Data",
+          "id": "9b535123-1393-414d-9f16-f23a6c08b360",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:componentInterface",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":componentInterface"
+              ],
+              "variable": [
+                {
+                  "id": "d069ca70-f8bb-4584-953d-cb0f5fa5e0db",
+                  "key": "componentInterface",
+                  "value": "<string>",
+                  "description": "(Required) The component interface name"
+                }
+              ]
+            },
+            "description": "Retrieve data from a PeopleSoft component interface."
+          },
+          "response": [
+            {
+              "id": "9ba176b3-e0f9-4ece-bb0b-99c3c809d94f",
+              "name": "Successful response with component data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-9ba176b3-e0f9-4ece-bb0b-99c3c809d94f"
+            },
+            {
+              "id": "054ef834-31e8-46de-a02c-0c53c4e9c77c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-054ef834-31e8-46de-a02c-0c53c4e9c77c"
+            },
+            {
+              "id": "6bc68fae-f50f-48de-bbcf-a570cdcbc646",
+              "name": "Component interface not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-6bc68fae-f50f-48de-bbcf-a570cdcbc646"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:13.000Z",
+          "updatedAt": "2026-06-05T15:14:13.000Z",
+          "uid": "35240-9b535123-1393-414d-9f16-f23a6c08b360"
+        },
+        {
+          "name": "PeopleSoft Create Component Data",
+          "id": "fdf1fac7-3793-4f7c-8e24-31679f32410d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:componentInterface",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":componentInterface"
+              ],
+              "variable": [
+                {
+                  "id": "c52bf6a7-446e-421b-a47b-99a6dc309146",
+                  "key": "componentInterface",
+                  "value": "<string>",
+                  "description": "(Required) The component interface name"
+                }
+              ]
+            },
+            "description": "Create a new record via a PeopleSoft component interface."
+          },
+          "response": [
+            {
+              "id": "3ad72be5-93ae-4477-8427-504429b1605c",
+              "name": "Record created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-3ad72be5-93ae-4477-8427-504429b1605c"
+            },
+            {
+              "id": "07617d78-feb4-40bd-a5b5-ebad68a1193f",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-07617d78-feb4-40bd-a5b5-ebad68a1193f"
+            },
+            {
+              "id": "b1092c1a-2e35-4c2c-a3c9-1e81998c0e93",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-b1092c1a-2e35-4c2c-a3c9-1e81998c0e93"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:13.000Z",
+          "updatedAt": "2026-06-05T15:14:13.000Z",
+          "uid": "35240-fdf1fac7-3793-4f7c-8e24-31679f32410d"
+        },
+        {
+          "name": "PeopleSoft Update Component Data",
+          "id": "9334cfeb-2134-42ba-82ef-79ba2f3e87eb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:componentInterface",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":componentInterface"
+              ],
+              "variable": [
+                {
+                  "id": "bd4e96b1-3bcb-48ef-bb33-29eb97f77ad7",
+                  "key": "componentInterface",
+                  "value": "<string>",
+                  "description": "(Required) The component interface name"
+                }
+              ]
+            },
+            "description": "Update an existing record via a PeopleSoft component interface."
+          },
+          "response": [
+            {
+              "id": "29e6b219-b369-44de-975d-ddbb8ff5edcd",
+              "name": "Record updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-29e6b219-b369-44de-975d-ddbb8ff5edcd"
+            },
+            {
+              "id": "c0e4ccc5-3a02-4c13-bd3d-c5e00b762b09",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-c0e4ccc5-3a02-4c13-bd3d-c5e00b762b09"
+            },
+            {
+              "id": "a536b596-8504-4d8d-82f9-c9d4f35f0a3c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:componentInterface",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":componentInterface"
+                  ],
+                  "variable": [
+                    {
+                      "key": "componentInterface"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:13.000Z",
+              "updatedAt": "2026-06-05T15:14:13.000Z",
+              "uid": "35240-a536b596-8504-4d8d-82f9-c9d4f35f0a3c"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:13.000Z",
+          "updatedAt": "2026-06-05T15:14:13.000Z",
+          "uid": "35240-9334cfeb-2134-42ba-82ef-79ba2f3e87eb"
+        }
+      ],
+      "id": "bea50d78-a0f8-4397-94d3-1bdbb1525672",
+      "createdAt": "2026-06-05T15:14:13.000Z",
+      "updatedAt": "2026-06-05T15:14:13.000Z",
+      "uid": "35240-bea50d78-a0f8-4397-94d3-1bdbb1525672"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/componentinterface/v1"
+    }
+  ]
+}

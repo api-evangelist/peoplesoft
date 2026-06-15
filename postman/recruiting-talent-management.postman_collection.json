@@ -1,0 +1,483 @@
+{
+  "info": {
+    "_postman_id": "b353ea89-949d-46aa-b024-31fcc908d327",
+    "name": "PeopleSoft Recruiting and Talent Management API",
+    "description": "REST endpoints for job search services, Candidate Gateway self-service, recruiting solutions, and talent management workflows.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:33.000Z",
+    "updatedAt": "2026-06-05T15:14:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b353ea89-949d-46aa-b024-31fcc908d327"
+  },
+  "item": [
+    {
+      "name": "jobs",
+      "item": [
+        {
+          "name": "{jobId}",
+          "item": [
+            {
+              "name": "PeopleSoft Get Job Details",
+              "id": "408fb210-2f43-4da4-a16a-23bd60e3d8de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/:jobId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e2511141-092f-48be-ac38-ebfb642ec3cd",
+                      "key": "jobId",
+                      "value": "<string>",
+                      "description": "(Required) The job posting identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details for a specific job posting."
+              },
+              "response": [
+                {
+                  "id": "318eede6-567e-42a1-a682-0b954616df0e",
+                  "name": "Job details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:33.000Z",
+                  "updatedAt": "2026-06-05T15:14:33.000Z",
+                  "uid": "35240-318eede6-567e-42a1-a682-0b954616df0e"
+                },
+                {
+                  "id": "8c4e24b7-711a-4a36-90c3-2d46976dd122",
+                  "name": "Job not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:jobId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":jobId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "jobId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:33.000Z",
+                  "updatedAt": "2026-06-05T15:14:33.000Z",
+                  "uid": "35240-8c4e24b7-711a-4a36-90c3-2d46976dd122"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:33.000Z",
+              "updatedAt": "2026-06-05T15:14:33.000Z",
+              "uid": "35240-408fb210-2f43-4da4-a16a-23bd60e3d8de"
+            }
+          ],
+          "id": "9c5d9930-7534-4ba8-8f86-516cb8eb31ca",
+          "createdAt": "2026-06-05T15:14:33.000Z",
+          "updatedAt": "2026-06-05T15:14:33.000Z",
+          "uid": "35240-9c5d9930-7534-4ba8-8f86-516cb8eb31ca"
+        },
+        {
+          "name": "PeopleSoft Search Jobs",
+          "id": "d48a1703-5f33-4faf-9be1-0f082a93c329",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs?keyword=<string>&location=<string>&department=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs"
+              ],
+              "query": [
+                {
+                  "description": "Keyword search term",
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Job location filter",
+                  "key": "location",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Department filter",
+                  "key": "department",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Search available job postings."
+          },
+          "response": [
+            {
+              "id": "aadcc2d3-0acd-445f-8315-dac39da77ff6",
+              "name": "Successful response with job listings",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs?keyword=<string>&location=<string>&department=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "Keyword search term",
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Job location filter",
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Department filter",
+                      "key": "department",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"jobs\": [\n    {\n      \"jobId\": \"<string>\",\n      \"title\": \"<string>\",\n      \"department\": \"<string>\",\n      \"location\": \"<string>\",\n      \"postingDate\": \"<date>\"\n    },\n    {\n      \"jobId\": \"<string>\",\n      \"title\": \"<string>\",\n      \"department\": \"<string>\",\n      \"location\": \"<string>\",\n      \"postingDate\": \"<date>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:33.000Z",
+              "updatedAt": "2026-06-05T15:14:33.000Z",
+              "uid": "35240-aadcc2d3-0acd-445f-8315-dac39da77ff6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:33.000Z",
+          "updatedAt": "2026-06-05T15:14:33.000Z",
+          "uid": "35240-d48a1703-5f33-4faf-9be1-0f082a93c329"
+        }
+      ],
+      "id": "ed0fe556-cbf3-48f9-98bf-3444c3ab5401",
+      "createdAt": "2026-06-05T15:14:33.000Z",
+      "updatedAt": "2026-06-05T15:14:33.000Z",
+      "uid": "35240-ed0fe556-cbf3-48f9-98bf-3444c3ab5401"
+    },
+    {
+      "name": "candidates",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "PeopleSoft Submit Application",
+              "id": "71e07a46-a721-406e-a8f9-cedbf70f959c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobId\": \"<string>\",\n  \"candidateInfo\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/candidates/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "candidates",
+                    "applications"
+                  ]
+                },
+                "description": "Submit a candidate application for a job posting."
+              },
+              "response": [
+                {
+                  "id": "d614c683-d3b8-4409-b500-231468f98aac",
+                  "name": "Application submitted",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobId\": \"<string>\",\n  \"candidateInfo\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/candidates/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "candidates",
+                        "applications"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:33.000Z",
+                  "updatedAt": "2026-06-05T15:14:33.000Z",
+                  "uid": "35240-d614c683-d3b8-4409-b500-231468f98aac"
+                },
+                {
+                  "id": "3d76c74c-1820-438c-b120-25140a0121b8",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobId\": \"<string>\",\n  \"candidateInfo\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/candidates/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "candidates",
+                        "applications"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:33.000Z",
+                  "updatedAt": "2026-06-05T15:14:33.000Z",
+                  "uid": "35240-3d76c74c-1820-438c-b120-25140a0121b8"
+                },
+                {
+                  "id": "709c323b-0852-4484-9898-6f0886210955",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"jobId\": \"<string>\",\n  \"candidateInfo\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/candidates/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "candidates",
+                        "applications"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:33.000Z",
+                  "updatedAt": "2026-06-05T15:14:33.000Z",
+                  "uid": "35240-709c323b-0852-4484-9898-6f0886210955"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:33.000Z",
+              "updatedAt": "2026-06-05T15:14:33.000Z",
+              "uid": "35240-71e07a46-a721-406e-a8f9-cedbf70f959c"
+            }
+          ],
+          "id": "206f33a2-c332-4dac-8f00-3690283c6030",
+          "createdAt": "2026-06-05T15:14:33.000Z",
+          "updatedAt": "2026-06-05T15:14:33.000Z",
+          "uid": "35240-206f33a2-c332-4dac-8f00-3690283c6030"
+        }
+      ],
+      "id": "c83f87ac-e2c6-43ae-a685-4c595f075f3f",
+      "createdAt": "2026-06-05T15:14:33.000Z",
+      "updatedAt": "2026-06-05T15:14:33.000Z",
+      "uid": "35240-c83f87ac-e2c6-43ae-a685-4c595f075f3f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/hcm/recruiting/v1"
+    }
+  ]
+}

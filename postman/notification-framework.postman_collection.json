@@ -1,0 +1,355 @@
+{
+  "info": {
+    "_postman_id": "26b71eb1-c76c-474b-a4b8-36ae95d781ec",
+    "name": "PeopleSoft Notification Framework API",
+    "description": "Push notification and event-driven notification services including the Notification Composer for email, text, and in-app notifications. Requires PeopleTools 8.59.19+.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:14.000Z",
+    "updatedAt": "2026-06-05T15:14:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-26b71eb1-c76c-474b-a4b8-36ae95d781ec"
+  },
+  "item": [
+    {
+      "name": "notifications",
+      "item": [
+        {
+          "name": "PeopleSoft List Notifications",
+          "id": "b16d8b48-3c5f-4d7b-ae16-1b1c4e19a183",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/notifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notifications"
+              ]
+            },
+            "description": "Retrieve a list of notifications for the current user."
+          },
+          "response": [
+            {
+              "id": "c006adbc-4ec6-46c2-b990-7213daecb3ef",
+              "name": "Successful response with notifications",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"notifications\": [\n    {\n      \"id\": \"<string>\",\n      \"message\": \"<string>\",\n      \"type\": \"<string>\",\n      \"timestamp\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"message\": \"<string>\",\n      \"type\": \"<string>\",\n      \"timestamp\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:14.000Z",
+              "updatedAt": "2026-06-05T15:14:14.000Z",
+              "uid": "35240-c006adbc-4ec6-46c2-b990-7213daecb3ef"
+            },
+            {
+              "id": "b1f4e3f7-04b5-459c-9c95-5ac22eee3569",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:14.000Z",
+              "updatedAt": "2026-06-05T15:14:14.000Z",
+              "uid": "35240-b1f4e3f7-04b5-459c-9c95-5ac22eee3569"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:14.000Z",
+          "updatedAt": "2026-06-05T15:14:14.000Z",
+          "uid": "35240-b16d8b48-3c5f-4d7b-ae16-1b1c4e19a183"
+        },
+        {
+          "name": "PeopleSoft Send Notification",
+          "id": "35e3f913-0a63-4216-89fa-c49c771afc2d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channel\": \"text\",\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notifications"
+              ]
+            },
+            "description": "Send a notification via email, text, or in-app channels."
+          },
+          "response": [
+            {
+              "id": "9e66a320-e095-4379-b4e5-5210cd5e23c2",
+              "name": "Notification queued",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"text\",\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:14.000Z",
+              "updatedAt": "2026-06-05T15:14:14.000Z",
+              "uid": "35240-9e66a320-e095-4379-b4e5-5210cd5e23c2"
+            },
+            {
+              "id": "04d92418-af22-469a-a786-070b3631316a",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"text\",\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:14.000Z",
+              "updatedAt": "2026-06-05T15:14:14.000Z",
+              "uid": "35240-04d92418-af22-469a-a786-070b3631316a"
+            },
+            {
+              "id": "ba154191-e5d7-4e53-9b6c-4e92abaad658",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channel\": \"text\",\n  \"recipients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notifications"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:14.000Z",
+              "updatedAt": "2026-06-05T15:14:14.000Z",
+              "uid": "35240-ba154191-e5d7-4e53-9b6c-4e92abaad658"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:14.000Z",
+          "updatedAt": "2026-06-05T15:14:14.000Z",
+          "uid": "35240-35e3f913-0a63-4216-89fa-c49c771afc2d"
+        }
+      ],
+      "id": "1d6f93af-0133-4a0a-b67d-8677bdf40756",
+      "createdAt": "2026-06-05T15:14:14.000Z",
+      "updatedAt": "2026-06-05T15:14:14.000Z",
+      "uid": "35240-1d6f93af-0133-4a0a-b67d-8677bdf40756"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/notifications/v1"
+    }
+  ]
+}

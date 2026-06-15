@@ -1,0 +1,668 @@
+{
+  "info": {
+    "_postman_id": "7bd111f3-d65e-4395-b9c7-d6459e6caa06",
+    "name": "PeopleSoft HCM API",
+    "description": "Human Capital Management APIs for employee data, benefits, payroll, workforce administration, and talent management.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:32.000Z",
+    "updatedAt": "2026-06-05T15:14:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7bd111f3-d65e-4395-b9c7-d6459e6caa06"
+  },
+  "item": [
+    {
+      "name": "employees",
+      "item": [
+        {
+          "name": "{employeeId}",
+          "item": [
+            {
+              "name": "PeopleSoft Get Employee",
+              "id": "b56c3d12-4495-47ed-ad90-4cf64827360f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/employees/:employeeId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees",
+                    ":employeeId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3003ef9f-2b1b-4a6d-b06d-25b5e5a9fedd",
+                      "key": "employeeId",
+                      "value": "<string>",
+                      "description": "(Required) The employee identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details for a specific employee."
+              },
+              "response": [
+                {
+                  "id": "a52939c5-4eaa-4046-9c82-463dd860850d",
+                  "name": "Employee details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employeeId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employeeId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employeeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:32.000Z",
+                  "updatedAt": "2026-06-05T15:14:32.000Z",
+                  "uid": "35240-a52939c5-4eaa-4046-9c82-463dd860850d"
+                },
+                {
+                  "id": "aa79cf00-3e11-468d-961b-ff50cd03b8b9",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employeeId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employeeId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employeeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:32.000Z",
+                  "updatedAt": "2026-06-05T15:14:32.000Z",
+                  "uid": "35240-aa79cf00-3e11-468d-961b-ff50cd03b8b9"
+                },
+                {
+                  "id": "04e3a2c6-012e-406f-94d7-937f0c408ed0",
+                  "name": "Employee not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employeeId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employeeId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employeeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:32.000Z",
+                  "updatedAt": "2026-06-05T15:14:32.000Z",
+                  "uid": "35240-04e3a2c6-012e-406f-94d7-937f0c408ed0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:32.000Z",
+              "updatedAt": "2026-06-05T15:14:32.000Z",
+              "uid": "35240-b56c3d12-4495-47ed-ad90-4cf64827360f"
+            }
+          ],
+          "id": "995b895b-729d-4aff-a166-e2653ae5addc",
+          "createdAt": "2026-06-05T15:14:32.000Z",
+          "updatedAt": "2026-06-05T15:14:32.000Z",
+          "uid": "35240-995b895b-729d-4aff-a166-e2653ae5addc"
+        },
+        {
+          "name": "PeopleSoft List Employees",
+          "id": "b5a0e844-5eb7-4946-b201-7fc8e8631736",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/employees?department=<string>&status=terminated",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees"
+              ],
+              "query": [
+                {
+                  "description": "Filter by department",
+                  "key": "department",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by employment status",
+                  "key": "status",
+                  "value": "terminated"
+                }
+              ]
+            },
+            "description": "Retrieve a list of employee records."
+          },
+          "response": [
+            {
+              "id": "134b8ba3-67f1-4dd2-a7a6-b9e1f56a4e0e",
+              "name": "Successful response with employee list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/employees?department=<string>&status=terminated",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by department",
+                      "key": "department",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by employment status",
+                      "key": "status",
+                      "value": "terminated"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:32.000Z",
+              "updatedAt": "2026-06-05T15:14:32.000Z",
+              "uid": "35240-134b8ba3-67f1-4dd2-a7a6-b9e1f56a4e0e"
+            },
+            {
+              "id": "f3d27e13-af5c-405c-b3cf-7c877211168d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/employees?department=<string>&status=terminated",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by department",
+                      "key": "department",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by employment status",
+                      "key": "status",
+                      "value": "terminated"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:32.000Z",
+              "updatedAt": "2026-06-05T15:14:32.000Z",
+              "uid": "35240-f3d27e13-af5c-405c-b3cf-7c877211168d"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:32.000Z",
+          "updatedAt": "2026-06-05T15:14:32.000Z",
+          "uid": "35240-b5a0e844-5eb7-4946-b201-7fc8e8631736"
+        }
+      ],
+      "id": "e2691f3c-c05b-4f8c-a860-9c9656ef4db1",
+      "createdAt": "2026-06-05T15:14:32.000Z",
+      "updatedAt": "2026-06-05T15:14:32.000Z",
+      "uid": "35240-e2691f3c-c05b-4f8c-a860-9c9656ef4db1"
+    },
+    {
+      "name": "benefits",
+      "item": [
+        {
+          "name": "enrollments",
+          "item": [
+            {
+              "name": "PeopleSoft List Benefit Enrollments",
+              "id": "7cd0c58f-2ba0-42d7-9f25-b355909bf982",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/benefits/enrollments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "benefits",
+                    "enrollments"
+                  ]
+                },
+                "description": "Retrieve benefit enrollment records."
+              },
+              "response": [
+                {
+                  "id": "1a514ba6-3b5d-4b63-afce-52c12643b2f4",
+                  "name": "Successful response with enrollments",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/benefits/enrollments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "benefits",
+                        "enrollments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:32.000Z",
+                  "updatedAt": "2026-06-05T15:14:32.000Z",
+                  "uid": "35240-1a514ba6-3b5d-4b63-afce-52c12643b2f4"
+                },
+                {
+                  "id": "5e4df14e-a167-4fe9-a966-63654ee4230d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/benefits/enrollments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "benefits",
+                        "enrollments"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:32.000Z",
+                  "updatedAt": "2026-06-05T15:14:32.000Z",
+                  "uid": "35240-5e4df14e-a167-4fe9-a966-63654ee4230d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:32.000Z",
+              "updatedAt": "2026-06-05T15:14:32.000Z",
+              "uid": "35240-7cd0c58f-2ba0-42d7-9f25-b355909bf982"
+            }
+          ],
+          "id": "69fa9996-0151-4bff-8dab-a1de88dd460f",
+          "createdAt": "2026-06-05T15:14:32.000Z",
+          "updatedAt": "2026-06-05T15:14:32.000Z",
+          "uid": "35240-69fa9996-0151-4bff-8dab-a1de88dd460f"
+        }
+      ],
+      "id": "e68cd40c-fef4-4ea9-af09-bcf20f3e340f",
+      "createdAt": "2026-06-05T15:14:32.000Z",
+      "updatedAt": "2026-06-05T15:14:32.000Z",
+      "uid": "35240-e68cd40c-fef4-4ea9-af09-bcf20f3e340f"
+    },
+    {
+      "name": "payroll",
+      "item": [
+        {
+          "name": "runs",
+          "item": [
+            {
+              "name": "PeopleSoft List Payroll Runs",
+              "id": "dfa5682b-41f7-4b6d-8b5b-0023a5d47d64",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payroll/runs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payroll",
+                    "runs"
+                  ]
+                },
+                "description": "Retrieve payroll run history and status."
+              },
+              "response": [
+                {
+                  "id": "dfdf49ee-05b2-44a9-b810-475a24fbc861",
+                  "name": "Successful response with payroll runs",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/runs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        "runs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:32.000Z",
+                  "updatedAt": "2026-06-05T15:14:32.000Z",
+                  "uid": "35240-dfdf49ee-05b2-44a9-b810-475a24fbc861"
+                },
+                {
+                  "id": "7ae6e94a-d5bc-4093-98c8-87ae2b2b5816",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/runs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        "runs"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:32.000Z",
+                  "updatedAt": "2026-06-05T15:14:32.000Z",
+                  "uid": "35240-7ae6e94a-d5bc-4093-98c8-87ae2b2b5816"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:32.000Z",
+              "updatedAt": "2026-06-05T15:14:32.000Z",
+              "uid": "35240-dfa5682b-41f7-4b6d-8b5b-0023a5d47d64"
+            }
+          ],
+          "id": "658e59d4-b4c9-449f-a402-9d3d444c0d14",
+          "createdAt": "2026-06-05T15:14:32.000Z",
+          "updatedAt": "2026-06-05T15:14:32.000Z",
+          "uid": "35240-658e59d4-b4c9-449f-a402-9d3d444c0d14"
+        }
+      ],
+      "id": "b251f9a7-a48f-4063-b76d-237be69c00f9",
+      "createdAt": "2026-06-05T15:14:32.000Z",
+      "updatedAt": "2026-06-05T15:14:32.000Z",
+      "uid": "35240-b251f9a7-a48f-4063-b76d-237be69c00f9"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/hcm/v1"
+    }
+  ]
+}

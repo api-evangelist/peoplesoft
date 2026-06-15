@@ -1,0 +1,377 @@
+{
+  "info": {
+    "_postman_id": "7d2258dc-c447-402a-90ac-d73d30abbbbc",
+    "name": "PeopleSoft Chatbot Integration Framework API",
+    "description": "Integration framework for connecting PeopleSoft with Oracle Digital Assistant (ODA) including REST services for chatbot data retrieval and embedded chatbot UI on Fluid pages (PICASO). Requires PeopleTools 8.57.07+.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:15.000Z",
+    "updatedAt": "2026-06-05T15:14:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7d2258dc-c447-402a-90ac-d73d30abbbbc"
+  },
+  "item": [
+    {
+      "name": "intents",
+      "item": [
+        {
+          "name": "PeopleSoft List Intents",
+          "id": "5bc7e001-2643-422a-a4fd-63b1fbe45ce7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/intents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "intents"
+              ]
+            },
+            "description": "Retrieve available chatbot intents and their configurations."
+          },
+          "response": [
+            {
+              "id": "18fe5a10-4502-4b38-bdb3-b51f905e60bc",
+              "name": "Successful response with intents",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/intents",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "intents"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"intents\": [\n    {\n      \"intentName\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"intentName\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:15.000Z",
+              "updatedAt": "2026-06-05T15:14:15.000Z",
+              "uid": "35240-18fe5a10-4502-4b38-bdb3-b51f905e60bc"
+            },
+            {
+              "id": "1a67c4ce-e951-41a3-8268-3409ad7b40d6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/intents",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "intents"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:15.000Z",
+              "updatedAt": "2026-06-05T15:14:15.000Z",
+              "uid": "35240-1a67c4ce-e951-41a3-8268-3409ad7b40d6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:15.000Z",
+          "updatedAt": "2026-06-05T15:14:15.000Z",
+          "uid": "35240-5bc7e001-2643-422a-a4fd-63b1fbe45ce7"
+        }
+      ],
+      "id": "1dbc8216-a0cf-4eed-9848-6a46de016e77",
+      "createdAt": "2026-06-05T15:14:15.000Z",
+      "updatedAt": "2026-06-05T15:14:15.000Z",
+      "uid": "35240-1dbc8216-a0cf-4eed-9848-6a46de016e77"
+    },
+    {
+      "name": "fulfill",
+      "item": [
+        {
+          "name": "PeopleSoft Fulfill Intent",
+          "id": "b95a3aec-6478-4e75-ad62-4d8805b1d2a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"intent\": \"<string>\",\n  \"parameters\": {},\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/fulfill",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fulfill"
+              ]
+            },
+            "description": "Process a chatbot intent fulfillment request from Oracle Digital Assistant."
+          },
+          "response": [
+            {
+              "id": "2c9b26e9-c05f-420d-9c94-43f5281284a0",
+              "name": "Intent fulfilled",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"intent\": \"<string>\",\n  \"parameters\": {},\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fulfill",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fulfill"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:15.000Z",
+              "updatedAt": "2026-06-05T15:14:15.000Z",
+              "uid": "35240-2c9b26e9-c05f-420d-9c94-43f5281284a0"
+            },
+            {
+              "id": "5560331e-0325-4dc6-ac3c-7daa22fe77db",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"intent\": \"<string>\",\n  \"parameters\": {},\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fulfill",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fulfill"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:15.000Z",
+              "updatedAt": "2026-06-05T15:14:15.000Z",
+              "uid": "35240-5560331e-0325-4dc6-ac3c-7daa22fe77db"
+            },
+            {
+              "id": "ab39240d-21e8-4835-8c8f-7f9f09d01948",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"intent\": \"<string>\",\n  \"parameters\": {},\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fulfill",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fulfill"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:15.000Z",
+              "updatedAt": "2026-06-05T15:14:15.000Z",
+              "uid": "35240-ab39240d-21e8-4835-8c8f-7f9f09d01948"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:15.000Z",
+          "updatedAt": "2026-06-05T15:14:15.000Z",
+          "uid": "35240-b95a3aec-6478-4e75-ad62-4d8805b1d2a5"
+        }
+      ],
+      "id": "c485861f-eecb-4b23-9603-6c9f618cbcce",
+      "createdAt": "2026-06-05T15:14:15.000Z",
+      "updatedAt": "2026-06-05T15:14:15.000Z",
+      "uid": "35240-c485861f-eecb-4b23-9603-6c9f618cbcce"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/chatbot/v1"
+    }
+  ]
+}

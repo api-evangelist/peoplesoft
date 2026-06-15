@@ -1,0 +1,518 @@
+{
+  "info": {
+    "_postman_id": "86be4be8-836e-4f4b-a3e8-64b9e79530fe",
+    "name": "PeopleSoft Interaction Hub API",
+    "description": "Content management, branding, and portal administration APIs for the PeopleSoft Interaction Hub (formerly Enterprise Portal) with Integration Broker services.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:57.000Z",
+    "updatedAt": "2026-06-05T15:14:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-86be4be8-836e-4f4b-a3e8-64b9e79530fe"
+  },
+  "item": [
+    {
+      "name": "content",
+      "item": [
+        {
+          "name": "PeopleSoft List Content",
+          "id": "5d7ebde4-e3a8-4dee-afe7-e08c513f6f54",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/content?category=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content"
+              ],
+              "query": [
+                {
+                  "description": "Content category filter",
+                  "key": "category",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve portal content items."
+          },
+          "response": [
+            {
+              "id": "eca82185-10b8-40fc-b623-e369afee156c",
+              "name": "Successful response with content items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/content?category=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "content"
+                  ],
+                  "query": [
+                    {
+                      "description": "Content category filter",
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"contentId\": \"<string>\",\n      \"title\": \"<string>\",\n      \"category\": \"<string>\",\n      \"publishDate\": \"<date>\"\n    },\n    {\n      \"contentId\": \"<string>\",\n      \"title\": \"<string>\",\n      \"category\": \"<string>\",\n      \"publishDate\": \"<date>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:58.000Z",
+              "updatedAt": "2026-06-05T15:14:58.000Z",
+              "uid": "35240-eca82185-10b8-40fc-b623-e369afee156c"
+            },
+            {
+              "id": "6020814b-5dcc-41cb-a4db-042dc5d69843",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/content?category=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "content"
+                  ],
+                  "query": [
+                    {
+                      "description": "Content category filter",
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:58.000Z",
+              "updatedAt": "2026-06-05T15:14:58.000Z",
+              "uid": "35240-6020814b-5dcc-41cb-a4db-042dc5d69843"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:57.000Z",
+          "updatedAt": "2026-06-05T15:14:57.000Z",
+          "uid": "35240-5d7ebde4-e3a8-4dee-afe7-e08c513f6f54"
+        },
+        {
+          "name": "PeopleSoft Create Content",
+          "id": "96c9531f-3627-40e6-891e-18d616a90b27",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/content",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "content"
+              ]
+            },
+            "description": "Create a new portal content item."
+          },
+          "response": [
+            {
+              "id": "c823cb62-8a2e-4b9e-aed9-98a90a094cfb",
+              "name": "Content created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/content",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "content"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:58.000Z",
+              "updatedAt": "2026-06-05T15:14:58.000Z",
+              "uid": "35240-c823cb62-8a2e-4b9e-aed9-98a90a094cfb"
+            },
+            {
+              "id": "e64ef087-3bc6-4726-91c9-cd24f9f25baa",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/content",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "content"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:58.000Z",
+              "updatedAt": "2026-06-05T15:14:58.000Z",
+              "uid": "35240-e64ef087-3bc6-4726-91c9-cd24f9f25baa"
+            },
+            {
+              "id": "7620adc8-95aa-4725-aeae-acd519bfcdaa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"body\": \"<string>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/content",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "content"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:58.000Z",
+              "updatedAt": "2026-06-05T15:14:58.000Z",
+              "uid": "35240-7620adc8-95aa-4725-aeae-acd519bfcdaa"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:57.000Z",
+          "updatedAt": "2026-06-05T15:14:57.000Z",
+          "uid": "35240-96c9531f-3627-40e6-891e-18d616a90b27"
+        }
+      ],
+      "id": "d1560317-a98b-4775-98a6-11806e89c555",
+      "createdAt": "2026-06-05T15:14:57.000Z",
+      "updatedAt": "2026-06-05T15:14:57.000Z",
+      "uid": "35240-d1560317-a98b-4775-98a6-11806e89c555"
+    },
+    {
+      "name": "branding",
+      "item": [
+        {
+          "name": "themes",
+          "item": [
+            {
+              "name": "PeopleSoft List Themes",
+              "id": "08662808-ea3d-4c8f-8cb6-82a8c5968c83",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/branding/themes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "branding",
+                    "themes"
+                  ]
+                },
+                "description": "Retrieve available branding themes."
+              },
+              "response": [
+                {
+                  "id": "41553a00-8883-410c-b9f4-a7b11adaa0f8",
+                  "name": "Successful response with themes",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/branding/themes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "branding",
+                        "themes"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:58.000Z",
+                  "updatedAt": "2026-06-05T15:14:58.000Z",
+                  "uid": "35240-41553a00-8883-410c-b9f4-a7b11adaa0f8"
+                },
+                {
+                  "id": "927ef553-8909-4a83-943a-4b00f1c3f930",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/branding/themes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "branding",
+                        "themes"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:58.000Z",
+                  "updatedAt": "2026-06-05T15:14:58.000Z",
+                  "uid": "35240-927ef553-8909-4a83-943a-4b00f1c3f930"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:57.000Z",
+              "updatedAt": "2026-06-05T15:14:57.000Z",
+              "uid": "35240-08662808-ea3d-4c8f-8cb6-82a8c5968c83"
+            }
+          ],
+          "id": "5f241c1f-cd6c-43a0-ad44-0fae181da19c",
+          "createdAt": "2026-06-05T15:14:57.000Z",
+          "updatedAt": "2026-06-05T15:14:57.000Z",
+          "uid": "35240-5f241c1f-cd6c-43a0-ad44-0fae181da19c"
+        }
+      ],
+      "id": "20d7474f-aac9-4016-be77-f54ffedccab7",
+      "createdAt": "2026-06-05T15:14:57.000Z",
+      "updatedAt": "2026-06-05T15:14:57.000Z",
+      "uid": "35240-20d7474f-aac9-4016-be77-f54ffedccab7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/hub/v1"
+    }
+  ]
+}

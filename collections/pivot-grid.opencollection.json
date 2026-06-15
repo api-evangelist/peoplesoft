@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Pivot Grid API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pivot Grids",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Pivot Grids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/pivotgrid/v1/grids",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a list of available pivot grid definitions."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Get Pivot Grid Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/pivotgrid/v1/grids/:gridId/data",
+            "params": [
+              {
+                "name": "gridId",
+                "value": "PS123456",
+                "type": "path",
+                "description": "The pivot grid identifier"
+              },
+              {
+                "name": "filters",
+                "value": "example_value",
+                "type": "query",
+                "description": "JSON-encoded filter criteria"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve data for a specific pivot grid with optional filters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

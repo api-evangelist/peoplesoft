@@ -1,0 +1,647 @@
+{
+  "info": {
+    "_postman_id": "e8fff115-b40a-438a-9eb8-108ff599ad45",
+    "name": "PeopleSoft Financials API",
+    "description": "Financial Management APIs for general ledger, accounts payable, accounts receivable, expenses, asset management, and financial reporting.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:34.000Z",
+    "updatedAt": "2026-06-05T15:14:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e8fff115-b40a-438a-9eb8-108ff599ad45"
+  },
+  "item": [
+    {
+      "name": "gl",
+      "item": [
+        {
+          "name": "journals",
+          "item": [
+            {
+              "name": "PeopleSoft List Journal Entries",
+              "id": "6e801668-b07c-4346-9c4d-7fca4bac02b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/gl/journals?businessUnit=<string>&fromDate=<date>&toDate=<date>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "gl",
+                    "journals"
+                  ],
+                  "query": [
+                    {
+                      "description": "Business unit filter",
+                      "key": "businessUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date filter",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date filter",
+                      "key": "toDate",
+                      "value": "<date>"
+                    }
+                  ]
+                },
+                "description": "Retrieve general ledger journal entries."
+              },
+              "response": [
+                {
+                  "id": "bc74b786-04e6-48a3-b91d-e50d2b97ad65",
+                  "name": "Successful response with journal entries",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gl/journals?businessUnit=<string>&fromDate=<date>&toDate=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gl",
+                        "journals"
+                      ],
+                      "query": [
+                        {
+                          "description": "Business unit filter",
+                          "key": "businessUnit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date filter",
+                          "key": "fromDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date filter",
+                          "key": "toDate",
+                          "value": "<date>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-bc74b786-04e6-48a3-b91d-e50d2b97ad65"
+                },
+                {
+                  "id": "092cdb29-e11b-42eb-832b-4607e50685c8",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/gl/journals?businessUnit=<string>&fromDate=<date>&toDate=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "gl",
+                        "journals"
+                      ],
+                      "query": [
+                        {
+                          "description": "Business unit filter",
+                          "key": "businessUnit",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Start date filter",
+                          "key": "fromDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date filter",
+                          "key": "toDate",
+                          "value": "<date>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-092cdb29-e11b-42eb-832b-4607e50685c8"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:34.000Z",
+              "updatedAt": "2026-06-05T15:14:34.000Z",
+              "uid": "35240-6e801668-b07c-4346-9c4d-7fca4bac02b2"
+            }
+          ],
+          "id": "0a1f3017-7a1f-441f-a7a3-74289e6a805d",
+          "createdAt": "2026-06-05T15:14:34.000Z",
+          "updatedAt": "2026-06-05T15:14:34.000Z",
+          "uid": "35240-0a1f3017-7a1f-441f-a7a3-74289e6a805d"
+        }
+      ],
+      "id": "bbb5cf47-b80e-4a13-a417-5601d6c3b4c7",
+      "createdAt": "2026-06-05T15:14:34.000Z",
+      "updatedAt": "2026-06-05T15:14:34.000Z",
+      "uid": "35240-bbb5cf47-b80e-4a13-a417-5601d6c3b4c7"
+    },
+    {
+      "name": "ap",
+      "item": [
+        {
+          "name": "vouchers",
+          "item": [
+            {
+              "name": "PeopleSoft List Vouchers",
+              "id": "d4fdf2a9-bf66-447b-8c52-d92f779a433d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ap/vouchers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ap",
+                    "vouchers"
+                  ]
+                },
+                "description": "Retrieve accounts payable vouchers."
+              },
+              "response": [
+                {
+                  "id": "130cc3da-6e2e-4699-92d1-873facbfc9d8",
+                  "name": "Successful response with vouchers",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ap/vouchers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ap",
+                        "vouchers"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-130cc3da-6e2e-4699-92d1-873facbfc9d8"
+                },
+                {
+                  "id": "f4d3b7d3-d38d-4bfa-87ca-8d88dcac9b21",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ap/vouchers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ap",
+                        "vouchers"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-f4d3b7d3-d38d-4bfa-87ca-8d88dcac9b21"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:34.000Z",
+              "updatedAt": "2026-06-05T15:14:34.000Z",
+              "uid": "35240-d4fdf2a9-bf66-447b-8c52-d92f779a433d"
+            }
+          ],
+          "id": "ab436db4-1986-44a5-ab22-c2a24931accf",
+          "createdAt": "2026-06-05T15:14:34.000Z",
+          "updatedAt": "2026-06-05T15:14:34.000Z",
+          "uid": "35240-ab436db4-1986-44a5-ab22-c2a24931accf"
+        }
+      ],
+      "id": "881a8fe8-860e-4801-a362-42d2f5db46bc",
+      "createdAt": "2026-06-05T15:14:34.000Z",
+      "updatedAt": "2026-06-05T15:14:34.000Z",
+      "uid": "35240-881a8fe8-860e-4801-a362-42d2f5db46bc"
+    },
+    {
+      "name": "ar",
+      "item": [
+        {
+          "name": "items",
+          "item": [
+            {
+              "name": "PeopleSoft List AR Items",
+              "id": "33609af6-63b1-409b-8564-a8f1c49178b7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ar/items",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ar",
+                    "items"
+                  ]
+                },
+                "description": "Retrieve accounts receivable items."
+              },
+              "response": [
+                {
+                  "id": "99dab0cd-d908-4e26-98a5-c8c05dbf243f",
+                  "name": "Successful response with AR items",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ar/items",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ar",
+                        "items"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-99dab0cd-d908-4e26-98a5-c8c05dbf243f"
+                },
+                {
+                  "id": "eeb87a5d-4187-44e5-83ac-763fb6fa55b1",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ar/items",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ar",
+                        "items"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-eeb87a5d-4187-44e5-83ac-763fb6fa55b1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:34.000Z",
+              "updatedAt": "2026-06-05T15:14:34.000Z",
+              "uid": "35240-33609af6-63b1-409b-8564-a8f1c49178b7"
+            }
+          ],
+          "id": "5643a99e-1436-4c4b-91ab-46bfa7486f28",
+          "createdAt": "2026-06-05T15:14:34.000Z",
+          "updatedAt": "2026-06-05T15:14:34.000Z",
+          "uid": "35240-5643a99e-1436-4c4b-91ab-46bfa7486f28"
+        }
+      ],
+      "id": "a4959187-227b-416f-8ec3-b0b4854bd464",
+      "createdAt": "2026-06-05T15:14:34.000Z",
+      "updatedAt": "2026-06-05T15:14:34.000Z",
+      "uid": "35240-a4959187-227b-416f-8ec3-b0b4854bd464"
+    },
+    {
+      "name": "expenses",
+      "item": [
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "PeopleSoft List Expense Reports",
+              "id": "a1383467-ea54-4fb9-9d33-849c5a418a1b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/expenses/reports",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "expenses",
+                    "reports"
+                  ]
+                },
+                "description": "Retrieve expense reports."
+              },
+              "response": [
+                {
+                  "id": "9240ac4e-305f-43e8-b978-1029655ec9ca",
+                  "name": "Successful response with expense reports",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/expenses/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "expenses",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-9240ac4e-305f-43e8-b978-1029655ec9ca"
+                },
+                {
+                  "id": "1ccf0348-0362-4542-8ad0-7ebc957d9fa2",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/expenses/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "expenses",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:34.000Z",
+                  "updatedAt": "2026-06-05T15:14:34.000Z",
+                  "uid": "35240-1ccf0348-0362-4542-8ad0-7ebc957d9fa2"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:34.000Z",
+              "updatedAt": "2026-06-05T15:14:34.000Z",
+              "uid": "35240-a1383467-ea54-4fb9-9d33-849c5a418a1b"
+            }
+          ],
+          "id": "97dfd7b1-17a2-4461-9318-ac11de1ecbac",
+          "createdAt": "2026-06-05T15:14:34.000Z",
+          "updatedAt": "2026-06-05T15:14:34.000Z",
+          "uid": "35240-97dfd7b1-17a2-4461-9318-ac11de1ecbac"
+        }
+      ],
+      "id": "abeddfde-68da-42c9-afc1-ef868f30591c",
+      "createdAt": "2026-06-05T15:14:34.000Z",
+      "updatedAt": "2026-06-05T15:14:34.000Z",
+      "uid": "35240-abeddfde-68da-42c9-afc1-ef868f30591c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/financials/v1"
+    }
+  ]
+}

@@ -1,0 +1,838 @@
+{
+  "info": {
+    "_postman_id": "6e7def45-e74b-4e09-9a69-03519298959f",
+    "name": "PeopleSoft CRM API",
+    "description": "Customer Relationship Management REST API endpoints and integration points for customer data, case management, sales, and marketing.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:54.000Z",
+    "updatedAt": "2026-06-05T15:14:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6e7def45-e74b-4e09-9a69-03519298959f"
+  },
+  "item": [
+    {
+      "name": "customers",
+      "item": [
+        {
+          "name": "{customerId}",
+          "item": [
+            {
+              "name": "PeopleSoft Get Customer",
+              "id": "94fe4630-9fec-4b99-816c-66aeab13f6b1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers/:customerId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers",
+                    ":customerId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e3fd54ff-c56a-4218-9bfb-98b31bb62cb3",
+                      "key": "customerId",
+                      "value": "<string>",
+                      "description": "(Required) The customer identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details for a specific customer."
+              },
+              "response": [
+                {
+                  "id": "7dbed1a4-3389-4895-b403-0722b21a1e17",
+                  "name": "Customer details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:customerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":customerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "customerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:55.000Z",
+                  "updatedAt": "2026-06-05T15:14:55.000Z",
+                  "uid": "35240-7dbed1a4-3389-4895-b403-0722b21a1e17"
+                },
+                {
+                  "id": "21953f99-7c5a-4d6f-a796-46172347c906",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:customerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":customerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "customerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:55.000Z",
+                  "updatedAt": "2026-06-05T15:14:55.000Z",
+                  "uid": "35240-21953f99-7c5a-4d6f-a796-46172347c906"
+                },
+                {
+                  "id": "f9ee19ec-aa8f-4132-8c3b-17bc6571f53e",
+                  "name": "Customer not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/customers/:customerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "customers",
+                        ":customerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "customerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:55.000Z",
+                  "updatedAt": "2026-06-05T15:14:55.000Z",
+                  "uid": "35240-f9ee19ec-aa8f-4132-8c3b-17bc6571f53e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-94fe4630-9fec-4b99-816c-66aeab13f6b1"
+            }
+          ],
+          "id": "14fd11db-c3d2-4cae-a8e9-ead3f30d8565",
+          "createdAt": "2026-06-05T15:14:55.000Z",
+          "updatedAt": "2026-06-05T15:14:55.000Z",
+          "uid": "35240-14fd11db-c3d2-4cae-a8e9-ead3f30d8565"
+        },
+        {
+          "name": "PeopleSoft List Customers",
+          "id": "67106029-e1b7-44a9-970a-f3c4458225f4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customers?search=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customers"
+              ],
+              "query": [
+                {
+                  "description": "Search term for customer name or ID",
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve customer records."
+          },
+          "response": [
+            {
+              "id": "9015c1b6-0e9f-410d-bef7-8c57f8798ada",
+              "name": "Successful response with customer list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term for customer name or ID",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-9015c1b6-0e9f-410d-bef7-8c57f8798ada"
+            },
+            {
+              "id": "5d05cf63-8595-4fa2-b149-d01e7302dd5d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/customers?search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term for customer name or ID",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-5d05cf63-8595-4fa2-b149-d01e7302dd5d"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:55.000Z",
+          "updatedAt": "2026-06-05T15:14:55.000Z",
+          "uid": "35240-67106029-e1b7-44a9-970a-f3c4458225f4"
+        }
+      ],
+      "id": "8070f8bc-e6ea-4425-b99d-d80cc00f6041",
+      "createdAt": "2026-06-05T15:14:55.000Z",
+      "updatedAt": "2026-06-05T15:14:55.000Z",
+      "uid": "35240-8070f8bc-e6ea-4425-b99d-d80cc00f6041"
+    },
+    {
+      "name": "cases",
+      "item": [
+        {
+          "name": "PeopleSoft List Cases",
+          "id": "b6d206dd-c8df-4ab8-8cf8-34be9ece8cb9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cases",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cases"
+              ]
+            },
+            "description": "Retrieve support and service cases."
+          },
+          "response": [
+            {
+              "id": "3d98d4c2-8f42-453e-a038-38d1b0bab0d5",
+              "name": "Successful response with cases",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cases",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cases"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-3d98d4c2-8f42-453e-a038-38d1b0bab0d5"
+            },
+            {
+              "id": "ddfefb44-177f-47c0-a8b3-a1a202a757d6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cases",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cases"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-ddfefb44-177f-47c0-a8b3-a1a202a757d6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:55.000Z",
+          "updatedAt": "2026-06-05T15:14:55.000Z",
+          "uid": "35240-b6d206dd-c8df-4ab8-8cf8-34be9ece8cb9"
+        },
+        {
+          "name": "PeopleSoft Create Case",
+          "id": "66aed60e-248b-4730-8377-2327319a3449",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cases",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cases"
+              ]
+            },
+            "description": "Create a new support or service case."
+          },
+          "response": [
+            {
+              "id": "3b1f93d5-ba51-4a5c-9ce1-1317a7fb3fe9",
+              "name": "Case created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cases",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cases"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-3b1f93d5-ba51-4a5c-9ce1-1317a7fb3fe9"
+            },
+            {
+              "id": "b74ce899-fc29-4932-b124-281f3a2b858f",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cases",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cases"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-b74ce899-fc29-4932-b124-281f3a2b858f"
+            },
+            {
+              "id": "58fa75d7-67be-4a94-b9f6-246a3429cf9b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cases",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cases"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-58fa75d7-67be-4a94-b9f6-246a3429cf9b"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:55.000Z",
+          "updatedAt": "2026-06-05T15:14:55.000Z",
+          "uid": "35240-66aed60e-248b-4730-8377-2327319a3449"
+        }
+      ],
+      "id": "c7316474-39ba-4868-ac9d-f098b4c891f4",
+      "createdAt": "2026-06-05T15:14:55.000Z",
+      "updatedAt": "2026-06-05T15:14:55.000Z",
+      "uid": "35240-c7316474-39ba-4868-ac9d-f098b4c891f4"
+    },
+    {
+      "name": "sales",
+      "item": [
+        {
+          "name": "opportunities",
+          "item": [
+            {
+              "name": "PeopleSoft List Opportunities",
+              "id": "4b416b93-ce5a-4f09-b517-6567c7d3988d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sales/opportunities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sales",
+                    "opportunities"
+                  ]
+                },
+                "description": "Retrieve sales opportunities."
+              },
+              "response": [
+                {
+                  "id": "412f0ca7-7cb6-4945-b133-7518badd2c16",
+                  "name": "Successful response with opportunities",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sales/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sales",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:55.000Z",
+                  "updatedAt": "2026-06-05T15:14:55.000Z",
+                  "uid": "35240-412f0ca7-7cb6-4945-b133-7518badd2c16"
+                },
+                {
+                  "id": "37fcfff7-db7d-48c1-bef5-92f1e326ee45",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sales/opportunities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sales",
+                        "opportunities"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:55.000Z",
+                  "updatedAt": "2026-06-05T15:14:55.000Z",
+                  "uid": "35240-37fcfff7-db7d-48c1-bef5-92f1e326ee45"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:55.000Z",
+              "updatedAt": "2026-06-05T15:14:55.000Z",
+              "uid": "35240-4b416b93-ce5a-4f09-b517-6567c7d3988d"
+            }
+          ],
+          "id": "78a8b1d4-5183-4df9-8f0f-24e27b7516cf",
+          "createdAt": "2026-06-05T15:14:55.000Z",
+          "updatedAt": "2026-06-05T15:14:55.000Z",
+          "uid": "35240-78a8b1d4-5183-4df9-8f0f-24e27b7516cf"
+        }
+      ],
+      "id": "b1d85159-ac2b-4cf9-a107-ab1a25097a68",
+      "createdAt": "2026-06-05T15:14:55.000Z",
+      "updatedAt": "2026-06-05T15:14:55.000Z",
+      "uid": "35240-b1d85159-ac2b-4cf9-a107-ab1a25097a68"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/crm/v1"
+    }
+  ]
+}

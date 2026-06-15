@@ -1,0 +1,447 @@
+{
+  "info": {
+    "_postman_id": "e92fecbf-4e5d-4e1f-8d49-be8a874d01d5",
+    "name": "PeopleSoft REST API",
+    "description": "RESTful web services for PeopleSoft applications enabling integration with external systems via the PeopleTools platform.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:08.000Z",
+    "updatedAt": "2026-06-05T15:14:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e92fecbf-4e5d-4e1f-8d49-be8a874d01d5"
+  },
+  "item": [
+    {
+      "name": "{resource}",
+      "item": [
+        {
+          "name": "PeopleSoft Get Resource",
+          "id": "ca31bd1f-e709-40aa-934e-e7a059f08cf9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:resource",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":resource"
+              ],
+              "variable": [
+                {
+                  "id": "3207ea94-d95d-49ca-a97f-b0fac14306e5",
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "(Required) The PeopleSoft resource name"
+                }
+              ]
+            },
+            "description": "Retrieve PeopleSoft resource data via REST."
+          },
+          "response": [
+            {
+              "id": "6fa4bb8d-edfb-4b3a-9a3a-f2d82925c8dd",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:resource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":resource"
+                  ],
+                  "variable": [
+                    {
+                      "key": "resource"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:08.000Z",
+              "updatedAt": "2026-06-05T15:14:08.000Z",
+              "uid": "35240-6fa4bb8d-edfb-4b3a-9a3a-f2d82925c8dd"
+            },
+            {
+              "id": "7c3cdcea-8956-4bc2-86a1-aa37ac7b5430",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:resource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":resource"
+                  ],
+                  "variable": [
+                    {
+                      "key": "resource"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:08.000Z",
+              "updatedAt": "2026-06-05T15:14:08.000Z",
+              "uid": "35240-7c3cdcea-8956-4bc2-86a1-aa37ac7b5430"
+            },
+            {
+              "id": "1f6fdaf8-5eba-4668-9579-a993f95302b6",
+              "name": "Resource not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:resource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":resource"
+                  ],
+                  "variable": [
+                    {
+                      "key": "resource"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:08.000Z",
+              "updatedAt": "2026-06-05T15:14:08.000Z",
+              "uid": "35240-1f6fdaf8-5eba-4668-9579-a993f95302b6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:08.000Z",
+          "updatedAt": "2026-06-05T15:14:08.000Z",
+          "uid": "35240-ca31bd1f-e709-40aa-934e-e7a059f08cf9"
+        },
+        {
+          "name": "PeopleSoft Create Resource",
+          "id": "975a2220-652a-450e-8f1c-9105184410a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:resource",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":resource"
+              ],
+              "variable": [
+                {
+                  "id": "7109f654-4be1-471f-ae08-f6b7400f739d",
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "(Required) The PeopleSoft resource name"
+                }
+              ]
+            },
+            "description": "Create a new PeopleSoft resource via REST."
+          },
+          "response": [
+            {
+              "id": "d04bdcdd-5eda-43f4-aa7b-e54a183ce969",
+              "name": "Resource created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:resource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":resource"
+                  ],
+                  "variable": [
+                    {
+                      "key": "resource"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:08.000Z",
+              "updatedAt": "2026-06-05T15:14:08.000Z",
+              "uid": "35240-d04bdcdd-5eda-43f4-aa7b-e54a183ce969"
+            },
+            {
+              "id": "939a6c62-6e5d-4c0b-8e25-8af40793dd36",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:resource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":resource"
+                  ],
+                  "variable": [
+                    {
+                      "key": "resource"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:08.000Z",
+              "updatedAt": "2026-06-05T15:14:08.000Z",
+              "uid": "35240-939a6c62-6e5d-4c0b-8e25-8af40793dd36"
+            },
+            {
+              "id": "1bd56e39-5140-4467-9f0a-238a356222fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:resource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":resource"
+                  ],
+                  "variable": [
+                    {
+                      "key": "resource"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:08.000Z",
+              "updatedAt": "2026-06-05T15:14:08.000Z",
+              "uid": "35240-1bd56e39-5140-4467-9f0a-238a356222fb"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:08.000Z",
+          "updatedAt": "2026-06-05T15:14:08.000Z",
+          "uid": "35240-975a2220-652a-450e-8f1c-9105184410a6"
+        }
+      ],
+      "id": "5dc9eb0b-eb3a-4f02-af63-fb746660fda6",
+      "createdAt": "2026-06-05T15:14:08.000Z",
+      "updatedAt": "2026-06-05T15:14:08.000Z",
+      "uid": "35240-5dc9eb0b-eb3a-4f02-af63-fb746660fda6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/v1"
+    }
+  ]
+}

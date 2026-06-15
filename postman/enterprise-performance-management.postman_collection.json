@@ -1,0 +1,466 @@
+{
+  "info": {
+    "_postman_id": "b2f7aac5-5e07-405c-8496-c1c43ec28322",
+    "name": "PeopleSoft Enterprise Performance Management API",
+    "description": "Analytics, budgeting, forecasting, and planning APIs with events and notifications framework for financial and operational performance management.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:56.000Z",
+    "updatedAt": "2026-06-05T15:14:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b2f7aac5-5e07-405c-8496-c1c43ec28322"
+  },
+  "item": [
+    {
+      "name": "budgets",
+      "item": [
+        {
+          "name": "PeopleSoft List Budgets",
+          "id": "50462171-5d5b-4144-b92d-5995d236a027",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/budgets?fiscalYear=<string>&businessUnit=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "budgets"
+              ],
+              "query": [
+                {
+                  "description": "Fiscal year filter",
+                  "key": "fiscalYear",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Business unit filter",
+                  "key": "businessUnit",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve budget definitions and data."
+          },
+          "response": [
+            {
+              "id": "cb407ed2-0b7a-4f2e-8cb7-013a8ad18d25",
+              "name": "Successful response with budget data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/budgets?fiscalYear=<string>&businessUnit=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "budgets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Fiscal year filter",
+                      "key": "fiscalYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Business unit filter",
+                      "key": "businessUnit",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:57.000Z",
+              "updatedAt": "2026-06-05T15:14:57.000Z",
+              "uid": "35240-cb407ed2-0b7a-4f2e-8cb7-013a8ad18d25"
+            },
+            {
+              "id": "1d7d80f8-6900-45aa-8662-25865818b047",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/budgets?fiscalYear=<string>&businessUnit=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "budgets"
+                  ],
+                  "query": [
+                    {
+                      "description": "Fiscal year filter",
+                      "key": "fiscalYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Business unit filter",
+                      "key": "businessUnit",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:57.000Z",
+              "updatedAt": "2026-06-05T15:14:57.000Z",
+              "uid": "35240-1d7d80f8-6900-45aa-8662-25865818b047"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:57.000Z",
+          "updatedAt": "2026-06-05T15:14:57.000Z",
+          "uid": "35240-50462171-5d5b-4144-b92d-5995d236a027"
+        }
+      ],
+      "id": "86ea4a04-bd56-4983-b79b-fb0e87ba2eb9",
+      "createdAt": "2026-06-05T15:14:57.000Z",
+      "updatedAt": "2026-06-05T15:14:57.000Z",
+      "uid": "35240-86ea4a04-bd56-4983-b79b-fb0e87ba2eb9"
+    },
+    {
+      "name": "forecasts",
+      "item": [
+        {
+          "name": "PeopleSoft List Forecasts",
+          "id": "268fa820-4e69-4d37-8790-76fc5306c0e5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/forecasts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "forecasts"
+              ]
+            },
+            "description": "Retrieve forecast data and projections."
+          },
+          "response": [
+            {
+              "id": "c2a0e685-f9cd-4360-8fe0-5ee0bf58a0ef",
+              "name": "Successful response with forecast data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/forecasts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "forecasts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:57.000Z",
+              "updatedAt": "2026-06-05T15:14:57.000Z",
+              "uid": "35240-c2a0e685-f9cd-4360-8fe0-5ee0bf58a0ef"
+            },
+            {
+              "id": "dc449971-8878-4e8f-957b-4516eb1d1ec1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/forecasts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "forecasts"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:57.000Z",
+              "updatedAt": "2026-06-05T15:14:57.000Z",
+              "uid": "35240-dc449971-8878-4e8f-957b-4516eb1d1ec1"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:57.000Z",
+          "updatedAt": "2026-06-05T15:14:57.000Z",
+          "uid": "35240-268fa820-4e69-4d37-8790-76fc5306c0e5"
+        }
+      ],
+      "id": "6cf8b742-52a9-47fc-9335-85584712b363",
+      "createdAt": "2026-06-05T15:14:57.000Z",
+      "updatedAt": "2026-06-05T15:14:57.000Z",
+      "uid": "35240-6cf8b742-52a9-47fc-9335-85584712b363"
+    },
+    {
+      "name": "analytics",
+      "item": [
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "PeopleSoft List Analytics Reports",
+              "id": "c7d9e879-a67c-4d96-a1da-5d3064a07f08",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analytics/reports",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analytics",
+                    "reports"
+                  ]
+                },
+                "description": "Retrieve performance analytics reports."
+              },
+              "response": [
+                {
+                  "id": "69c1fdc2-b7fb-4126-8e60-dc76cc2533f9",
+                  "name": "Successful response with analytics reports",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/analytics/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "analytics",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:57.000Z",
+                  "updatedAt": "2026-06-05T15:14:57.000Z",
+                  "uid": "35240-69c1fdc2-b7fb-4126-8e60-dc76cc2533f9"
+                },
+                {
+                  "id": "b0671bb9-591f-45e3-a7f4-c0148e408587",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/analytics/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "analytics",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:57.000Z",
+                  "updatedAt": "2026-06-05T15:14:57.000Z",
+                  "uid": "35240-b0671bb9-591f-45e3-a7f4-c0148e408587"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:57.000Z",
+              "updatedAt": "2026-06-05T15:14:57.000Z",
+              "uid": "35240-c7d9e879-a67c-4d96-a1da-5d3064a07f08"
+            }
+          ],
+          "id": "f391ea8a-4545-4221-b36f-871abc4fe3fa",
+          "createdAt": "2026-06-05T15:14:57.000Z",
+          "updatedAt": "2026-06-05T15:14:57.000Z",
+          "uid": "35240-f391ea8a-4545-4221-b36f-871abc4fe3fa"
+        }
+      ],
+      "id": "601fb126-db89-48aa-9b1f-1012491ef0d4",
+      "createdAt": "2026-06-05T15:14:57.000Z",
+      "updatedAt": "2026-06-05T15:14:57.000Z",
+      "uid": "35240-601fb126-db89-48aa-9b1f-1012491ef0d4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/epm/v1"
+    }
+  ]
+}

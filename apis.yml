@@ -679,6 +679,8 @@ apis:
       url: https://support.oracle.com
     aid: peoplesoft:interaction-hub-api
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/peoplesoft/overview
   - type: ArazzoWorkflows
     url: arazzo/
     workflows:

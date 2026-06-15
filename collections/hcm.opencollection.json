@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft HCM API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/hcm/v1/employees",
+            "params": [
+              {
+                "name": "department",
+                "value": "example_value",
+                "type": "query",
+                "description": "Filter by department"
+              },
+              {
+                "name": "status",
+                "value": "active",
+                "type": "query",
+                "description": "Filter by employment status"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a list of employee records."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Get Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/hcm/v1/employees/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "PS123456",
+                "type": "path",
+                "description": "The employee identifier"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve details for a specific employee."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Benefits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Benefit Enrollments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/hcm/v1/benefits/enrollments",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve benefit enrollment records."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payroll",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Payroll Runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/hcm/v1/payroll/runs",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve payroll run history and status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

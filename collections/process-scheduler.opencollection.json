@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Process Scheduler API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Processes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Processes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/scheduler/v1/processes",
+            "params": [
+              {
+                "name": "status",
+                "value": "queued",
+                "type": "query",
+                "description": "Filter by process status"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a list of process requests and their run status."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Submit Process",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}:{port}/psft/api/scheduler/v1/processes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Submit a new process request for scheduling."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Get Process Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/scheduler/v1/processes/:processInstance",
+            "params": [
+              {
+                "name": "processInstance",
+                "value": "42",
+                "type": "path",
+                "description": "The process instance number"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve the status and details of a specific process instance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

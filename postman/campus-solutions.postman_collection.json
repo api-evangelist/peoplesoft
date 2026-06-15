@@ -1,0 +1,831 @@
+{
+  "info": {
+    "_postman_id": "a03842a3-63b5-4851-b4e5-edef993cef33",
+    "name": "PeopleSoft Campus Solutions API",
+    "description": "Campus Solutions APIs for student records, admissions, enrollment, financial aid, and academic advising.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:55.000Z",
+    "updatedAt": "2026-06-05T15:14:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a03842a3-63b5-4851-b4e5-edef993cef33"
+  },
+  "item": [
+    {
+      "name": "students",
+      "item": [
+        {
+          "name": "{studentId}",
+          "item": [
+            {
+              "name": "PeopleSoft Get Student",
+              "id": "00a11be1-bcb6-4f98-93e3-8d8764771804",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students/:studentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students",
+                    ":studentId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "fa4153cd-58c1-4f9f-bd8d-ff6b4522edc2",
+                      "key": "studentId",
+                      "value": "<string>",
+                      "description": "(Required) The student identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve details for a specific student."
+              },
+              "response": [
+                {
+                  "id": "5c8124ca-27bd-4c0b-b88e-bc7c96ab91f0",
+                  "name": "Student details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/:studentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        ":studentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "studentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-5c8124ca-27bd-4c0b-b88e-bc7c96ab91f0"
+                },
+                {
+                  "id": "6a57d777-15b3-4cfd-aedf-b596f12478d7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/:studentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        ":studentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "studentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-6a57d777-15b3-4cfd-aedf-b596f12478d7"
+                },
+                {
+                  "id": "8dd6cdcb-a637-47b0-87c8-a57e9c9929f4",
+                  "name": "Student not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/:studentId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        ":studentId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "studentId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-8dd6cdcb-a637-47b0-87c8-a57e9c9929f4"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:56.000Z",
+              "updatedAt": "2026-06-05T15:14:56.000Z",
+              "uid": "35240-00a11be1-bcb6-4f98-93e3-8d8764771804"
+            }
+          ],
+          "id": "d81f526f-72d3-41e8-a6f0-714b3b5024eb",
+          "createdAt": "2026-06-05T15:14:56.000Z",
+          "updatedAt": "2026-06-05T15:14:56.000Z",
+          "uid": "35240-d81f526f-72d3-41e8-a6f0-714b3b5024eb"
+        },
+        {
+          "name": "PeopleSoft List Students",
+          "id": "ca9aa99d-e0d5-44ac-ad00-c9eecb766179",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/students?term=<string>&program=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "students"
+              ],
+              "query": [
+                {
+                  "description": "Academic term filter",
+                  "key": "term",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Academic program filter",
+                  "key": "program",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve student records."
+          },
+          "response": [
+            {
+              "id": "7ea932d8-30d9-4eb0-b73d-16aad2b5cb4e",
+              "name": "Successful response with student records",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students?term=<string>&program=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students"
+                  ],
+                  "query": [
+                    {
+                      "description": "Academic term filter",
+                      "key": "term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Academic program filter",
+                      "key": "program",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:56.000Z",
+              "updatedAt": "2026-06-05T15:14:56.000Z",
+              "uid": "35240-7ea932d8-30d9-4eb0-b73d-16aad2b5cb4e"
+            },
+            {
+              "id": "eabf33e5-0f80-4110-82bd-51665bbd2cea",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students?term=<string>&program=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students"
+                  ],
+                  "query": [
+                    {
+                      "description": "Academic term filter",
+                      "key": "term",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Academic program filter",
+                      "key": "program",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:56.000Z",
+              "updatedAt": "2026-06-05T15:14:56.000Z",
+              "uid": "35240-eabf33e5-0f80-4110-82bd-51665bbd2cea"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:56.000Z",
+          "updatedAt": "2026-06-05T15:14:56.000Z",
+          "uid": "35240-ca9aa99d-e0d5-44ac-ad00-c9eecb766179"
+        }
+      ],
+      "id": "8ec4959b-6cbe-4af1-8857-767b3198f25f",
+      "createdAt": "2026-06-05T15:14:56.000Z",
+      "updatedAt": "2026-06-05T15:14:56.000Z",
+      "uid": "35240-8ec4959b-6cbe-4af1-8857-767b3198f25f"
+    },
+    {
+      "name": "admissions",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "PeopleSoft List Admission Applications",
+              "id": "1e1c8c23-d55f-4845-9b63-2b8046926a4d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/admissions/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "admissions",
+                    "applications"
+                  ]
+                },
+                "description": "Retrieve admission applications."
+              },
+              "response": [
+                {
+                  "id": "9eb38d65-ac4c-4123-af4e-249b49280724",
+                  "name": "Successful response with applications",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/admissions/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "admissions",
+                        "applications"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-9eb38d65-ac4c-4123-af4e-249b49280724"
+                },
+                {
+                  "id": "095697a3-2352-4fab-809f-a8bb90c43f79",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/admissions/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "admissions",
+                        "applications"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-095697a3-2352-4fab-809f-a8bb90c43f79"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:56.000Z",
+              "updatedAt": "2026-06-05T15:14:56.000Z",
+              "uid": "35240-1e1c8c23-d55f-4845-9b63-2b8046926a4d"
+            }
+          ],
+          "id": "498d9454-9ee8-48d4-ad54-979868abe668",
+          "createdAt": "2026-06-05T15:14:56.000Z",
+          "updatedAt": "2026-06-05T15:14:56.000Z",
+          "uid": "35240-498d9454-9ee8-48d4-ad54-979868abe668"
+        }
+      ],
+      "id": "17572a31-90ab-4b4c-8f24-d30d8ef9183c",
+      "createdAt": "2026-06-05T15:14:56.000Z",
+      "updatedAt": "2026-06-05T15:14:56.000Z",
+      "uid": "35240-17572a31-90ab-4b4c-8f24-d30d8ef9183c"
+    },
+    {
+      "name": "enrollment",
+      "item": [
+        {
+          "name": "classes",
+          "item": [
+            {
+              "name": "PeopleSoft List Classes",
+              "id": "44c86524-b2ab-46b8-b58e-bcafa65dab3c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/enrollment/classes?term=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "enrollment",
+                    "classes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Academic term",
+                      "key": "term",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieve class schedule and enrollment data."
+              },
+              "response": [
+                {
+                  "id": "0c6c6456-4255-4a93-8d06-def409912fae",
+                  "name": "Successful response with class data",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/enrollment/classes?term=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "enrollment",
+                        "classes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Academic term",
+                          "key": "term",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-0c6c6456-4255-4a93-8d06-def409912fae"
+                },
+                {
+                  "id": "f5e27cd9-a9f7-41db-9a22-16488f9a3833",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/enrollment/classes?term=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "enrollment",
+                        "classes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Academic term",
+                          "key": "term",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-f5e27cd9-a9f7-41db-9a22-16488f9a3833"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:56.000Z",
+              "updatedAt": "2026-06-05T15:14:56.000Z",
+              "uid": "35240-44c86524-b2ab-46b8-b58e-bcafa65dab3c"
+            }
+          ],
+          "id": "fa242a57-1c2f-47ba-8841-a18b4d0c0a95",
+          "createdAt": "2026-06-05T15:14:56.000Z",
+          "updatedAt": "2026-06-05T15:14:56.000Z",
+          "uid": "35240-fa242a57-1c2f-47ba-8841-a18b4d0c0a95"
+        }
+      ],
+      "id": "2eb133e1-934c-41d1-b76b-9fbda0d62ccb",
+      "createdAt": "2026-06-05T15:14:56.000Z",
+      "updatedAt": "2026-06-05T15:14:56.000Z",
+      "uid": "35240-2eb133e1-934c-41d1-b76b-9fbda0d62ccb"
+    },
+    {
+      "name": "financial-aid",
+      "item": [
+        {
+          "name": "awards",
+          "item": [
+            {
+              "name": "PeopleSoft List Financial Aid Awards",
+              "id": "7ccbfa6f-96e6-4896-9ed3-700e8364376c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/financial-aid/awards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "financial-aid",
+                    "awards"
+                  ]
+                },
+                "description": "Retrieve financial aid award data."
+              },
+              "response": [
+                {
+                  "id": "e5089be6-387f-4bda-ae95-98f29b1e58d7",
+                  "name": "Successful response with award data",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/financial-aid/awards",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "financial-aid",
+                        "awards"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-e5089be6-387f-4bda-ae95-98f29b1e58d7"
+                },
+                {
+                  "id": "40609887-19a2-41ab-9436-93b9b2957e7e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/financial-aid/awards",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "financial-aid",
+                        "awards"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:56.000Z",
+                  "updatedAt": "2026-06-05T15:14:56.000Z",
+                  "uid": "35240-40609887-19a2-41ab-9436-93b9b2957e7e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:56.000Z",
+              "updatedAt": "2026-06-05T15:14:56.000Z",
+              "uid": "35240-7ccbfa6f-96e6-4896-9ed3-700e8364376c"
+            }
+          ],
+          "id": "7463cd60-808a-4535-be9c-7f64151130e0",
+          "createdAt": "2026-06-05T15:14:56.000Z",
+          "updatedAt": "2026-06-05T15:14:56.000Z",
+          "uid": "35240-7463cd60-808a-4535-be9c-7f64151130e0"
+        }
+      ],
+      "id": "dd111965-8d00-48bb-b1c5-a5c9484db39d",
+      "createdAt": "2026-06-05T15:14:56.000Z",
+      "updatedAt": "2026-06-05T15:14:56.000Z",
+      "uid": "35240-dd111965-8d00-48bb-b1c5-a5c9484db39d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/campus/v1"
+    }
+  ]
+}

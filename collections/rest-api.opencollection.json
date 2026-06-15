@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft REST API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft Get Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/api/v1/:resource",
+            "params": [
+              {
+                "name": "resource",
+                "value": "example_value",
+                "type": "path",
+                "description": "The PeopleSoft resource name"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve PeopleSoft resource data via REST."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Create Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}:{port}/psft/api/v1/:resource",
+            "params": [
+              {
+                "name": "resource",
+                "value": "example_value",
+                "type": "path",
+                "description": "The PeopleSoft resource name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create a new PeopleSoft resource via REST."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

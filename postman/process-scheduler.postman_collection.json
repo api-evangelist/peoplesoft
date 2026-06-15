@@ -1,0 +1,579 @@
+{
+  "info": {
+    "_postman_id": "0f41f730-eefb-4834-b813-42cfc83faa43",
+    "name": "PeopleSoft Process Scheduler API",
+    "description": "Process request APIs for submitting and scheduling batch jobs, monitoring process run status, viewing logs, and Application Engine batch processing statistics.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:27.000Z",
+    "updatedAt": "2026-06-05T15:14:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0f41f730-eefb-4834-b813-42cfc83faa43"
+  },
+  "item": [
+    {
+      "name": "processes",
+      "item": [
+        {
+          "name": "{processInstance}",
+          "item": [
+            {
+              "name": "PeopleSoft Get Process Status",
+              "id": "4bc14152-c283-45e9-852f-a472b1d56a72",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/processes/:processInstance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "processes",
+                    ":processInstance"
+                  ],
+                  "variable": [
+                    {
+                      "id": "53e5a528-3f14-441a-85f0-07ce9c799b84",
+                      "key": "processInstance",
+                      "value": "<integer>",
+                      "description": "(Required) The process instance number"
+                    }
+                  ]
+                },
+                "description": "Retrieve the status and details of a specific process instance."
+              },
+              "response": [
+                {
+                  "id": "79b2699b-523d-4a55-aa58-2e8aff00927f",
+                  "name": "Process details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/processes/:processInstance",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processes",
+                        ":processInstance"
+                      ],
+                      "variable": [
+                        {
+                          "key": "processInstance"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:28.000Z",
+                  "updatedAt": "2026-06-05T15:14:28.000Z",
+                  "uid": "35240-79b2699b-523d-4a55-aa58-2e8aff00927f"
+                },
+                {
+                  "id": "62a27c9e-5865-4044-97da-42e71ba53c0d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/processes/:processInstance",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processes",
+                        ":processInstance"
+                      ],
+                      "variable": [
+                        {
+                          "key": "processInstance"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:28.000Z",
+                  "updatedAt": "2026-06-05T15:14:28.000Z",
+                  "uid": "35240-62a27c9e-5865-4044-97da-42e71ba53c0d"
+                },
+                {
+                  "id": "7afcf1ce-e49b-4c72-95d5-611e3f6c07f7",
+                  "name": "Process instance not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/processes/:processInstance",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processes",
+                        ":processInstance"
+                      ],
+                      "variable": [
+                        {
+                          "key": "processInstance"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:28.000Z",
+                  "updatedAt": "2026-06-05T15:14:28.000Z",
+                  "uid": "35240-7afcf1ce-e49b-4c72-95d5-611e3f6c07f7"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:28.000Z",
+              "updatedAt": "2026-06-05T15:14:28.000Z",
+              "uid": "35240-4bc14152-c283-45e9-852f-a472b1d56a72"
+            }
+          ],
+          "id": "69f1bcbc-943f-4370-b385-99061445387a",
+          "createdAt": "2026-06-05T15:14:28.000Z",
+          "updatedAt": "2026-06-05T15:14:28.000Z",
+          "uid": "35240-69f1bcbc-943f-4370-b385-99061445387a"
+        },
+        {
+          "name": "PeopleSoft List Processes",
+          "id": "a0c480e6-f118-485e-b712-44c80c0e1e4d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/processes?status=success",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "processes"
+              ],
+              "query": [
+                {
+                  "description": "Filter by process status",
+                  "key": "status",
+                  "value": "success"
+                }
+              ]
+            },
+            "description": "Retrieve a list of process requests and their run status."
+          },
+          "response": [
+            {
+              "id": "352ae7fe-8c49-4086-b818-5a1347d53582",
+              "name": "Successful response with process list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/processes?status=success",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "processes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by process status",
+                      "key": "status",
+                      "value": "success"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"processes\": [\n    {\n      \"processInstance\": \"<integer>\",\n      \"processName\": \"<string>\",\n      \"processType\": \"<string>\",\n      \"runStatus\": \"<string>\",\n      \"beginDateTime\": \"<dateTime>\",\n      \"endDateTime\": \"<dateTime>\"\n    },\n    {\n      \"processInstance\": \"<integer>\",\n      \"processName\": \"<string>\",\n      \"processType\": \"<string>\",\n      \"runStatus\": \"<string>\",\n      \"beginDateTime\": \"<dateTime>\",\n      \"endDateTime\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:28.000Z",
+              "updatedAt": "2026-06-05T15:14:28.000Z",
+              "uid": "35240-352ae7fe-8c49-4086-b818-5a1347d53582"
+            },
+            {
+              "id": "947e418c-255d-4693-bf61-8a41029d6cab",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/processes?status=success",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "processes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by process status",
+                      "key": "status",
+                      "value": "success"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:28.000Z",
+              "updatedAt": "2026-06-05T15:14:28.000Z",
+              "uid": "35240-947e418c-255d-4693-bf61-8a41029d6cab"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:28.000Z",
+          "updatedAt": "2026-06-05T15:14:28.000Z",
+          "uid": "35240-a0c480e6-f118-485e-b712-44c80c0e1e4d"
+        },
+        {
+          "name": "PeopleSoft Submit Process",
+          "id": "6c980b9a-a8a6-4d86-90d3-7408f81f7bb7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"processName\": \"<string>\",\n  \"processType\": \"<string>\",\n  \"serverName\": \"<string>\",\n  \"runDateTime\": \"<dateTime>\",\n  \"parameters\": {}\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/processes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "processes"
+              ]
+            },
+            "description": "Submit a new process request for scheduling."
+          },
+          "response": [
+            {
+              "id": "1d27e99d-f7b9-4647-8e60-599cc55d45cf",
+              "name": "Process submitted",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"processName\": \"<string>\",\n  \"processType\": \"<string>\",\n  \"serverName\": \"<string>\",\n  \"runDateTime\": \"<dateTime>\",\n  \"parameters\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/processes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "processes"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"processInstance\": \"<integer>\"\n}",
+              "createdAt": "2026-06-05T15:14:28.000Z",
+              "updatedAt": "2026-06-05T15:14:28.000Z",
+              "uid": "35240-1d27e99d-f7b9-4647-8e60-599cc55d45cf"
+            },
+            {
+              "id": "56105794-658c-4405-ba24-a389d52b401b",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"processName\": \"<string>\",\n  \"processType\": \"<string>\",\n  \"serverName\": \"<string>\",\n  \"runDateTime\": \"<dateTime>\",\n  \"parameters\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/processes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "processes"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:28.000Z",
+              "updatedAt": "2026-06-05T15:14:28.000Z",
+              "uid": "35240-56105794-658c-4405-ba24-a389d52b401b"
+            },
+            {
+              "id": "e12a3f64-9b8d-4f52-9dd8-c28935b550b4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"processName\": \"<string>\",\n  \"processType\": \"<string>\",\n  \"serverName\": \"<string>\",\n  \"runDateTime\": \"<dateTime>\",\n  \"parameters\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/processes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "processes"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:28.000Z",
+              "updatedAt": "2026-06-05T15:14:28.000Z",
+              "uid": "35240-e12a3f64-9b8d-4f52-9dd8-c28935b550b4"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:28.000Z",
+          "updatedAt": "2026-06-05T15:14:28.000Z",
+          "uid": "35240-6c980b9a-a8a6-4d86-90d3-7408f81f7bb7"
+        }
+      ],
+      "id": "090fda74-763d-42f7-a330-574d93680b74",
+      "createdAt": "2026-06-05T15:14:28.000Z",
+      "updatedAt": "2026-06-05T15:14:28.000Z",
+      "uid": "35240-090fda74-763d-42f7-a330-574d93680b74"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/scheduler/v1"
+    }
+  ]
+}

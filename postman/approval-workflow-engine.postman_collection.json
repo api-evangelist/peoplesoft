@@ -1,0 +1,457 @@
+{
+  "info": {
+    "_postman_id": "6523fe74-bd5e-400e-828c-fdd6db080c67",
+    "name": "PeopleSoft Approval Workflow Engine API",
+    "description": "Framework for creating, running, and managing approval processes exposable via REST service operations through Integration Broker or ASF.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:26.000Z",
+    "updatedAt": "2026-06-05T15:14:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6523fe74-bd5e-400e-828c-fdd6db080c67"
+  },
+  "item": [
+    {
+      "name": "approvals",
+      "item": [
+        {
+          "name": "{approvalId}",
+          "item": [
+            {
+              "name": "PeopleSoft Process Approval",
+              "id": "e8d85be2-389d-4350-9841-032fabc872d0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"pushback\",\n  \"comments\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/approvals/:approvalId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals",
+                    ":approvalId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f8647230-9c2b-4d8f-83e8-db16e7fd13fc",
+                      "key": "approvalId",
+                      "value": "<string>",
+                      "description": "(Required) The approval request identifier"
+                    }
+                  ]
+                },
+                "description": "Approve, deny, or push back an approval request."
+              },
+              "response": [
+                {
+                  "id": "0afa9f89-a14b-4095-a347-c16d8d7a8731",
+                  "name": "Approval processed",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"action\": \"pushback\",\n  \"comments\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:approvalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":approvalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "approvalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:27.000Z",
+                  "updatedAt": "2026-06-05T15:14:27.000Z",
+                  "uid": "35240-0afa9f89-a14b-4095-a347-c16d8d7a8731"
+                },
+                {
+                  "id": "16031f5f-5d38-48d6-aa81-7633daf058c3",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"action\": \"pushback\",\n  \"comments\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:approvalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":approvalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "approvalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:27.000Z",
+                  "updatedAt": "2026-06-05T15:14:27.000Z",
+                  "uid": "35240-16031f5f-5d38-48d6-aa81-7633daf058c3"
+                },
+                {
+                  "id": "1e6937d8-24cb-40a2-9c84-53eb845a7b93",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"action\": \"pushback\",\n  \"comments\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:approvalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":approvalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "approvalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:27.000Z",
+                  "updatedAt": "2026-06-05T15:14:27.000Z",
+                  "uid": "35240-1e6937d8-24cb-40a2-9c84-53eb845a7b93"
+                },
+                {
+                  "id": "fc0ab97a-079b-4570-bc53-30b281234649",
+                  "name": "Approval not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"action\": \"pushback\",\n  \"comments\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:approvalId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":approvalId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "approvalId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:27.000Z",
+                  "updatedAt": "2026-06-05T15:14:27.000Z",
+                  "uid": "35240-fc0ab97a-079b-4570-bc53-30b281234649"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:27.000Z",
+              "updatedAt": "2026-06-05T15:14:27.000Z",
+              "uid": "35240-e8d85be2-389d-4350-9841-032fabc872d0"
+            }
+          ],
+          "id": "e6adb8e4-5d2d-4578-9212-8ba3bd2d23cc",
+          "createdAt": "2026-06-05T15:14:27.000Z",
+          "updatedAt": "2026-06-05T15:14:27.000Z",
+          "uid": "35240-e6adb8e4-5d2d-4578-9212-8ba3bd2d23cc"
+        },
+        {
+          "name": "PeopleSoft List Pending Approvals",
+          "id": "c9abcf2b-c9d6-4070-8744-374ec2870016",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/approvals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "approvals"
+              ]
+            },
+            "description": "Retrieve a list of pending approval requests for the current user."
+          },
+          "response": [
+            {
+              "id": "4ed6c7fe-6bff-4361-b3d8-2c15efd0aecf",
+              "name": "Successful response with pending approvals",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"approvals\": [\n    {\n      \"approvalId\": \"<string>\",\n      \"transactionType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"submittedBy\": \"<string>\",\n      \"submittedDate\": \"<dateTime>\"\n    },\n    {\n      \"approvalId\": \"<string>\",\n      \"transactionType\": \"<string>\",\n      \"status\": \"<string>\",\n      \"submittedBy\": \"<string>\",\n      \"submittedDate\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:14:27.000Z",
+              "updatedAt": "2026-06-05T15:14:27.000Z",
+              "uid": "35240-4ed6c7fe-6bff-4361-b3d8-2c15efd0aecf"
+            },
+            {
+              "id": "038f3713-4c48-4eaa-8f67-8c960997145f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/approvals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "approvals"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:27.000Z",
+              "updatedAt": "2026-06-05T15:14:27.000Z",
+              "uid": "35240-038f3713-4c48-4eaa-8f67-8c960997145f"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:27.000Z",
+          "updatedAt": "2026-06-05T15:14:27.000Z",
+          "uid": "35240-c9abcf2b-c9d6-4070-8744-374ec2870016"
+        }
+      ],
+      "id": "45762668-63ea-4f35-80b1-728a3b7f4fb0",
+      "createdAt": "2026-06-05T15:14:27.000Z",
+      "updatedAt": "2026-06-05T15:14:27.000Z",
+      "uid": "35240-45762668-63ea-4f35-80b1-728a3b7f4fb0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/approvals/v1"
+    }
+  ]
+}

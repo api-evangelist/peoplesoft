@@ -1,0 +1,596 @@
+{
+  "info": {
+    "_postman_id": "7bb6f23f-16fe-453b-a646-72e0e3b771ce",
+    "name": "PeopleSoft Supply Chain Management API",
+    "description": "REST API endpoints for procurement, inventory management, order fulfillment, logistics, and enterprise integration points for warehouse management systems.\n\nContact Support:\n Name: Oracle Support\n Email: support@oracle.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:14:53.000Z",
+    "updatedAt": "2026-06-05T15:14:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7bb6f23f-16fe-453b-a646-72e0e3b771ce"
+  },
+  "item": [
+    {
+      "name": "procurement",
+      "item": [
+        {
+          "name": "requisitions",
+          "item": [
+            {
+              "name": "PeopleSoft List Requisitions",
+              "id": "3fd34578-f07e-4dbe-99b6-e23459d03a14",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procurement/requisitions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procurement",
+                    "requisitions"
+                  ]
+                },
+                "description": "Retrieve procurement requisitions."
+              },
+              "response": [
+                {
+                  "id": "200b6b99-a9dc-40c4-b6eb-a6bf706c0293",
+                  "name": "Successful response with requisitions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procurement/requisitions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procurement",
+                        "requisitions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:54.000Z",
+                  "updatedAt": "2026-06-05T15:14:54.000Z",
+                  "uid": "35240-200b6b99-a9dc-40c4-b6eb-a6bf706c0293"
+                },
+                {
+                  "id": "da4ebd91-bae9-4504-a0ea-4bac97e7415c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procurement/requisitions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procurement",
+                        "requisitions"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:54.000Z",
+                  "updatedAt": "2026-06-05T15:14:54.000Z",
+                  "uid": "35240-da4ebd91-bae9-4504-a0ea-4bac97e7415c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:54.000Z",
+              "updatedAt": "2026-06-05T15:14:54.000Z",
+              "uid": "35240-3fd34578-f07e-4dbe-99b6-e23459d03a14"
+            }
+          ],
+          "id": "fe41fa6b-81f5-4db9-9c78-d46225264d7a",
+          "createdAt": "2026-06-05T15:14:54.000Z",
+          "updatedAt": "2026-06-05T15:14:54.000Z",
+          "uid": "35240-fe41fa6b-81f5-4db9-9c78-d46225264d7a"
+        },
+        {
+          "name": "purchase-orders",
+          "item": [
+            {
+              "name": "PeopleSoft List Purchase Orders",
+              "id": "ae4398d8-b89c-40ba-bcaf-e2966c3aba88",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/procurement/purchase-orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "procurement",
+                    "purchase-orders"
+                  ]
+                },
+                "description": "Retrieve purchase orders."
+              },
+              "response": [
+                {
+                  "id": "bfda0889-6b2e-46f1-aa35-6ee114f18d71",
+                  "name": "Successful response with purchase orders",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procurement/purchase-orders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procurement",
+                        "purchase-orders"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:54.000Z",
+                  "updatedAt": "2026-06-05T15:14:54.000Z",
+                  "uid": "35240-bfda0889-6b2e-46f1-aa35-6ee114f18d71"
+                },
+                {
+                  "id": "20306a8d-1bb5-478b-a576-be4a519d6c37",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/procurement/purchase-orders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "procurement",
+                        "purchase-orders"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:54.000Z",
+                  "updatedAt": "2026-06-05T15:14:54.000Z",
+                  "uid": "35240-20306a8d-1bb5-478b-a576-be4a519d6c37"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:54.000Z",
+              "updatedAt": "2026-06-05T15:14:54.000Z",
+              "uid": "35240-ae4398d8-b89c-40ba-bcaf-e2966c3aba88"
+            }
+          ],
+          "id": "00967637-8dd2-40fd-a261-e9be0adfd86b",
+          "createdAt": "2026-06-05T15:14:54.000Z",
+          "updatedAt": "2026-06-05T15:14:54.000Z",
+          "uid": "35240-00967637-8dd2-40fd-a261-e9be0adfd86b"
+        }
+      ],
+      "id": "424b0e96-c48c-41dc-bf7e-25fa1b9cbc8e",
+      "createdAt": "2026-06-05T15:14:54.000Z",
+      "updatedAt": "2026-06-05T15:14:54.000Z",
+      "uid": "35240-424b0e96-c48c-41dc-bf7e-25fa1b9cbc8e"
+    },
+    {
+      "name": "inventory",
+      "item": [
+        {
+          "name": "items",
+          "item": [
+            {
+              "name": "PeopleSoft List Inventory Items",
+              "id": "defc963b-5df1-43f3-bd21-0b28ab840391",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "{{basicAuthUsername}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{basicAuthPassword}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/inventory/items?businessUnit=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "inventory",
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "description": "Business unit filter",
+                      "key": "businessUnit",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieve inventory items and stock levels."
+              },
+              "response": [
+                {
+                  "id": "d952dea5-ad9e-4ff2-9df8-d2509d38d8e9",
+                  "name": "Successful response with inventory items",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/inventory/items?businessUnit=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "inventory",
+                        "items"
+                      ],
+                      "query": [
+                        {
+                          "description": "Business unit filter",
+                          "key": "businessUnit",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-06-05T15:14:54.000Z",
+                  "updatedAt": "2026-06-05T15:14:54.000Z",
+                  "uid": "35240-d952dea5-ad9e-4ff2-9df8-d2509d38d8e9"
+                },
+                {
+                  "id": "ba616da2-6107-406b-9fa0-5a4ff43cf0b2",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/inventory/items?businessUnit=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "inventory",
+                        "items"
+                      ],
+                      "query": [
+                        {
+                          "description": "Business unit filter",
+                          "key": "businessUnit",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:14:54.000Z",
+                  "updatedAt": "2026-06-05T15:14:54.000Z",
+                  "uid": "35240-ba616da2-6107-406b-9fa0-5a4ff43cf0b2"
+                }
+              ],
+              "createdAt": "2026-06-05T15:14:54.000Z",
+              "updatedAt": "2026-06-05T15:14:54.000Z",
+              "uid": "35240-defc963b-5df1-43f3-bd21-0b28ab840391"
+            }
+          ],
+          "id": "56cd7266-c5cb-4c17-8b80-20a20997f582",
+          "createdAt": "2026-06-05T15:14:54.000Z",
+          "updatedAt": "2026-06-05T15:14:54.000Z",
+          "uid": "35240-56cd7266-c5cb-4c17-8b80-20a20997f582"
+        }
+      ],
+      "id": "e041b6aa-55ff-4b4d-93dc-f388301253f1",
+      "createdAt": "2026-06-05T15:14:54.000Z",
+      "updatedAt": "2026-06-05T15:14:54.000Z",
+      "uid": "35240-e041b6aa-55ff-4b4d-93dc-f388301253f1"
+    },
+    {
+      "name": "orders",
+      "item": [
+        {
+          "name": "PeopleSoft List Orders",
+          "id": "659074a8-826b-4cd2-b347-f8ccff9f005c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            },
+            "description": "Retrieve order fulfillment records."
+          },
+          "response": [
+            {
+              "id": "7a08efd9-2b62-4d36-bf7b-557b67a6d1a0",
+              "name": "Successful response with orders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-06-05T15:14:54.000Z",
+              "updatedAt": "2026-06-05T15:14:54.000Z",
+              "uid": "35240-7a08efd9-2b62-4d36-bf7b-557b67a6d1a0"
+            },
+            {
+              "id": "7db761df-2095-4ac5-868c-8b403da66eb8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:14:54.000Z",
+              "updatedAt": "2026-06-05T15:14:54.000Z",
+              "uid": "35240-7db761df-2095-4ac5-868c-8b403da66eb8"
+            }
+          ],
+          "createdAt": "2026-06-05T15:14:54.000Z",
+          "updatedAt": "2026-06-05T15:14:54.000Z",
+          "uid": "35240-659074a8-826b-4cd2-b347-f8ccff9f005c"
+        }
+      ],
+      "id": "b89e9d43-1e5d-45b1-bbd6-d8f251c7ebff",
+      "createdAt": "2026-06-05T15:14:54.000Z",
+      "updatedAt": "2026-06-05T15:14:54.000Z",
+      "uid": "35240-b89e9d43-1e5d-45b1-bbd6-d8f251c7ebff"
+    }
+  ],
+  "variable": [
+    {
+      "key": "hostname",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8000"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{hostname}}:{{port}}/psft/api/scm/v1"
+    }
+  ]
+}
