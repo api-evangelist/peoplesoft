@@ -3,16 +3,15 @@
   "feeds": [
     {
       "source": "https://blogs.oracle.com/peoplesoft/",
-      "error": "HTTPError"
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     },
     {
-      "source": "https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html",
-      "feed_url": "https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html",
-      "title": "",
+      "source": "https://blogs.oracle.com/peoplesoft/category/ps-image-and-release-updates",
       "saved": 0,
-      "method": "none"
+      "error": "HTTP 403 Forbidden"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T13:00:52Z"
 }
