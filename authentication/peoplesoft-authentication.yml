@@ -1,0 +1,48 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/application-services-framework.yml, openapi/approval-workflow-engine.yml, openapi/campus-solutions.yml,
+  openapi/chatbot-integration.yml, openapi/cloud-manager.yml, openapi/component-interface.yml,
+  openapi/crm.yml, openapi/enterprise-performance-management.yml, openapi/financials.yml, openapi/hcm.yml,
+  openapi/integration-broker.yml, openapi/interaction-hub.yml ...
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/application-services-framework.yml
+  - openapi/approval-workflow-engine.yml
+  - openapi/campus-solutions.yml
+  - openapi/chatbot-integration.yml
+  - openapi/cloud-manager.yml
+  - openapi/component-interface.yml
+  - openapi/crm.yml
+  - openapi/enterprise-performance-management.yml
+  - openapi/financials.yml
+  - openapi/hcm.yml
+  - openapi/integration-broker.yml
+  - openapi/interaction-hub.yml
+  - openapi/notification-framework.yml
+  - openapi/pivot-grid.yml
+  - openapi/process-scheduler.yml
+  - openapi/query.yml
+  - openapi/recruiting-talent-management.yml
+  - openapi/rest-api.yml
+  - openapi/search-framework.yml
+  - openapi/supply-chain-management.yml
+  - openapi/update-manager.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
+    tokenUrl: https://{hostname}:{port}/psft/oauth/token
+    scopes: 0
+  sources:
+  - openapi/application-services-framework.yml
+  - openapi/rest-api.yml

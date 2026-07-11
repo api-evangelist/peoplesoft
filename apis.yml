@@ -679,6 +679,8 @@ apis:
       url: https://support.oracle.com
     aid: peoplesoft:interaction-hub-api
 common:
+  - type: DomainSecurity
+    url: security/peoplesoft-domain-security.yml
   - type: Authentication
     url: authentication/peoplesoft-authentication.yml
   - type: OAuthScopes
