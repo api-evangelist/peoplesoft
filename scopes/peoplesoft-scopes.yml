@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/application-services-framework.yml, openapi/rest-api.yml
+docs: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+note: PeopleSoft OAuth 2.0 (PeopleTools 8.58+) publishes no scope catalog; authorization
+  is enforced by PeopleSoft permission lists and roles tied to the user ID in the
+  token's sub claim, with any scopes defined per deployment in the external identity
+  provider (see https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html).
+schemes:
+- name: oauth2
+  source: openapi/application-services-framework.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
+    tokenUrl: https://{hostname}:{port}/psft/oauth/token
+- name: oauth2
+  source: openapi/rest-api.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
+    tokenUrl: https://{hostname}:{port}/psft/oauth/token
+scopes: []

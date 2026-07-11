@@ -679,6 +679,10 @@ apis:
       url: https://support.oracle.com
     aid: peoplesoft:interaction-hub-api
 common:
+  - type: Authentication
+    url: authentication/peoplesoft-authentication.yml
+  - type: OAuthScopes
+    url: scopes/peoplesoft-scopes.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/peoplesoft/overview
   - type: Arazzo
