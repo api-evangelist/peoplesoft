@@ -1,96 +1,206 @@
+# peoplesoft — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - path-params-casing: camel @ 89% (n=18)
+#   - query-params-casing: snake @ 62% (n=24)
+#   - operationid-casing: camel @ 100% (n=60)
+#   - schema-names-casing: pascal @ 100% (n=8)
+#   - schema-properties-casing: screaming @ 100% (n=96)
+#   - operation-security-required: 58/60 ops declare per-op security
+#   - operation-documents-401: 97% adherence
+#   - pagination params observed: ['maxResults', 'offset']
+#   - merge: kept 19 existing, added 5 measured, upgraded 0
+#   - added: query-params-casing, operationid-casing, schema-properties-casing, operation-security-required, operation-documents-401
+extends:
+  - spectral:oas
 rules:
   info-title-required:
     description: API title must be present.
     severity: error
     given: $.info
-    then: {field: title, function: truthy}
+    then:
+      field: title
+      function: truthy
   info-title-format:
     description: Title should start with "PeopleSoft".
     severity: warn
     given: $.info.title
-    then: {function: pattern, functionOptions: {match: "^PeopleSoft "}}
+    then:
+      function: pattern
+      functionOptions:
+        match: '^PeopleSoft '
   info-description-required:
     description: API description must be present.
     severity: error
     given: $.info
-    then: {field: description, function: truthy}
+    then:
+      field: description
+      function: truthy
   info-version-required:
     description: API version must be specified.
     severity: error
     given: $.info
-    then: {field: version, function: truthy}
+    then:
+      field: version
+      function: truthy
   servers-defined:
     description: At least one server must be defined.
     severity: error
     given: $
-    then: {field: servers, function: truthy}
+    then:
+      field: servers
+      function: truthy
   servers-https-only:
     description: Server URLs must use HTTPS.
     severity: error
     given: $.servers[*].url
-    then: {function: pattern, functionOptions: {match: "^https://"}}
+    then:
+      function: pattern
+      functionOptions:
+        match: ^https://
   paths-no-trailing-slash:
     description: Paths must not have trailing slashes.
     severity: error
     given: $.paths
-    then: {field: "@key", function: pattern, functionOptions: {notMatch: "\\/$"}}
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        notMatch: \/$
   operation-description-required:
     description: Every operation must have a description.
     severity: error
     given: $.paths[*][get,post,put,patch,delete]
-    then: {field: description, function: truthy}
+    then:
+      field: description
+      function: truthy
   operation-operationid-required:
     description: Every operation must have an operationId.
     severity: error
     given: $.paths[*][get,post,put,patch,delete]
-    then: {field: operationId, function: truthy}
+    then:
+      field: operationId
+      function: truthy
   operation-operationid-unique:
     description: Operation IDs must be unique.
     severity: error
     given: $
-    then: {function: oasOpId}
+    then:
+      function: oasOpId
   operation-tags-required:
     description: Every operation must have at least one tag.
     severity: warn
     given: $.paths[*][get,post,put,patch,delete]
-    then: {field: tags, function: truthy}
+    then:
+      field: tags
+      function: truthy
   tags-title-case:
     description: Tag names should use Title Case.
     severity: info
     given: $.tags[*].name
-    then: {function: pattern, functionOptions: {match: "^[A-Z][a-zA-Z0-9]*(\\s[A-Za-z0-9]+)*$"}}
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][a-zA-Z0-9]*(\s[A-Za-z0-9]+)*$
   parameter-description-required:
     description: All parameters must have a description.
     severity: error
     given: $.paths[*][get,post,put,patch,delete].parameters[*]
-    then: {field: description, function: truthy}
+    then:
+      field: description
+      function: truthy
   response-success-required:
     description: Every operation must define a success response.
     severity: error
     given: $.paths[*][get,post,put,patch,delete].responses
-    then: {function: schema, functionOptions: {schema: {anyOf: [{required: ["200"]}, {required: ["201"]}, {required: ["204"]}]}}}
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+          - required:
+            - '200'
+          - required:
+            - '201'
+          - required:
+            - '204'
   response-description-required:
     description: All responses must have a description.
     severity: error
     given: $.paths[*][get,post,put,patch,delete].responses[*]
-    then: {field: description, function: truthy}
+    then:
+      field: description
+      function: truthy
   schema-names-pascalcase:
     description: Schema names should use PascalCase.
     severity: warn
     given: $.components.schemas
-    then: {field: "@key", function: pattern, functionOptions: {match: "^[A-Z][a-zA-Z0-9]*$"}}
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][a-zA-Z0-9]*$
   security-schemes-defined:
     description: Security schemes should be defined.
     severity: warn
     given: $.components
-    then: {field: securitySchemes, function: truthy}
+    then:
+      field: securitySchemes
+      function: truthy
   get-no-request-body:
     description: GET operations must not have a request body.
     severity: error
     given: $.paths[*].get
-    then: {field: requestBody, function: falsy}
+    then:
+      field: requestBody
+      function: falsy
   no-empty-descriptions:
     description: Descriptions must not be empty.
     severity: error
-    given: "$..description"
-    then: {function: truthy}
+    given: $..description
+    then:
+      function: truthy
+  query-params-casing:
+    description: Query parameters should be snake_case (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: snake
+  operationid-casing:
+    description: Operation IDs should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[a-z][A-Za-z0-9]*$
+  schema-properties-casing:
+    description: Schema properties should be SCREAMING_SNAKE_CASE (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: macro
+  operation-security-required:
+    description: Every operation should declare its security requirements.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: security
+      function: truthy
+  operation-documents-401:
+    description: Operations should document a 401 response (documented on 97% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '401'
+      function: truthy
