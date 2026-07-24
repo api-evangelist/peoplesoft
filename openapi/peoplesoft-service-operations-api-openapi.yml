@@ -1,8 +1,7 @@
 openapi: 3.1.0
 info:
-  title: PeopleSoft Application Services Framework API
-  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for
-    integration with Oracle Integration Cloud, mobile apps, and microservices.
+  title: PeopleSoft Application Services Framework Accounts Payable Service Operations API
+  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
   version: 1.0.0
   contact:
     name: Oracle Support
@@ -21,31 +20,27 @@ servers:
     port:
       description: PeopleSoft server port
       default: '8000'
-externalDocs:
-  description: Application Services Framework Documentation
-  url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
 tags:
-- name: Services
-  description: ASF service operations
+- name: Service Operations
+  description: Integration Broker service operations
 paths:
-  /{serviceName}:
+  /{serviceOperation}.v1:
     get:
-      summary: PeopleSoft Get Service Resource
-      description: Retrieve data from an ASF-defined service with OpenAPI-compliant response.
-      operationId: getServiceResource
+      summary: PeopleSoft Invoke Service Operation (GET)
+      description: Invoke a synchronous Integration Broker REST service operation using GET.
+      operationId: getServiceOperation
       tags:
-      - Services
+      - Service Operations
       security:
       - basicAuth: []
-      - oauth2: []
       parameters:
-      - name: serviceName
+      - name: serviceOperation
         in: path
         required: true
-        description: The ASF service name
+        description: The service operation name
         schema:
           type: string
-        example: Example Record
+        example: example_value
       responses:
         '200':
           description: Successful response
@@ -56,27 +51,26 @@ paths:
         '401':
           description: Unauthorized
         '404':
-          description: Service not found
+          description: Service operation not found
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
     post:
-      summary: PeopleSoft Create Service Resource
-      description: Create a resource via an ASF-defined service.
-      operationId: createServiceResource
+      summary: PeopleSoft Invoke Service Operation (POST)
+      description: Invoke a synchronous or asynchronous Integration Broker REST service operation using POST.
+      operationId: postServiceOperation
       tags:
-      - Services
+      - Service Operations
       security:
       - basicAuth: []
-      - oauth2: []
       parameters:
-      - name: serviceName
+      - name: serviceOperation
         in: path
         required: true
-        description: The ASF service name
+        description: The service operation name
         schema:
           type: string
-        example: Example Record
+        example: example_value
       requestBody:
         required: true
         content:
@@ -84,8 +78,8 @@ paths:
             schema:
               type: object
       responses:
-        '201':
-          description: Resource created
+        '200':
+          description: Successful response
           content:
             application/json:
               schema:
@@ -109,3 +103,6 @@ components:
           authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
           tokenUrl: https://{hostname}:{port}/psft/oauth/token
           scopes: {}
+externalDocs:
+  description: Application Services Framework Documentation
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html

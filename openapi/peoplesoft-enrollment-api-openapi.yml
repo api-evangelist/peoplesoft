@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Application Services Framework Accounts Payable Enrollment API
+  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+- url: https://{hostname}:{port}/psft/asf/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
+tags:
+- name: Enrollment
+  description: Enrollment operations
+paths:
+  /enrollment/classes:
+    get:
+      summary: PeopleSoft List Classes
+      description: Retrieve class schedule and enrollment data.
+      operationId: listClasses
+      tags:
+      - Enrollment
+      security:
+      - basicAuth: []
+      parameters:
+      - name: term
+        in: query
+        description: Academic term
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '200':
+          description: Successful response with class data
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
+          tokenUrl: https://{hostname}:{port}/psft/oauth/token
+          scopes: {}
+externalDocs:
+  description: Application Services Framework Documentation
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html

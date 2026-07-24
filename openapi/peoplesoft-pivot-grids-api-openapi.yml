@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
-  title: PeopleSoft Pivot Grid API
-  description: Operational dashboard reporting using PS Query, Composite Query, or component data sources accessible via web services for analytics and visualization.
+  title: PeopleSoft Application Services Framework Accounts Payable Pivot Grids API
+  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
   version: 1.0.0
   contact:
     name: Oracle Support
@@ -11,7 +11,7 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-- url: https://{hostname}:{port}/psft/api/pivotgrid/v1
+- url: https://{hostname}:{port}/psft/asf/v1
   description: PeopleSoft Instance
   variables:
     hostname:
@@ -20,9 +20,6 @@ servers:
     port:
       description: PeopleSoft server port
       default: '8000'
-externalDocs:
-  description: PeopleSoft Pivot Grid Documentation
-  url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
 tags:
 - name: Pivot Grids
   description: Pivot grid and dashboard operations
@@ -102,3 +99,13 @@ components:
     basicAuth:
       type: http
       scheme: basic
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
+          tokenUrl: https://{hostname}:{port}/psft/oauth/token
+          scopes: {}
+externalDocs:
+  description: Application Services Framework Documentation
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
