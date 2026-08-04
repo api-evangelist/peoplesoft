@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Cloud Manager API
+  description: REST APIs for automated environment provisioning and deployment on Oracle Cloud Infrastructure including PeopleTools upgrades, update management, and self-service provisioning 
+    templates.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+- url: https://{hostname}:{port}/psft/api/cloudmgr/v1
+  description: PeopleSoft Cloud Manager Instance
+  variables:
+    hostname:
+      description: Cloud Manager server hostname
+      default: localhost
+    port:
+      description: Cloud Manager server port
+      default: '8000'
+externalDocs:
+  description: PeopleSoft Cloud Manager Documentation
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html
+tags:
+- name: Environments
+  description: Environment provisioning and management
+- name: Templates
+  description: Provisioning template operations
+paths:
+  /environments:
+    get:
+      summary: PeopleSoft List Environments
+      description: Retrieve a list of provisioned PeopleSoft environments.
+      operationId: listEnvironments
+      tags:
+      - Environments
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with environment list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  environments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        environmentId:
+                          type: string
+                        name:
+                          type: string
+                        status:
+                          type: string
+                        toolsVersion:
+                          type: string
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: PeopleSoft Provision Environment
+      description: Provision a new PeopleSoft environment on OCI from a template.
+      operationId: provisionEnvironment
+      tags:
+      - Environments
+      security:
+      - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                templateId:
+                  type: string
+                environmentName:
+                  type: string
+                configuration:
+                  type: object
+      responses:
+        '202':
+          description: Provisioning initiated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  environmentId:
+                    type: string
+                  status:
+                    type: string
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /templates:
+    get:
+      summary: PeopleSoft List Templates
+      description: Retrieve available provisioning templates.
+      operationId: listTemplates
+      tags:
+      - Templates
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with template list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    items:
+                      type: object
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

@@ -1,0 +1,163 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Process Scheduler API
+  description: Process request APIs for submitting and scheduling batch jobs, monitoring process run status, viewing logs, and Application Engine batch processing statistics.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+- url: https://{hostname}:{port}/psft/api/scheduler/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
+externalDocs:
+  description: Process Scheduler Documentation
+  url: https://docs.oracle.com/cd/E24150_01/pt851h2/eng/psbooks/tprs/htm/tprs05.htm
+tags:
+- name: Processes
+  description: Process scheduling and monitoring operations
+paths:
+  /processes:
+    get:
+      summary: PeopleSoft List Processes
+      description: Retrieve a list of process requests and their run status.
+      operationId: listProcesses
+      tags:
+      - Processes
+      security:
+      - basicAuth: []
+      parameters:
+      - name: status
+        in: query
+        description: Filter by process status
+        schema:
+          type: string
+          enum:
+          - queued
+          - initiated
+          - processing
+          - success
+          - error
+          - cancelled
+        example: queued
+      responses:
+        '200':
+          description: Successful response with process list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  processes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        processInstance:
+                          type: integer
+                        processName:
+                          type: string
+                        processType:
+                          type: string
+                        runStatus:
+                          type: string
+                        beginDateTime:
+                          type: string
+                          format: date-time
+                        endDateTime:
+                          type: string
+                          format: date-time
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: PeopleSoft Submit Process
+      description: Submit a new process request for scheduling.
+      operationId: submitProcess
+      tags:
+      - Processes
+      security:
+      - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                processName:
+                  type: string
+                processType:
+                  type: string
+                serverName:
+                  type: string
+                runDateTime:
+                  type: string
+                  format: date-time
+                parameters:
+                  type: object
+      responses:
+        '201':
+          description: Process submitted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  processInstance:
+                    type: integer
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /processes/{processInstance}:
+    get:
+      summary: PeopleSoft Get Process Status
+      description: Retrieve the status and details of a specific process instance.
+      operationId: getProcessStatus
+      tags:
+      - Processes
+      security:
+      - basicAuth: []
+      parameters:
+      - name: processInstance
+        in: path
+        required: true
+        description: The process instance number
+        schema:
+          type: integer
+        example: 42
+      responses:
+        '200':
+          description: Process details
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '404':
+          description: Process instance not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

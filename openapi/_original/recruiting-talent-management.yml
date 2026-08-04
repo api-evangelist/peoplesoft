@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Recruiting and Talent Management API
+  description: REST endpoints for job search services, Candidate Gateway self-service, recruiting solutions, and talent management workflows.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+- url: https://{hostname}:{port}/psft/api/hcm/recruiting/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
+externalDocs:
+  description: Job Search Services REST API Documentation
+  url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+tags:
+- name: Jobs
+  description: Job posting and search operations
+- name: Candidates
+  description: Candidate and application operations
+paths:
+  /jobs:
+    get:
+      summary: PeopleSoft Search Jobs
+      description: Search available job postings.
+      operationId: searchJobs
+      tags:
+      - Jobs
+      parameters:
+      - name: keyword
+        in: query
+        description: Keyword search term
+        schema:
+          type: string
+        example: example_value
+      - name: location
+        in: query
+        description: Job location filter
+        schema:
+          type: string
+        example: example_value
+      - name: department
+        in: query
+        description: Department filter
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '200':
+          description: Successful response with job listings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        jobId:
+                          type: string
+                        title:
+                          type: string
+                        department:
+                          type: string
+                        location:
+                          type: string
+                        postingDate:
+                          type: string
+                          format: date
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /jobs/{jobId}:
+    get:
+      summary: PeopleSoft Get Job Details
+      description: Retrieve details for a specific job posting.
+      operationId: getJobDetails
+      tags:
+      - Jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        description: The job posting identifier
+        schema:
+          type: string
+        example: PS123456
+      responses:
+        '200':
+          description: Job details
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Job not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /candidates/applications:
+    post:
+      summary: PeopleSoft Submit Application
+      description: Submit a candidate application for a job posting.
+      operationId: submitApplication
+      tags:
+      - Candidates
+      security:
+      - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jobId:
+                  type: string
+                candidateInfo:
+                  type: object
+      responses:
+        '201':
+          description: Application submitted
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

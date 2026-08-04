@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Chatbot Integration Framework API
+  description: Integration framework for connecting PeopleSoft with Oracle Digital Assistant (ODA) including REST services for chatbot data retrieval and embedded chatbot UI on Fluid pages (PICASO). 
+    Requires PeopleTools 8.57.07+.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+- url: https://{hostname}:{port}/psft/api/chatbot/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
+externalDocs:
+  description: Chatbot Integration Framework Documentation
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
+tags:
+- name: Chatbot
+  description: Chatbot integration operations
+paths:
+  /intents:
+    get:
+      summary: PeopleSoft List Intents
+      description: Retrieve available chatbot intents and their configurations.
+      operationId: listIntents
+      tags:
+      - Chatbot
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with intents
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  intents:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        intentName:
+                          type: string
+                        description:
+                          type: string
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /fulfill:
+    post:
+      summary: PeopleSoft Fulfill Intent
+      description: Process a chatbot intent fulfillment request from Oracle Digital Assistant.
+      operationId: fulfillIntent
+      tags:
+      - Chatbot
+      security:
+      - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                intent:
+                  type: string
+                  description: The intent to fulfill
+                parameters:
+                  type: object
+                  description: Intent parameters
+                userId:
+                  type: string
+                  description: The user identifier
+      responses:
+        '200':
+          description: Intent fulfilled
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

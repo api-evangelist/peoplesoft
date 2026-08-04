@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: PeopleSoft Interaction Hub API
+  description: Content management, branding, and portal administration APIs for the PeopleSoft Interaction Hub (formerly Enterprise Portal) with Integration Broker services.
+  version: 1.0.0
+  contact:
+    name: Oracle Support
+    email: support@oracle.com
+    url: https://support.oracle.com
+  license:
+    name: Proprietary
+    url: https://www.oracle.com/contracts/
+servers:
+- url: https://{hostname}:{port}/psft/api/hub/v1
+  description: PeopleSoft Instance
+  variables:
+    hostname:
+      description: PeopleSoft server hostname
+      default: localhost
+    port:
+      description: PeopleSoft server port
+      default: '8000'
+externalDocs:
+  description: PeopleSoft Interaction Hub Documentation
+  url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+tags:
+- name: Content
+  description: Content management operations
+- name: Branding
+  description: Branding and theme operations
+paths:
+  /content:
+    get:
+      summary: PeopleSoft List Content
+      description: Retrieve portal content items.
+      operationId: listContent
+      tags:
+      - Content
+      security:
+      - basicAuth: []
+      parameters:
+      - name: category
+        in: query
+        description: Content category filter
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '200':
+          description: Successful response with content items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        contentId:
+                          type: string
+                        title:
+                          type: string
+                        category:
+                          type: string
+                        publishDate:
+                          type: string
+                          format: date
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: PeopleSoft Create Content
+      description: Create a new portal content item.
+      operationId: createContent
+      tags:
+      - Content
+      security:
+      - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Content created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /branding/themes:
+    get:
+      summary: PeopleSoft List Themes
+      description: Retrieve available branding themes.
+      operationId: listThemes
+      tags:
+      - Branding
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: Successful response with themes
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
