@@ -18,7 +18,7 @@ accessModel:
 image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
 created: '2024-01-15'
 modified: '2026-04-17'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 url: https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/apis.yml
 tags:
   - Campus Solutions
