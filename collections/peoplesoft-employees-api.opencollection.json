@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Application Services Framework Accounts Payable Employees API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/employees",
+            "params": [
+              {
+                "name": "department",
+                "value": "example_value",
+                "type": "query",
+                "description": "Filter by department"
+              },
+              {
+                "name": "status",
+                "value": "active",
+                "type": "query",
+                "description": "Filter by employment status"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a list of employee records."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Get Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/employees/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "PS123456",
+                "type": "path",
+                "description": "The employee identifier"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve details for a specific employee."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Application Services Framework Accounts Payable Jobs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft Search Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/jobs",
+            "params": [
+              {
+                "name": "keyword",
+                "value": "example_value",
+                "type": "query",
+                "description": "Keyword search term"
+              },
+              {
+                "name": "location",
+                "value": "example_value",
+                "type": "query",
+                "description": "Job location filter"
+              },
+              {
+                "name": "department",
+                "value": "example_value",
+                "type": "query",
+                "description": "Department filter"
+              }
+            ]
+          },
+          "docs": "Search available job postings."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Get Job Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "PS123456",
+                "type": "path",
+                "description": "The job posting identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve details for a specific job posting."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

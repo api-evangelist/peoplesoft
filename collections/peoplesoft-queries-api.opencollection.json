@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Application Services Framework Accounts Payable Queries API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Queries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/queries",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a list of available PeopleSoft Query definitions."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Execute Query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/queries/:queryName",
+            "params": [
+              {
+                "name": "queryName",
+                "value": "Example Record",
+                "type": "path",
+                "description": "The PeopleSoft Query name"
+              },
+              {
+                "name": "isConnectedQuery",
+                "value": "true",
+                "type": "query",
+                "description": "Whether this is a Connected Query"
+              },
+              {
+                "name": "maxRows",
+                "value": "42",
+                "type": "query",
+                "description": "Maximum number of rows to return"
+              },
+              {
+                "name": "offset",
+                "value": "42",
+                "type": "query",
+                "description": "Row offset for pagination"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Execute a PeopleSoft Query by name and retrieve results."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

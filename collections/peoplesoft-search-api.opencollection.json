@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Application Services Framework Accounts Payable Search API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft Search Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "example_value",
+                "type": "query",
+                "description": "Search query string"
+              },
+              {
+                "name": "category",
+                "value": "example_value",
+                "type": "query",
+                "description": "Search category to filter results"
+              },
+              {
+                "name": "maxResults",
+                "value": "42",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Execute a full-text search across PeopleSoft indexed content."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Trigger Index Build",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}:{port}/psft/asf/v1/index",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Trigger a search index build or incremental update."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Application Services Framework Accounts Payable Service Operations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft Invoke Service Operation (GET)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/:serviceOperation.v1",
+            "params": [
+              {
+                "name": "serviceOperation",
+                "value": "example_value",
+                "type": "path",
+                "description": "The service operation name"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Invoke a synchronous Integration Broker REST service operation using GET."
+        },
+        {
+          "info": {
+            "name": "PeopleSoft Invoke Service Operation (POST)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{hostname}:{port}/psft/asf/v1/:serviceOperation.v1",
+            "params": [
+              {
+                "name": "serviceOperation",
+                "value": "example_value",
+                "type": "path",
+                "description": "The service operation name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Invoke a synchronous or asynchronous Integration Broker REST service operation using POST."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

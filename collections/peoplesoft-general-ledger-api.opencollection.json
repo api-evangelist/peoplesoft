@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleSoft Application Services Framework Accounts Payable General Ledger API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "General Ledger",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PeopleSoft List Journal Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{hostname}:{port}/psft/asf/v1/gl/journals",
+            "params": [
+              {
+                "name": "businessUnit",
+                "value": "example_value",
+                "type": "query",
+                "description": "Business unit filter"
+              },
+              {
+                "name": "fromDate",
+                "value": "2026-04-17",
+                "type": "query",
+                "description": "Start date filter"
+              },
+              {
+                "name": "toDate",
+                "value": "2026-04-17",
+                "type": "query",
+                "description": "End date filter"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve general ledger journal entries."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
