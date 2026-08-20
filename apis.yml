@@ -42,6 +42,11 @@ apis:
   - Analytics
   - Data Distribution
   - Data Extraction
+  - Machine-Learning
+  tags_raw:
+  - Analytics
+  - Data Distribution
+  - Data Extraction
   - Machine Learning
   properties:
   - type: Documentation
@@ -941,6 +946,8 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
+  - Chatbots
+  tags_raw:
   - Chatbot
   properties:
   - type: OpenAPI
@@ -1544,6 +1551,8 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
+  - Forecast
+  tags_raw:
   - Forecasts
   properties:
   - type: OpenAPI
@@ -1745,6 +1754,8 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -1812,6 +1823,8 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -1879,6 +1892,8 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -2214,6 +2229,8 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
+  - Query
+  tags_raw:
   - Queries
   properties:
   - type: OpenAPI
