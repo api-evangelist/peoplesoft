@@ -1,7 +1,7 @@
 name: PeopleSoft
-description: Collection of Oracle PeopleSoft Enterprise application APIs for Human
-  Capital Management, Financial Management, Supply Chain Management, CRM, Campus Solutions,
-  and engineering intelligence across PeopleTools platform services.
+description: Collection of Oracle PeopleSoft Enterprise application APIs for Human Capital Management, Financial
+  Management, Supply Chain Management, CRM, Campus Solutions, and engineering intelligence across PeopleTools platform
+  services.
 accessModel:
   pricing: enterprise
   onboarding: self-serve
@@ -17,26 +17,24 @@ accessModel:
   method: derived
 image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
 created: '2024-01-15'
-modified: '2026-04-17'
+modified: '2026-08-21'
 specificationVersion: '0.23'
 url: https://raw.githubusercontent.com/api-evangelist/peoplesoft/refs/heads/main/apis.yml
 tags:
-  - Campus Solutions
-  - CRM
-  - Enterprise Software
-  - ERP
-  - Financial Management
-  - HCM
-  - Supply Chain Management
+- Campus Solutions
+- CRM
+- Enterprise Software
+- ERP
+- Financial Management
+- HCM
+- Supply Chain Management
 apis:
 - name: PeopleSoft Data Distribution Framework API
-  description: >-
-    Framework for extracting and flattening PeopleSoft data for machine learning and analytics purposes.
-    Uses PeopleSoft Search Framework technology with OpenSearch to build, index, and register data models
-    that can be exposed as REST APIs.
+  description: Framework for extracting and flattening PeopleSoft data for machine learning and analytics purposes.
+    Uses PeopleSoft Search Framework technology with OpenSearch to build, index, and register data models that can
+    be exposed as REST APIs.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html
+  humanURL: https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html
   baseURL: https://{hostname}:{port}/psft/api/ddf/v1
   tags:
   - Analytics
@@ -50,21 +48,17 @@ apis:
   - Machine Learning
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html
+    url: https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:data-distribution-framework-api
 - name: PeopleSoft Employee Directory API
-  description: >-
-    REST API for retrieving employee details by name or employee ID, and for looking up direct reports
-    based on manager name or ID. Supports the Employee Directory chatbot skill and integration with external
-    directories.
+  description: REST API for retrieving employee details by name or employee ID, and for looking up direct reports
+    based on manager name or ID. Supports the Employee Directory chatbot skill and integration with external directories.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html
+  humanURL: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html
   baseURL: https://{hostname}:{port}/psft/api/hcm/employeedirectory/v1
   tags:
   - Employee Directory
@@ -72,21 +66,18 @@ apis:
   - Workforce Data
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html
+    url: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeoplesoftEmployeeDirectoryemployeedirectory.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:employee-directory-api
 - name: PeopleSoft Absence Management API
-  description: >-
-    REST API for creating, updating, and retrieving absence requests, viewing employee absence balances
-    by type, and retrieving absence configuration rules. Supports Absence Management chatbot skill and
-    self-service integrations.
+  description: REST API for creating, updating, and retrieving absence requests, viewing employee absence balances
+    by type, and retrieving absence configuration rules. Supports Absence Management chatbot skill and self-service
+    integrations.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html
+  humanURL: https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html
   baseURL: https://{hostname}:{port}/psft/api/hcm/absence/v1
   tags:
   - Absence Management
@@ -95,21 +86,17 @@ apis:
   - Time Off
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html
+    url: https://docs.oracle.com/cd/F70351_01/cs92pbr27/eng/cs/eccs/UnderstandingRESTAPIEndpointsForPeopleSoftAbsenceManagementApplicationServicesabsence.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:absence-management-api
 - name: PeopleSoft Payroll for North America API
-  description: >-
-    Delivered REST API endpoints for retrieving paycheck header details, earnings, deductions, taxes,
-    direct deposits, employer paid benefits, garnishments, and year-end forms for North American payroll
-    processing.
+  description: Delivered REST API endpoints for retrieving paycheck header details, earnings, deductions, taxes,
+    direct deposits, employer paid benefits, garnishments, and year-end forms for North American payroll processing.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html
+  humanURL: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html
   baseURL: https://{hostname}:{port}/psft/api/hcm/payrollbankingyearendforms/v1
   tags:
   - Compensation
@@ -118,24 +105,19 @@ apis:
   - Payroll
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html
+    url: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoftPayrollForNorthAmericaSkill.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F82673_01/elm92pbr23/eng/elm/eccl/UnderstandingRESTAPIEndpointsForPeoplesoftPayrollForNorthAmericaServicespayrollbankingyearendforms.html
+    url: https://docs.oracle.com/cd/F82673_01/elm92pbr23/eng/elm/eccl/UnderstandingRESTAPIEndpointsForPeoplesoftPayrollForNorthAmericaServicespayrollbankingyearendforms.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:payroll-for-north-america-api
 - name: PeopleSoft Global Payroll API
-  description: >-
-    REST API endpoints for the Global Payroll skill, providing access to payroll data, product profile
-    information, and chatbot framework resources for international payroll processing across multiple
-    countries.
+  description: REST API endpoints for the Global Payroll skill, providing access to payroll data, product profile
+    information, and chatbot framework resources for international payroll processing across multiple countries.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html
+  humanURL: https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html
   baseURL: https://{hostname}:{port}/psft/api/hcm/globalpayroll/v1
   tags:
   - Global Payroll
@@ -144,20 +126,17 @@ apis:
   - Payroll
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html
+    url: https://docs.oracle.com/cd/F58738_01/cs92pbr26/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftGlobalPayrollSkill.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:global-payroll-api
 - name: PeopleSoft HR Common Utility Services API
-  description: >-
-    REST API for retrieving employee country and business partner contact details. Shared utility services
+  description: REST API for retrieving employee country and business partner contact details. Shared utility services
     used across all delivered HCM skills and integration scenarios.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html
+  humanURL: https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html
   baseURL: https://{hostname}:{port}/psft/api/hcm/hcmcommonutilities/v1
   tags:
   - Employee Data
@@ -165,21 +144,18 @@ apis:
   - Utilities
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html
+    url: https://docs.oracle.com/cd/F85282_01/cs92pbr30/eng/cs/eccs/UnderstandingRESTAPIEndpointsforPeopleSoftHRCommonUtilityServices.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:hr-common-utility-services-api
 - name: PeopleSoft Expenses API
-  description: >-
-    Delivered REST API endpoints for expense report management including fetching expense reports by status,
-    creation date, or sheet name, retrieving transaction details, managing wallet entries, expense type
+  description: Delivered REST API endpoints for expense report management including fetching expense reports by
+    status, creation date, or sheet name, retrieving transaction details, managing wallet entries, expense type
     validation, and notification services for travel and expense processing.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html
+  humanURL: https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html
   baseURL: https://{hostname}:{port}/psft/api/fscm/expenses/v1
   tags:
   - Expense Reports
@@ -188,24 +164,20 @@ apis:
   - Travel
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html
+    url: https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/G47724_01/fscm92pbr55/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftGetTransactionDetailsexgettransdetails.html
+    url: https://docs.oracle.com/cd/G47724_01/fscm92pbr55/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftGetTransactionDetailsexgettransdetails.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:expenses-api
 - name: PeopleSoft eSettlements API
-  description: >-
-    Delivered REST API endpoints for invoice and payment management including fetching disputed invoices,
-    invoice status inquiries, payment status tracking, payment inquiries, and payment difference resolution
-    for supplier settlement processing.
+  description: Delivered REST API endpoints for invoice and payment management including fetching disputed invoices,
+    invoice status inquiries, payment status tracking, payment inquiries, and payment difference resolution for
+    supplier settlement processing.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
+  humanURL: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
   baseURL: https://{hostname}:{port}/psft/api/fscm/esettlements/v1
   tags:
   - eSettlements
@@ -214,24 +186,20 @@ apis:
   - Payments
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
+    url: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/G35227_01/fscm92pbr54/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftFetchPaymentStatusespaymentstatus.html
+    url: https://docs.oracle.com/cd/G35227_01/fscm92pbr54/eng/fscm/eccf/UnderstandingRESTAPIEndpointsForPeopleSoftFetchPaymentStatusespaymentstatus.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:esettlements-api
 - name: PeopleSoft eProcurement API
-  description: >-
-    Delivered REST API endpoints for requisition management including retrieving requisitions for items,
-    getting requester lists and names, and checking requisition status. Supports the full procure-to-pay
-    lifecycle from requisition creation through purchase order dispatch and receiving.
+  description: Delivered REST API endpoints for requisition management including retrieving requisitions for items,
+    getting requester lists and names, and checking requisition status. Supports the full procure-to-pay lifecycle
+    from requisition creation through purchase order dispatch and receiving.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+  humanURL: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   baseURL: https://{hostname}:{port}/psft/api/fscm/eprocurement/v1
   tags:
   - eProcurement
@@ -240,21 +208,18 @@ apis:
   - Supply Chain
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
     url: https://support.oracle.com
   aid: peoplesoft:eprocurement-api
 - name: PeopleSoft Supplier Portal API
-  description: >-
-    Comprehensive REST API for the Supplier Portal providing access to bid details, managed content such
-    as announcements and events, overdue shipment tracking, purchase order acknowledgement, invoice and
-    payment inquiries, and sourcing operations across secure and public supplier collaboration channels.
+  description: Comprehensive REST API for the Supplier Portal providing access to bid details, managed content such
+    as announcements and events, overdue shipment tracking, purchase order acknowledgement, invoice and payment
+    inquiries, and sourcing operations across secure and public supplier collaboration channels.
   image: https://www.oracle.com/a/ocom/img/cb71-psft-logo.jpg
-  humanURL: >-
-    https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html
+  humanURL: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html
   baseURL: https://{hostname}:{port}/psft/api/fscm/scp/v1
   tags:
   - Sourcing
@@ -263,8 +228,7 @@ apis:
   - Supply Chain
   properties:
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html
+    url: https://docs.oracle.com/cd/G20540_01/hcm92pbr51/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftSupplierComprehensivePortalServicescp.html
   contact:
   - FN: Oracle Support
     email: support@oracle.com
@@ -283,22 +247,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -312,31 +273,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-accounts-receivable-api
   name: PeopleSoft Accounts Receivable API
   description: Accounts receivable operations
@@ -350,22 +305,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -379,31 +331,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-admissions-api
   name: PeopleSoft Admissions API
   description: Admissions operations
@@ -417,22 +363,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -446,31 +389,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-analytics-api
   name: PeopleSoft Analytics API
   description: Analytics and reporting operations
@@ -484,22 +421,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -513,31 +447,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-approvals-api
   name: PeopleSoft Approvals API
   description: Approval workflow operations
@@ -551,22 +479,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -580,31 +505,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-benefits-api
   name: PeopleSoft Benefits API
   description: Benefits administration operations
@@ -618,22 +537,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -647,31 +563,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-branding-api
   name: PeopleSoft Branding API
   description: Branding and theme operations
@@ -685,22 +595,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -714,31 +621,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-budgets-api
   name: PeopleSoft Budgets API
   description: Budget management operations
@@ -752,22 +653,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -781,31 +679,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-candidates-api
   name: PeopleSoft Candidates API
   description: Candidate and application operations
@@ -819,22 +711,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -848,31 +737,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-cases-api
   name: PeopleSoft Cases API
   description: Case management operations
@@ -886,22 +769,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -915,31 +795,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-chatbot-api
   name: PeopleSoft Chatbot API
   description: Chatbot integration operations
@@ -955,22 +829,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -984,31 +855,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-component-interfaces-api
   name: PeopleSoft Component Interfaces API
   description: Component interface operations
@@ -1022,22 +887,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1051,31 +913,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-content-api
   name: PeopleSoft Content API
   description: Content management operations
@@ -1089,22 +945,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1118,31 +971,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-customers-api
   name: PeopleSoft Customers API
   description: Customer data operations
@@ -1156,22 +1003,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1185,31 +1029,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-employees-api
   name: PeopleSoft Employees API
   description: Employee data operations
@@ -1223,22 +1061,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1252,31 +1087,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-enrollment-api
   name: PeopleSoft Enrollment API
   description: Enrollment operations
@@ -1290,22 +1119,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1319,31 +1145,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-environments-api
   name: PeopleSoft Environments API
   description: Environment provisioning and management
@@ -1357,22 +1177,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1386,31 +1203,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-expenses-api
   name: PeopleSoft Expenses API
   description: Expense management operations
@@ -1424,22 +1235,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1453,31 +1261,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-financial-aid-api
   name: PeopleSoft Financial Aid API
   description: Financial aid operations
@@ -1491,22 +1293,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1520,31 +1319,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-forecasts-api
   name: PeopleSoft Forecasts API
   description: Forecasting operations
@@ -1560,22 +1353,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1589,31 +1379,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-general-ledger-api
   name: PeopleSoft General Ledger API
   description: General ledger operations
@@ -1627,22 +1411,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1656,31 +1437,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-inventory-api
   name: PeopleSoft Inventory API
   description: Inventory management operations
@@ -1694,22 +1469,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1723,31 +1495,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-jobs-api
   name: PeopleSoft Jobs API
   description: Job posting and search operations
@@ -1763,22 +1529,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1792,31 +1555,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-notifications-api
   name: PeopleSoft Notifications API
   description: Notification management operations
@@ -1832,22 +1589,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1861,31 +1615,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-orders-api
   name: PeopleSoft Orders API
   description: Order fulfillment operations
@@ -1901,22 +1649,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1930,31 +1675,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-payroll-api
   name: PeopleSoft Payroll API
   description: Payroll operations
@@ -1968,22 +1707,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -1997,31 +1733,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-pivot-grids-api
   name: PeopleSoft Pivot Grids API
   description: Pivot grid and dashboard operations
@@ -2035,22 +1765,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2064,31 +1791,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-processes-api
   name: PeopleSoft Processes API
   description: Process scheduling and monitoring operations
@@ -2102,22 +1823,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2131,31 +1849,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-procurement-api
   name: PeopleSoft Procurement API
   description: Procurement and purchasing operations
@@ -2169,22 +1881,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2198,31 +1907,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-queries-api
   name: PeopleSoft Queries API
   description: Query execution and management operations
@@ -2238,22 +1941,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2267,31 +1967,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-resources-api
   name: PeopleSoft Resources API
   description: PeopleSoft REST resource operations
@@ -2305,22 +1999,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2334,31 +2025,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-sales-api
   name: PeopleSoft Sales API
   description: Sales operations
@@ -2372,22 +2057,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2401,31 +2083,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-search-api
   name: PeopleSoft Search API
   description: Search and indexing operations
@@ -2439,22 +2115,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2468,31 +2141,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-service-operations-api
   name: PeopleSoft Service Operations API
   description: Integration Broker service operations
@@ -2506,22 +2173,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2535,31 +2199,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-services-api
   name: PeopleSoft Services API
   description: ASF service operations
@@ -2573,22 +2231,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2602,31 +2257,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-students-api
   name: PeopleSoft Students API
   description: Student record operations
@@ -2640,22 +2289,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2669,31 +2315,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-templates-api
   name: PeopleSoft Templates API
   description: Provisioning template operations
@@ -2707,22 +2347,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2736,31 +2373,25 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 - aid: peoplesoft:peoplesoft-updates-api
   name: PeopleSoft Updates API
   description: Update and patch management operations
@@ -2774,22 +2405,19 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tpcl/index.html
   - type: Authentication
-    url: >-
-      https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/integration-broker/
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
+    url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/trws/concept_QueryAccessServiceOperations-1f7e36.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E92519_02/pt856pbr3/eng/pt/tcpi/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/search.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
+    url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/eewe/concept_PeopleSoftEventsandNotificationsFrameworkOverview-227ff2.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/chatbot.html
   - type: FAQ
@@ -2803,206 +2431,188 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/E52319_01/infoportal/pum.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
+    url: https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tpvg/concept_PeopleSoftPivotGridOverview-1e7c6b.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html
   - type: APIReference
-    url: >-
-      https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
+    url: https://docs.oracle.com/cd/F58024_01/hcm92pbr43/eng/hcm/ecch/UnderstandingRestApiEndpointsForPeoplesoftSkills.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
+    url: https://docs.oracle.com/cd/F85027_01/hcm92pbr47/eng/hcm/ecch/UnderstandingRESTAPIEndpointsForPeopleSoftJobSearchServiceshrsjobs.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/financial-management/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F92336_01/fscm92pbr50/eng/fscm/eccf/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
+    url: https://docs.oracle.com/cd/F95753_01/crm92pbr22/eng/crm/eccc/UnderstandingRestApiEndpointsForPeoplesoft.html
   - type: Documentation
     url: https://docs.oracle.com/en/applications/peoplesoft/campus-solutions/index.html
   - type: Documentation
     url: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/penw/index.html
   - type: Documentation
-    url: >-
-      https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
+    url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 common:
-  - type: AgenticAccess
-    url: agentic-access/peoplesoft-agentic-access.yml
-  - type: DomainSecurity
-    url: security/peoplesoft-domain-security.yml
-  - type: Authentication
-    url: authentication/peoplesoft-authentication.yml
-  - type: OAuthScopes
-    url: scopes/peoplesoft-scopes.yml
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/peoplesoft/overview
-  - type: Arazzo
-    url: arazzo/peoplesoft-approval-process-workflow.yml
-    name: PeopleSoft Process a Pending Approval
-  - type: Arazzo
-    url: arazzo/peoplesoft-component-upsert-workflow.yml
-    name: PeopleSoft Component Interface Upsert
-  - type: Arazzo
-    url: arazzo/peoplesoft-customer-case-workflow.yml
-    name: PeopleSoft Find a Customer and Open a Case
-  - type: Arazzo
-    url: arazzo/peoplesoft-employee-payroll-review-workflow.yml
-    name: PeopleSoft Employee Payroll and Benefits Review
-  - type: Arazzo
-    url: arazzo/peoplesoft-env-provision-notify-workflow.yml
-    name: PeopleSoft Provision Environment and Notify
-  - type: Arazzo
-    url: arazzo/peoplesoft-financial-period-review-workflow.yml
-    name: PeopleSoft Financial Period Review
-  - type: Arazzo
-    url: arazzo/peoplesoft-pivot-grid-dashboard-workflow.yml
-    name: PeopleSoft Pivot Grid Dashboard Pull
-  - type: Arazzo
-    url: arazzo/peoplesoft-query-export-workflow.yml
-    name: PeopleSoft List and Execute a Query
-  - type: Arazzo
-    url: arazzo/peoplesoft-recruiting-apply-workflow.yml
-    name: PeopleSoft Search Jobs and Submit Application
-  - type: Arazzo
-    url: arazzo/peoplesoft-scheduled-process-poll-workflow.yml
-    name: PeopleSoft Submit Process and Poll to Completion
-  - type: Arazzo
-    url: arazzo/peoplesoft-search-reindex-workflow.yml
-    name: PeopleSoft Rebuild Search Index and Verify
-  - type: Arazzo
-    url: arazzo/peoplesoft-student-enrollment-review-workflow.yml
-    name: PeopleSoft Student Enrollment and Aid Review
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/peoplesoft-inc
-  - type: Portal
-    url: https://www.oracle.com/applications/peoplesoft/
-  - type: Documentation
-    url: https://docs.oracle.com/en/applications/peoplesoft/index.html
-  - type: GettingStarted
-    url: https://docs.oracle.com/en/applications/peoplesoft/peopletools/index.html
-  - type: Information Portal
-    url: https://docs.oracle.com/cd/E52319_01/infoportal/
-  - type: Authentication
-    url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
-  - type: Blog
-    url: https://blogs.oracle.com/peoplesoft/
-  - type: ChangeLog
-    url: https://blogs.oracle.com/peoplesoft/category/ps-image-and-release-updates
-  - type: PeopleCode API Reference
-    url: https://docs.oracle.com/cd/E25688_01/pt852pbr0/eng/psbooks/tpcr/book.htm
-  - type: Security
-    url: https://www.oracle.com/security-alerts/
-  - type: Support
-    url: https://support.oracle.com/
-  - type: Knowledge Base
-    url: https://docs.oracle.com/en/applications/peoplesoft/
-  - type: Community
-    url: https://community.oracle.com/customerconnect/categories/peoplesoft
-  - type: Forums
-    url: https://forums.oracle.com/ords/apexds/domain/dev-community/category/peoplesoft_enterprise
-  - type: PeopleSoft on OCI
-    url: https://docs.oracle.com/cd/E52319_01/infoportal/opc.html
-  - type: Training
-    url: https://education.oracle.com/peoplesoft
-  - type: Videos
-    url: https://docs.oracle.com/cd/E52319_01/infoportal/videos.html
-  - type: Pricing
-    url: https://www.oracle.com/corporate/pricing/
-  - type: TermsOfService
-    url: https://www.oracle.com/contracts/
-  - type: PrivacyPolicy
-    url: https://www.oracle.com/legal/privacy/services-privacy-policy/
-  - type: News
-    url: https://docs.oracle.com/cd/E52319_01/infoportal/news.html
-  - type: StatusPage
-    url: https://ocistatus.oraclecloud.com/
-  - type: Website
-    url: https://www.oracle.com/applications/peoplesoft/
-  - type: Login
-    url: https://cloud.oracle.com/
-  - type: Signup
-    url: https://cloud.oracle.com/
-  - type: REST API Endpoints
-    url: https://docs.oracle.com/cd/G36917_01/ps91pbr20/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoft.html
-  - type: Features
-    data:
-    - name: REST Web Services
-      description: RESTful APIs via PeopleTools Integration Broker for JSON-based integration
-        with external systems.
-    - name: Application Services Framework
-      description: Modern REST API layer with OpenAPI spec generation, proper HTTP status
-        codes, and JSON payloads.
-    - name: Integration Broker
-      description: Enterprise messaging and integration platform supporting SOAP, REST,
-        and asynchronous messaging.
-    - name: Component Interface API
-      description: Programmatic access to PeopleSoft component business logic for data
-        entry and validation.
-    - name: Query API
-      description: Execute PeopleSoft queries and retrieve results via REST for reporting
-        and analytics.
-    - name: HCM APIs
-      description: Human Capital Management APIs for workforce administration, benefits,
-        payroll, and talent management.
-    - name: Financial Management APIs
-      description: APIs for general ledger, accounts payable/receivable, asset management,
-        and procurement.
-    - name: Supply Chain Management APIs
-      description: APIs for inventory, purchasing, order management, and supplier collaboration.
-    - name: Campus Solutions APIs
-      description: APIs for student records, admissions, financial aid, and academic
-        advisement.
-    - name: OAuth 2.0 Authentication
-      description: Standards-based OAuth 2.0 authentication for secure API access.
-    - name: Fluid UI Integration
-      description: APIs for integrating with PeopleSoft Fluid user interface framework.
-    - name: Chatbot Integration
-      description: Digital assistant and chatbot framework APIs for conversational PeopleSoft
-        interactions.
-  - type: UseCases
-    data:
-    - name: HR System Integration
-      description: Integrate HCM data with payroll, benefits, and talent management
-        platforms.
-    - name: Financial Data Exchange
-      description: Exchange financial transactions and reporting data with external
-        ERP and accounting systems.
-    - name: Student Information System
-      description: Integrate campus solutions with learning management and student portal
-        systems.
-    - name: Supply Chain Automation
-      description: Automate procurement, inventory, and supplier management workflows.
-    - name: Self-Service Portals
-      description: Build employee and student self-service applications using PeopleSoft
-        APIs.
-    - name: Mobile Applications
-      description: Power mobile apps for employee self-service, approvals, and time
-        entry.
-    - name: Cloud Integration
-      description: Connect PeopleSoft with Oracle Integration Cloud and other cloud
-        platforms.
-    - name: Reporting and Analytics
-      description: Extract data via Query API for business intelligence and analytics
-        platforms.
-  - type: Solutions
-    data:
-    - name: PeopleSoft HCM
-      description: Human Capital Management for workforce administration, benefits,
-        payroll, talent, and workforce planning.
-    - name: PeopleSoft FSCM
-      description: Financial and Supply Chain Management for general ledger, AP/AR,
-        procurement, and inventory.
-    - name: PeopleSoft Campus Solutions
-      description: Higher education platform for student records, admissions, financial
-        aid, and academic management.
-    - name: PeopleSoft CRM
-      description: Customer Relationship Management for sales, marketing, and service
-        automation.
+- type: ParentCompany
+  url: https://apis.io/providers/oracle/
+  name: Oracle
+  x-relationship: acquisition
+  x-generated-by: oracle-family:2026-08-21
+- type: AgenticAccess
+  url: agentic-access/peoplesoft-agentic-access.yml
+- type: DomainSecurity
+  url: security/peoplesoft-domain-security.yml
+- type: Authentication
+  url: authentication/peoplesoft-authentication.yml
+- type: OAuthScopes
+  url: scopes/peoplesoft-scopes.yml
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/peoplesoft/overview
+- type: Arazzo
+  url: arazzo/peoplesoft-approval-process-workflow.yml
+  name: PeopleSoft Process a Pending Approval
+- type: Arazzo
+  url: arazzo/peoplesoft-component-upsert-workflow.yml
+  name: PeopleSoft Component Interface Upsert
+- type: Arazzo
+  url: arazzo/peoplesoft-customer-case-workflow.yml
+  name: PeopleSoft Find a Customer and Open a Case
+- type: Arazzo
+  url: arazzo/peoplesoft-employee-payroll-review-workflow.yml
+  name: PeopleSoft Employee Payroll and Benefits Review
+- type: Arazzo
+  url: arazzo/peoplesoft-env-provision-notify-workflow.yml
+  name: PeopleSoft Provision Environment and Notify
+- type: Arazzo
+  url: arazzo/peoplesoft-financial-period-review-workflow.yml
+  name: PeopleSoft Financial Period Review
+- type: Arazzo
+  url: arazzo/peoplesoft-pivot-grid-dashboard-workflow.yml
+  name: PeopleSoft Pivot Grid Dashboard Pull
+- type: Arazzo
+  url: arazzo/peoplesoft-query-export-workflow.yml
+  name: PeopleSoft List and Execute a Query
+- type: Arazzo
+  url: arazzo/peoplesoft-recruiting-apply-workflow.yml
+  name: PeopleSoft Search Jobs and Submit Application
+- type: Arazzo
+  url: arazzo/peoplesoft-scheduled-process-poll-workflow.yml
+  name: PeopleSoft Submit Process and Poll to Completion
+- type: Arazzo
+  url: arazzo/peoplesoft-search-reindex-workflow.yml
+  name: PeopleSoft Rebuild Search Index and Verify
+- type: Arazzo
+  url: arazzo/peoplesoft-student-enrollment-review-workflow.yml
+  name: PeopleSoft Student Enrollment and Aid Review
+- type: LinkedIn
+  url: https://www.linkedin.com/company/peoplesoft-inc
+- type: Portal
+  url: https://www.oracle.com/applications/peoplesoft/
+- type: Documentation
+  url: https://docs.oracle.com/en/applications/peoplesoft/index.html
+- type: GettingStarted
+  url: https://docs.oracle.com/en/applications/peoplesoft/peopletools/index.html
+- type: Information Portal
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/
+- type: Authentication
+  url: https://docs.oracle.com/cd/F30998_01/pt858pbr2/eng/pt/tsec/concept_UnderstandingOAuth2_0.html
+- type: Blog
+  url: https://blogs.oracle.com/peoplesoft/
+- type: ChangeLog
+  url: https://blogs.oracle.com/peoplesoft/category/ps-image-and-release-updates
+- type: PeopleCode API Reference
+  url: https://docs.oracle.com/cd/E25688_01/pt852pbr0/eng/psbooks/tpcr/book.htm
+- type: Security
+  url: https://www.oracle.com/security-alerts/
+- type: Support
+  url: https://support.oracle.com/
+- type: Knowledge Base
+  url: https://docs.oracle.com/en/applications/peoplesoft/
+- type: Community
+  url: https://community.oracle.com/customerconnect/categories/peoplesoft
+- type: Forums
+  url: https://forums.oracle.com/ords/apexds/domain/dev-community/category/peoplesoft_enterprise
+- type: PeopleSoft on OCI
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/opc.html
+- type: Training
+  url: https://education.oracle.com/peoplesoft
+- type: Videos
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/videos.html
+- type: Pricing
+  url: https://www.oracle.com/corporate/pricing/
+- type: TermsOfService
+  url: https://www.oracle.com/contracts/
+- type: PrivacyPolicy
+  url: https://www.oracle.com/legal/privacy/services-privacy-policy/
+- type: News
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/news.html
+- type: StatusPage
+  url: https://ocistatus.oraclecloud.com/
+- type: Website
+  url: https://www.oracle.com/applications/peoplesoft/
+- type: Login
+  url: https://cloud.oracle.com/
+- type: Signup
+  url: https://cloud.oracle.com/
+- type: REST API Endpoints
+  url: https://docs.oracle.com/cd/G36917_01/ps91pbr20/eng/ps/eccp/UnderstandingRestApiEndpointsForPeoplesoft.html
+- type: Features
+  data:
+  - name: REST Web Services
+    description: RESTful APIs via PeopleTools Integration Broker for JSON-based integration with external systems.
+  - name: Application Services Framework
+    description: Modern REST API layer with OpenAPI spec generation, proper HTTP status codes, and JSON payloads.
+  - name: Integration Broker
+    description: Enterprise messaging and integration platform supporting SOAP, REST, and asynchronous messaging.
+  - name: Component Interface API
+    description: Programmatic access to PeopleSoft component business logic for data entry and validation.
+  - name: Query API
+    description: Execute PeopleSoft queries and retrieve results via REST for reporting and analytics.
+  - name: HCM APIs
+    description: Human Capital Management APIs for workforce administration, benefits, payroll, and talent management.
+  - name: Financial Management APIs
+    description: APIs for general ledger, accounts payable/receivable, asset management, and procurement.
+  - name: Supply Chain Management APIs
+    description: APIs for inventory, purchasing, order management, and supplier collaboration.
+  - name: Campus Solutions APIs
+    description: APIs for student records, admissions, financial aid, and academic advisement.
+  - name: OAuth 2.0 Authentication
+    description: Standards-based OAuth 2.0 authentication for secure API access.
+  - name: Fluid UI Integration
+    description: APIs for integrating with PeopleSoft Fluid user interface framework.
+  - name: Chatbot Integration
+    description: Digital assistant and chatbot framework APIs for conversational PeopleSoft interactions.
+- type: UseCases
+  data:
+  - name: HR System Integration
+    description: Integrate HCM data with payroll, benefits, and talent management platforms.
+  - name: Financial Data Exchange
+    description: Exchange financial transactions and reporting data with external ERP and accounting systems.
+  - name: Student Information System
+    description: Integrate campus solutions with learning management and student portal systems.
+  - name: Supply Chain Automation
+    description: Automate procurement, inventory, and supplier management workflows.
+  - name: Self-Service Portals
+    description: Build employee and student self-service applications using PeopleSoft APIs.
+  - name: Mobile Applications
+    description: Power mobile apps for employee self-service, approvals, and time entry.
+  - name: Cloud Integration
+    description: Connect PeopleSoft with Oracle Integration Cloud and other cloud platforms.
+  - name: Reporting and Analytics
+    description: Extract data via Query API for business intelligence and analytics platforms.
+- type: Solutions
+  data:
+  - name: PeopleSoft HCM
+    description: Human Capital Management for workforce administration, benefits, payroll, talent, and workforce
+      planning.
+  - name: PeopleSoft FSCM
+    description: Financial and Supply Chain Management for general ledger, AP/AR, procurement, and inventory.
+  - name: PeopleSoft Campus Solutions
+    description: Higher education platform for student records, admissions, financial aid, and academic management.
+  - name: PeopleSoft CRM
+    description: Customer Relationship Management for sales, marketing, and service automation.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 aid: peoplesoft
 type: Index
+x-parent: oracle
+x-relationship: acquisition
