@@ -2,6 +2,18 @@ name: PeopleSoft
 description: Collection of Oracle PeopleSoft Enterprise application APIs for Human Capital Management, Financial
   Management, Supply Chain Management, CRM, Campus Solutions, and engineering intelligence across PeopleTools platform
   services.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
@@ -2451,6 +2463,9 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 common:
+- type: CapabilityMap
+  url: capabilities/peoplesoft-capability-edges.yml
+  name: PeopleSoft Business Capability Map
 - type: ParentCompany
   url: https://apis.io/providers/oracle/
   name: Oracle

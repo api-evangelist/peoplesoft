@@ -1,0 +1,96 @@
+slug: peoplesoft
+provider: PeopleSoft
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 9
+edges:
+- tag: General Ledger
+  spec_file: peoplesoft-general-ledger-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.92
+  evidence: GET /gl/journals  listJournalEntries  PeopleSoft List Journal Entries
+  reason: Operation exposes general ledger journal entries, which is core GL accounting (chart of accounts,
+    journals), not the 'Accounts Payable' string in the concatenated title.
+- tag: Accounts Payable
+  spec_file: peoplesoft-accounts-payable-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.9
+  evidence: GET /ap/vouchers  listVouchers  PeopleSoft List Vouchers
+  reason: AP voucher listing is plainly accounts payable invoice processing.
+- tag: Benefits
+  spec_file: peoplesoft-benefits-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.9
+  evidence: GET /benefits/enrollments  listBenefitEnrollments  PeopleSoft List Benefit Enrollments
+  reason: Employee benefit enrollments are compensation & benefits administration within HCM.
+- tag: Procurement
+  spec_file: peoplesoft-procurement-api-openapi.yml
+  capability_id: BC-500
+  capability_id_l1: BC-500
+  capability_name: Procurement Management
+  confidence: 0.9
+  evidence: GET /procurement/requisitions  listRequisitions; GET /procurement/purchase-orders  listPurchaseOrders
+  reason: Requisitions and purchase orders are plainly procurement; evidence spans both PO management
+    and P2P operations so the L1 is the most defensible level.
+- tag: Payroll
+  spec_file: peoplesoft-payroll-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: GET /payroll/runs  listPayrollRuns  PeopleSoft List Payroll Runs
+  reason: Payroll run data is payroll administration, explicitly within HR Operations Management, consistent
+    with the vendor's stated Human Capital Management scope.
+- tag: Sales
+  spec_file: peoplesoft-sales-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.85
+  evidence: GET /sales/opportunities  listOpportunities  PeopleSoft List Opportunities
+  reason: Opportunity records from the CRM module map directly to Opportunity & Pipeline Management within
+    Sales Management.
+- tag: Candidates
+  spec_file: peoplesoft-candidates-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.78
+  evidence: POST /candidates/applications  submitApplication  PeopleSoft Submit Application
+  reason: Candidates submitting job applications is recruiting intake; the operation is application submission
+    against a candidate resource, which is Talent Acquisition, not payables despite the concatenated title.
+- tag: Employees
+  spec_file: peoplesoft-employees-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: GET /employees  listEmployees / GET /employees/{employeeId}  getEmployee
+  reason: Employee record retrieval in an HCM suite is HR operations / employee records; the 'Accounts
+    Payable' fragment in the title belongs to a different tag and is disregarded.
+- tag: Inventory
+  spec_file: peoplesoft-inventory-api-openapi.yml
+  capability_id: BC-530
+  capability_id_l1: BC-530
+  capability_name: Inventory Management
+  confidence: 0.75
+  evidence: GET /inventory/items  listInventoryItems  PeopleSoft List Inventory Items
+  reason: Lists inventory items from the SCM module, so enterprise Inventory Management is the honest
+    L1; the single read operation does not name a narrower sub-capability (stock levels vs allocation
+    vs accuracy).
