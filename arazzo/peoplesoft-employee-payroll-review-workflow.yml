@@ -12,8 +12,14 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: hcmApi
-  url: ../openapi/hcm.yml
+- name: benefitsApi
+  url: ../openapi/peoplesoft-benefits-api-openapi.yml
+  type: openapi
+- name: employeesApi
+  url: ../openapi/peoplesoft-employees-api-openapi.yml
+  type: openapi
+- name: payrollApi
+  url: ../openapi/peoplesoft-payroll-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: employee-payroll-review

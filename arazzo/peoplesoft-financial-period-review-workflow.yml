@@ -11,8 +11,14 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: financialsApi
-  url: ../openapi/financials.yml
+- name: accountsPayableApi
+  url: ../openapi/peoplesoft-accounts-payable-api-openapi.yml
+  type: openapi
+- name: accountsReceivableApi
+  url: ../openapi/peoplesoft-accounts-receivable-api-openapi.yml
+  type: openapi
+- name: generalLedgerApi
+  url: ../openapi/peoplesoft-general-ledger-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: financial-period-review

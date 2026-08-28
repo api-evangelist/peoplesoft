@@ -10,8 +10,11 @@ info:
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: crmApi
-  url: ../openapi/crm.yml
+- name: casesApi
+  url: ../openapi/peoplesoft-cases-api-openapi.yml
+  type: openapi
+- name: customersApi
+  url: ../openapi/peoplesoft-customers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: customer-case

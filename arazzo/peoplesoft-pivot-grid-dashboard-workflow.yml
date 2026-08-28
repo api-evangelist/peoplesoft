@@ -11,8 +11,8 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: pivotGridApi
-  url: ../openapi/pivot-grid.yml
+- name: pivotGridsApi
+  url: ../openapi/peoplesoft-pivot-grids-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: pivot-grid-dashboard

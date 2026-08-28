@@ -14,11 +14,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: cloudManagerApi
-  url: ../openapi/cloud-manager.yml
+- name: environmentsApi
+  url: ../openapi/peoplesoft-environments-api-openapi.yml
   type: openapi
-- name: notificationApi
-  url: ../openapi/notification-framework.yml
+- name: notificationsApi
+  url: ../openapi/peoplesoft-notifications-api-openapi.yml
+  type: openapi
+- name: templatesApi
+  url: ../openapi/peoplesoft-templates-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: env-provision-notify

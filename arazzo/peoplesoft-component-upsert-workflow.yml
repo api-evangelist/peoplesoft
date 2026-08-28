@@ -12,8 +12,8 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: componentInterfaceApi
-  url: ../openapi/component-interface.yml
+- name: componentInterfacesApi
+  url: ../openapi/peoplesoft-component-interfaces-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: component-upsert

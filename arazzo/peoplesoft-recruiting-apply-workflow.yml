@@ -11,8 +11,11 @@ info:
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: recruitingApi
-  url: ../openapi/recruiting-talent-management.yml
+- name: candidatesApi
+  url: ../openapi/peoplesoft-candidates-api-openapi.yml
+  type: openapi
+- name: jobsApi
+  url: ../openapi/peoplesoft-jobs-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: recruiting-apply

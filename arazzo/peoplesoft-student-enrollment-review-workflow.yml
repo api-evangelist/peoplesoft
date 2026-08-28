@@ -12,8 +12,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: campusApi
-  url: ../openapi/campus-solutions.yml
+- name: enrollmentApi
+  url: ../openapi/peoplesoft-enrollment-api-openapi.yml
+  type: openapi
+- name: financialAidApi
+  url: ../openapi/peoplesoft-financial-aid-api-openapi.yml
+  type: openapi
+- name: studentsApi
+  url: ../openapi/peoplesoft-students-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: student-enrollment-review
