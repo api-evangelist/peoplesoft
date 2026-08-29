@@ -10,6 +10,17 @@ info:
     against it. Every step spells out its request inline so the flow can be read
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
+  x-realizes-capability-ids:
+  - BC-300.10
+  x-capability-derivation:
+    method: 'deterministic join: sourceDescriptions -> per-tag OpenAPI -> tag/capability edge. No classification at this step.'
+    min_confidence: 0.7
+    sources:
+    - capability_id: BC-300.10
+      capability_name: Talent Acquisition Management
+      spec: peoplesoft-candidates-api-openapi.yml
+      confidence: 0.78
+    model: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities, CC BY 4.0
 sourceDescriptions:
 - name: candidatesApi
   url: ../openapi/peoplesoft-candidates-api-openapi.yml
