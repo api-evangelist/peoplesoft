@@ -832,7 +832,7 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
-  - Chatbot
+  - Chatbots
   tags_raw:
   - Chatbot
   properties:
