@@ -172,6 +172,11 @@ apis:
   tags:
   - Expense Reports
   - Expenses
+  - Financial
+  - Travel
+  tags_raw:
+  - Expense Reports
+  - Expenses
   - Financials
   - Travel
   properties:
@@ -192,6 +197,11 @@ apis:
   humanURL: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
   baseURL: https://{hostname}:{port}/psft/api/fscm/esettlements/v1
   tags:
+  - eSettlements
+  - Financial
+  - Invoices
+  - Payments
+  tags_raw:
   - eSettlements
   - Financials
   - Invoices
@@ -1182,6 +1192,8 @@ apis:
   humanURL: https://docs.oracle.com/en/applications/peoplesoft/
   baseURL: https://{hostname}:{port}/psft/api/v1
   tags:
+  - Environment
+  tags_raw:
   - Environments
   properties:
   - type: OpenAPI
