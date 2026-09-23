@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: PeopleSoft Application Services Framework Accounts Payable Payroll API
-  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
+  title: PeopleSoft HCM Payroll API
+  description: Human Capital Management APIs for employee data, benefits, payroll, workforce administration, and talent management.
   version: 1.0.0
   contact:
     name: Oracle Support
@@ -11,7 +11,7 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-- url: https://{hostname}:{port}/psft/asf/v1
+- url: https://{hostname}:{port}/psft/api/hcm/v1
   description: PeopleSoft Instance
   variables:
     hostname:
@@ -50,13 +50,6 @@ components:
     basicAuth:
       type: http
       scheme: basic
-    oauth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
-          tokenUrl: https://{hostname}:{port}/psft/oauth/token
-          scopes: {}
 externalDocs:
-  description: Application Services Framework Documentation
-  url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
+  description: PeopleSoft HCM Documentation
+  url: https://docs.oracle.com/en/applications/peoplesoft/human-capital-management/index.html

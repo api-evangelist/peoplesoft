@@ -1,0 +1,41 @@
+# Front Door AI Index — peoplesoft — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: peoplesoft
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.oracle.com
+  final_host: www.oracle.com
+  ownership: unresolved
+  owner: null
+  shares_host_with:
+  - agile-software
+  - datafox
+  - datalogix
+  - eloqua
+  - oracle-cloud
+  - oracle-container-engine
+  - oracle-database
+  - oracle-essbase
+  - oracle-fusion
+  - oracle-general-ledger
+  - oracle-health-data-intelligence
+  - oracle-hospitality
+  - oracle-partitioning
+  - oracle-planning
+  - oracle-primavera
+  - oracle-retail
+  - oracle-siebel
+  - oracle-transportation-management
+  - oracle-weblogic
+  - responsys
+  inherited_from: null
+  verdict: unmeasured
+  score: null
+  host_score: null
+  density: null
+  words: null
+  tiers: null
+  ambiguous: null
+  top_terms: null

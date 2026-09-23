@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: PeopleSoft Application Services Framework Accounts Payable Templates API
-  description: Modern REST API layer introduced in PeopleTools 8.59 that produces fully compliant OpenAPI/Swagger specifications, supports proper HTTP status codes, uniform URLs, and JSON payloads for integration with Oracle Integration Cloud, mobile apps, and microservices.
+  title: PeopleSoft Cloud Manager Templates API
+  description: REST APIs for automated environment provisioning and deployment on Oracle Cloud Infrastructure including PeopleTools upgrades, update management, and self-service provisioning templates.
   version: 1.0.0
   contact:
     name: Oracle Support
@@ -11,14 +11,14 @@ info:
     name: Proprietary
     url: https://www.oracle.com/contracts/
 servers:
-- url: https://{hostname}:{port}/psft/asf/v1
-  description: PeopleSoft Instance
+- url: https://{hostname}:{port}/psft/api/cloudmgr/v1
+  description: PeopleSoft Cloud Manager Instance
   variables:
     hostname:
-      description: PeopleSoft server hostname
+      description: Cloud Manager server hostname
       default: localhost
     port:
-      description: PeopleSoft server port
+      description: Cloud Manager server port
       default: '8000'
 tags:
 - name: Templates
@@ -55,13 +55,6 @@ components:
     basicAuth:
       type: http
       scheme: basic
-    oauth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://{hostname}:{port}/psft/oauth/authorize
-          tokenUrl: https://{hostname}:{port}/psft/oauth/token
-          scopes: {}
 externalDocs:
-  description: Application Services Framework Documentation
-  url: https://docs.oracle.com/cd/E52319_01/infoportal/asf.html
+  description: PeopleSoft Cloud Manager Documentation
+  url: https://docs.oracle.com/cd/E52319_01/infoportal/cloudmgr.html
