@@ -52,12 +52,13 @@ apis:
   - Analytics
   - Data Distribution
   - Data Extraction
-  - Machine-Learning
+  - Machine Learning
   tags_raw:
   - Analytics
   - Data Distribution
   - Data Extraction
   - Machine Learning
+  - Machine-Learning
   properties:
   - type: Documentation
     url: https://docs.oracle.com/cd/F44200_01/pt859pbr2/eng/pt/tmlf/concept_UnderstandingDataDistributionFramework.html
@@ -172,13 +173,14 @@ apis:
   tags:
   - Expense Reports
   - Expenses
-  - Financial
+  - Finance
   - Travel
   tags_raw:
   - Expense Reports
   - Expenses
   - Financials
   - Travel
+  - Financial
   properties:
   - type: Documentation
     url: https://docs.oracle.com/cd/F48195_01/cs92pbr23/eng/cs/eccs/UnderstandingRestApiEndpointsForPeoplesoftExpenseSkill.html
@@ -198,7 +200,7 @@ apis:
   baseURL: https://{hostname}:{port}/psft/api/fscm/esettlements/v1
   tags:
   - eSettlements
-  - Financial
+  - Finance
   - Invoices
   - Payments
   tags_raw:
@@ -206,6 +208,7 @@ apis:
   - Financials
   - Invoices
   - Payments
+  - Financial
   properties:
   - type: Documentation
     url: https://docs.oracle.com/cd/F57918_01/ps91pbr14/eng/ps/eccp/UnderstandingRESTAPIEndpointsforPeopleSofteSettlementsSkill.html
