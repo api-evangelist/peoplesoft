@@ -2478,6 +2478,12 @@ apis:
   - type: Documentation
     url: https://docs.oracle.com/cd/F75142_01/ps91pbr15/eng/ps/psad/PeopleSoftInteractionHubOverview.html
 common:
+- type: Plans
+  url: plans/peoplesoft-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/peoplesoft-rate-limits.yml
+- type: FinOps
+  url: finops/peoplesoft-finops.yml
 - type: CapabilityMap
   url: capabilities/peoplesoft-capability-edges.yml
   name: PeopleSoft Business Capability Map
