@@ -30,9 +30,13 @@ front_door_ai:
   - oracle-transportation-management
   - oracle-weblogic
   - responsys
+  - timesten
   inherited_from: null
+  alias_of: null
   verdict: unmeasured
   score: null
+  band: null
+  band_label: null
   host_score: null
   density: null
   words: null
