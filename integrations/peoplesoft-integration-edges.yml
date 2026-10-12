@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/peoplesoft/integrations
+- https://n8n.io/integrations/peoplesoft/
+- https://composio.dev/toolkits/peoplesoft
+- https://monid.ai/tools/peoplesoft
+checked:
+- https://composio.dev/toolkits/peoplesoft
+- https://monid.ai/tools/peoplesoft
+- https://n8n.io/integrations/peoplesoft/
+- https://zapier.com/apps/peoplesoft/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
