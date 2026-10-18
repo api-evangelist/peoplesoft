@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/peoplesoft/integrations
 - https://n8n.io/integrations/peoplesoft/
@@ -7,10 +7,38 @@ source:
 - https://monid.ai/tools/peoplesoft
 checked:
 - https://composio.dev/toolkits/peoplesoft
+- https://fivetran.com/docs-sitemap.xml
+- https://fivetran.com/docs/connectors/partner-built-program
 - https://monid.ai/tools/peoplesoft
 - https://n8n.io/integrations/peoplesoft/
 - https://zapier.com/apps/peoplesoft/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Fivetran
+  partner: fivetran
+  partner_match: aggregator
+  type: marketplace
+  marketplace: fivetran-connectors
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://fivetran.com/docs/connectors/applications/oracle-peoplesoft
+  category: null
+  contract_reference:
+    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    spec_file: null
+    role: elt-connector:fivetran
+    registered_name: Oracle PeopleSoft
+    matched_domain: oracle.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connector_paths:
+    - connectors/applications/oracle-peoplesoft
+    vendor_link: https://www.oracle.com/applications/peoplesoft/
+    builder: Fivetran
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
 templates: []
