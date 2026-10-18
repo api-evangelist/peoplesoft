@@ -27,5 +27,5 @@
     - connectors/applications/oracle-peoplesoft
     vendor_link: https://www.oracle.com/applications/peoplesoft/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
