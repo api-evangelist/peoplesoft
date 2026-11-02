@@ -1,0 +1,68 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: PeopleSoft
+providerId: peoplesoft
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: generated
+modified: '2026-05-05'
+reconciled: false
+notes: No public pricing — Oracle PeopleSoft is licensed via Oracle's enterprise sales channel
+  with named-user / processor / cloud-credit licensing. The PeopleSoft documentation site
+  publishes only technical references; pricing requires Oracle sales engagement. The Oracle
+  pricing portal returned 403 to public fetches.
+tags:
+  - ERP
+  - HCM
+  - Financial Management
+  - Supply Chain Management
+  - Enterprise Software
+description: Oracle PeopleSoft is licensed under Oracle's enterprise model — named-user/processor
+  perpetual + annual support, OCI cloud credits for hosted deployments, or Oracle Cloud Applications
+  conversions. APIs (REST / IB / Component Interfaces) are accessed under the same license;
+  there is no public per-API rate card.
+sources:
+  - https://docs.oracle.com/en/applications/peoplesoft/index.html
+plans:
+  - id: peoplesoft-enterprise
+    name: Oracle Enterprise License
+    type: enterprise
+    description: Oracle PeopleSoft enterprise license. Pricing is custom and depends on edition,
+      modules, named users / processors, and support level. Contact Oracle sales.
+    entries:
+      - label: Annual License + Support
+        name: annual_license
+        type: subscription
+        metric: license-year
+        limit: -1
+        timeFrame: year
+        geo: configurable
+        unit: 1
+        price: contact Oracle sales
+        userMultiplied: true
+    elements:
+      - name: PeopleSoft REST API
+      - name: PeopleSoft Integration Broker
+      - name: PeopleSoft Component Interfaces
+      - name: HCM / Financials / SCM / CRM / Campus Solutions Modules
+      - name: PeopleTools Platform
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: Oracle Enterprise License
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - year
