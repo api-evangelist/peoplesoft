@@ -52,17 +52,18 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - subscription
-  units: []
+  units:
+  - period
   plans:
   - name: Oracle Enterprise License
     access: enterprise
     model: subscription
     model_how: derived
     units:
-    - other
+    - period
     periods:
     - year
